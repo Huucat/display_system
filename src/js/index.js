@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import './style.css';
-import game from './game.js';
+import '@/css/style.css';
+import game from '@/js/game.js';
 
 function component(){
     var element = document.createElement('div');

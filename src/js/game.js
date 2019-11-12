@@ -1,10 +1,10 @@
 import * as PIXI from 'pixi.js';
 
 const app = new PIXI.Application();
-
+var gameBox = document.getElementById("app")
 // The application will create a canvas element for you that you
 // can then insert into the DOM
-document.body.appendChild(app.view);
+gameBox.appendChild(app.view);
 
 // load the texture we need
 app.loader.add('bunny', 'bunny.png').load((loader, resources) => {
