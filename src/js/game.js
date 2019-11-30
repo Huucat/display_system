@@ -1,19 +1,23 @@
 import * as PIXI from 'pixi.js';
-import bunnypng from './bunny.png'
+import { filePath } from './filePath.js';
+import { Space } from './Space.js';
 
-const app = new PIXI.Application();
-var gameBox = document.getElementById("app")
-// The application will create a canvas element for you that you
-// can then insert into the DOM
-gameBox.appendChild(app.view);
-
-// load the texture we need
-const bunny = PIXI.Sprite.from(bunnypng);
-bunny.x = app.screen.width / 2;
-bunny.y = app.screen.height / 2;
-bunny.anchor.set(0.5);
-app.stage.addChild(bunny);
-app.ticker.add(() => {
-    // just for fun, let's rotate mr rabbit a little
-    bunny.rotation += 0.1;
-});
+export var Game = window.Game =  function(){
+    const WinWidth = window.innerWidth;
+    const WinHeight = window.innerHeight;
+    
+    this.app = new PIXI.Application({
+        width: WinWidth,
+        height: WinHeight,
+    });
+    
+    document.getElementById("app").appendChild(this.app.view);
+    var self = this;
+    this.app.loader.add(filePath.images).load(setup);
+    function setup(){
+        self.Space_1 = new Space(self.app);
+        self.app.ticker.add(() => {
+            self.Space_1.rotation();
+        });
+    }
+}

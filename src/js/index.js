@@ -1,13 +1,4 @@
-import _ from 'lodash';
 import '@/css/style.css';
-import game from '@/js/game.js';
+import { Game } from '@/js/game.js';
 
-function component(){
-    var element = document.createElement('div');
-
-    // Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
-    return element;
-}
-document.body.appendChild(component());
+window.game = new Game();
