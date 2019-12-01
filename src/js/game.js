@@ -1,23 +1,28 @@
 import * as PIXI from 'pixi.js';
-import { filePath } from './filePath.js';
-import { Space } from './Space.js';
+import FILE_PATH from './FILE_PATH.js';
+import Manager from './Manager.js';
+// import Space from './Space.js';
 
-export var Game = window.Game =  function(){
-    const WinWidth = window.innerWidth;
-    const WinHeight = window.innerHeight;
-    
-    this.app = new PIXI.Application({
-        width: WinWidth,
-        height: WinHeight,
-    });
-    
-    document.getElementById("app").appendChild(this.app.view);
-    var self = this;
-    this.app.loader.add(filePath.images).load(setup);
-    function setup(){
-        self.Space_1 = new Space(self.app);
-        self.app.ticker.add(() => {
-            self.Space_1.rotation();
+export default class Game{
+    constructor(){
+        this.app = new PIXI.Application({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+        this.init();
+    }
+
+    init(){
+        document.getElementById("app").appendChild(this.app.view);
+        var self = this;
+        this.app.loader.add(FILE_PATH.images).load(function(){self.gameStart()});
+    }
+
+    gameStart(){
+        var self = this;
+        this.Manager = new Manager(this.app)
+        this.app.ticker.add(() => {
+            self.Manager.update();
         });
     }
 }
