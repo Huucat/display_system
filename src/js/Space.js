@@ -7,10 +7,10 @@ export default class Space {
 
         this.spaceBg = new PIXI.Sprite(app.loader.resources['spaceBg_02'].texture);
         this.spaceBg.anchor.set(0.5);
-    
+        this.spaceBg.scale.x = this.spaceBg.scale.y = 1.25;
         this.spaceBox.addChild(this.spaceBg);
         this.spaceBox.x = app.screen.width / 2;
-        this.spaceBox.y = app.screen.height / 2 + 1000;
+        this.spaceBox.y = app.screen.height / 2 + 900;
         // this.spaceBox.scale.x = this.spaceBox.scale.y = 0.3;
         
         app.stage.addChild(this.spaceBox);
@@ -24,6 +24,6 @@ export default class Space {
     }
 
     rotation(){
-        this.spaceBox.rotation -= 0.0005;
+        this.spaceBox.rotation -= 0.001;
     }
 }
