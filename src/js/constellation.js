@@ -2,35 +2,46 @@ import { GlowFilter } from '@pixi/filter-glow';
 import * as PIXI from 'pixi.js';
 
 export default class Constellation {
-    constructor(app){
+    constructor(app , n , i , j , xy){
         this.constellationBox = new PIXI.Container();
-        this.outLine = new GlowFilter(15, 2, 0, 0xFF00FF, 0.5);
-        this.constellationBoxList = [];
-        this.init(app);
+        this.constellationBox.x = Math.cos((Math.PI * 2 / n) * i) * 1000;
+        this.constellationBox.y = Math.sin((Math.PI * 2 / n) * i) * 1000;
+        this.constellationBox.rotation = (Math.PI * 2 / n) * i + (Math.PI * 0.5);
+
+        this.outLine = new GlowFilter(15, 5, 0, 0xFF00FF, 0.1);
+        this.star = [];
+        
+        this.addLine(app);
+        this.addStar(app , j , xy);
+
     }
 
-    init(app){
-        let self = this;
-        let n = 30;
+    addLine(app){
+        var self = this;
+        this.constellation = new PIXI.Sprite(app.loader.resources['constellation_02'].texture);
+        this.constellation.anchor.x = 0.5;
+        this.constellation.anchor.y = 0.5;
+        this.constellation.scale.set(0.3);
+        this.constellation.interactive = true;
 
-        for(let i = 0 ; i < n ; i++){
-            this.constellationBoxList[i] = new PIXI.Sprite(app.loader.resources['constellation_01'].texture);
-            this.constellationBoxList[i].anchor.x = 0.5;
-            this.constellationBoxList[i].anchor.y = 0.5;
+        this.constellation.on('pointerover', function(){
+            self.filterOn(this)
+        }).on('pointerout', function(){
+            self.filterOff(this)
+        });
 
-            this.constellationBoxList[i].x = Math.cos((Math.PI * 2 / n) * i) * 1000;
-            this.constellationBoxList[i].y = Math.sin((Math.PI * 2 / n) * i) * 1000;
-            this.constellationBoxList[i].rotation = (Math.PI * 2 / n) * i + (Math.PI * 0.5);
+        this.constellationBox.addChild(this.constellation);
+    }
 
-            this.constellationBoxList[i].interactive = true;
-            this.constellationBoxList[i].id = i;
-            this.constellationBoxList[i].scale.x = this.constellationBoxList[i].scale.y = 0.5;
-            this.constellationBoxList[i].on('pointerover', function(){
-                self.filterOn(this)
-            }).on('pointerout', function(){
-                self.filterOff(this)
-            });
-            this.constellationBox.addChild(this.constellationBoxList[i]);
+    addStar(app , j , xy){
+        for (let i = 0; i < j; i++) {
+            this.star[i] = new PIXI.Sprite(app.loader.resources['star_01'].texture);
+            this.star[i].anchor.x = 0.5;
+            this.star[i].anchor.y = 0.5;
+            this.star[i].x = xy[i][0];
+            this.star[i].y = xy[i][1];
+            this.star[i].scale.set(0.1);
+            this.constellationBox.addChild(this.star[i]);
         }
     }
 

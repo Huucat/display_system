@@ -19,7 +19,8 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'display_system',
-            template: './public/index.html'
+            template: './public/index.html',
+            favicon: './public/favicon.png'
         })
     ],
     output: {
@@ -27,13 +28,20 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.css$/,
                 use: ['style-loader','css-loader']
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: ['file-loader']
+                use: {
+                    loader:'url-loader',
+                    options: {
+                        name: './images/[name].[ext]',
+                        limit: 8192
+                    }
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
