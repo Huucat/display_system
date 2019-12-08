@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import Constellation from './Constellation.js';
+import GROUPS from './groups.json';
 
 export default class Space {
     constructor(app){
@@ -18,21 +19,9 @@ export default class Space {
 
     creatConstellation(app){
         let num = 20;
-        let starObj = [
-            {
-                num : 6,
-                xy:[
-                    [-20 , -50],
-                    [-65 , 30],
-                    [-20 , 110],
-                    [75 , 110],
-                    [120 , 30],
-                    [75 , -50]
-                ]
-            },
-        ];
+        let groups = GROUPS;
         for (let i = 0; i < num; i++) {
-            this.constellation[i] = new Constellation(app , num , i , starObj[0].num , starObj[0].xy);
+            this.constellation[i] = new Constellation(app , num , i , groups , groups.groups[0].members.length);
             this.spaceBox.addChild(this.constellation[i].constellationBox);
         }
     }

@@ -1,0 +1,15 @@
+{
+    "groups": [
+        {
+            "groupName" : "star_1",
+            "members" : [
+                {"name" : "aaaa" , "xy" : [-20 , -50]},
+                {"name" : "bbbb" , "xy" : [-65 , 30] },
+                {"name" : "cccc" , "xy" : [-20 , 110]},
+                {"name" : "dddd" , "xy" : [75 , 110] },
+                {"name" : "eeee" , "xy" : [120 , 30] },
+                {"name" : "ffff" , "xy" : [75 , -50] }
+            ]
+        }
+    ]
+}

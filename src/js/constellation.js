@@ -2,7 +2,7 @@ import { GlowFilter } from '@pixi/filter-glow';
 import * as PIXI from 'pixi.js';
 
 export default class Constellation {
-    constructor(app , n , i , j , xy){
+    constructor(app , n , i , groups , membersNum){
         this.constellationBox = new PIXI.Container();
         this.constellationBox.x = Math.cos((Math.PI * 2 / n) * i) * 1000;
         this.constellationBox.y = Math.sin((Math.PI * 2 / n) * i) * 1000;
@@ -10,10 +10,9 @@ export default class Constellation {
 
         this.outLine = new GlowFilter(15, 5, 0, 0xFF00FF, 0.1);
         this.star = [];
-        
-        this.addLine(app);
-        this.addStar(app , j , xy);
 
+        this.addLine(app);
+        this.addStar(app , groups , membersNum);
     }
 
     addLine(app){
@@ -33,13 +32,13 @@ export default class Constellation {
         this.constellationBox.addChild(this.constellation);
     }
 
-    addStar(app , j , xy){
-        for (let i = 0; i < j; i++) {
+    addStar(app , groups , membersNum){
+        for (let i = 0; i < membersNum; i++) {
             this.star[i] = new PIXI.Sprite(app.loader.resources['star_01'].texture);
             this.star[i].anchor.x = 0.5;
             this.star[i].anchor.y = 0.5;
-            this.star[i].x = xy[i][0];
-            this.star[i].y = xy[i][1];
+            this.star[i].x = groups.groups[0].members[i].xy[0];
+            this.star[i].y = groups.groups[0].members[i].xy[1];
             this.star[i].scale.set(0.1);
             this.constellationBox.addChild(this.star[i]);
         }
