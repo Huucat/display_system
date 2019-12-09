@@ -4,11 +4,24 @@
             "groupName" : "star_1",
             "members" : [
                 {"name" : "aaaa" , "xy" : [-20 , -50]},
-                {"name" : "bbbb" , "xy" : [-65 , 30] },
+                {"name" : "bbbb" , "xy" : [-65 , 30]},
                 {"name" : "cccc" , "xy" : [-20 , 110]},
-                {"name" : "dddd" , "xy" : [75 , 110] },
-                {"name" : "eeee" , "xy" : [120 , 30] },
-                {"name" : "ffff" , "xy" : [75 , -50] }
+                {"name" : "dddd" , "xy" : [75 , 110]},
+                {"name" : "eeee" , "xy" : [120 , 30]},
+                {"name" : "ffff" , "xy" : [75 , -50]}
+            ]
+        },
+        {
+            "groupName" : "star_2",
+            "members" : [
+                {"name" : "aaaa" , "xy" : [13 , -85]},
+                {"name" : "bbbb" , "xy" : [-55 , -18]},
+                {"name" : "cccc" , "xy" : [-20 , 15]},
+                {"name" : "dddd" , "xy" : [58 , -16]},
+                {"name" : "eeee" , "xy" : [90 , 65]},
+                {"name" : "ffff" , "xy" : [-20 , 105]},
+                {"name" : "gggg" , "xy" : [-110 , 53]},
+                {"name" : "hhhh" , "xy" : [-110 , 10]}
             ]
         }
     ]

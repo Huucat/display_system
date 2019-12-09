@@ -15,18 +15,24 @@ export default class Space {
         
         app.stage.addChild(this.spaceBox);
         this.creatConstellation(app);
+
+        this.spaceship_01 = new PIXI.Sprite(app.loader.resources['spaceship_02'].texture);
+        this.spaceship_01.width = window.innerWidth;
+        this.spaceship_01.height = window.innerHeight;
+        // this.spaceship_01.y = - (1080 - window.innerHeight;
+        app.stage.addChild(this.spaceship_01);
     }
 
     creatConstellation(app){
         let num = 20;
         let groups = GROUPS;
         for (let i = 0; i < num; i++) {
-            this.constellation[i] = new Constellation(app , num , i , groups , groups.groups[0].members.length);
+            this.constellation[i] = new Constellation(app , num , i , groups);
             this.spaceBox.addChild(this.constellation[i].constellationBox);
         }
     }
 
     rotation(){
-        this.spaceBox.rotation -= 0.0005;
+        this.spaceBox.rotation -= 0.0003;
     }
 }
