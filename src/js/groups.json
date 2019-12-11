@@ -16,12 +16,12 @@
             "members" : [
                 {"name" : "aaaa" , "xy" : [40 , -280]},
                 {"name" : "bbbb" , "xy" : [-180 , -60]},
-                {"name" : "cccc" , "xy" : [-20 , 15]},
-                {"name" : "dddd" , "xy" : [0 , -0]},
-                {"name" : "eeee" , "xy" : [0 , 0]},
-                {"name" : "ffff" , "xy" : [-0 , 0]},
-                {"name" : "gggg" , "xy" : [-0 , 0]},
-                {"name" : "hhhh" , "xy" : [-0 , 0]}
+                {"name" : "cccc" , "xy" : [-70 , 50]},
+                {"name" : "dddd" , "xy" : [190 , -55]},
+                {"name" : "eeee" , "xy" : [295 , 220]},
+                {"name" : "ffff" , "xy" : [-60 , 345]},
+                {"name" : "gggg" , "xy" : [-365 , 180]},
+                {"name" : "hhhh" , "xy" : [-365 , 30]}
             ]
         }
     ]

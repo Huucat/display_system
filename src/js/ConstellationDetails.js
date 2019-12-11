@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import GROUPS from './groups.json';
+import { GlowFilter } from '@pixi/filter-glow';
 
 export default class ConstellationDetails {
     constructor(app){
@@ -11,6 +12,8 @@ export default class ConstellationDetails {
         this.detailsBox.addChild(this.constellationBox);
         this.groupNum = 0;
         this.star = [];
+
+        this.addBackButton(app);
     }
 
     createConstellation(app){
@@ -32,6 +35,23 @@ export default class ConstellationDetails {
             this.star[i].scale.set(0.5);
             this.constellationBox.addChild(this.star[i]);
         }
+    }
+
+    addBackButton(app){
+        let self = this;
+        this.backButton = new PIXI.Sprite(app.loader.resources['button_01'].texture);
+        this.backButton.scale.set(0.5);
+        this.backButton.interactive = true;
+        this.backButton.buttonMode = true;
+        this.backButton.filters = [new GlowFilter(10, 1, 0, 0x00A3D5, 0.1)]
+        this.backButton.on('pointerdown', function(){
+            self.onBackButton()
+        });
+        this.detailsBox.addChild(this.backButton);
+    }
+
+    onBackButton(){
+        game.Manager.enter(1);
     }
 
     removeChildren(){
