@@ -1,0 +1,618 @@
+{
+    "groups": [
+        {
+            "groupName" : "グラフィックチーム",
+            "members" : [
+                {"name" : "18aw0101" , "xy" : [-65 , -170]},
+                {"name" : "18aw0105" , "xy" : [-220 , 95]},
+                {"name" : "18aw0108" , "xy" : [-65 , 365]},
+                {"name" : "18aw0109" , "xy" : [250 , 365]},
+                {"name" : "18aw0112" , "xy" : [400 , 95]},
+                {"name" : "18aw0114" , "xy" : [250 , -170]},
+                {"name" : "18aw0120" , "xy" : [250 , -170]},
+                {"name" : "18aw0121" , "xy" : [250 , -170]},
+                {"name" : "18aw0127" , "xy" : [250 , -170]},
+                {"name" : "19aw0104" , "xy" : [250 , -170]},
+                {"name" : "19AW0119" , "xy" : [250 , -170]},
+                {"name" : "19aw0123" , "xy" : [250 , -170]}
+            ]
+        },
+        {
+            "groupName" : "Hotpageチーム",
+            "members" : [
+                {"name" : "18aw0103" , "xy" : [40 , -280]},
+                {"name" : "18aw0104" , "xy" : [-180 , -60]},
+                {"name" : "18aw0108" , "xy" : [-70 , 50]},
+                {"name" : "18aw0123" , "xy" : [190 , -55]},
+                {"name" : "18aw0130" , "xy" : [295 , 220]},
+                {"name" : "19aw0118" , "xy" : [-60 , 345]},
+                {"name" : "19aw0130" , "xy" : [-365 , 180]}
+            ]
+        },
+        {
+            "groupName" : "イベントチーム",
+            "members" : [
+                {"name" : "18aw0109" , "xy" : [-65 , -170]},
+                {"name" : "18aw0110" , "xy" : [-220 , 95]},
+                {"name" : "18aw0122" , "xy" : [-65 , 365]},
+                {"name" : "18aw0123" , "xy" : [250 , 365]},
+                {"name" : "19AW0102" , "xy" : [400 , 95]},
+                {"name" : "19aw0103" , "xy" : [250 , -170]},
+                {"name" : "19aw0111" , "xy" : [250 , -170]},
+                {"name" : "19AW0129" , "xy" : [250 , -170]}
+            ]
+        },
+        {
+            "groupName" : "メンテナンスチーム",
+            "members" : [
+                {"name" : "18aw0103" , "xy" : [-65 , -170]},
+                {"name" : "18aw0106" , "xy" : [-220 , 95]},
+                {"name" : "18aw0107" , "xy" : [-65 , 365]},
+                {"name" : "18aw0110" , "xy" : [250 , 365]},
+                {"name" : "18aw0125" , "xy" : [400 , 95]},
+                {"name" : "18aw0128" , "xy" : [250 , -170]},
+                {"name" : "19aw0101" , "xy" : [250 , -170]},
+                {"name" : "19aw0112" , "xy" : [250 , -170]},
+                {"name" : "19aw0120" , "xy" : [250 , -170]},
+                {"name" : "19aw0124" , "xy" : [250 , -170]},
+                {"name" : "19aw0128" , "xy" : [250 , -170]},
+                {"name" : "19aw0131" , "xy" : [250 , -170]},
+                {"name" : "19aw0132" , "xy" : [250 , -170]}
+            ]
+        },
+        {
+            "groupName" : "セミナーチーム",
+            "members" : [
+                {"name" : "18aw0117" , "xy" : [-65 , -170]},
+                {"name" : "18aw0119" , "xy" : [-220 , 95]},
+                {"name" : "18aw0124" , "xy" : [-65 , 365]},
+                {"name" : "18aw0125" , "xy" : [250 , 365]},
+                {"name" : "18aw0129" , "xy" : [400 , 95]},
+                {"name" : "19aw0113" , "xy" : [250 , -170]},
+                {"name" : "19aw0115" , "xy" : [250 , -170]},
+                {"name" : "19aw0121" , "xy" : [250 , -170]}
+            ]
+        },
+        {
+            "groupName" : "デザイナー",
+            "members" : [
+                {"name" : "18aw0103" , "xy" : [-65 , -170]},
+                {"name" : "18aw0104" , "xy" : [-220 , 95]},
+                {"name" : "18aw0106" , "xy" : [-65 , 365]},
+                {"name" : "18aw0108" , "xy" : [250 , 365]},
+                {"name" : "18aw0112" , "xy" : [400 , 95]},
+                {"name" : "18aw0114" , "xy" : [250 , -170]},
+                {"name" : "18aw0120" , "xy" : [250 , -170]},
+                {"name" : "18aw0121" , "xy" : [250 , -170]},
+                {"name" : "18aw0122" , "xy" : [250 , -170]},
+                {"name" : "18aw0124" , "xy" : [250 , -170]},
+                {"name" : "18aw0127" , "xy" : [250 , -170]},
+                {"name" : "19aw0102" , "xy" : [250 , -170]},
+                {"name" : "19aw0103" , "xy" : [250 , -170]},
+                {"name" : "19aw0111" , "xy" : [250 , -170]},
+                {"name" : "19aw0118" , "xy" : [250 , -170]},
+                {"name" : "19aw0119" , "xy" : [250 , -170]},
+                {"name" : "19aw0120" , "xy" : [250 , -170]},
+                {"name" : "19aw0121" , "xy" : [250 , -170]},
+                {"name" : "19aw0122" , "xy" : [250 , -170]},
+                {"name" : "19aw0123" , "xy" : [250 , -170]},
+                {"name" : "19aw0125" , "xy" : [250 , -170]},
+                {"name" : "19aw0132" , "xy" : [250 , -170]}
+            ]
+        },
+        {
+            "groupName" : "エンジニア",
+            "members" : [
+                {"name" : "19aw0101" , "xy" : [-65 , -170]},
+                {"name" : "19aw0104" , "xy" : [-220 , 95]},
+                {"name" : "19aw0112" , "xy" : [-65 , 365]},
+                {"name" : "19aw0113" , "xy" : [250 , 365]},
+                {"name" : "19aw0124" , "xy" : [400 , 95]},
+                {"name" : "19aw0128" , "xy" : [250 , -170]},
+                {"name" : "19aw0131" , "xy" : [250 , -170]},
+                {"name" : "18aw0105" , "xy" : [250 , -170]},
+                {"name" : "18aw0110" , "xy" : [250 , -170]},
+                {"name" : "18aw0117" , "xy" : [250 , -170]},
+                {"name" : "18aw0119" , "xy" : [250 , -170]},
+                {"name" : "18aw0125" , "xy" : [250 , -170]},
+                {"name" : "18aw0128" , "xy" : [250 , -170]},
+                {"name" : "18aw0129" , "xy" : [250 , -170]},
+                {"name" : "18aw0130" , "xy" : [250 , -170]}
+            ]
+        },
+        {
+            "groupName" : "ディレクタ",
+            "members" : [
+                {"name" : "18aw0109" , "xy" : [-65 , -170]},
+                {"name" : "18aw0123" , "xy" : [-220 , 95]},
+                {"name" : "19aw0115" , "xy" : [-65 , 365]},
+                {"name" : "19aw0130" , "xy" : [250 , 365]}
+            ]
+        },
+        {
+            "groupName" : "その他職種（告知・営業・DTP）",
+            "members" : [
+                {"name" : "18aw0101" , "xy" : [-65 , -170]},
+                {"name" : "18aw0107" , "xy" : [-220 , 95]},
+                {"name" : "18aw0129" , "xy" : [-65 , 365]}
+            ]
+        },
+        {
+            "groupName" : "進級制作_スターホーム",
+            "members" : [
+                {"name" : "19aw0111" , "xy" : [-65 , -170]},
+                {"name" : "19aw0113" , "xy" : [-220 , 95]},
+                {"name" : "19aw0119" , "xy" : [-65 , 365]},
+                {"name" : "19aw0125" , "xy" : [250 , 365]}
+            ]
+        },
+        {
+            "groupName" : "進級制作_キッズコレッチオ",
+            "members" : [
+                {"name" : "19aw0102" , "xy" : [-65 , -170]},
+                {"name" : "19aw0103" , "xy" : [-220 , 95]},
+                {"name" : "19aw0121" , "xy" : [-65 , 365]},
+                {"name" : "19aw0122" , "xy" : [250 , 365]},
+                {"name" : "19aw0123" , "xy" : [400 , 95]},
+                {"name" : "19aw0129" , "xy" : [250 , -170]},
+                {"name" : "19aw0130" , "xy" : [250 , -170]}
+            ]
+        },
+        {
+            "groupName" : "進級制作_グラビス",
+            "members" : [
+                {"name" : "19aw0104" , "xy" : [400 , 95]},
+                {"name" : "19aw0118" , "xy" : [250 , -170]},
+                {"name" : "19aw0120" , "xy" : [250 , -170]},
+                {"name" : "19aw0124" , "xy" : [250 , -170]},
+                {"name" : "19aw0131" , "xy" : [250 , -170]},
+                {"name" : "19aw0132" , "xy" : [250 , -170]}
+            ]
+        },
+        {
+            "groupName" : "進級制作_SAGOJO",
+            "members" : [
+                {"name" : "19aw0101" , "xy" : [-65 , -170]},
+                {"name" : "19aw0112" , "xy" : [-220 , 95]},
+                {"name" : "19aw0115" , "xy" : [-65 , 365]},
+                {"name" : "19aw0128" , "xy" : [250 , 365]}
+            ]
+        },
+        {
+            "groupName" : "卒業制作_個人",
+            "members" : [
+                {"name" : "18aw0101" , "xy" : [-65 , -170]},
+                {"name" : "18aw0104" , "xy" : [-220 , 95]},
+                {"name" : "18aw0105" , "xy" : [-65 , 365]},
+                {"name" : "18aw0106" , "xy" : [250 , 365]},
+                {"name" : "18aw0107" , "xy" : [400 , 95]},
+                {"name" : "18aw0109" , "xy" : [250 , -170]},
+                {"name" : "18aw0110" , "xy" : [250 , -170]},
+                {"name" : "18aw0111" , "xy" : [250 , -170]},
+                {"name" : "18aw0112" , "xy" : [250 , -170]},
+                {"name" : "18aw0117" , "xy" : [250 , -170]},
+                {"name" : "18aw0120" , "xy" : [250 , -170]},
+                {"name" : "18aw0121" , "xy" : [250 , -170]},
+                {"name" : "18aw0122" , "xy" : [250 , -170]},
+                {"name" : "18aw0123" , "xy" : [250 , -170]},
+                {"name" : "18aw0127" , "xy" : [250 , -170]}
+            ]
+        },
+        {
+            "groupName" : "卒業制作_評価システム",
+            "members" : [
+                {"name" : "18aw0108" , "xy" : [-220 , 95]},
+                {"name" : "18aw0125" , "xy" : [-65 , -170]},
+                {"name" : "18aw0128" , "xy" : [-65 , 365]}
+            ]
+        },
+        {
+            "groupName" : "卒業制作_おもてなしデザイン",
+            "members" : [
+                {"name" : "18aw0103" , "xy" : [-220 , 95]},
+                {"name" : "18aw0129" , "xy" : [-65 , -170]}
+            ]
+        },
+        {
+            "groupName" : "卒業制作_告知サイト",
+            "members" : [
+                {"name" : "18aw0124" , "xy" : [-220 , 95]},
+                {"name" : "18aw0130" , "xy" : [-65 , -170]}
+            ]
+        },
+        {
+            "groupName" : "卒業制作_教育プログラミング",
+            "members" : [
+                {"name" : "18aw0102" , "xy" : [-220 , 95]},
+                {"name" : "18aw0119" , "xy" : [-65 , -170]}
+            ]
+        },
+        {
+            "groupName" : "卒業制作_Unityゲーム",
+            "members" : [
+                {"name" : "18aw0114" , "xy" : [-220 , 95]},
+                {"name" : "18aw0130" , "xy" : [-65 , -170]}
+            ]
+        },
+        {
+            "groupName" : "沖縄ITスペシャリスト育成プログラム",
+            "members" : [
+                {"name" : "18aw0102" , "xy" : [-220 , 95]},
+                {"name" : "18aw0103" , "xy" : [-220 , 95]},
+                {"name" : "18aw0119" , "xy" : [-65 , -170]}
+            ]
+        },
+        {
+            "groupName" : "善通寺",
+            "members" : [
+                {"name" : "18aw0119" , "xy" : [-65 , -170]},
+                {"name" : "18aw0130" , "xy" : [-220 , 95]},
+                {"name" : "19aw0101" , "xy" : [-65 , 365]},
+                {"name" : "19aw0130" , "xy" : [250 , 365]},
+                {"name" : "19aw0131" , "xy" : [400 , 95]}
+            ]
+        },
+        {
+            "groupName" : "日専祭サイト制作",
+            "members" : [
+                {"name" : "19aw0101" , "xy" : [-65 , -170]},
+                {"name" : "19aw0102" , "xy" : [-220 , 95]},
+                {"name" : "19aw0103" , "xy" : [-65 , 365]},
+                {"name" : "19aw0115" , "xy" : [250 , 365]},
+                {"name" : "19aw0124" , "xy" : [400 , 95]},
+                {"name" : "19aw0129" , "xy" : [250 , -170]},
+                {"name" : "19aw0131" , "xy" : [250 , -170]}
+            ]
+        },
+        {
+            "groupName" : "4校合同名札作成・インフォグラフィックス制作",
+            "members" : [
+                {"name" : "18aw0124" , "xy" : [-65 , -170]},
+                {"name" : "19aw0118" , "xy" : [-220 , 95]}
+            ]
+        },
+        {
+            "groupName" : "若年者ものづくり大会・技能五輪全国大会",
+            "members" : [
+                {"name" : "18aw0108" , "xy" : [-65 , -170]},
+                {"name" : "18aw0110" , "xy" : [-220 , 95]},
+                {"name" : "18aw0130" , "xy" : [-65 , 365]}
+            ]
+        },
+        {
+            "groupName" : "業界座談会Webなう",
+            "members" : [
+                {"name" : "18aw0114" , "xy" : [-65 , -170]},
+                {"name" : "18aw0117" , "xy" : [-220 , 95]},
+                {"name" : "18aw0130" , "xy" : [-65 , 365]}
+            ]
+        }
+    ],
+    "students" : {
+        "18aw0101" : {
+            "name" : "浅田幸樹",
+            "groups" : [ "グラフィックチーム" , "その他職種（告知・営業・DTP）", "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0102" : {
+            "name" : "旭",
+            "groups" : [ "卒業制作_教育プログラミング" , "沖縄ITスペシャリスト育成プログラム", "セミナーチーム"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0103" : {
+            "name" : "安藤愛菜",
+            "groups" : [ "Hotpageチーム" , "メンテナンスチーム", "デザイナー", "卒業制作_おもてなしデザイン", "沖縄ITスペシャリスト育成プログラム"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0104" : {
+            "name" : "井原蒼尉",
+            "groups" : [ "Hotpageチーム", "デザイナー" , "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0105" : {
+            "name" : "及川舜平",
+            "groups" : [ "グラフィックチーム", "エンジニア" , "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0106" : {
+            "name" : "大場吉樹",
+            "groups" : [ "デザイナー" , "メンテナンスチーム", "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0107" : {
+            "name" : "小原",
+            "groups" : [ "メンテナンスチーム" , "その他職種（告知・営業・DTP）", "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0108" : {
+            "name" : "川浪 涼葉",
+            "groups" : [ "デザイナー" , "グラフィックチーム", "Hotpageチーム", "卒業制作_評価システム","若年者ものづくり大会・技能五輪全国大会"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0109" : {
+            "name" : "神原美紗希",
+            "groups" : [ "グラフィックチーム" , "イベントチーム", "ディレクタ", "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0110" : {
+            "name" : "菊地 聖治",
+            "groups" : [ "メンテナンスチーム" , "イベントチーム","エンジニア", "卒業制作_個人", "若年者ものづくり大会・技能五輪全国大会"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0111" : {
+            "name" : "金京姫",
+            "groups" : [ "デザイナー" , "セミナーチーム", "卒業制作_個人" ],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0112" : {
+            "name" : "齋藤香織",
+            "groups" : [ "デザイナー" , "グラフィックチーム", "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0114" : {
+            "name" : "真田拓実",
+            "groups" : [ "デザイナー" , "グラフィックチーム", "卒業制作_Unityゲーム", "業界座談会Webなう"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0117" : {
+            "name" : "須永和徳",
+            "groups" : [ "セミナーチーム", "エンジニア" , "卒業制作_個人", "業界座談会Webなう"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0119" : {
+            "name" : "ティハ トーンナイン",
+            "groups" : [ "エンジニア" , "セミナーチーム","卒業制作_教育プログラミング", "沖縄ITスペシャリスト育成プログラム", "善通寺"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0120" : {
+            "name" : "成瀬奈美恵",
+            "groups" : [ "デザイナー" , "グラフィックチーム", "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0121" : {
+            "name" : "藤本航平",
+            "groups" : [ "デザイナー" ,"グラフィックチーム",  "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0122" : {
+            "name" : "フレハス ジョシュア カイル",
+            "groups" : [ "デザイナー" , "イベントチーム", "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0123" : {
+            "name" : "山中翔平",
+            "groups" : [ "ディレクタ", "Hotpageチーム", "イベントチーム", "セミナーチーム", "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0124" : {
+            "name" : "楊詩俞",
+            "groups" : [ "デザイナー" , "group_1"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0125" : {
+            "name" : "ヤング ジャクリン サウミン",
+            "groups" : [ "エンジニア" , "group_1"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0127" : {
+            "name" : "渡辺美有",
+            "groups" : [ "デザイナー" , "グラフィックチーム", "group_1"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0128" : {
+            "name" : "张愚哲",
+            "groups" : [ "エンジニア" , "group_1"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0129" : {
+            "name" : "小潟大賀",
+            "groups" : [ "エンジニア" , "group_1"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0130" : {
+            "name" : "橋本輝瑠",
+            "groups" : [ "エンジニア" , "group_1"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        }
+    }
+}
