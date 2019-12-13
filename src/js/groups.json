@@ -1,9 +1,9 @@
 {
     "groups": [
         {
-            "groupName" : "star_1",
+            "groupName" : "group_0",
             "members" : [
-                {"name" : "aaaa" , "xy" : [-65 , -170]},
+                {"name" : "18aw0101" , "xy" : [-65 , -170]},
                 {"name" : "bbbb" , "xy" : [-220 , 95]},
                 {"name" : "cccc" , "xy" : [-65 , 365]},
                 {"name" : "dddd" , "xy" : [250 , 365]},
@@ -12,7 +12,7 @@
             ]
         },
         {
-            "groupName" : "star_2",
+            "groupName" : "group_1",
             "members" : [
                 {"name" : "aaaa" , "xy" : [40 , -280]},
                 {"name" : "bbbb" , "xy" : [-180 , -60]},
@@ -24,5 +24,19 @@
                 {"name" : "hhhh" , "xy" : [-365 , 30]}
             ]
         }
-    ]
+    ],
+    "students" : {
+        "18aw0101" : {
+            "groups" : [ "group_0" , "group_1"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        }
+    }
 }
