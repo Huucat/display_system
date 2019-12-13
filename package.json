@@ -24,6 +24,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "@pixi/filter-drop-shadow": "^3.0.3",
     "@pixi/filter-glow": "^3.0.3",
     "@pixi/filter-outline": "^3.0.3",
     "lodash": "^4.17.15",
