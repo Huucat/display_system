@@ -33,7 +33,7 @@ export default class Manager{
                 game.space.rotation();
             break;
             case 2:
-
+                game.constellationDetails.targetAnimation();
             break;
         }
         

@@ -12,6 +12,9 @@ const FILE_PATH = {
         {"name" : "spaceship_02" , "url" : require("@/assets/spaceship_02.png")},
 
         {"name" : "button_01" , "url" : require("@/assets/button_01.png")},
+        {"name" : "button_02" , "url" : require("@/assets/button_02.png")},
+
+        {"name" : "target" , "url" : require("@/assets/target.png")},
     ]
 }
 
