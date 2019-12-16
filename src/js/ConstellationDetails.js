@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import GROUPS from './groups.json';
-// import { DropShadowFilter } from '@pixi/filter-drop-shadow';
+import { DropShadowFilter } from '@pixi/filter-drop-shadow';
 
 export default class ConstellationDetails {
     constructor(app){
@@ -35,7 +35,24 @@ export default class ConstellationDetails {
 
         this.constellation = new PIXI.Sprite();
         this.constellationBox.addChild(this.constellation);
- 
+
+        this.textBoxContainer = new PIXI.Container();
+        this.constellationBox.addChild( this.textBoxContainer);
+        this.textBox = new PIXI.Graphics();
+        this.textBox.beginFill(0xCAF2FF, 1);
+        this.textBox.drawCircle(100, 250, 50);
+        this.textBox.endFill();
+        this.constellationBox.addChild(this.textBox);
+        this.dropShadowFilter = new DropShadowFilter();
+        this.dropShadowFilter.alpha = 0.8;
+        this.dropShadowFilter.blur = 10;
+        this.dropShadowFilter.distance = 0;
+        this.dropShadowFilter.quality = 5;
+        this.dropShadowFilter.pixelSize = 0.6;
+        this.dropShadowFilter.color = 0xCAF2FF;
+        this.textBoxContainer.addChild(this.textBox);
+        this.textBoxContainer.filters = [this.dropShadowFilter];
+
         // this.textBox = new PIXI.Graphics();
         // this.textBox.lineStyle(2, 0xcaf2ff, 2);
         // this.textBox.beginFill(0xcaf2ff, 0.2);
@@ -53,6 +70,7 @@ export default class ConstellationDetails {
         // this.dropShadowFilter.distance = 0;
         // this.dropShadowFilter.quality = 10;
         // this.dropShadowFilter.color = 0x00a3d5;
+        // this.dropShadowFilter.pixelSize = 0.6;
         // this.textBox.filters = [dropShadowFilter]
         this.addBackButton(app);
         this.addTarget(app)
@@ -151,6 +169,7 @@ export default class ConstellationDetails {
 
     targetOff(){
         this.targetState = false;
+        this.targetStep = 0;
         this.target_LeftTop.visible = this.target_LeftDown.visible = this.target_RightTop.visible = this.target_RightDown.visible = false;
     }
 

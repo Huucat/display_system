@@ -8,6 +8,7 @@ export default class Game{
         this.app = new PIXI.Application({
             width: window.innerWidth,
             height: window.innerHeight,
+            antialias: true,
         });
         this.init();
     }
