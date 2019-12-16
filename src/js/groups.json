@@ -3,25 +3,26 @@
         {
             "groupName" : "star_1",
             "members" : [
-                {"id" : "18aw0101" , "xy" : [-65 , -170]},
-                {"id" : "18aw0102" , "xy" : [-220 , 95]},
-                {"id" : "18aw0103" , "xy" : [-65 , 365]},
-                {"id" : "18aw0104" , "xy" : [250 , 365]},
-                {"id" : "18aw0105" , "xy" : [400 , 95]},
-                {"id" : "18aw0106" , "xy" : [250 , -170]}
+                {"id" : "18aw0101" , "xy" : [280 , -250]},
+                {"id" : "18aw0102" , "xy" : [140 , -340]},
+                {"id" : "18aw0103" , "xy" : [40 , -220]},
+                {"id" : "18aw0104" , "xy" : [-90 , -150]},
+                {"id" : "18aw0105" , "xy" : [-280 , -135]},
+                {"id" : "18aw0106" , "xy" : [-140 , 0]},
+                {"id" : "18aw0107" , "xy" : [0 , 110]},
+                {"id" : "18aw0108" , "xy" : [30 , 350]}
             ]
         },
         {
             "groupName" : "star_2",
             "members" : [
-                {"id" : "19aw0101" , "xy" : [40 , -280]},
-                {"id" : "19aw0102" , "xy" : [-180 , -60]},
-                {"id" : "19aw0103" , "xy" : [-70 , 50]},
-                {"id" : "19aw0104" , "xy" : [190 , -55]},
-                {"id" : "19aw0105" , "xy" : [295 , 220]},
-                {"id" : "19aw0106" , "xy" : [-60 , 345]},
-                {"id" : "19aw0107" , "xy" : [-365 , 180]},
-                {"id" : "19aw0108" , "xy" : [-365 , 30]}
+                {"id" : "19aw0101" , "xy" : [350 , -280]},
+                {"id" : "19aw0102" , "xy" : [325 , -90]},
+                {"id" : "19aw0103" , "xy" : [175 , 280]},
+                {"id" : "19aw0104" , "xy" : [-180 , 190]},
+                {"id" : "19aw0105" , "xy" : [-350 , 65]},
+                {"id" : "19aw0106" , "xy" : [-150 , -140]},
+                {"id" : "19aw0107" , "xy" : [50 , -140]}
             ]
         }
     ],
@@ -104,6 +105,32 @@
                 ]
             }
         },
+        "18aw0107" : {
+            "name" : "小原りょう",
+            "groups" : [ "告知・営業・DTP", "メンテナンスチーム", "卒業制作_個人"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
+        "18aw0108" : {
+            "name" : "川浪 涼葉",
+            "groups" : [ "デザイナー" , "グラフィックチーム", "Hotpageチーム", "卒業制作_評価システム", "若年者ものづくり大会・技能五輪全国大会"],
+            "tags" : ["tag" , "tag" , "tag"],
+            "comments" : {
+                "group_0" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ],
+                "group_1" : [
+                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                ]
+            }
+        },
         "19aw0101" : {
             "name" : "青山祐依",
             "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_SAGOJO", "善通寺", "日専祭サイト制作" ],
@@ -181,18 +208,6 @@
             }
         },
         "19aw0107" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 5 , "coding" : 5 , "presentation" : 5 , "plan" : 5 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 5 , "coding" : 5 , "presentation" : 5 , "plan" : 5 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0108" : {
             "name" : "xxxx",
             "groups" : [ "group_1" ],
             "comments" : {

@@ -15,6 +15,8 @@ const FILE_PATH = {
         {"name" : "button_02" , "url" : require("@/assets/button_02.png")},
 
         {"name" : "target" , "url" : require("@/assets/target.png")},
+        {"name" : "target_in" , "url" : require("@/assets/target_in.png")},
+        {"name" : "target_out" , "url" : require("@/assets/target_out.png")},
     ]
 }
 

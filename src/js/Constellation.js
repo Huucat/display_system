@@ -7,7 +7,7 @@ export default class Constellation {
         this.constellationBox.x = Math.cos((Math.PI * 2 / n) * i) * 1000;
         this.constellationBox.y = Math.sin((Math.PI * 2 / n) * i) * 1000;
         this.constellationBox.rotation = (Math.PI * 2 / n) * i + (Math.PI * 0.5);
-        this.constellationBox.scale.set(0.3);
+        this.constellationBox.scale.set(0.35);
 
         this.outLine = new GlowFilter(15, 3, 0, 0xFF00FF, 0.1);
         this.star = [];

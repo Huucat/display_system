@@ -30,7 +30,7 @@ export default class ConstellationDetails {
         this.star = [];
         this.name = [];
         this.targetState = false;
-        this.targetMove = false;
+        // this.targetMove = false;
         this.targetStep = 0;
 
         this.constellation = new PIXI.Sprite();
@@ -77,27 +77,35 @@ export default class ConstellationDetails {
     }
 
     addTarget(app){
-        this.target_LeftTop = new PIXI.Sprite(app.loader.resources['target'].texture);
-        this.target_LeftTop.anchor.set(0.5);
-        this.target_LeftTop.scale.set(0.5 , 0.5);
-        this.target_LeftTop.visible = false;
+        this.target_In = new PIXI.Sprite(app.loader.resources['target_in'].texture);
+        this.target_In.anchor.set(0.5);
+        this.target_In.scale.set(0.4);
+        this.target_In.visible = false;
+        this.target_Out = new PIXI.Sprite(app.loader.resources['target_out'].texture);
+        this.target_Out.anchor.set(0.5);
+        this.target_Out.scale.set(0.4);
+        this.target_Out.visible = false;
+        // this.target_LeftTop = new PIXI.Sprite(app.loader.resources['target'].texture);
+        // this.target_LeftTop.anchor.set(0.5);
+        // this.target_LeftTop.scale.set(0.5 , 0.5);
+        // this.target_LeftTop.visible = false;
 
-        this.target_LeftDown = new PIXI.Sprite(app.loader.resources['target'].texture);
-        this.target_LeftDown.anchor.set(0.5);
-        this.target_LeftDown.scale.set(0.5 , -0.5);
-        this.target_LeftDown.visible = false;
+        // this.target_LeftDown = new PIXI.Sprite(app.loader.resources['target'].texture);
+        // this.target_LeftDown.anchor.set(0.5);
+        // this.target_LeftDown.scale.set(0.5 , -0.5);
+        // this.target_LeftDown.visible = false;
 
-        this.target_RightTop = new PIXI.Sprite(app.loader.resources['target'].texture);
-        this.target_RightTop.anchor.set(0.5);
-        this.target_RightTop.scale.set(-0.5 , 0.5);
-        this.target_RightTop.visible = false;
+        // this.target_RightTop = new PIXI.Sprite(app.loader.resources['target'].texture);
+        // this.target_RightTop.anchor.set(0.5);
+        // this.target_RightTop.scale.set(-0.5 , 0.5);
+        // this.target_RightTop.visible = false;
         
-        this.target_RightDown = new PIXI.Sprite(app.loader.resources['target'].texture);
-        this.target_RightDown.anchor.set(0.5);
-        this.target_RightDown.scale.set(-0.5 , -0.5);
-        this.target_RightDown.visible = false;
+        // this.target_RightDown = new PIXI.Sprite(app.loader.resources['target'].texture);
+        // this.target_RightDown.anchor.set(0.5);
+        // this.target_RightDown.scale.set(-0.5 , -0.5);
+        // this.target_RightDown.visible = false;
 
-        this.constellationBox.addChild(this.constellation , this.target_LeftTop , this.target_LeftDown , this.target_RightTop , this.target_RightDown);
+        this.constellationBox.addChild(this.target_In , this.target_Out);
     }
 
     addBackButton(app){
@@ -151,26 +159,36 @@ export default class ConstellationDetails {
     }
 
     targetOn(self){
-        this.target_LeftTop.x = self.x - 30;
-        this.target_LeftTop.y = self.y - 30;
+        this.target_In.x = self.x;
+        this.target_In.y = self.y;
+        this.target_Out.x = self.x;
+        this.target_Out.y = self.y;
+        this.target_In.visible = true;
+        this.target_Out.visible = true;
 
-        this.target_LeftDown.x = self.x - 30;
-        this.target_LeftDown.y = self.y + 30;
+        // this.target_LeftTop.x = self.x - 30;
+        // this.target_LeftTop.y = self.y - 30;
 
-        this.target_RightTop.x = self.x + 30;
-        this.target_RightTop.y = self.y - 30;
+        // this.target_LeftDown.x = self.x - 30;
+        // this.target_LeftDown.y = self.y + 30;
 
-        this.target_RightDown.x = self.x + 30;
-        this.target_RightDown.y = self.y + 30;
-        this.target_LeftTop.visible = this.target_LeftDown.visible = this.target_RightTop.visible = this.target_RightDown.visible = true;
+        // this.target_RightTop.x = self.x + 30;
+        // this.target_RightTop.y = self.y - 30;
+
+        // this.target_RightDown.x = self.x + 30;
+        // this.target_RightDown.y = self.y + 30;
+        // this.target_LeftTop.visible = this.target_LeftDown.visible = this.target_RightTop.visible = this.target_RightDown.visible = true;
         
         this.targetState = true;
     }
 
     targetOff(){
         this.targetState = false;
+        this.target_In.visible = false;
+        this.target_Out.visible = false;
+        this.target_Out.rotation = 0;
         this.targetStep = 0;
-        this.target_LeftTop.visible = this.target_LeftDown.visible = this.target_RightTop.visible = this.target_RightDown.visible = false;
+        // this.target_LeftTop.visible = this.target_LeftDown.visible = this.target_RightTop.visible = this.target_RightDown.visible = false;
     }
 
     onBackButton(){
@@ -191,41 +209,44 @@ export default class ConstellationDetails {
 
     targetAnimation(){
         if(this.targetState == true){
-            if(this.targetMove == false){
-                this.target_LeftTop.x += 0.2;
-                this.target_LeftTop.y += 0.2;
+            this.target_In.scale.set(Math.sin(this.targetStep) * 0.01 + 0.4);
+            this.target_Out.rotation += 0.02;
+            this.targetStep += 0.15;
+            // if(this.targetMove == false){
+            //     this.target_LeftTop.x += 0.2;
+            //     this.target_LeftTop.y += 0.2;
     
-                this.target_LeftDown.x += 0.2;
-                this.target_LeftDown.y -= 0.2;
+            //     this.target_LeftDown.x += 0.2;
+            //     this.target_LeftDown.y -= 0.2;
     
-                this.target_RightTop.x -= 0.2;
-                this.target_RightTop.y += 0.2;
+            //     this.target_RightTop.x -= 0.2;
+            //     this.target_RightTop.y += 0.2;
     
-                this.target_RightDown.x -= 0.2;
-                this.target_RightDown.y -= 0.2;
+            //     this.target_RightDown.x -= 0.2;
+            //     this.target_RightDown.y -= 0.2;
     
-                this.targetStep += 1;
-                if(this.targetStep >= 20){
-                    this.targetMove = true;
-                }
-            }else{
-                this.target_LeftTop.x -= 0.2;
-                this.target_LeftTop.y -= 0.2;
+            //     this.targetStep += 1;
+            //     if(this.targetStep >= 20){
+            //         this.targetMove = true;
+            //     }
+            // }else{
+            //     this.target_LeftTop.x -= 0.2;
+            //     this.target_LeftTop.y -= 0.2;
     
-                this.target_LeftDown.x -= 0.2;
-                this.target_LeftDown.y += 0.2;
+            //     this.target_LeftDown.x -= 0.2;
+            //     this.target_LeftDown.y += 0.2;
     
-                this.target_RightTop.x += 0.2;
-                this.target_RightTop.y -= 0.2;
+            //     this.target_RightTop.x += 0.2;
+            //     this.target_RightTop.y -= 0.2;
     
-                this.target_RightDown.x += 0.2;
-                this.target_RightDown.y += 0.2;
+            //     this.target_RightDown.x += 0.2;
+            //     this.target_RightDown.y += 0.2;
     
-                this.targetStep -= 1;
-                if(this.targetStep <= 0){
-                    this.targetMove = false;
-                }
-            }
+            //     this.targetStep -= 1;
+            //     if(this.targetStep <= 0){
+            //         this.targetMove = false;
+            //     }
+            // }
 
         }
     }
