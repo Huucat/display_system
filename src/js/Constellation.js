@@ -12,6 +12,7 @@ export default class Constellation {
         this.outLine = new GlowFilter(15, 3, 0, 0xFF00FF, 0.1);
         this.star = [];
         this.groupNum = Math.floor(Math.random() * 2);
+        this.addBackground(app);
         this.addLine(app , this.groupNum);
         this.addStar(app , groups);
     }
@@ -34,6 +35,14 @@ export default class Constellation {
         this.constellationBox.addChild(this.constellation);
     }
 
+    addBackground(app){
+        this.constellationBg = new PIXI.Sprite(app.loader.resources['group_03'].texture);
+        this.constellationBg.anchor.x = 0.5;
+        this.constellationBg.anchor.y = 0.5;
+        this.constellationBg.alpha = 0.2;
+        this.constellationBox.addChild(this.constellationBg);
+    }
+
     addStar(app , groups){
         for (let i = 0; i < groups.groups[this.groupNum].members.length; i++) {
             this.star[i] = new PIXI.Sprite(app.loader.resources['star_01'].texture);
@@ -41,7 +50,7 @@ export default class Constellation {
             this.star[i].anchor.y = 0.5;
             this.star[i].x = groups.groups[this.groupNum].members[i].xy[0];
             this.star[i].y = groups.groups[this.groupNum].members[i].xy[1];
-            this.star[i].scale.set(0.5);
+            this.star[i].scale.set(0.6);
             this.constellationBox.addChild(this.star[i]);
         }
     }

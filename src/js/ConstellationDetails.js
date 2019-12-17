@@ -25,16 +25,16 @@ export default class ConstellationDetails {
             dropShadow : true,
             dropShadowBlur : 10,
             dropShadowColor : '#00A3D5',
-            dropShadowDistance : 0
+            dropShadowDistance : 0,
         }
         this.star = [];
         this.name = [];
         this.targetState = false;
         // this.targetMove = false;
         this.targetStep = 0;
-
+        this.constellationBg = new PIXI.Sprite();
         this.constellation = new PIXI.Sprite();
-        this.constellationBox.addChild(this.constellation);
+        this.constellationBox.addChild(this.constellationBg , this.constellation);
 
         this.textBoxContainer = new PIXI.Container();
         this.constellationBox.addChild( this.textBoxContainer);
@@ -122,8 +122,17 @@ export default class ConstellationDetails {
         this.detailsBox.addChild(this.backButton);
     }
 
-    createConstellation(app){
+    createBackground(app){
         this.removeChildren();
+        this.constellationBg.texture = app.loader.resources['group_03'].texture;
+        this.constellationBg.anchor.x = 0.5;
+        this.constellationBg.anchor.y = 0.5;
+        this.constellationBg.alpha = 0.2;
+        this.createConstellation(app);
+    }
+
+    createConstellation(app){
+        
         this.constellation.texture = app.loader.resources['group_0' + (this.groupNum + 1)].texture;
         this.constellation.anchor.x = 0.5;
         this.constellation.anchor.y = 0.5;
@@ -138,7 +147,7 @@ export default class ConstellationDetails {
             this.star[i].anchor.y = 0.5;
             this.star[i].x = GROUPS.groups[this.groupNum].members[i].xy[0];
             this.star[i].y = GROUPS.groups[this.groupNum].members[i].xy[1];
-            this.star[i].scale.set(0.5);
+            this.star[i].scale.set(0.2);
             this.star[i].interactive = true;
             this.star[i].on('pointerover', function(){
                 self.targetOn(this)
@@ -209,9 +218,11 @@ export default class ConstellationDetails {
 
     targetAnimation(){
         if(this.targetState == true){
-            this.target_In.scale.set(Math.sin(this.targetStep) * 0.01 + 0.4);
-            this.target_Out.rotation += 0.02;
+            // this.target_In.scale.set(Math.sin(this.targetStep) * 0.01 + 0.4);
+            // this.target_Out.rotation += 0.02;
+            this.target_Out.scale.set(Math.sin(this.targetStep) * 0.02 + 0.4);
             this.targetStep += 0.15;
+            this.star[3].scale.set(0.6);
             // if(this.targetMove == false){
             //     this.target_LeftTop.x += 0.2;
             //     this.target_LeftTop.y += 0.2;

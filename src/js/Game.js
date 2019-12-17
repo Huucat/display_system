@@ -6,8 +6,8 @@ import Manager from './Manager.js';
 export default class Game{
     constructor(){
         this.app = new PIXI.Application({
-            width: window.innerWidth,
-            height: window.innerHeight,
+            width: document.documentElement.clientWidth,
+            height: document.documentElement.clientHeight,
             antialias: true,
         });
         this.init();
