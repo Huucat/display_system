@@ -11,8 +11,8 @@ export default class ConstellationDetails {
         this.spaceBg = new PIXI.Sprite(app.loader.resources['spaceBg_02'].texture);
         this.spaceBg.anchor.set(0.5);
 
-        this.constellationBox.x = app.screen.width / 2;
-        this.constellationBox.y = app.screen.height / 2;
+        this.constellationBox.x = document.documentElement.clientWidth / 2;
+        this.constellationBox.y = document.documentElement.clientHeight / 2;
         this.constellationBox.scale.set(0.7);
         this.detailsBox.addChild(this.constellationBox);
 
@@ -35,23 +35,6 @@ export default class ConstellationDetails {
         this.constellationBg = new PIXI.Sprite();
         this.constellation = new PIXI.Sprite();
         this.constellationBox.addChild(this.constellationBg , this.constellation);
-
-        this.textBoxContainer = new PIXI.Container();
-        this.constellationBox.addChild( this.textBoxContainer);
-        this.textBox = new PIXI.Graphics();
-        this.textBox.beginFill(0xCAF2FF, 1);
-        this.textBox.drawCircle(100, 250, 50);
-        this.textBox.endFill();
-        this.constellationBox.addChild(this.textBox);
-        this.dropShadowFilter = new DropShadowFilter();
-        this.dropShadowFilter.alpha = 0.8;
-        this.dropShadowFilter.blur = 10;
-        this.dropShadowFilter.distance = 0;
-        this.dropShadowFilter.quality = 5;
-        this.dropShadowFilter.pixelSize = 0.6;
-        this.dropShadowFilter.color = 0xCAF2FF;
-        this.textBoxContainer.addChild(this.textBox);
-        this.textBoxContainer.filters = [this.dropShadowFilter];
 
         // this.textBox = new PIXI.Graphics();
         // this.textBox.lineStyle(2, 0xcaf2ff, 2);
@@ -79,31 +62,12 @@ export default class ConstellationDetails {
     addTarget(app){
         this.target_In = new PIXI.Sprite(app.loader.resources['target_in'].texture);
         this.target_In.anchor.set(0.5);
-        this.target_In.scale.set(0.4);
+        this.target_In.scale.set(0.38);
         this.target_In.visible = false;
         this.target_Out = new PIXI.Sprite(app.loader.resources['target_out'].texture);
         this.target_Out.anchor.set(0.5);
         this.target_Out.scale.set(0.4);
         this.target_Out.visible = false;
-        // this.target_LeftTop = new PIXI.Sprite(app.loader.resources['target'].texture);
-        // this.target_LeftTop.anchor.set(0.5);
-        // this.target_LeftTop.scale.set(0.5 , 0.5);
-        // this.target_LeftTop.visible = false;
-
-        // this.target_LeftDown = new PIXI.Sprite(app.loader.resources['target'].texture);
-        // this.target_LeftDown.anchor.set(0.5);
-        // this.target_LeftDown.scale.set(0.5 , -0.5);
-        // this.target_LeftDown.visible = false;
-
-        // this.target_RightTop = new PIXI.Sprite(app.loader.resources['target'].texture);
-        // this.target_RightTop.anchor.set(0.5);
-        // this.target_RightTop.scale.set(-0.5 , 0.5);
-        // this.target_RightTop.visible = false;
-        
-        // this.target_RightDown = new PIXI.Sprite(app.loader.resources['target'].texture);
-        // this.target_RightDown.anchor.set(0.5);
-        // this.target_RightDown.scale.set(-0.5 , -0.5);
-        // this.target_RightDown.visible = false;
 
         this.constellationBox.addChild(this.target_In , this.target_Out);
     }
@@ -147,12 +111,14 @@ export default class ConstellationDetails {
             this.star[i].anchor.y = 0.5;
             this.star[i].x = GROUPS.groups[this.groupNum].members[i].xy[0];
             this.star[i].y = GROUPS.groups[this.groupNum].members[i].xy[1];
-            this.star[i].scale.set(0.2);
+            this.star[i].scale.set(0.5);
             this.star[i].interactive = true;
             this.star[i].on('pointerover', function(){
                 self.targetOn(this)
             }).on('pointerout', function(){
                 self.targetOff(this)
+            }).on('pointerdown', function(){
+                self.toStar()
             });
             this.constellationBox.addChild(this.star[i]);
             this.creatName(i);
@@ -174,34 +140,23 @@ export default class ConstellationDetails {
         this.target_Out.y = self.y;
         this.target_In.visible = true;
         this.target_Out.visible = true;
-
-        // this.target_LeftTop.x = self.x - 30;
-        // this.target_LeftTop.y = self.y - 30;
-
-        // this.target_LeftDown.x = self.x - 30;
-        // this.target_LeftDown.y = self.y + 30;
-
-        // this.target_RightTop.x = self.x + 30;
-        // this.target_RightTop.y = self.y - 30;
-
-        // this.target_RightDown.x = self.x + 30;
-        // this.target_RightDown.y = self.y + 30;
-        // this.target_LeftTop.visible = this.target_LeftDown.visible = this.target_RightTop.visible = this.target_RightDown.visible = true;
-        
         this.targetState = true;
     }
 
     targetOff(){
         this.targetState = false;
         this.target_In.visible = false;
+        this.target_In.rotation = 0;
         this.target_Out.visible = false;
-        this.target_Out.rotation = 0;
         this.targetStep = 0;
-        // this.target_LeftTop.visible = this.target_LeftDown.visible = this.target_RightTop.visible = this.target_RightDown.visible = false;
     }
 
     onBackButton(){
         game.Manager.enter(1);
+    }
+
+    toStar(){
+        game.Manager.enter(3);
     }
 
     removeChildren(){
@@ -218,47 +173,9 @@ export default class ConstellationDetails {
 
     targetAnimation(){
         if(this.targetState == true){
-            // this.target_In.scale.set(Math.sin(this.targetStep) * 0.01 + 0.4);
-            // this.target_Out.rotation += 0.02;
-            this.target_Out.scale.set(Math.sin(this.targetStep) * 0.02 + 0.4);
+            this.target_In.rotation += 0.02;
+            this.target_Out.scale.set(Math.sin(this.targetStep) * 0.015 + 0.4);
             this.targetStep += 0.15;
-            this.star[3].scale.set(0.6);
-            // if(this.targetMove == false){
-            //     this.target_LeftTop.x += 0.2;
-            //     this.target_LeftTop.y += 0.2;
-    
-            //     this.target_LeftDown.x += 0.2;
-            //     this.target_LeftDown.y -= 0.2;
-    
-            //     this.target_RightTop.x -= 0.2;
-            //     this.target_RightTop.y += 0.2;
-    
-            //     this.target_RightDown.x -= 0.2;
-            //     this.target_RightDown.y -= 0.2;
-    
-            //     this.targetStep += 1;
-            //     if(this.targetStep >= 20){
-            //         this.targetMove = true;
-            //     }
-            // }else{
-            //     this.target_LeftTop.x -= 0.2;
-            //     this.target_LeftTop.y -= 0.2;
-    
-            //     this.target_LeftDown.x -= 0.2;
-            //     this.target_LeftDown.y += 0.2;
-    
-            //     this.target_RightTop.x += 0.2;
-            //     this.target_RightTop.y -= 0.2;
-    
-            //     this.target_RightDown.x += 0.2;
-            //     this.target_RightDown.y += 0.2;
-    
-            //     this.targetStep -= 1;
-            //     if(this.targetStep <= 0){
-            //         this.targetMove = false;
-            //     }
-            // }
-
         }
     }
 }
