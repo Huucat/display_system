@@ -7,7 +7,7 @@ const FILE_PATH = {
         {"name" : "group_02" , "url" : require("@/assets/group_04.png")},
         {"name" : "group_03" , "url" : require("@/assets/group_03.png")},
 
-        {"name" : "star_01" , "url" : require("@/assets/star_02.png")},
+        {"name" : "star_01" , "url" : require("@/assets/star_01.png")},
 
         {"name" : "spaceship_01" , "url" : require("@/assets/spaceship_01.png")},
         {"name" : "spaceship_02" , "url" : require("@/assets/spaceship_02.png")},
