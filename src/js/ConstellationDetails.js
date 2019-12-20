@@ -6,15 +6,18 @@ export default class ConstellationDetails {
     constructor(app){
         this.detailsBox = new PIXI.Container();
         this.constellationBox = new PIXI.Container();
-        // this.textObj = new PIXI.Container();
-
+        this.flame = new PIXI.Container();
         this.spaceBg = new PIXI.Sprite(app.loader.resources['spaceBg_02'].texture);
         this.spaceBg.anchor.set(0.5);
 
         this.constellationBox.x = document.documentElement.clientWidth / 2;
         this.constellationBox.y = document.documentElement.clientHeight / 2;
         this.constellationBox.scale.set(0.7);
-        this.detailsBox.addChild(this.constellationBox);
+        this.detailsBox.addChild(this.constellationBox , this.flame);
+
+        this.constellationBg = new PIXI.Sprite();
+        this.constellation = new PIXI.Sprite();
+        this.constellationBox.addChild(this.constellationBg , this.constellation);
 
         this.groupNum = 0;
         this.textStyle = {
@@ -32,9 +35,8 @@ export default class ConstellationDetails {
         this.targetState = false;
         // this.targetMove = false;
         this.targetStep = 0;
-        this.constellationBg = new PIXI.Sprite();
-        this.constellation = new PIXI.Sprite();
-        this.constellationBox.addChild(this.constellationBg , this.constellation);
+        this.clickState = false;
+
 
         // this.textBox = new PIXI.Graphics();
         // this.textBox.lineStyle(2, 0xcaf2ff, 2);
@@ -56,13 +58,15 @@ export default class ConstellationDetails {
         // this.dropShadowFilter.pixelSize = 0.6;
         // this.textBox.filters = [dropShadowFilter]
         this.addBackButton(app);
-        this.addTarget(app)
+        this.addInfoButton(app);
+        this.addTarget(app);
+        this.addFlame(app);
     }
 
     addTarget(app){
         this.target_In = new PIXI.Sprite(app.loader.resources['target_in'].texture);
         this.target_In.anchor.set(0.5);
-        this.target_In.scale.set(0.38);
+        this.target_In.scale.set(0.4);
         this.target_In.visible = false;
         this.target_Out = new PIXI.Sprite(app.loader.resources['target_out'].texture);
         this.target_Out.anchor.set(0.5);
@@ -86,6 +90,46 @@ export default class ConstellationDetails {
         this.detailsBox.addChild(this.backButton);
     }
 
+    addInfoButton(app){
+        let self = this;
+        this.infoButton = new PIXI.Sprite(app.loader.resources['button_constellation_info_off'].texture);
+        // this.infoButton.scale.set(0.5);
+        this.infoButton.interactive = true;
+        this.infoButton.buttonMode = true;
+        this.infoButton.anchor.set(1 , 0);
+        this.infoButton.position.set(document.documentElement.clientWidth - 25 , 25);
+
+        this.infoButton.on('pointerover', function(){
+            this.texture = app.loader.resources['button_constellation_info_on'].texture
+        }).on('pointerout', function(){
+            this.texture = app.loader.resources['button_constellation_info_off'].texture
+        }).on('pointerdown', function(){
+            self.showInfo();
+        });
+
+        this.detailsBox.addChild(this.infoButton);
+    }
+    
+    addFlame(app){
+        this.flameLeft = new PIXI.Sprite(app.loader.resources['flame_left'].texture);
+        this.flameLeft.scale.set(0.5);
+        this.flameLeft.x = -60;
+        this.flameRight = new PIXI.Sprite(app.loader.resources['flame_right'].texture);
+        this.flameRight.anchor.set(1 , 0);
+        this.flameRight.scale.set(0.5);
+        this.flameRight.x = app.screen.width + 60;
+        this.flameBottom = new PIXI.Sprite(app.loader.resources['flame_bottom'].texture);
+        this.flameBottom.anchor.set(0.5 , 1);
+        this.flameBottom.scale.set(1 , 0.45);
+        this.flameBottom.x = document.documentElement.clientWidth / 2;
+        this.flameBottom.y = document.documentElement.clientHeight;
+        this.line_horizontal = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(0 , document.documentElement.clientHeight / 2).lineTo(document.documentElement.clientWidth , document.documentElement.clientHeight / 2);
+        this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
+
+        this.buttonLeft = new PIXI.Sprite(app.loader.resources['flame_bottom'].texture);
+        this.flame.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
+    }
+
     createBackground(app){
         this.removeChildren();
         this.constellationBg.texture = app.loader.resources['group_03'].texture;
@@ -96,7 +140,6 @@ export default class ConstellationDetails {
     }
 
     createConstellation(app){
-        
         this.constellation.texture = app.loader.resources['group_0' + (this.groupNum + 1)].texture;
         this.constellation.anchor.x = 0.5;
         this.constellation.anchor.y = 0.5;
@@ -133,22 +176,34 @@ export default class ConstellationDetails {
         this.constellationBox.addChild(this.name[i]);
     }
 
+    showInfo(){
+        this.clickState = !this.clickState;
+    }
+
+    hideInfo(){
+
+    }
+
     targetOn(self){
-        this.target_In.x = self.x;
-        this.target_In.y = self.y;
-        this.target_Out.x = self.x;
-        this.target_Out.y = self.y;
-        this.target_In.visible = true;
-        this.target_Out.visible = true;
-        this.targetState = true;
+        if(this.clickState == false){
+            this.target_In.x = self.x;
+            this.target_In.y = self.y;
+            this.target_Out.x = self.x;
+            this.target_Out.y = self.y;
+            this.target_In.visible = true;
+            this.target_Out.visible = true;
+            this.targetState = true;
+        }
     }
 
     targetOff(){
-        this.targetState = false;
-        this.target_In.visible = false;
-        this.target_In.rotation = 0;
-        this.target_Out.visible = false;
-        this.targetStep = 0;
+        if(this.clickState == false){
+            this.targetState = false;
+            this.target_In.visible = false;
+            this.target_In.rotation = 0;
+            this.target_Out.visible = false;
+            this.targetStep = 0;
+        }
     }
 
     onBackButton(){
@@ -173,7 +228,7 @@ export default class ConstellationDetails {
 
     targetAnimation(){
         if(this.targetState == true){
-            this.target_In.rotation += 0.02;
+            // this.target_In.rotation += 0.02;
             this.target_Out.scale.set(Math.sin(this.targetStep) * 0.015 + 0.4);
             this.targetStep += 0.15;
         }

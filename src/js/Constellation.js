@@ -17,7 +17,7 @@ export default class Constellation {
         this.addStar(app , groups);
     }
 
-    addLine(app , i){
+    addLine(app){
         var self = this;
         this.constellation = new PIXI.Sprite(app.loader.resources['group_0' + (this.groupNum + 1)].texture);
         this.constellation.anchor.x = 0.5;
