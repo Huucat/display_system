@@ -3,14 +3,14 @@ const FILE_PATH = {
         {"name" : "spaceBg_01" , "url" : require("@/assets/spaceBackground_01.png")},
         {"name" : "spaceBg_02" , "url" : require("@/assets/spaceBackground_03.png")},
 
-        {"name" : "group_01" , "url" : require("@/assets/group_04.png")},
-        {"name" : "group_02" , "url" : require("@/assets/group_04.png")},
-        {"name" : "group_03" , "url" : require("@/assets/group_03.png")},
+        {"name" : "group_01" , "url" : require("@/assets/group_01.png")},
+        {"name" : "group_01_bg" , "url" : require("@/assets/group_01_bg.png")},
 
-        {"name" : "star_01" , "url" : require("@/assets/star_01.png")},
+        {"name" : "star_plan" , "url" : require("@/assets/star_plan.png")},
+        {"name" : "star_design" , "url" : require("@/assets/star_design.png")},
+        {"name" : "star_coding" , "url" : require("@/assets/star_coding.png")},
+        {"name" : "star_presentation" , "url" : require("@/assets/star_presentation.png")},
 
-        // {"name" : "spaceship_01" , "url" : require("@/assets/spaceship_01.png")},
-        // {"name" : "spaceship_02" , "url" : require("@/assets/spaceship_02.png")},
         {"name" : "flame_left" , "url" : require("@/assets/flame_left.png")},
         {"name" : "flame_right" , "url" : require("@/assets/flame_right.png")},
         {"name" : "flame_bottom" , "url" : require("@/assets/flame_bottom.png")},

@@ -37,7 +37,33 @@ export default class ConstellationDetails {
         // this.targetMove = false;
         this.targetStep = 0;
         this.clickState = false;
+        
+        for(let i in GROUPS.students["18aw0101"].comments){
+            if(GROUPS.students["18aw0101"].comments[i].groupName == "star_2"){
+                console.log(GROUPS.students["18aw0101"].comments[i]);
+            }
+        }
 
+
+        // this.textBox = new PIXI.Graphics();
+        // this.textBox.lineStyle(2, 0xcaf2ff, 2);
+        // this.textBox.beginFill(0xcaf2ff, 0.2);
+        // this.textBox.drawRoundedRect(150, 440, 200, 100, 8);
+        // this.textBox.endFill();
+
+        // this.text = new PIXI.Text('This is a text',{fontFamily : 'Arial', fontSize: 24, fill : 0xffffff, align : 'center'});
+        // this.text.x = 160;
+        // this.text.y = 450;
+
+        // this.textObj.addChild(this.textBox , this.text);
+        // this.dropShadowFilter = new DropShadowFilter();
+        // this.dropShadowFilter.alpha = 1;
+        // this.dropShadowFilter.blur = 10;
+        // this.dropShadowFilter.distance = 0;
+        // this.dropShadowFilter.quality = 10;
+        // this.dropShadowFilter.color = 0x00a3d5;
+        // this.dropShadowFilter.pixelSize = 0.6;
+        // this.textBox.filters = [dropShadowFilter]
         this.addBackButton();
         this.addInfoButton();
         this.addTarget();
@@ -60,6 +86,7 @@ export default class ConstellationDetails {
     addBackButton(){
         let self = this;
         this.backButton = new PIXI.Sprite(this.app.loader.resources['button_02'].texture);
+        // this.backButton.scale.set(0.5);
         this.backButton.interactive = true;
         this.backButton.buttonMode = true;
         this.backButton.position.set(25 , 25);
@@ -80,9 +107,9 @@ export default class ConstellationDetails {
         this.infoButton.position.set(document.documentElement.clientWidth - 25 , 25);
 
         this.infoButton.on('pointerover', function(){
-            this.texture = self.app.loader.resources['button_constellation_info_on'].texture
+            this.texture = this.app.loader.resources['button_constellation_info_on'].texture
         }).on('pointerout', function(){
-            this.texture = self.app.loader.resources['button_constellation_info_off'].texture
+            this.texture = this.app.loader.resources['button_constellation_info_off'].texture
         }).on('pointerdown', function(){
             self.showInfo();
         });
@@ -112,22 +139,24 @@ export default class ConstellationDetails {
 
     createBackground(){
         this.removeChildren();
-        this.constellationBg.texture = this.app.loader.resources['group_01_bg'].texture;
+        this.constellationBg.texture = this.app.loader.resources['group_03'].texture;
         this.constellationBg.anchor.x = 0.5;
         this.constellationBg.anchor.y = 0.5;
         this.constellationBg.alpha = 0.2;
+        this.createConstellation();
     }
 
     createConstellation(){
-        this.constellation.texture = this.app.loader.resources['group_01'].texture;
+        this.constellation.texture = this.app.loader.resources['group_0' + (this.groupNum + 1)].texture;
         this.constellation.anchor.x = 0.5;
         this.constellation.anchor.y = 0.5;
+        this.createStar();
     }
 
     createStar(){
         let self = this;
         for (let i = 0; i < GROUPS.groups[this.groupNum].members.length; i++) {
-            this.star[i] = new PIXI.Sprite(game.space.constellation[this.groupNum].star[i].texture);
+            this.star[i] = new PIXI.Sprite(this.app.loader.resources['star_presentation'].texture);
             this.star[i].anchor.x = 0.5;
             this.star[i].anchor.y = 0.5;
             this.star[i].x = GROUPS.groups[this.groupNum].members[i].xy[0];
@@ -202,12 +231,6 @@ export default class ConstellationDetails {
 
     setGroupNum(groupNum){
         this.groupNum = groupNum;
-    }
-
-    enterDetails(){
-        this.createBackground();
-        this.createConstellation();
-        this.createStar();
     }
 
     targetAnimation(){

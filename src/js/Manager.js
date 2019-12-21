@@ -24,7 +24,7 @@ export default class Manager{
                 game.space.spaceBox.visible = true;
             break;
             case 2:
-                game.constellationDetails.createBackground(app);
+                game.constellationDetails.enterDetails();
                 game.constellationDetails.detailsBox.visible = true;
             break;
             case 3:
