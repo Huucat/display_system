@@ -3,6 +3,8 @@ import { DropShadowFilter } from '@pixi/filter-drop-shadow';
 
 export default class Star {
     constructor(app){
+
+        this.app = app;
         this.starBox_All = new PIXI.Container();
 
         this.starBox = new PIXI.Container();
@@ -11,10 +13,10 @@ export default class Star {
         this.starBox_All.addChild(this.starBox);
 
         this.createSun();
-        this.createPlanet_Plan(app);
-        this.createPlanet_Design(app);
-        this.createPlanet_Coding(app);
-        this.createPlanet_Presentation(app);
+        this.createPlanet_Plan();
+        this.createPlanet_Design();
+        this.createPlanet_Coding();
+        this.createPlanet_Presentation();
     }
 
 
@@ -35,11 +37,11 @@ export default class Star {
         this.starBox.addChild(this.sun);
     }
 
-    createPlanet_Plan(app){
+    createPlanet_Plan(){
         this.planetPlanPosition = Math.PI * 2 * Math.random();
         this.planetPlanOrbitalSpeed = 0.005;
         this.planetPlanOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 150);
-        this.planetPlan = new PIXI.Sprite(app.loader.resources['planet_plan'].texture);
+        this.planetPlan = new PIXI.Sprite(this.app.loader.resources['planet_plan'].texture);
         this.planetPlan.anchor.set(0.5);
         this.planetPlan.scale.set(0.4);
         this.planetPlan.x = Math.cos(this.planetPlanPosition) * 150;
@@ -47,11 +49,11 @@ export default class Star {
         this.starBox.addChild(this.planetPlanOrbital ,  this.planetPlan);
     }
 
-    createPlanet_Design(app){
+    createPlanet_Design(){
         this.planetDesignPosition = Math.PI * 2 * Math.random();
         this.planetDesignOrbitalSpeed = 0.002;
         this.planetDesignOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 200);
-        this.planetDesign = new PIXI.Sprite(app.loader.resources['planet_design'].texture);
+        this.planetDesign = new PIXI.Sprite(this.app.loader.resources['planet_design'].texture);
         this.planetDesign.anchor.set(0.5);
         this.planetDesign.scale.set(0.4);
         this.planetDesign.x = Math.cos(this.planetDesignPosition) * 200;
@@ -59,11 +61,11 @@ export default class Star {
         this.starBox.addChild(this.planetDesignOrbital , this.planetDesign);
     }
 
-    createPlanet_Coding(app){
+    createPlanet_Coding(){
         this.planetCodingPosition = Math.PI * 2 * Math.random();
         this.planetCodingOrbitalSpeed = 0.0008;
         this.planetCodingOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 250);
-        this.planetCoding = new PIXI.Sprite(app.loader.resources['planet_coding'].texture);
+        this.planetCoding = new PIXI.Sprite(this.app.loader.resources['planet_coding'].texture);
         this.planetCoding.anchor.set(0.5);
         this.planetCoding.scale.set(0.4);
         this.planetCoding.x = Math.cos(this.planetCodingPosition) * 250;
@@ -71,11 +73,11 @@ export default class Star {
         this.starBox.addChild(this.planetCodingOrbital , this.planetCoding);
     }
 
-    createPlanet_Presentation(app){
+    createPlanet_Presentation(){
         this.planetPresentationPosition = Math.PI * 2 * Math.random();
         this.planetPresentationOrbitalSpeed = 0.0005;
         this.planetPresentationOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 300);
-        this.planetPresentation = new PIXI.Sprite(app.loader.resources['planet_presentation'].texture);
+        this.planetPresentation = new PIXI.Sprite(this.app.loader.resources['planet_presentation'].texture);
         this.planetPresentation.anchor.set(0.5);
         this.planetPresentation.scale.set(0.4);
         this.planetPresentation.x = Math.cos(this.planetPresentationPosition) * 300;

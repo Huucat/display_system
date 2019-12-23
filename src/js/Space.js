@@ -12,7 +12,7 @@ export default class Space {
         this.constellation = [];
 
         this.constellationGroups.x = document.documentElement.clientWidth / 2;
-        this.constellationGroups.y = document.documentElement.clientHeight / 2 + 900;
+        this.constellationGroups.y = document.documentElement.clientHeight / 2 + 1000;
         
         this.addSpaceBg();
         this.createConstellation();
@@ -22,7 +22,6 @@ export default class Space {
     addSpaceBg(){
         this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_02'].texture);
         this.spaceBg.anchor.set(0.5);
-        this.spaceBg.scale.set(1.25);
         this.constellationGroups.addChild(this.spaceBg);
     }
 
@@ -51,8 +50,8 @@ export default class Space {
         let num = GROUPS.groups.length;
         for (let i = 0; i < num; i++) {
             this.constellation[i] = new Constellation(this.app , i);
-            this.constellation[i].constellationBox.x = Math.cos((Math.PI * 2 / num) * i) * 1000;
-            this.constellation[i].constellationBox.y = Math.sin((Math.PI * 2 / num) * i) * 1000;
+            this.constellation[i].constellationBox.x = Math.cos((Math.PI * 2 / num) * i) * 1100;
+            this.constellation[i].constellationBox.y = Math.sin((Math.PI * 2 / num) * i) * 1100;
             this.constellation[i].constellationBox.rotation = (Math.PI * 2 / num) * i + (Math.PI * 0.5);
             this.constellation[i].constellationBox.scale.set(0.35);
             this.constellation[i].addEvent();
