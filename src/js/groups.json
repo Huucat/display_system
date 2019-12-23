@@ -221,13 +221,8 @@
             "color" : "",
             "tags" : ["tag" , "tag" , "tag"],
             "comments" : [
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_2" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_2" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
+                {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
             ]
         },
         "18aw0102" : {
@@ -236,8 +231,8 @@
             "color" : "",
             "tags" : ["tag" , "tag" , "tag"],
             "comments" : [
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_2" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
+                {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
             ]
         },
         "18aw0103" : {
@@ -246,8 +241,8 @@
             "color" : "",
             "tags" : ["tag" , "tag" , "tag"],
             "comments" : [
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_2" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
+                {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
             ]
         },
         "18aw0104" : {
@@ -256,8 +251,8 @@
             "color" : "",
             "tags" : ["tag" , "tag" , "tag"],
             "comments" : [
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_2" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
+                {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
             ]
         },
         "18aw0105" : {
@@ -266,8 +261,8 @@
             "color" : "",
             "tags" : ["tag" , "tag" , "tag"],
             "comments" : [
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_2" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
+                {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
             ]
         },
         "18aw0106" : {
@@ -276,8 +271,8 @@
             "color" : "",
             "tags" : ["tag" , "tag" , "tag"],
             "comments" : [
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_2" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
+                {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
             ]
         },
         "18aw0107" : {
@@ -286,8 +281,8 @@
             "color" : "",
             "tags" : ["tag" , "tag" , "tag"],
             "comments" : [
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_2" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                {"groupName" : "group_1" , "design" : 5 , "coding" : 5, "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
+                {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
             ]
         },
         "18aw0108" : {
@@ -296,8 +291,8 @@
             "color" : "",
             "tags" : ["tag" , "tag" , "tag"],
             "comments" : [
-                {"groupName" : "group_1" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
-                {"groupName" : "group_2" , "design" : 5 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+                {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
+                {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
             ]
         },
         "19aw0101" : {
