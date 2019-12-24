@@ -20,7 +20,7 @@ export default class Space {
     }
 
     addSpaceBg(){
-        this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_02'].texture);
+        this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_01'].texture);
         this.spaceBg.anchor.set(0.5);
         this.constellationGroups.addChild(this.spaceBg);
     }

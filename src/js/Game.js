@@ -10,15 +10,47 @@ export default class Game{
             height: document.documentElement.clientHeight,
             antialias: true,
         });
+        this.fontStyle_KaisoNext = {
+            fontFamily : 'KaisoNext',
+            fill : 0xCAF2FF,
+            align : 'center',
+            dropShadow : true,
+            dropShadowBlur : 10,
+            dropShadowColor : '#00A3D5',
+            dropShadowDistance : 0,
+        }
+        this.fontStyle_SmartPhoneUI = {
+            fontFamily : 'SmartPhoneUI',
+            fill : 0xCAF2FF,
+            align : 'center',
+            dropShadow : true,
+            dropShadowBlur : 10,
+            dropShadowColor : '#00A3D5',
+            dropShadowDistance : 0,
+        }
         this.init();
     }
 
     init(){
         document.getElementById("app").appendChild(this.app.view);
-        var self = this;
         this.setStarColor();
+        this.loadFonts();
+    }
 
-        this.app.loader.add(FILE_PATH.images).load(function(){self.gameStart()});
+    loadFonts(){
+        let self = this;
+        document.fonts.load("12px 'KaisoNext'").then(function(){
+            document.fonts.load("12px 'SmartPhoneUI'")
+        }).then(function(){
+            self.loadAssets();
+        });
+    }
+
+    loadAssets(){
+        let self = this;
+        this.app.loader.add(FILE_PATH.images).load(function(){
+            self.gameStart()
+        });
     }
 
     setStarColor(){

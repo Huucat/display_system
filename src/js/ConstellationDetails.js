@@ -10,41 +10,42 @@ export default class ConstellationDetails {
         this.flame = new PIXI.Container();
         this.messageBox = new PIXI.Container();
 
-        this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_02'].texture);
-        this.spaceBg.anchor.set(0.5);
-
         this.constellationBox.x = document.documentElement.clientWidth / 2;
         this.constellationBox.y = document.documentElement.clientHeight / 2;
         this.constellationBox.scale.set(0.7);
         this.detailsBox.addChild(this.constellationBox , this.flame , this.messageBox);
 
-        this.constellationBg = new PIXI.Sprite();
-        this.constellation = new PIXI.Sprite();
-        this.constellationBox.addChild(this.constellationBg , this.constellation);
-
         this.groupNum = 0;
-        this.textStyle = {
-            fontFamily : 'Arial',
-            fontSize: 24,
-            fill : 0xCAF2FF,
-            align : 'center',
-            dropShadow : true,
-            dropShadowBlur : 10,
-            dropShadowColor : '#00A3D5',
-            dropShadowDistance : 0,
-        }
         this.star = [];
         this.name = [];
         this.targetState = false;
         this.targetStep = 0;
-        this.clickState = false;
 
+        this.infoState = false;
+        this.studentState = false;
 
+        this.addBackground();
         this.addTarget();
         this.addFlame();
         this.addBackButton();
         this.addInfoButton();
         this.createConstellationInfo();
+        this.createStudentInfo();
+    }
+
+    addBackground(){
+        let self = this;
+        this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_01'].texture);
+        this.spaceBg.anchor.set(0.5);
+        this.spaceBg.interactive = true;
+        this.spaceBg.on('pointerdown', function(){
+            self.hideStudent();
+        })
+
+        this.constellationBg = new PIXI.Sprite();
+        this.constellation = new PIXI.Sprite();
+
+        this.constellationBox.addChild(this.spaceBg , this.constellationBg , this.constellation);
     }
 
     addTarget(){
@@ -114,7 +115,6 @@ export default class ConstellationDetails {
     }
 
     createBackground(){
-        this.removeChildren();
         this.constellationBg.texture = this.app.loader.resources['group_01_bg'].texture;
         this.constellationBg.anchor.x = 0.5;
         this.constellationBg.anchor.y = 0.5;
@@ -137,12 +137,13 @@ export default class ConstellationDetails {
             this.star[i].y = GROUPS.groups[this.groupNum].members[i].xy[1];
             this.star[i].scale.set(0.5);
             this.star[i].interactive = true;
+            this.star[i].name = GROUPS.students[GROUPS.groups[this.groupNum].members[i].id].name;
             this.star[i].on('pointerover', function(){
                 self.targetOn(this)
             }).on('pointerout', function(){
                 self.targetOff(this)
             }).on('pointerdown', function(){
-                self.toStar()
+                self.showStudent(this.name)
             });
             this.constellationBox.addChild(this.star[i]);
             this.creatName(i);
@@ -150,7 +151,8 @@ export default class ConstellationDetails {
     }
 
     creatName(i){
-        this.name[i] = new PIXI.Text(GROUPS.students[GROUPS.groups[this.groupNum].members[i].id].name , this.textStyle);
+        this.name[i] = new PIXI.Text(this.star[i].name , game.fontStyle_SmartPhoneUI);
+        this.name[i].style.fontSize = 26;
         this.name[i].anchor.x = 0.5;
         this.name[i].x = this.star[i].x;
         this.name[i].y = this.star[i].y + 50;
@@ -195,11 +197,66 @@ export default class ConstellationDetails {
     }
 
     createStudentInfo(){
+        let self = this;
 
+        this.studentTextBox = new PIXI.Graphics();
+        this.studentTextBox.lineStyle(2, 0xcaf2ff, 2);
+        this.studentTextBox.beginFill(0xcaf2ff, 0.2);
+        this.studentTextBox.drawRoundedRect(0 , 0 , 600 , 150, 8);
+        this.studentTextBox.endFill();
+        this.studentTextBox.x = 25;
+        this.studentTextBox.y = document.documentElement.clientHeight - 250;
+        this.studentTextBox.visible = false;
+
+        let dropShadowFilter = new DropShadowFilter();
+        dropShadowFilter.alpha = 1;
+        dropShadowFilter.blur = 8;
+        dropShadowFilter.distance = 0;
+        dropShadowFilter.quality = 6;
+        dropShadowFilter.color = 0x00a3d5;
+        dropShadowFilter.pixelSize = 0.6;
+        this.studentTextBox.filters = [dropShadowFilter];
+
+        this.studentText = new PIXI.Text('恒星名：', game.fontStyle_KaisoNext);
+        this.studentText.style.fontSize = 28;
+        this.studentText.x = this.studentTextBox.x + 25;
+        this.studentText.y = this.studentTextBox.y + 25;
+        this.studentText.visible = false;
+
+        this.studentName = new PIXI.Text('', game.fontStyle_KaisoNext);
+        this.studentName.style.fontSize = 40;
+        this.studentName.x = this.studentTextBox.x + 25;
+        this.studentName.y = this.studentTextBox.y + 80;
+        this.studentName.visible = false;
+
+        let poly = new PIXI.Polygon(
+            new PIXI.Point(-70 , -115),
+            new PIXI.Point(-130 , 0),
+            new PIXI.Point(-70 , 115),
+            new PIXI.Point(70 , 115),
+            new PIXI.Point(130 , 0),
+            new PIXI.Point(70 , -115));
+
+        this.buttonObservation = new PIXI.Sprite(this.app.loader.resources['button_observation_off'].texture);
+        this.buttonObservation.interactive = true;
+        this.buttonObservation.buttonMode = true;
+        this.buttonObservation.anchor.set(0.5);
+        this.buttonObservation.hitArea = poly;
+        this.buttonObservation.position.set(document.documentElement.clientWidth - 200 , document.documentElement.clientHeight - 200);
+        this.buttonObservation.on('pointerover', function(){
+            this.texture = self.app.loader.resources['button_observation_on'].texture
+        }).on('pointerout', function(){
+            this.texture = self.app.loader.resources['button_observation_off'].texture
+        }).on('pointerdown', function(){
+            self.toStar();
+        });
+        this.buttonObservation.visible = false;
+
+        this.messageBox.addChild(this.studentTextBox , this.studentText , this.studentName , this.buttonObservation);
     }
 
     showInfo(){
-        this.clickState = !this.clickState;
+        this.infoState = !this.infoState;
         this.infoButton.visible = false;
         this.backButton.visible = false;
         this.constellationTextBox.visible = true;
@@ -210,7 +267,7 @@ export default class ConstellationDetails {
     }
 
     hideInfo(){
-        this.clickState = !this.clickState;
+        this.infoState = !this.infoState;
         this.infoButton.visible = true;
         this.backButton.visible = true;
         this.constellationTextBox.visible = false;
@@ -220,31 +277,58 @@ export default class ConstellationDetails {
         this.constellationBox.x = document.documentElement.clientWidth / 2;
     }
 
-    showStudent(){
-
+    showStudent(name){
+        if(this.infoState == false && this.studentState == false){
+            this.studentState = true;
+            this.studentName.text = name;
+            this.backButton.visible = false;
+            this.infoButton.visible = false;
+            for(let i in this.name){
+                this.name[i].visible = false;
+            }
+            this.studentTextBox.visible = true;
+            this.studentText.visible = true;
+            this.studentName.visible = true;
+            this.buttonObservation.visible = true;
+        }
     }
 
     hideStudent(){
+        if(this.infoState == false && this.studentState == true){
+            this.studentName.text = '';
+            this.backButton.visible = true;
+            this.infoButton.visible = true;
+            for(let i in this.name){
+                this.name[i].visible = true;
+            }
+            this.studentTextBox.visible = false;
+            this.studentText.visible = false;
+            this.studentName.visible = false;
+            this.buttonObservation.visible = false;
+    
+            this.target_In.visible = false;
+            this.target_Out.visible = false;
 
+            this.studentState = false;
+        }
     }
 
     targetOn(self){
-        if(this.clickState == false){
+        if(this.infoState == false && this.studentState == false){
+            this.target_In.visible = true;
+            this.target_Out.visible = true;
+            this.targetState = true;
             this.target_In.x = document.documentElement.clientWidth / 2 + self.x * 0.7;
             this.target_In.y = document.documentElement.clientHeight / 2 + self.y * 0.7;
             this.target_Out.x = document.documentElement.clientWidth / 2 + self.x * 0.7;
             this.target_Out.y = document.documentElement.clientHeight / 2 + self.y * 0.7;
-            this.target_In.visible = true;
-            this.target_Out.visible = true;
-            this.targetState = true;
         }
     }
 
     targetOff(){
-        if(this.clickState == false){
+        if(this.infoState == false && this.studentState == false){
             this.targetState = false;
             this.target_In.visible = false;
-            this.target_In.rotation = 0;
             this.target_Out.visible = false;
             this.targetStep = 0;
         }
@@ -255,9 +339,7 @@ export default class ConstellationDetails {
     }
 
     toStar(){
-        if(this.clickState == false){
-            game.Manager.enter(3);
-        }
+        game.Manager.enter(3);
     }
 
     removeChildren(){
@@ -273,6 +355,7 @@ export default class ConstellationDetails {
     }
 
     enterDetails(){
+        this.removeChildren();
         this.createBackground();
         this.createConstellation();
         this.createStar();
@@ -280,9 +363,9 @@ export default class ConstellationDetails {
 
     targetAnimation(){
         if(this.targetState == true){
-            // this.target_In.rotation += 0.02;
             this.target_Out.scale.set(Math.sin(this.targetStep) * 0.010 + 0.3);
             this.targetStep += 0.15;
         }
+        this.spaceBg.rotation -= 0.0003
     }
 }

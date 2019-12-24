@@ -1,9 +1,15 @@
+@font-face {
+    font-family: "KaisoNext";
+    src:url('../fonts/Kaiso-Next-B.otf');
+}
+
+@font-face {
+    font-family: "SmartPhoneUI";
+    src:url('../fonts/Smart-Phone-UI.otf');
+}
+
 body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
-
-#text {
-    color: red;
 }

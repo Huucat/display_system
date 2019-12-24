@@ -1,7 +1,7 @@
 const FILE_PATH = {
     "images" : [
         {"name" : "spaceBg_01" , "url" : require("@/assets/spaceBackground_01.png")},
-        {"name" : "spaceBg_02" , "url" : require("@/assets/spaceBackground_05.png")},
+        {"name" : "spaceBg_02" , "url" : require("@/assets/spaceBackground_02.png")},
 
         {"name" : "group_01" , "url" : require("@/assets/group_01.png")},
         {"name" : "group_01_bg" , "url" : require("@/assets/group_01_bg.png")},
@@ -20,6 +20,8 @@ const FILE_PATH = {
         {"name" : "button_close" , "url" : require("@/assets/button_close.png")},
         {"name" : "button_constellation_info_off" , "url" : require("@/assets/button_constellation_info_off.png")},
         {"name" : "button_constellation_info_on" , "url" : require("@/assets/button_constellation_info_on.png")},
+        {"name" : "button_observation_off" , "url" : require("@/assets/button_observation_off.png")},
+        {"name" : "button_observation_on" , "url" : require("@/assets/button_observation_on.png")},
 
         {"name" : "target" , "url" : require("@/assets/target.png")},
         {"name" : "target_in" , "url" : require("@/assets/target_in.png")},
