@@ -6,9 +6,9 @@ export default class Space {
     constructor(app){
         this.app = app;
         this.spaceBox = new PIXI.Container();
-        this.flame = new PIXI.Container();
+        this.flameBox = new PIXI.Container();
         this.constellationGroups = new PIXI.Container();
-        this.spaceBox.addChild(this.constellationGroups , this.flame);
+        this.spaceBox.addChild(this.constellationGroups , this.flameBox);
         this.constellation = [];
 
         this.constellationGroups.x = document.documentElement.clientWidth / 2;
@@ -42,8 +42,7 @@ export default class Space {
         this.line_horizontal = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(0 , document.documentElement.clientHeight / 2).lineTo(document.documentElement.clientWidth , document.documentElement.clientHeight / 2);
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
 
-        this.buttonLeft = new PIXI.Sprite(this.app.loader.resources['flame_bottom'].texture);
-        this.flame.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
+        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
     }
 
     createConstellation(){
@@ -59,7 +58,7 @@ export default class Space {
         }
     }
 
-    rotation(){
+    update(){
         this.constellationGroups.rotation -= 0.001;
     }
 }

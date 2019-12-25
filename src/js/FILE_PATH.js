@@ -1,6 +1,6 @@
 const FILE_PATH = {
     "images" : [
-        {"name" : "spaceBg_01" , "url" : require("@/assets/spaceBackground_01.png")},
+        {"name" : "spaceBg_01" , "url" : require("@/assets/spaceBackground_03.png")},
         {"name" : "spaceBg_02" , "url" : require("@/assets/spaceBackground_02.png")},
 
         {"name" : "group_01" , "url" : require("@/assets/group_01.png")},
@@ -22,6 +22,14 @@ const FILE_PATH = {
         {"name" : "button_constellation_info_on" , "url" : require("@/assets/button_constellation_info_on.png")},
         {"name" : "button_observation_off" , "url" : require("@/assets/button_observation_off.png")},
         {"name" : "button_observation_on" , "url" : require("@/assets/button_observation_on.png")},
+        {"name" : "button_back_off" , "url" : require("@/assets/button_back_off.png")},
+        {"name" : "button_back_on" , "url" : require("@/assets/button_back_on.png")},
+        {"name" : "button_link_off" , "url" : require("@/assets/button_link_off.png")},
+        {"name" : "button_link_on" , "url" : require("@/assets/button_link_on.png")},
+        {"name" : "button_recommend_off" , "url" : require("@/assets/button_recommend_off.png")},
+        {"name" : "button_recommend_on" , "url" : require("@/assets/button_recommend_on.png")},
+        {"name" : "button_starinfo_off" , "url" : require("@/assets/button_starinfo_off.png")},
+        {"name" : "button_starinfo_on" , "url" : require("@/assets/button_starinfo_on.png")},
 
         {"name" : "target" , "url" : require("@/assets/target.png")},
         {"name" : "target_in" , "url" : require("@/assets/target_in.png")},

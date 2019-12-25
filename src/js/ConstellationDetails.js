@@ -7,13 +7,13 @@ export default class ConstellationDetails {
         this.app = app;
         this.detailsBox = new PIXI.Container();
         this.constellationBox = new PIXI.Container();
-        this.flame = new PIXI.Container();
+        this.flameBox = new PIXI.Container();
         this.messageBox = new PIXI.Container();
 
         this.constellationBox.x = document.documentElement.clientWidth / 2;
         this.constellationBox.y = document.documentElement.clientHeight / 2;
         this.constellationBox.scale.set(0.7);
-        this.detailsBox.addChild(this.constellationBox , this.flame , this.messageBox);
+        this.detailsBox.addChild(this.constellationBox , this.flameBox , this.messageBox);
 
         this.groupNum = 0;
         this.star = [];
@@ -111,7 +111,7 @@ export default class ConstellationDetails {
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
 
         this.buttonLeft = new PIXI.Sprite(this.app.loader.resources['flame_bottom'].texture);
-        this.flame.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
+        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
     }
 
     createBackground(){
@@ -137,13 +137,15 @@ export default class ConstellationDetails {
             this.star[i].y = GROUPS.groups[this.groupNum].members[i].xy[1];
             this.star[i].scale.set(0.5);
             this.star[i].interactive = true;
+
             this.star[i].name = GROUPS.students[GROUPS.groups[this.groupNum].members[i].id].name;
+            this.star[i].studentId = GROUPS.groups[this.groupNum].members[i].id;
             this.star[i].on('pointerover', function(){
                 self.targetOn(this)
             }).on('pointerout', function(){
                 self.targetOff(this)
             }).on('pointerdown', function(){
-                self.showStudent(this.name)
+                self.showStudent(this.name , this.studentId)
             });
             this.constellationBox.addChild(this.star[i]);
             this.creatName(i);
@@ -164,8 +166,9 @@ export default class ConstellationDetails {
         this.constellationTextBox = new PIXI.Graphics();
         this.constellationTextBox.lineStyle(2, 0xcaf2ff, 2);
         this.constellationTextBox.beginFill(0xcaf2ff, 0.2);
-        this.constellationTextBox.drawRoundedRect(document.documentElement.clientWidth - 600 , 25 , 575, 500, 8);
+        this.constellationTextBox.drawRoundedRect(0 , 0 , 575, 500, 8);
         this.constellationTextBox.endFill();
+        this.constellationTextBox.position.set(document.documentElement.clientWidth - 600 , 25);
         this.constellationTextBox.visible = false;
 
         let dropShadowFilter = new DropShadowFilter();
@@ -178,14 +181,14 @@ export default class ConstellationDetails {
         this.constellationTextBox.filters = [dropShadowFilter];
 
         this.constellationText = new PIXI.Text('This is a text',this.textStyle);
-        this.constellationText.x = document.documentElement.clientWidth - 575;
-        this.constellationText.y = 50;
+        this.constellationText.x = this.constellationTextBox.x + 25;
+        this.constellationText.y = this.constellationTextBox.y + 25;
         this.constellationText.visible = false;
 
         this.closeButton = new PIXI.Sprite(this.app.loader.resources['button_close'].texture);
         this.closeButton.anchor.x = 1;
-        this.closeButton.x = document.documentElement.clientWidth - 50;
-        this.closeButton.y = 50;
+        this.closeButton.x = this.constellationTextBox.x + this.constellationTextBox.width - 25;
+        this.closeButton.y = this.constellationTextBox.y + 25;
         this.closeButton.interactive = true;
         this.closeButton.buttonMode = true;
         this.closeButton.on('pointerdown', function(){
@@ -247,8 +250,6 @@ export default class ConstellationDetails {
             this.texture = self.app.loader.resources['button_observation_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_observation_off'].texture
-        }).on('pointerdown', function(){
-            self.toStar();
         });
         this.buttonObservation.visible = false;
 
@@ -277,7 +278,8 @@ export default class ConstellationDetails {
         this.constellationBox.x = document.documentElement.clientWidth / 2;
     }
 
-    showStudent(name){
+    showStudent(name , studentId){
+        let self = this;
         if(this.infoState == false && this.studentState == false){
             this.studentState = true;
             this.studentName.text = name;
@@ -289,6 +291,9 @@ export default class ConstellationDetails {
             this.studentTextBox.visible = true;
             this.studentText.visible = true;
             this.studentName.visible = true;
+            this.buttonObservation.on('pointerdown', function(){
+                self.toStar(studentId);
+            })
             this.buttonObservation.visible = true;
         }
     }
@@ -338,7 +343,8 @@ export default class ConstellationDetails {
         game.Manager.enter(1);
     }
 
-    toStar(){
+    toStar(setStudentId){
+        game.star.setStudentId(setStudentId);
         game.Manager.enter(3);
     }
 
@@ -359,13 +365,14 @@ export default class ConstellationDetails {
         this.createBackground();
         this.createConstellation();
         this.createStar();
+        this.hideStudent();
     }
 
-    targetAnimation(){
+    update(){
         if(this.targetState == true){
             this.target_Out.scale.set(Math.sin(this.targetStep) * 0.010 + 0.3);
             this.targetStep += 0.15;
         }
-        this.spaceBg.rotation -= 0.0003
+        this.spaceBg.rotation -= 0.0002
     }
 }
