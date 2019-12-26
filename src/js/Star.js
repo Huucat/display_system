@@ -11,7 +11,7 @@ export default class Star {
         this.flameBox = new PIXI.Container();
         this.messageBox = new PIXI.Container();
 
-        this.studentId = '';
+        this.studentId = "";
 
         this.planetBox.x = document.documentElement.clientWidth / 2;
         this.planetBox.y = document.documentElement.clientHeight / 2;
@@ -186,6 +186,8 @@ export default class Star {
             this.texture = self.app.loader.resources['button_starinfo_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_starinfo_off'].texture
+        }).on('pointerdown', function(){
+            game.Manager.enter(4);
         });
 
         this.buttonLink = new PIXI.Sprite(this.app.loader.resources['button_link_off'].texture);

@@ -63,7 +63,7 @@ export default class ConstellationDetails {
 
     addBackButton(){
         let self = this;
-        this.backButton = new PIXI.Sprite(this.app.loader.resources['button_02'].texture);
+        this.backButton = new PIXI.Sprite(this.app.loader.resources['button_01'].texture);
         this.backButton.interactive = true;
         this.backButton.buttonMode = true;
         this.backButton.position.set(25 , 25);
@@ -360,7 +360,7 @@ export default class ConstellationDetails {
         this.groupNum = groupNum;
     }
 
-    enterDetails(){
+    enter(){
         this.removeChildren();
         this.createBackground();
         this.createConstellation();

@@ -1,6 +1,7 @@
 import Space from "./Space";
 import ConstellationDetails from './ConstellationDetails.js'
 import Star from './Star.js'
+import StarInfo from './StarInfo.js'
 
 export default class Manager{
     constructor(app){
@@ -9,8 +10,9 @@ export default class Manager{
         game.space = new Space(app);
         game.constellationDetails = new ConstellationDetails(app);
         game.star = new Star(app);
+        game.starInfo = new StarInfo(app);
 
-        app.stage.addChild(game.space.spaceBox , game.constellationDetails.detailsBox , game.star.starBox);
+        app.stage.addChild(game.space.spaceBox , game.constellationDetails.detailsBox , game.star.starBox , game.starInfo.starInfoBox);
         this.enter(this.managerNum , app);
     }
     
@@ -19,17 +21,22 @@ export default class Manager{
         game.space.spaceBox.visible = false;
         game.constellationDetails.detailsBox.visible = false;
         game.star.starBox.visible = false;
+        game.starInfo.starInfoBox.visible = false;
         switch (this.managerNum) {
             case 1:
                 game.space.spaceBox.visible = true;
             break;
             case 2:
-                game.constellationDetails.enterDetails();
+                game.constellationDetails.enter();
                 game.constellationDetails.detailsBox.visible = true;
             break;
             case 3:
                 game.star.enter()
                 game.star.starBox.visible = true;
+            break;
+            case 4:
+                game.starInfo.starInfoBox.visible = true;
+                game.starInfo.enter();
             break;
         }
     }
@@ -44,6 +51,9 @@ export default class Manager{
             break;
             case 3:
                 game.star.update();
+            break;
+            case 4:
+                game.starInfo.update();
             break;
         }
         
