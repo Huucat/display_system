@@ -55,8 +55,18 @@ export default class Star {
     createPlanet_Plan(){
         this.planetPlanPosition = Math.PI * 2 * Math.random();
         this.planetPlanOrbitalSpeed = 0.005;
+
         this.planetPlanOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 200);
-        this.planetPlan = new PIXI.Sprite(this.app.loader.resources['planet_plan'].texture);
+
+        let planet_Plan_list = []
+        let self = this;
+        for(let i = 0 ; i < 10 ; i++){
+            planet_Plan_list[i] = new PIXI.Texture(this.app.loader.resources['planet_plan'].texture);
+            planet_Plan_list[i].frame = new PIXI.Rectangle(i * 200 , 0 , 200 , 200);
+        }
+        this.planetPlan = new PIXI.AnimatedSprite(planet_Plan_list);
+        this.planetPlan.animationSpeed = 0.2;
+        this.planetPlan.rotation = Math.PI * 2 / 8;
         this.planetPlan.anchor.set(0.5);
         this.planetPlan.scale.set(0.4);
         this.planetPlan.x = Math.cos(this.planetPlanPosition) * 200;
@@ -224,12 +234,13 @@ export default class Star {
     enter(){
         this.studentName.text = "ヤング ジャクリン サウミン";
         // GROUPS.students[this.studentId].name
+        this.planetPlan.play();
     }
 
     update(){
         this.planetPlan.x = Math.cos(this.planetPlanPosition -= this.planetPlanOrbitalSpeed) * 200;
         this.planetPlan.y = Math.sin(this.planetPlanPosition -= this.planetPlanOrbitalSpeed) * 200;
-        this.planetPlan.rotation -= 0.01;
+        // this.planetPlan.rotation -= 0.01;
 
         this.planetDesign.x = Math.cos(this.planetDesignPosition -= this.planetDesignOrbitalSpeed) * 250;
         this.planetDesign.y = Math.sin(this.planetDesignPosition -= this.planetDesignOrbitalSpeed) * 250;

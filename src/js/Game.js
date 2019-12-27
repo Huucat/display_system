@@ -19,6 +19,12 @@ export default class Game{
             dropShadowColor : '#00A3D5',
             dropShadowDistance : 0,
         }
+        this.fontStyle_KaisoNext_White = {
+            fontFamily : 'KaisoNext',
+            fill : 0xFFFFFF,
+            align : 'left',
+            dropShadow : true
+        }
         this.fontStyle_SmartPhoneUI = {
             fontFamily : 'SmartPhoneUI',
             fill : 0xCAF2FF,
@@ -27,6 +33,11 @@ export default class Game{
             dropShadowBlur : 10,
             dropShadowColor : '#00A3D5',
             dropShadowDistance : 0,
+        }
+        this.fontStyle_SmartPhoneUI_White = {
+            fontFamily : 'SmartPhoneUI',
+            fill : 0xFFFFFF,
+            align : 'left'
         }
         this.init();
     }

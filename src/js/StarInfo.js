@@ -5,12 +5,12 @@ import { DropShadowFilter } from '@pixi/filter-drop-shadow';
 export default class StarInfo{
     constructor(app){
         this.app = app;
-        this.studentId = "";
+        this.studentId = "18aw0102";
 
         this.starInfoBox = new PIXI.Container();
         this.backgroundBox = new PIXI.Container();
         this.starBox = new PIXI.Container();
-        this.workBox = new PIXI.Container();
+        this.worksBox = new PIXI.Container();
         this.tagBox = new PIXI.Container();
         this.buttonBox = new PIXI.Container();
 
@@ -21,7 +21,13 @@ export default class StarInfo{
         this.starBox.y = document.documentElement.clientHeight / 2;
         this.starBox.scale.set(0.8);
 
-        this.starInfoBox.addChild(this.backgroundBox , this.starBox , this.workBox , this.tagBox , this.buttonBox);
+        this.worksBox.x = document.documentElement.clientWidth * 0.75;
+        this.worksBox.y = document.documentElement.clientHeight / 2;
+
+        this.tagBox.x = document.documentElement.clientWidth * 0.75;
+        this.tagBox.y = document.documentElement.clientHeight / 2;
+
+        this.starInfoBox.addChild(this.backgroundBox , this.starBox , this.worksBox , this.tagBox , this.buttonBox);
         this.createBackground();
         this.createSun();
         this.createPlanet_Plan();
@@ -29,6 +35,8 @@ export default class StarInfo{
         this.createPlanet_Coding();
         this.createPlanet_Presentation();
         this.createName();
+        this.createWorks();
+        this.createTags();
         this.createBackButton();
     }
 
@@ -59,7 +67,15 @@ export default class StarInfo{
         this.planetPlanPosition = Math.PI * 2 * Math.random();
         this.planetPlanOrbitalSpeed = 0.005;
         this.planetPlanOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 200);
-        this.planetPlan = new PIXI.Sprite(this.app.loader.resources['planet_plan'].texture);
+        let planet_Plan_list = []
+        let self = this;
+        for(let i = 0 ; i < 10 ; i++){
+            planet_Plan_list[i] = new PIXI.Texture(this.app.loader.resources['planet_plan'].texture);
+            planet_Plan_list[i].frame = new PIXI.Rectangle(i * 200 , 0 , 200 , 200);
+        }
+        this.planetPlan = new PIXI.AnimatedSprite(planet_Plan_list);
+        this.planetPlan.animationSpeed = 0.2;
+        this.planetPlan.rotation = Math.PI * 2 / 8;
         this.planetPlan.anchor.set(0.5);
         this.planetPlan.scale.set(0.4);
         this.planetPlan.x = Math.cos(this.planetPlanPosition) * 200;
@@ -111,6 +127,45 @@ export default class StarInfo{
         this.starBox.addChild(this.studentName);
     }
 
+    createWorks(){
+        this.worksBg = new PIXI.Graphics();
+        this.worksBg.lineStyle(2, 0xcaf2ff, 2);
+        this.worksBg.beginFill(0xcaf2ff, 0.2);
+        this.worksBg.drawRoundedRect(0 , 0 , 700 , 150, 8);
+        this.worksBg.endFill();
+        this.worksBg.x = -500;
+        this.worksBg.y = -250;
+
+        this.worksTitle = new PIXI.Text('作品：', game.fontStyle_KaisoNext);
+        this.worksTitle.style.fontSize = 32;
+        this.worksTitle.x = this.worksBg.x;
+        this.worksTitle.y = this.worksBg.y - 50;
+
+        this.worksText = new PIXI.Text('', game.fontStyle_SmartPhoneUI_White);
+        this.worksText.style.fontSize = 30;
+        this.worksText.style.lineHeight = 55;
+        this.worksText.x = this.worksBg.x + 25;
+        this.worksText.y = this.worksBg.y + 30;
+
+        this.worksBox.addChild(this.worksTitle , this.worksBg , this.worksText);
+    }
+
+    createTags(){
+        this.tagsBg = new PIXI.Graphics();
+        this.tagsBg.lineStyle(2, 0xcaf2ff, 2);
+        this.tagsBg.beginFill(0xcaf2ff, 0.2);
+        this.tagsBg.drawRoundedRect(0 , 0 , 700 , 300, 8);
+        this.tagsBg.endFill();
+        this.tagsBg.x = -500;
+
+        this.tagsTitle = new PIXI.Text('構成物質：', game.fontStyle_KaisoNext);
+        this.tagsTitle.style.fontSize = 32;
+        this.tagsTitle.x = this.tagsBg.x;
+        this.tagsTitle.y = this.tagsBg.y - 50;
+
+        this.tagBox.addChild(this.tagsBg , this.tagsTitle);
+    }
+
     createBackButton(){
         this.title = new PIXI.Sprite(this.app.loader.resources['title_info'].texture);
         this.title.scale.set(0.8);
@@ -132,12 +187,21 @@ export default class StarInfo{
 
     enter(){
         this.studentName.text = "ヤング ジャクリン サウミン"
+        this.worksText.text = '';
+        for(let i in GROUPS.students[this.studentId].groups){
+            for(let j in GROUPS.groups){
+                if(GROUPS.students[this.studentId].groups[i] == GROUPS.groups[j].groupName && GROUPS.groups[j].groupType == 1){
+                    this.worksText.text += '「' + GROUPS.students[this.studentId].groups[i] + '」\n'
+                }
+            }
+        }
+        this.planetPlan.play();
     }
 
     update(){
         this.planetPlan.x = Math.cos(this.planetPlanPosition -= this.planetPlanOrbitalSpeed) * 200;
         this.planetPlan.y = Math.sin(this.planetPlanPosition -= this.planetPlanOrbitalSpeed) * 200;
-        this.planetPlan.rotation -= 0.01;
+        // this.planetPlan.rotation -= 0.01;
 
         this.planetDesign.x = Math.cos(this.planetDesignPosition -= this.planetDesignOrbitalSpeed) * 250;
         this.planetDesign.y = Math.sin(this.planetDesignPosition -= this.planetDesignOrbitalSpeed) * 250;

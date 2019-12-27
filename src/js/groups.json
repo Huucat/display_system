@@ -1,7 +1,8 @@
 {
     "groups": [
         {
-            "groupName" : "group_1",
+            "groupName" : "告知・営業・DTP",
+            "groupType": 0,
             "members" : [
                 {"id" : "18aw0101" , "xy" : [280 , -250]},
                 {"id" : "18aw0102" , "xy" : [140 , -340]},
@@ -14,7 +15,8 @@
             ]
         },
         {
-            "groupName" : "group_1",
+            "groupName" : "グラフィックチーム",
+            "groupType": 0,
             "members" : [
                 {"id" : "18aw0101" , "xy" : [280 , -250]},
                 {"id" : "18aw0102" , "xy" : [140 , -340]},
@@ -27,7 +29,8 @@
             ]
         },
         {
-            "groupName" : "group_1",
+            "groupName" : "卒業制作_個人",
+            "groupType": 1,
             "members" : [
                 {"id" : "18aw0101" , "xy" : [280 , -250]},
                 {"id" : "18aw0102" , "xy" : [140 , -340]},
@@ -40,7 +43,8 @@
             ]
         },
         {
-            "groupName" : "group_1",
+            "groupName" : "卒業制作_教育プログラミング",
+            "groupType": 1,
             "members" : [
                 {"id" : "18aw0101" , "xy" : [280 , -250]},
                 {"id" : "18aw0102" , "xy" : [140 , -340]},
@@ -53,7 +57,8 @@
             ]
         },
         {
-            "groupName" : "group_1",
+            "groupName" : "沖縄ITスペシャリスト育成プログラム",
+            "groupType": 1,
             "members" : [
                 {"id" : "18aw0101" , "xy" : [280 , -250]},
                 {"id" : "18aw0102" , "xy" : [140 , -340]},
