@@ -224,7 +224,10 @@
             "name" : "浅田幸樹",
             "groups" : [ "告知・営業・DTP", "グラフィックチーム", "卒業制作_個人"],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -234,7 +237,10 @@
             "name" : "旭和佳",
             "groups" : [ "エンジニア", "セミナーチーム", "卒業制作_教育プログラミング", "沖縄ITスペシャリスト育成プログラム" ],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}

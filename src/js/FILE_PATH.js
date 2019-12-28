@@ -42,6 +42,13 @@ const FILE_PATH = {
         {"name" : "target_in" , "url" : require("@/assets/target_in.png")},
         {"name" : "target_out" , "url" : require("@/assets/target_out.png")},
 
+        {"name" : "tag_others_01" , "url" : require("@/assets/tag_others_01.png")},
+        {"name" : "tag_others_02" , "url" : require("@/assets/tag_others_02.png")},
+        {"name" : "tag_others_03" , "url" : require("@/assets/tag_others_03.png")},
+        {"name" : "tag_own_01" , "url" : require("@/assets/tag_own_01.png")},
+        {"name" : "tag_own_02" , "url" : require("@/assets/tag_own_02.png")},
+        {"name" : "tag_own_03" , "url" : require("@/assets/tag_own_03.png")},
+
         {"name" : "title_info" , "url" : require("@/assets/title_info.png")},
         {"name" : "title_link" , "url" : require("@/assets/title_link.png")},
         {"name" : "title_recommend" , "url" : require("@/assets/title_recommend.png")},

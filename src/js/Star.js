@@ -59,7 +59,6 @@ export default class Star {
         this.planetPlanOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 200);
 
         let planet_Plan_list = []
-        let self = this;
         for(let i = 0 ; i < 10 ; i++){
             planet_Plan_list[i] = new PIXI.Texture(this.app.loader.resources['planet_plan'].texture);
             planet_Plan_list[i].frame = new PIXI.Rectangle(i * 200 , 0 , 200 , 200);
@@ -77,8 +76,16 @@ export default class Star {
     createPlanet_Design(){
         this.planetDesignPosition = Math.PI * 2 * Math.random();
         this.planetDesignOrbitalSpeed = 0.002;
+
         this.planetDesignOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 250);
-        this.planetDesign = new PIXI.Sprite(this.app.loader.resources['planet_design'].texture);
+
+        let planet_Design_list = []
+        for(let i = 0 ; i < 7 ; i++){
+            planet_Design_list[i] = new PIXI.Texture(this.app.loader.resources['planet_design'].texture);
+            planet_Design_list[i].frame = new PIXI.Rectangle(i * 200 , 0 , 200 , 200);
+        }
+        this.planetDesign = new PIXI.AnimatedSprite(planet_Design_list);
+        this.planetDesign.animationSpeed = 0.1;
         this.planetDesign.anchor.set(0.5);
         this.planetDesign.scale.set(0.4);
         this.planetDesign.x = Math.cos(this.planetDesignPosition) * 250;
@@ -235,6 +242,7 @@ export default class Star {
         this.studentName.text = "ヤング ジャクリン サウミン";
         // GROUPS.students[this.studentId].name
         this.planetPlan.play();
+        this.planetDesign.play();
     }
 
     update(){
@@ -244,7 +252,7 @@ export default class Star {
 
         this.planetDesign.x = Math.cos(this.planetDesignPosition -= this.planetDesignOrbitalSpeed) * 250;
         this.planetDesign.y = Math.sin(this.planetDesignPosition -= this.planetDesignOrbitalSpeed) * 250;
-        this.planetDesign.rotation += 0.005;
+        // this.planetDesign.rotation += 0.005;
 
         this.planetCoding.x = Math.cos(this.planetCodingPosition -= this.planetCodingOrbitalSpeed) * 300;
         this.planetCoding.y = Math.sin(this.planetCodingPosition -= this.planetCodingOrbitalSpeed) * 300;

@@ -28,6 +28,7 @@ export default class StarInfo{
         this.tagBox.y = document.documentElement.clientHeight / 2;
 
         this.starInfoBox.addChild(this.backgroundBox , this.starBox , this.worksBox , this.tagBox , this.buttonBox);
+
         this.createBackground();
         this.createSun();
         this.createPlanet_Plan();
@@ -66,9 +67,10 @@ export default class StarInfo{
     createPlanet_Plan(){
         this.planetPlanPosition = Math.PI * 2 * Math.random();
         this.planetPlanOrbitalSpeed = 0.005;
+
         this.planetPlanOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 200);
+
         let planet_Plan_list = []
-        let self = this;
         for(let i = 0 ; i < 10 ; i++){
             planet_Plan_list[i] = new PIXI.Texture(this.app.loader.resources['planet_plan'].texture);
             planet_Plan_list[i].frame = new PIXI.Rectangle(i * 200 , 0 , 200 , 200);
@@ -86,8 +88,16 @@ export default class StarInfo{
     createPlanet_Design(){
         this.planetDesignPosition = Math.PI * 2 * Math.random();
         this.planetDesignOrbitalSpeed = 0.002;
+
         this.planetDesignOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 250);
-        this.planetDesign = new PIXI.Sprite(this.app.loader.resources['planet_design'].texture);
+
+        let planet_Design_list = []
+        for(let i = 0 ; i < 7 ; i++){
+            planet_Design_list[i] = new PIXI.Texture(this.app.loader.resources['planet_design'].texture);
+            planet_Design_list[i].frame = new PIXI.Rectangle(i * 200 , 0 , 200 , 200);
+        }
+        this.planetDesign = new PIXI.AnimatedSprite(planet_Design_list);
+        this.planetDesign.animationSpeed = 0.1;
         this.planetDesign.anchor.set(0.5);
         this.planetDesign.scale.set(0.4);
         this.planetDesign.x = Math.cos(this.planetDesignPosition) * 250;
@@ -163,7 +173,79 @@ export default class StarInfo{
         this.tagsTitle.x = this.tagsBg.x;
         this.tagsTitle.y = this.tagsBg.y - 50;
 
-        this.tagBox.addChild(this.tagsBg , this.tagsTitle);
+        this.tagBox_1 = new PIXI.Container();
+        this.tagBox_1.x = this.tagsBg.x + 25;
+        this.tagBox_1.y = this.tagsBg.y + 25;
+        this.tagBox.addChild(this.tagsBg , this.tagsTitle , this.tagBox_1);
+    }
+
+    addtag(){
+        let nowHeight = 0;
+        let nowWidth = 0;
+        let allWidth = 650;
+        let tag_list = [];
+        for (let i in GROUPS.students[this.studentId].tags.own) {
+            tag_list[i] = new PIXI.Container();
+            let tag_1 = new PIXI.Sprite(this.app.loader.resources['tag_own_01'].texture);
+            let tag_2 = new PIXI.Sprite(this.app.loader.resources['tag_own_02'].texture);
+            let tag_3 = new PIXI.Sprite(this.app.loader.resources['tag_own_03'].texture);
+            let tagText = new PIXI.Text(GROUPS.students[this.studentId].tags.own[i], game.fontStyle_SmartPhoneUI_White);
+
+            tagText.style.fill = 0x4A6C76;
+
+            tag_2.x = tag_1.width;
+            tag_2.width = tagText.width + 4;
+            tagText.x = tag_2.x + 2;
+            tagText.y = 10;
+            tag_3.x = tag_2.x + tag_2.width;
+            tag_list[i].addChild(tag_1 , tag_2 , tag_3 , tagText);
+
+            if(nowWidth + tag_list[i].width + 20 <= allWidth){
+                tag_list[i].x = nowWidth;
+                tag_list[i].y = nowHeight;
+            }else{
+                nowHeight += 70;
+                nowWidth = 0;
+                tag_list[i].x = nowWidth;
+                tag_list[i].y = nowHeight;
+            }
+            nowWidth += tag_list[i].width + 20;
+            this.tagBox_1.addChild(tag_list[i]);
+        }
+
+        nowWidth = 0;
+        nowHeight += 70;
+        tag_list = [];
+
+        for (let i in GROUPS.students[this.studentId].tags.others) {
+            tag_list[i] = new PIXI.Container();
+            let tag_1 = new PIXI.Sprite(this.app.loader.resources['tag_others_01'].texture);
+            let tag_2 = new PIXI.Sprite(this.app.loader.resources['tag_others_02'].texture);
+            let tag_3 = new PIXI.Sprite(this.app.loader.resources['tag_others_03'].texture);
+            let tagText = new PIXI.Text(GROUPS.students[this.studentId].tags.others[i], game.fontStyle_SmartPhoneUI_White);
+            
+            tagText.style.fill = 0xFFFFFF;
+
+            tag_2.x = tag_1.width;
+            tag_2.width = tagText.width + 4;
+            tagText.x = tag_2.x + 2;
+            tagText.y = 10;
+            tag_3.x = tag_2.x + tag_2.width;
+            tag_list[i].addChild(tag_1 , tag_2 , tag_3 , tagText);
+
+            if(nowWidth + tag_list[i].width + 20 <= allWidth){
+                tag_list[i].x = nowWidth;
+                tag_list[i].y = nowHeight;
+            }else{
+                nowHeight += 70;
+                nowWidth = 0;
+                tag_list[i].x = nowWidth;
+                tag_list[i].y = nowHeight;
+            }
+            nowWidth += tag_list[i].width + 20;
+            this.tagBox_1.addChild(tag_list[i]);
+        }
+
     }
 
     createBackButton(){
@@ -196,6 +278,9 @@ export default class StarInfo{
             }
         }
         this.planetPlan.play();
+        this.planetDesign.play();
+        this.tagBox_1.removeChildren();
+        this.addtag();
     }
 
     update(){
@@ -205,7 +290,7 @@ export default class StarInfo{
 
         this.planetDesign.x = Math.cos(this.planetDesignPosition -= this.planetDesignOrbitalSpeed) * 250;
         this.planetDesign.y = Math.sin(this.planetDesignPosition -= this.planetDesignOrbitalSpeed) * 250;
-        this.planetDesign.rotation += 0.005;
+        // this.planetDesign.rotation += 0.005;
 
         this.planetCoding.x = Math.cos(this.planetCodingPosition -= this.planetCodingOrbitalSpeed) * 300;
         this.planetCoding.y = Math.sin(this.planetCodingPosition -= this.planetCodingOrbitalSpeed) * 300;
