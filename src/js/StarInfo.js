@@ -12,6 +12,7 @@ export default class StarInfo{
         this.starBox = new PIXI.Container();
         this.worksBox = new PIXI.Container();
         this.tagBox = new PIXI.Container();
+        this.scrollBarBox = new PIXI.Container();
         this.buttonBox = new PIXI.Container();
 
         this.backgroundBox.x = document.documentElement.clientWidth / 2;
@@ -38,6 +39,8 @@ export default class StarInfo{
         this.createName();
         this.createWorks();
         this.createTags();
+        this.createScrollBar();
+        this.createMask();
         this.createBackButton();
     }
 
@@ -179,6 +182,60 @@ export default class StarInfo{
         this.tagBox.addChild(this.tagsBg , this.tagsTitle , this.tagBox_1);
     }
 
+    createScrollBar(){
+        this.scrollBarBox.position.set(180 , 10);
+        this.tagBox.addChild(this.scrollBarBox);
+        
+        var self = this;
+        this.scrollBar = new PIXI.Graphics();
+        this.scrollBar.beginFill(0xcaf2ff);
+        this.scrollBar.drawRoundedRect(0 , 0 , 8 , 280, 4);
+        this.scrollBar.endFill();
+        this.scrollBar.visible = false;
+        this.scrollBar.moving = false;
+        this.scrollBar.pointY = 0;
+        this.scrollBar.interactive = true;
+        this.scrollBar.on('pointerdown', function(){self.moveStart(this)})
+            .on('pointerupoutside', function(){self.moveEnd(this)})
+            .on('pointerup', function(){self.moveEnd(this)})
+            .on('pointermove', function(){self.onMove(this)});
+        this.scrollBarBox.addChild(this.scrollBar);
+    }
+
+    moveStart(_this){
+        _this.pointY = this.app.renderer.plugins.interaction.mouse.global.y - (document.documentElement.clientHeight / 2) - _this.y;
+        _this.moving = true;
+        console.log(_this.pointY);
+    }
+
+    moveEnd(_this){
+        _this.moving = false;
+    }
+
+    onMove(_this){
+        if(_this.moving == true){
+            let newPosition = this.app.renderer.plugins.interaction.mouse.global.y;
+            _this.y = (newPosition - document.documentElement.clientHeight / 2) - _this.pointY;
+            if(_this.y < 0){
+                _this.y = 0
+            }else if(_this.y > 280 - _this.height){
+                _this.y = 280 - _this.height
+            }
+            this.tagBox_1.y = 25 + (-this.tagBox_1.height - 25) * (_this.y / (280 - _this.height)) + 280 * (_this.y / (280 - _this.height));
+        }
+    }
+
+    createMask(){
+        this.maskBox = new PIXI.Graphics();
+        this.maskBox.beginFill(0xFF0000);
+        this.maskBox.drawRect(0, 0, 700, 296);
+        this.maskBox.endFill();
+        this.maskBox.x = this.tagsBg.x
+        this.maskBox.y = this.tagsBg.y + 2;
+        this.tagBox.addChild(this.maskBox);
+        this.tagBox_1.mask = this.maskBox;
+    }
+
     addtag(){
         let nowHeight = 0;
         let nowWidth = 0;
@@ -196,7 +253,7 @@ export default class StarInfo{
             tag_2.x = tag_1.width;
             tag_2.width = tagText.width + 4;
             tagText.x = tag_2.x + 2;
-            tagText.y = 10;
+            tagText.y = 10; 
             tag_3.x = tag_2.x + tag_2.width;
             tag_list[i].addChild(tag_1 , tag_2 , tag_3 , tagText);
 
@@ -237,7 +294,7 @@ export default class StarInfo{
                 tag_list[i].x = nowWidth;
                 tag_list[i].y = nowHeight;
             }else{
-                nowHeight += 70;
+                nowHeight += 70; 
                 nowWidth = 0;
                 tag_list[i].x = nowWidth;
                 tag_list[i].y = nowHeight;
@@ -267,6 +324,15 @@ export default class StarInfo{
         this.studentId = studentId;
     }
 
+    setScrollBar(){
+        if(this.tagBox_1.height > 280){
+            this.scrollBar.visible = true;
+            this.scrollBar.height = 280 * (280 / this.tagBox_1.height)
+        }else{
+            this.scrollBar.visible = false;
+        }
+    }
+
     enter(){
         this.studentName.text = "ヤング ジャクリン サウミン"
         this.worksText.text = '';
@@ -281,6 +347,7 @@ export default class StarInfo{
         this.planetDesign.play();
         this.tagBox_1.removeChildren();
         this.addtag();
+        this.setScrollBar();
     }
 
     update(){
