@@ -99,8 +99,16 @@ export default class StarInfo{
     createPlanet_Coding(){
         this.planetCodingPosition = Math.PI * 2 * Math.random();
         this.planetCodingOrbitalSpeed = 0.0008;
+
         this.planetCodingOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 300);
-        this.planetCoding = new PIXI.Sprite(this.app.loader.resources['planet_coding'].texture);
+
+        let planet_Coding_list = [];
+        for(let i = 0 ; i < 13 ; i++){
+            planet_Coding_list[i] = new PIXI.Texture(this.app.loader.resources['planet_coding'].texture);
+            planet_Coding_list[i].frame = new PIXI.Rectangle(i * 200 , 0 , 200 , 200);
+        }
+        this.planetCoding = new PIXI.AnimatedSprite(planet_Coding_list);
+        this.planetCoding.animationSpeed = 0.1;
         this.planetCoding.anchor.set(0.5);
         this.planetCoding.scale.set(0.4);
         this.planetCoding.x = Math.cos(this.planetCodingPosition) * 300;
@@ -111,8 +119,16 @@ export default class StarInfo{
     createPlanet_Presentation(){
         this.planetPresentationPosition = Math.PI * 2 * Math.random();
         this.planetPresentationOrbitalSpeed = 0.0005;
+
         this.planetPresentationOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 350);
-        this.planetPresentation = new PIXI.Sprite(this.app.loader.resources['planet_presentation'].texture);
+
+        let planet_Presentation_list = [];
+        for(let i = 0 ; i < 11 ; i++){
+            planet_Presentation_list[i] = new PIXI.Texture(this.app.loader.resources['planet_presentation'].texture);
+            planet_Presentation_list[i].frame = new PIXI.Rectangle(i * 200 , 0 , 200 , 200);
+        }
+        this.planetPresentation = new PIXI.AnimatedSprite(planet_Presentation_list);
+        this.planetPresentation.animationSpeed = 0.1;
         this.planetPresentation.anchor.set(0.5);
         this.planetPresentation.scale.set(0.4);
         this.planetPresentation.x = Math.cos(this.planetPresentationPosition) * 350;
@@ -316,7 +332,8 @@ export default class StarInfo{
     setScrollBar(){
         if(this.tagBox_1.height > 280){
             this.scrollBar.visible = true;
-            this.scrollBar.height = 280 * (280 / this.tagBox_1.height)
+            this.scrollBar.height = 280 * (280 / this.tagBox_1.height);
+            this.scrollBar.y = 0;
         }else{
             this.scrollBar.visible = false;
         }
@@ -378,9 +395,12 @@ export default class StarInfo{
         this.setSunColor();
         this.planetPlan.play();
         this.planetDesign.play();
+        this.planetCoding.play();
+        this.planetPresentation.play();
         this.tagBox_1.removeChildren();
         this.addtag();
         this.setScrollBar();
+        this.tagBox_1.y = this.tagsBg.y + 25;
     }
 
     update(){
@@ -394,10 +414,10 @@ export default class StarInfo{
 
         this.planetCoding.x = Math.cos(this.planetCodingPosition -= this.planetCodingOrbitalSpeed) * 300;
         this.planetCoding.y = Math.sin(this.planetCodingPosition -= this.planetCodingOrbitalSpeed) * 300;
-        this.planetCoding.rotation -= 0.03;
+        // this.planetCoding.rotation -= 0.03;
 
         this.planetPresentation.x = Math.cos(this.planetPresentationPosition -= this.planetPresentationOrbitalSpeed) * 350;
         this.planetPresentation.y = Math.sin(this.planetPresentationPosition -= this.planetPresentationOrbitalSpeed) * 350;
-        this.planetPresentation.rotation -= 0.2;
+        // this.planetPresentation.rotation -= 0.2;
     }
 }
