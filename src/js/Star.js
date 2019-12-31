@@ -31,24 +31,13 @@ export default class Star {
     createBackground(){
         this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_01'].texture);
         this.spaceBg.anchor.set(0.5);
+        this.spaceBg.scale.set(0.7);
+        this.spaceBg.rotation = Math.PI * Math.random() * 2;
         this.planetBox.addChild(this.spaceBg);
     }
 
-
     createSun(){
         this.sun = new PIXI.Graphics();
-        this.sun.beginFill(0xCAF2FF, 1);
-        this.sun.drawCircle(0, 0, 50);
-        this.sun.endFill();
-        this.sunShadowFilter = new DropShadowFilter();
-        this.sunShadowFilter.alpha = 1;
-        this.sunShadowFilter.blur = 50;
-        this.sunShadowFilter.distance = 0;
-        this.sunShadowFilter.quality = 8;
-        this.sunShadowFilter.pixelSize = 0.6;
-        this.sunShadowFilter.color = 0xCAF2FF;
-        this.sun.filters = [this.sunShadowFilter];
-
         this.planetBox.addChild(this.sun);
     }
 
@@ -204,7 +193,7 @@ export default class Star {
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_starinfo_off'].texture
         }).on('pointerdown', function(){
-            game.Manager.enter(4);
+            self.toStarInfo();
         });
 
         this.buttonLink = new PIXI.Sprite(this.app.loader.resources['button_link_off'].texture);
@@ -238,9 +227,58 @@ export default class Star {
         this.studentId = studentId;
     }
 
+    setSunColor(){
+        this.sun.filters = [];
+        this.sun.clear();
+
+        let sunShadowFilter = new DropShadowFilter();
+        sunShadowFilter.alpha = 1;
+        sunShadowFilter.blur = 50;
+        sunShadowFilter.distance = 0;
+        sunShadowFilter.quality = 8;
+        sunShadowFilter.pixelSize = 0.6;
+
+        switch(GROUPS.students[this.studentId].color){
+            case "star_plan":
+                this.sun.beginFill(0xFFF390, 1);
+                this.sun.drawCircle(0, 0, 50);
+                this.sun.endFill();
+                sunShadowFilter.color = 0xFFF390;
+                this.sun.filters = [sunShadowFilter];
+            break;
+            case "star_design":
+                this.sun.beginFill(0xFF99FF, 1);
+                this.sun.drawCircle(0, 0, 50);
+                this.sun.endFill();
+                sunShadowFilter.color = 0xFF99FF;
+                this.sun.filters = [sunShadowFilter];
+            break;
+            case "star_coding":
+                this.sun.beginFill(0x99CCFF, 1);
+                this.sun.drawCircle(0, 0, 50);
+                this.sun.endFill();
+                sunShadowFilter.color = 0x99CCFF;
+                this.sun.filters = [sunShadowFilter];
+            break;
+            case "star_presentation":
+                this.sun.beginFill(0xAAFFAA, 1);
+                this.sun.drawCircle(0, 0, 50);
+                this.sun.endFill();
+                sunShadowFilter.color = 0xAAFFAA;
+                this.sun.filters = [sunShadowFilter];
+            break;
+        }
+    }
+
+    toStarInfo(){
+        game.starInfo.setStudentId(this.studentId);
+        game.Manager.enter(4);
+    }
+
     enter(){
-        this.studentName.text = "ヤング ジャクリン サウミン";
-        // GROUPS.students[this.studentId].name
+        console.log(this.studentId);
+        this.studentName.text = GROUPS.students[this.studentId].name;
+        this.setSunColor();
         this.planetPlan.play();
         this.planetDesign.play();
     }

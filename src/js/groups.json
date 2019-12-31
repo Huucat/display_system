@@ -250,7 +250,10 @@
             "name" : "安藤愛菜",
             "groups" : [ "デザイナー", "Hotpageチーム", "メンテナンスチーム", "卒業制作_おもてなしデザイン", "沖縄ITスペシャリスト育成プログラム"],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -260,7 +263,10 @@
             "name" : "井原蒼尉",
             "groups" : [ "デザイナー", "Hotpageチーム", "卒業制作_個人"],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -270,7 +276,10 @@
             "name" : "及川舜平",
             "groups" : [ "エンジニア", "グラフィックチーム", "卒業制作_個人"],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -280,7 +289,10 @@
             "name" : "大場吉樹",
             "groups" : [ "デザイナー" , "メンテナンスチーム", "卒業制作_個人"],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -290,7 +302,10 @@
             "name" : "小原りょう",
             "groups" : [ "告知・営業・DTP", "メンテナンスチーム", "卒業制作_個人"],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 5 , "coding" : 5, "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -300,7 +315,10 @@
             "name" : "川浪 涼葉",
             "groups" : [ "デザイナー" , "グラフィックチーム", "Hotpageチーム", "卒業制作_評価システム", "若年者ものづくり大会・技能五輪全国大会"],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -310,7 +328,10 @@
             "name" : "青山祐依",
             "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_SAGOJO", "善通寺", "日専祭サイト制作" ],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 0 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 0 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -320,7 +341,10 @@
             "name" : "阿部ゆい",
             "groups" : [ "デザイナー" ,"イベントチーム" ,"進級制作_キッズコレッチオ" ,"日専祭サイト制作"],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 0 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 0 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -330,7 +354,10 @@
             "name" : "雨宮真衣",
             "groups" : [ "デザイナー", "イベントチーム", "進級制作_キッズコレッチオ", "日専祭サイト制作" ],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 0 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 0 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -340,7 +367,10 @@
             "name" : "今井大輝",
             "groups" : [ "エンジニア", "グラフィックチーム", "進級制作_グラビス"],
             "color" : "",
-            "tags" : ["tag" , "tag" , "tag"],
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"],
+                "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+            },
             "comments" : [
                 {"groupName" : "group_1" , "design" : 0 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 0 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
@@ -349,19 +379,26 @@
         "19aw0105" : {
             "name" : "xxxx",
             "groups" : [ "group_1" ],
-            "color" : ""
+            "color" : "",
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"]
+            }
         },
         "19aw0106" : {
             "name" : "xxxx",
             "groups" : [ "group_1" ],
-            "color" : ""
-
+            "color" : "",
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"]
+            }
         },
         "19aw0107" : {
             "name" : "xxxx",
             "groups" : [ "group_1" ],
-            "color" : ""
-
+            "color" : "",
+            "tags" : {
+                "own" : ["冷静" , "新しいもの好き"]
+            }
         }
     }
 }

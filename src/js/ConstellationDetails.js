@@ -37,6 +37,7 @@ export default class ConstellationDetails {
         let self = this;
         this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_01'].texture);
         this.spaceBg.anchor.set(0.5);
+        this.spaceBg.rotation = Math.PI * Math.random() * 2;
         this.spaceBg.interactive = true;
         this.spaceBg.on('pointerdown', function(){
             self.hideStudent();
@@ -291,6 +292,7 @@ export default class ConstellationDetails {
             this.studentTextBox.visible = true;
             this.studentText.visible = true;
             this.studentName.visible = true;
+            this.buttonObservation.off('pointerdown');
             this.buttonObservation.on('pointerdown', function(){
                 self.toStar(studentId);
             })
@@ -343,8 +345,8 @@ export default class ConstellationDetails {
         game.Manager.enter(1);
     }
 
-    toStar(setStudentId){
-        game.star.setStudentId(setStudentId);
+    toStar(studentId){
+        game.star.studentId = studentId;
         game.Manager.enter(3);
     }
 

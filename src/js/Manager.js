@@ -16,7 +16,7 @@ export default class Manager{
         this.enter(this.managerNum , app);
     }
     
-    enter(number , app){
+    enter(number){
         this.managerNum = number;
         game.space.spaceBox.visible = false;
         game.constellationDetails.detailsBox.visible = false;

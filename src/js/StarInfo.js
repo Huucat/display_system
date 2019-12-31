@@ -5,7 +5,7 @@ import { DropShadowFilter } from '@pixi/filter-drop-shadow';
 export default class StarInfo{
     constructor(app){
         this.app = app;
-        this.studentId = "18aw0102";
+        this.studentId = "";
 
         this.starInfoBox = new PIXI.Container();
         this.backgroundBox = new PIXI.Container();
@@ -52,18 +52,6 @@ export default class StarInfo{
 
     createSun(){
         this.sun = new PIXI.Graphics();
-        this.sun.beginFill(0xCAF2FF, 1);
-        this.sun.drawCircle(0, 0, 50);
-        this.sun.endFill();
-        this.sunShadowFilter = new DropShadowFilter();
-        this.sunShadowFilter.alpha = 1;
-        this.sunShadowFilter.blur = 50;
-        this.sunShadowFilter.distance = 0;
-        this.sunShadowFilter.quality = 8;
-        this.sunShadowFilter.pixelSize = 0.6;
-        this.sunShadowFilter.color = 0xCAF2FF;
-        this.sun.filters = [this.sunShadowFilter];
-
         this.starBox.addChild(this.sun);
     }
 
@@ -274,35 +262,36 @@ export default class StarInfo{
         nowHeight += 70;
         tag_list = [];
 
-        for (let i in GROUPS.students[this.studentId].tags.others) {
-            tag_list[i] = new PIXI.Container();
-            let tag_1 = new PIXI.Sprite(this.app.loader.resources['tag_others_01'].texture);
-            let tag_2 = new PIXI.Sprite(this.app.loader.resources['tag_others_02'].texture);
-            let tag_3 = new PIXI.Sprite(this.app.loader.resources['tag_others_03'].texture);
-            let tagText = new PIXI.Text(GROUPS.students[this.studentId].tags.others[i], game.fontStyle_SmartPhoneUI_White);
-            
-            tagText.style.fill = 0xFFFFFF;
-
-            tag_2.x = tag_1.width;
-            tag_2.width = tagText.width + 4;
-            tagText.x = tag_2.x + 2;
-            tagText.y = 10;
-            tag_3.x = tag_2.x + tag_2.width;
-            tag_list[i].addChild(tag_1 , tag_2 , tag_3 , tagText);
-
-            if(nowWidth + tag_list[i].width + 20 <= allWidth){
-                tag_list[i].x = nowWidth;
-                tag_list[i].y = nowHeight;
-            }else{
-                nowHeight += 70; 
-                nowWidth = 0;
-                tag_list[i].x = nowWidth;
-                tag_list[i].y = nowHeight;
+        if(GROUPS.students[this.studentId].tags.others){
+            for (let i in GROUPS.students[this.studentId].tags.others){
+                tag_list[i] = new PIXI.Container();
+                let tag_1 = new PIXI.Sprite(this.app.loader.resources['tag_others_01'].texture);
+                let tag_2 = new PIXI.Sprite(this.app.loader.resources['tag_others_02'].texture);
+                let tag_3 = new PIXI.Sprite(this.app.loader.resources['tag_others_03'].texture);
+                let tagText = new PIXI.Text(GROUPS.students[this.studentId].tags.others[i], game.fontStyle_SmartPhoneUI_White);
+                
+                tagText.style.fill = 0xFFFFFF;
+    
+                tag_2.x = tag_1.width;
+                tag_2.width = tagText.width + 4;
+                tagText.x = tag_2.x + 2;
+                tagText.y = 10;
+                tag_3.x = tag_2.x + tag_2.width;
+                tag_list[i].addChild(tag_1 , tag_2 , tag_3 , tagText);
+    
+                if(nowWidth + tag_list[i].width + 20 <= allWidth){
+                    tag_list[i].x = nowWidth;
+                    tag_list[i].y = nowHeight;
+                }else{
+                    nowHeight += 70; 
+                    nowWidth = 0;
+                    tag_list[i].x = nowWidth;
+                    tag_list[i].y = nowHeight;
+                }
+                nowWidth += tag_list[i].width + 20;
+                this.tagBox_1.addChild(tag_list[i]);
             }
-            nowWidth += tag_list[i].width + 20;
-            this.tagBox_1.addChild(tag_list[i]);
         }
-
     }
 
     createBackButton(){
@@ -333,8 +322,51 @@ export default class StarInfo{
         }
     }
 
+    setSunColor(){
+        this.sun.filters = [];
+        this.sun.clear();
+
+        let sunShadowFilter = new DropShadowFilter();
+        sunShadowFilter.alpha = 1;
+        sunShadowFilter.blur = 50;
+        sunShadowFilter.distance = 0;
+        sunShadowFilter.quality = 8;
+        sunShadowFilter.pixelSize = 0.6;
+        
+        switch(GROUPS.students[this.studentId].color){
+            case "star_plan":
+                this.sun.beginFill(0xFFF390, 1);
+                this.sun.drawCircle(0, 0, 50);
+                this.sun.endFill();
+                sunShadowFilter.color = 0xFFF390;
+                this.sun.filters = [sunShadowFilter];
+            break;
+            case "star_design":
+                this.sun.beginFill(0xFF99FF, 1);
+                this.sun.drawCircle(0, 0, 50);
+                this.sun.endFill();
+                sunShadowFilter.color = 0xFF99FF;
+                this.sun.filters = [sunShadowFilter];
+            break;
+            case "star_coding":
+                this.sun.beginFill(0x99CCFF, 1);
+                this.sun.drawCircle(0, 0, 50);
+                this.sun.endFill();
+                sunShadowFilter.color = 0x99CCFF;
+                this.sun.filters = [sunShadowFilter];
+            break;
+            case "star_presentation":
+                this.sun.beginFill(0xAAFFAA, 1);
+                this.sun.drawCircle(0, 0, 50);
+                this.sun.endFill();
+                sunShadowFilter.color = 0xAAFFAA;
+                this.sun.filters = [sunShadowFilter];
+            break;
+        }
+    }
+
     enter(){
-        this.studentName.text = "ヤング ジャクリン サウミン"
+        this.studentName.text = GROUPS.students[this.studentId].name;
         this.worksText.text = '';
         for(let i in GROUPS.students[this.studentId].groups){
             for(let j in GROUPS.groups){
@@ -343,6 +375,7 @@ export default class StarInfo{
                 }
             }
         }
+        this.setSunColor();
         this.planetPlan.play();
         this.planetDesign.play();
         this.tagBox_1.removeChildren();
