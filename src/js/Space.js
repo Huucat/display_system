@@ -47,7 +47,7 @@ export default class Space {
 
     createConstellation(){
         let num = GROUPS.groups.length;
-        for (let i = 0; i < num; i++) {
+        for (let i in GROUPS.groups) {
             this.constellation[i] = new Constellation(this.app , i);
             this.constellation[i].constellationBox.x = Math.cos((Math.PI * 2 / num) * i) * 1100;
             this.constellation[i].constellationBox.y = Math.sin((Math.PI * 2 / num) * i) * 1100;

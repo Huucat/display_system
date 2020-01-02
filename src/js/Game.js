@@ -48,22 +48,6 @@ export default class Game{
         this.loadFonts();
     }
 
-    loadFonts(){
-        let self = this;
-        document.fonts.load("12px 'KaisoNext'").then(function(){
-            document.fonts.load("12px 'SmartPhoneUI'")
-        }).then(function(){
-            self.loadAssets();
-        });
-    }
-
-    loadAssets(){
-        let self = this;
-        this.app.loader.add(FILE_PATH.images).load(function(){
-            self.gameStart()
-        });
-    }
-
     setStarColor(){
         for(let i in GROUPS.students){
             let arr = {
@@ -112,6 +96,22 @@ export default class Game{
                 break;
             }
         }
+    }
+
+    loadFonts(){
+        let self = this;
+        document.fonts.load("12px 'KaisoNext'").then(function(){
+            document.fonts.load("12px 'SmartPhoneUI'")
+        }).then(function(){
+            self.loadAssets();
+        });
+    }
+
+    loadAssets(){
+        let self = this;
+        this.app.loader.add(FILE_PATH.images).load(function(){
+            self.gameStart()
+        });
     }
 
     gameStart(){

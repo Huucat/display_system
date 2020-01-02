@@ -62,7 +62,7 @@ export default class StarInfo{
         this.planetPlanOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 200);
 
         let planet_Plan_list = []
-        for(let i = 0 ; i < 10 ; i++){
+        for(let i = 0 ; i < 15 ; i++){
             planet_Plan_list[i] = new PIXI.Texture(this.app.loader.resources['planet_plan'].texture);
             planet_Plan_list[i].frame = new PIXI.Rectangle(i * 200 , 0 , 200 , 200);
         }
