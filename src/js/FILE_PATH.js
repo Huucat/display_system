@@ -17,6 +17,10 @@ const FILE_PATH = {
         {"name" : "button_recommend_on" , "url" : require("@/assets/button_recommend_on.png")},
         {"name" : "button_starinfo_off" , "url" : require("@/assets/button_starinfo_off.png")},
         {"name" : "button_starinfo_on" , "url" : require("@/assets/button_starinfo_on.png")},
+        {"name" : "button_close_off" , "url" : require("@/assets/button_close_off.png")},
+        {"name" : "button_close_on" , "url" : require("@/assets/button_close_on.png")},
+        {"name" : "button_tostar_off" , "url" : require("@/assets/button_tostar_off.png")},
+        {"name" : "button_tostar_on" , "url" : require("@/assets/button_tostar_on.png")},
 
         {"name" : "flame_left" , "url" : require("@/assets/flame_left.png")},
         {"name" : "flame_right" , "url" : require("@/assets/flame_right.png")},

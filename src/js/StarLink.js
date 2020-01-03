@@ -8,7 +8,7 @@ export default class StarLink{
         this.app = app;
         this.studentId = "";
         this.constellation = [];
-        this.mouseOn = false;
+        this.mouseOver = false;
 
         this.starLinkBox = new PIXI.Container();
         this.backgroundBox = new PIXI.Container();
@@ -101,9 +101,9 @@ export default class StarLink{
                     this.constellation[i].constellationBox.scale.set(0.30);
                     this.constellation[i].addEvent();
                     this.constellation[i].constellation.on('pointerover', function(){
-                        self.mouseOn = true;
+                        self.mouseOver = true;
                     }).on('pointerout', function(){
-                        self.mouseOn = false;
+                        self.mouseOver = false;
                     })
                     this.constellationBox.addChild(this.constellation[i].constellationBox);
                     break;
@@ -161,13 +161,13 @@ export default class StarLink{
 
     enter(){
         this.studentName.text = GROUPS.students[this.studentId].name;
-        this.mouseOn = false;
+        this.mouseOver = false;
         this.setSunColor();
         this.addConstellation();
     }
 
     update(){
-        if(this.mouseOn){
+        if(this.mouseOver){
 
         }else{
             for(let i in this.constellation){

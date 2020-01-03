@@ -3,6 +3,7 @@ import ConstellationDetails from './ConstellationDetails.js'
 import Star from './Star.js'
 import StarInfo from './StarInfo.js'
 import StarLink from './StarLink.js'
+import StarRecommend from './StarRecommend.js'
 
 export default class Manager{
     constructor(app){
@@ -13,8 +14,16 @@ export default class Manager{
         game.star = new Star(app);
         game.starInfo = new StarInfo(app);
         game.starLink = new StarLink(app);
+        game.starRecommend = new StarRecommend(app);
 
-        app.stage.addChild(game.space.spaceBox , game.constellationDetails.detailsBox , game.star.starBox , game.starInfo.starInfoBox , game.starLink.starLinkBox);
+        app.stage.addChild(
+            game.space.spaceBox,
+            game.constellationDetails.detailsBox,
+            game.star.starBox,
+            game.starInfo.starInfoBox,
+            game.starLink.starLinkBox,
+            game.starRecommend.starRecommendBox
+        );
         this.enter(this.managerNum , app);
     }
     
@@ -25,6 +34,7 @@ export default class Manager{
         game.star.starBox.visible = false;
         game.starInfo.starInfoBox.visible = false;
         game.starLink.starLinkBox.visible = false;
+        game.starRecommend.starRecommendBox.visible = false;
         switch (this.managerNum) {
             case 1:
                 game.space.spaceBox.visible = true;
@@ -45,6 +55,10 @@ export default class Manager{
                 game.starLink.starLinkBox.visible = true;
                 game.starLink.enter();
             break;
+            case 6:
+                game.starRecommend.starRecommendBox.visible = true;
+                game.starRecommend.enter();
+            break;
         }
     }
 
@@ -64,6 +78,9 @@ export default class Manager{
             break;
             case 5:
                 game.starLink.update();
+            break;
+            case 6:
+                game.starRecommend.update();
             break;
         }
         

@@ -236,6 +236,8 @@ export default class Star {
             this.texture = self.app.loader.resources['button_recommend_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_recommend_off'].texture
+        }).on('pointerdown', function(){
+            self.toStarRecommend();
         });
 
         this.messageBox.addChild(this.buttonBack , this.buttonStarInfo , this.buttonLink , this.buttonRecommend);
@@ -296,6 +298,11 @@ export default class Star {
     toStarLink(){
         game.starLink.setStudentId(this.studentId);
         game.Manager.enter(5);
+    }
+
+    toStarRecommend(){
+        game.starRecommend.setStudentId(this.studentId);
+        game.Manager.enter(6);
     }
 
     enter(){
