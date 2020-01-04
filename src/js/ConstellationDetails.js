@@ -346,6 +346,7 @@ export default class ConstellationDetails {
     }
 
     toStar(studentId){
+        game.star.beforeId = "";
         game.star.studentId = studentId;
         game.Manager.enter(3);
     }

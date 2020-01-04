@@ -7,6 +7,7 @@ export default class StarRecommend{
         this.app = app;
 
         this.studentId = "";
+        this.selectedStudentId = "";
         this.position = [
             {x : -(document.documentElement.clientWidth / 3) , y : -(document.documentElement.clientHeight / 4) + 50},
             {x : document.documentElement.clientWidth / 3 , y : -(document.documentElement.clientHeight / 4) + 50},
@@ -66,7 +67,7 @@ export default class StarRecommend{
     }
 
     createOwnName(){
-        this.ownName = new PIXI.Text('フレハス ジョシュア カイル', game.fontStyle_SmartPhoneUI_White);
+        this.ownName = new PIXI.Text('', game.fontStyle_SmartPhoneUI_White);
         this.ownName.style.fontSize = 30;
         this.ownName.style.align = "center";
         this.ownName.style.wordWrap = true;
@@ -115,13 +116,14 @@ export default class StarRecommend{
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_tostar_off'].texture
         }).on('pointerdown', function(){
-            
+            self.toStar();
         });
 
         this.buttonBox.addChild(this.buttonClose , this.buttonToStar);
     }
 
     createBackButton(){
+        let self = this;
         this.title = new PIXI.Sprite(this.app.loader.resources['title_recommend'].texture);
         this.title.scale.set(0.8);
         this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02'].texture);
@@ -131,7 +133,7 @@ export default class StarRecommend{
         this.buttonBack.interactive = true;
         this.buttonBack.buttonMode = true;
         this.buttonBack.on('pointerdown', function(){
-            game.Manager.enter(3);
+            self.back();
         });
 
         this.backButtonBox.addChild(this.title , this.buttonBack);
@@ -229,6 +231,7 @@ export default class StarRecommend{
         }
         this.othersStarBox[num].container.alpha = 1;
         this.buttonBox.visible = true;
+        this.selectedStudentId = GROUPS.students[this.studentId].recommend[num];
     }
 
     
@@ -284,7 +287,15 @@ export default class StarRecommend{
         }
     }
 
+    toStar(){
+        game.star.beforeId = this.studentId;
+        game.star.setStudentId(this.selectedStudentId);
+        game.Manager.enter(3);
+    }
+
     enter(){
+        this.selectedStudentId = "";
+        this.ownName.text = GROUPS.students[this.studentId].name;
         this.othersStarBox = [];
         this.buttonBox.visible = false;
         this.othersAllBox.removeChildren();
@@ -296,6 +307,10 @@ export default class StarRecommend{
             this.addOthersName(i);
             this.addOthersLine(i);
         }
+    }
+
+    back(){
+        game.Manager.enter(3);
     }
 
     update(){

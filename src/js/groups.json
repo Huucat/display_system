@@ -148,6 +148,7 @@
         },
         {
             "groupName" : "進級制作_SAGOJO",
+            "groupType": 1,
             "members" : [
                 {"id" : "19aw0101" , "xy" : [350 , -280]},
                 {"id" : "19aw0102" , "xy" : [325 , -90]},
@@ -333,7 +334,7 @@
                 "own" : ["冷静" , "新しいもの好き"],
                 "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
             },
-            "recommend" : ["18aw0102" , "19aw0102" , "18aw0103" , "18aw0104"],
+            "recommend" : ["18aw0101" , "19aw0102" , "18aw0103" , "18aw0104"],
             "comments" : [
                 {"groupName" : "group_1" , "design" : 0 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
                 {"groupName" : "group_2" , "design" : 0 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}

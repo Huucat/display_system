@@ -202,21 +202,20 @@ export default class StarInfo{
         this.scrollBar.on('pointerdown', function(){self.moveStart(this)})
             .on('pointerupoutside', function(){self.moveEnd(this)})
             .on('pointerup', function(){self.moveEnd(this)})
-            .on('pointermove', function(){self.onMove(this)});
+            .on('pointermove', function(){self.moveOn(this)});
         this.scrollBarBox.addChild(this.scrollBar);
     }
 
     moveStart(_this){
         _this.pointY = this.app.renderer.plugins.interaction.mouse.global.y - (document.documentElement.clientHeight / 2) - _this.y;
         _this.moving = true;
-        console.log(_this.pointY);
     }
 
     moveEnd(_this){
         _this.moving = false;
     }
 
-    onMove(_this){
+    moveOn(_this){
         if(_this.moving == true){
             let newPosition = this.app.renderer.plugins.interaction.mouse.global.y;
             _this.y = (newPosition - document.documentElement.clientHeight / 2) - _this.pointY;

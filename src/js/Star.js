@@ -12,6 +12,7 @@ export default class Star {
         this.messageBox = new PIXI.Container();
 
         this.studentId = "";
+        this.beforeId = "";
 
         this.planetBox.x = document.documentElement.clientWidth / 2;
         this.planetBox.y = document.documentElement.clientHeight / 2;
@@ -195,7 +196,7 @@ export default class Star {
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_back_off'].texture
         }).on('pointerdown', function(){
-            game.Manager.enter(2);
+            self.back();
         });
 
         this.buttonStarInfo = new PIXI.Sprite(this.app.loader.resources['button_starinfo_off'].texture);
@@ -307,11 +308,34 @@ export default class Star {
 
     enter(){
         this.studentName.text = GROUPS.students[this.studentId].name;
+        this.buttonStarInfo.texture = this.app.loader.resources['button_starinfo_off'].texture;
+        this.buttonLink.texture = this.app.loader.resources['button_link_off'].texture
+        this.buttonRecommend.texture = this.app.loader.resources['button_recommend_off'].texture;
         this.setSunColor();
         this.planetPlan.play();
         this.planetDesign.play();
         this.planetCoding.play();
         this.planetPresentation.play();
+    }
+
+    back(){ 
+        if(this.beforeId == ""){
+            loop:
+            for(let i in GROUPS.students[this.studentId].groups){
+                for(let j in GROUPS.groups){
+                    if(GROUPS.students[this.studentId].groups[i] == GROUPS.groups[j].groupName && GROUPS.groups[j].groupType == 1){
+                        game.constellationDetails.groupNum = Number(j);
+                        break loop;
+                    }
+                }
+            }
+            game.Manager.enter(2);
+        }else{
+            this.studentId = this.beforeId;
+            this.beforeId = "";
+            game.starRecommend.studentId = this.studentId;
+            game.Manager.enter(6);
+        }
     }
 
     update(){
