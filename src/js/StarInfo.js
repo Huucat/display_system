@@ -320,7 +320,7 @@ export default class StarInfo{
         this.buttonBack.buttonMode = true;
         this.buttonBack.on('pointerdown', function(){
             game.Manager.enter(3);
-        })
+        });
         this.buttonBox.addChild(this.title , this.buttonBack);
     }
 

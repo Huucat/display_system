@@ -14,6 +14,9 @@ export default class Star {
         this.studentId = "";
         this.beforeId = "";
 
+        this.showStarText = "";
+        this.showStar = {};
+
         this.planetBox.x = document.documentElement.clientWidth / 2;
         this.planetBox.y = document.documentElement.clientHeight / 2;
         this.starBox.addChild(this.planetBox , this.flameBox , this.messageBox);
@@ -25,15 +28,21 @@ export default class Star {
         this.createPlanet_Coding();
         this.createPlanet_Presentation();
         this.createName();
+        this.createStarText();
         this.createFlame();
         this.createButton();
     }
 
     createBackground(){
+        let self = this;
         this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_01'].texture);
         this.spaceBg.anchor.set(0.5);
         this.spaceBg.scale.set(0.7);
         this.spaceBg.rotation = Math.PI * Math.random() * 2;
+        this.spaceBg.interactive = true;
+        this.spaceBg.on('pointerdown', function(){
+            self.starTextOff();
+        });
         this.planetBox.addChild(this.spaceBg);
     }
 
@@ -43,6 +52,7 @@ export default class Star {
     }
 
     createPlanet_Plan(){
+        let self = this;
         this.planetPlanPosition = Math.PI * 2 * Math.random();
         this.planetPlanOrbitalSpeed = 0.005;
 
@@ -60,10 +70,16 @@ export default class Star {
         this.planetPlan.scale.set(0.4);
         this.planetPlan.x = Math.cos(this.planetPlanPosition) * 200;
         this.planetPlan.y = Math.sin(this.planetPlanPosition) * 200;
+        this.planetPlan.interactive = true;
+        this.planetPlan.buttonMode = true;
+        this.planetPlan.on('pointerdown', function(){
+            self.starTextOn(this , "text_plan_");
+        });
         this.planetBox.addChild(this.planetPlanOrbital ,  this.planetPlan);
     }
 
     createPlanet_Design(){
+        let self = this;
         this.planetDesignPosition = Math.PI * 2 * Math.random();
         this.planetDesignOrbitalSpeed = 0.002;
 
@@ -80,10 +96,16 @@ export default class Star {
         this.planetDesign.scale.set(0.4);
         this.planetDesign.x = Math.cos(this.planetDesignPosition) * 250;
         this.planetDesign.y = Math.sin(this.planetDesignPosition) * 250;
+        this.planetDesign.interactive = true;
+        this.planetDesign.buttonMode = true;
+        this.planetDesign.on('pointerdown', function(){
+            self.starTextOn(this , "text_design_");
+        });
         this.planetBox.addChild(this.planetDesignOrbital , this.planetDesign);
     }
 
     createPlanet_Coding(){
+        let self = this;
         this.planetCodingPosition = Math.PI * 2 * Math.random();
         this.planetCodingOrbitalSpeed = 0.0008;
 
@@ -100,10 +122,16 @@ export default class Star {
         this.planetCoding.scale.set(0.4);
         this.planetCoding.x = Math.cos(this.planetCodingPosition) * 300;
         this.planetCoding.y = Math.sin(this.planetCodingPosition) * 300;
+        this.planetCoding.interactive = true;
+        this.planetCoding.buttonMode = true;
+        this.planetCoding.on('pointerdown', function(){
+            self.starTextOn(this , "text_coding_");
+        });
         this.planetBox.addChild(this.planetCodingOrbital , this.planetCoding);
     }
 
     createPlanet_Presentation(){
+        let self = this;
         this.planetPresentationPosition = Math.PI * 2 * Math.random();
         this.planetPresentationOrbitalSpeed = 0.0005;
 
@@ -120,6 +148,11 @@ export default class Star {
         this.planetPresentation.scale.set(0.4);
         this.planetPresentation.x = Math.cos(this.planetPresentationPosition) * 350;
         this.planetPresentation.y = Math.sin(this.planetPresentationPosition) * 350;
+        this.planetPresentation.interactive = true;
+        this.planetPresentation.buttonMode = true;
+        this.planetPresentation.on('pointerdown', function(){
+            self.starTextOn(this , "text_presentation_");
+        });
         this.planetBox.addChild(this.planetPresentationOrbital , this.planetPresentation);
     }
 
@@ -130,6 +163,12 @@ export default class Star {
         this.studentName.y = 70;
         this.studentName.anchor.x = 0.5;
         this.planetBox.addChild(this.studentName);
+    }
+
+    createStarText(){
+        this.starText = new PIXI.Sprite();
+        this.starText.anchor.set(0 , 1);
+        this.planetBox.addChild(this.starText);
     }
 
     createFlame(){
@@ -244,6 +283,17 @@ export default class Star {
         this.messageBox.addChild(this.buttonBack , this.buttonStarInfo , this.buttonLink , this.buttonRecommend);
     }
 
+    starTextOn(_this , star){
+        this.showStarText = star;
+        this.showStar = _this;
+        this.starText.visible = true;
+    }
+
+    starTextOff(_this){
+        this.showStarText = "";
+        this.starText.visible = false;
+    }
+
     setStudentId(studentId){
         this.studentId = studentId;
     }
@@ -307,6 +357,8 @@ export default class Star {
     }
 
     enter(){
+        this.showStarText = "";
+        this.starText.visible = false;
         this.studentName.text = GROUPS.students[this.studentId].name;
         this.buttonStarInfo.texture = this.app.loader.resources['button_starinfo_off'].texture;
         this.buttonLink.texture = this.app.loader.resources['button_link_off'].texture
@@ -354,7 +406,19 @@ export default class Star {
         this.planetPresentation.x = Math.cos(this.planetPresentationPosition -= this.planetPresentationOrbitalSpeed) * 350;
         this.planetPresentation.y = Math.sin(this.planetPresentationPosition -= this.planetPresentationOrbitalSpeed) * 350;
         // this.planetPresentation.rotation -= 0.2;
-
+        if(this.showStarText != ""){
+            if(this.showStar.x < 0){
+                this.starText.texture = this.app.loader.resources[this.showStarText + "left"].texture;
+                this.starText.x = this.showStar.x - 20;
+                this.starText.y = this.showStar.y - 20;
+                this.starText.anchor.x = 1;
+            }else{
+                this.starText.texture = this.app.loader.resources[this.showStarText + "right"].texture;
+                this.starText.x = this.showStar.x + 20;
+                this.starText.y = this.showStar.y - 20;
+                this.starText.anchor.x = 0;
+            }
+        }
         this.spaceBg.rotation -= 0.0003
     }
 }

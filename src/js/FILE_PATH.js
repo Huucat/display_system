@@ -53,6 +53,15 @@ const FILE_PATH = {
         {"name" : "tag_own_02" , "url" : require("@/assets/tag_own_02.png")},
         {"name" : "tag_own_03" , "url" : require("@/assets/tag_own_03.png")},
 
+        {"name" : "text_coding_left" , "url" : require("@/assets/text_coding_left.png")},
+        {"name" : "text_coding_right" , "url" : require("@/assets/text_coding_right.png")},
+        {"name" : "text_design_left" , "url" : require("@/assets/text_design_left.png")},
+        {"name" : "text_design_right" , "url" : require("@/assets/text_design_right.png")},
+        {"name" : "text_plan_left" , "url" : require("@/assets/text_plan_left.png")},
+        {"name" : "text_plan_right" , "url" : require("@/assets/text_plan_right.png")},
+        {"name" : "text_presentation_left" , "url" : require("@/assets/text_presentation_left.png")},
+        {"name" : "text_presentation_right" , "url" : require("@/assets/text_presentation_right.png")},
+
         {"name" : "title_info" , "url" : require("@/assets/title_info.png")},
         {"name" : "title_link" , "url" : require("@/assets/title_link.png")},
         {"name" : "title_recommend" , "url" : require("@/assets/title_recommend.png")},
