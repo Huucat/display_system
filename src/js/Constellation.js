@@ -33,19 +33,25 @@ export default class Constellation {
     }
 
     addStar(){
-        for (let i = 0; i < GROUPS.groups[this.groupNum].members.length; i++) {
-            this.star[i] = new PIXI.Sprite(this.app.loader.resources[GROUPS.students[GROUPS.groups[this.groupNum].members[i].id].color].texture);
+        for (let i = 0; i < game.Manager.data.userData.groups[this.groupNum].members.length; i++) {
+            this.star[i] = new PIXI.Sprite(this.app.loader.resources[game.Manager.data.userData.students[game.Manager.data.userData.groups[this.groupNum].members[i].id].color].texture);
             this.star[i].anchor.x = 0.5;
             this.star[i].anchor.y = 0.5;
-            this.star[i].x = GROUPS.groups[this.groupNum].members[i].xy[0];
-            this.star[i].y = GROUPS.groups[this.groupNum].members[i].xy[1];
+            this.star[i].x = game.Manager.data.userData.groups[this.groupNum].members[i].xy[0];
+            this.star[i].y = game.Manager.data.userData.groups[this.groupNum].members[i].xy[1];
             this.star[i].scale.set(0.6);
             this.constellationBox.addChild(this.star[i]);
         }
     }
 
-    setStarSize(){
+    resetStarColor(){
+        for (let i = 0; i < game.Manager.data.userData.groups[this.groupNum].members.length; i++) {
+            this.star[i].texture = this.app.loader.resources[game.Manager.data.userData.students[game.Manager.data.userData.groups[this.groupNum].members[i].id].color].texture;
+        }
+    }
 
+    setStarSize(){
+        
     }
 
     addEvent(){

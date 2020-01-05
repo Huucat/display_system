@@ -130,17 +130,17 @@ export default class ConstellationDetails {
 
     createStar(){
         let self = this;
-        for (let i = 0; i < GROUPS.groups[this.groupNum].members.length; i++) {
+        for (let i = 0; i < game.Manager.data.userData.groups[this.groupNum].members.length; i++) {
             this.star[i] = new PIXI.Sprite(game.space.constellation[this.groupNum].star[i].texture);
             this.star[i].anchor.x = 0.5;
             this.star[i].anchor.y = 0.5;
-            this.star[i].x = GROUPS.groups[this.groupNum].members[i].xy[0];
-            this.star[i].y = GROUPS.groups[this.groupNum].members[i].xy[1];
+            this.star[i].x = game.Manager.data.userData.groups[this.groupNum].members[i].xy[0];
+            this.star[i].y = game.Manager.data.userData.groups[this.groupNum].members[i].xy[1];
             this.star[i].scale.set(0.5);
             this.star[i].interactive = true;
 
-            this.star[i].name = GROUPS.students[GROUPS.groups[this.groupNum].members[i].id].name;
-            this.star[i].studentId = GROUPS.groups[this.groupNum].members[i].id;
+            this.star[i].name = game.Manager.data.userData.students[game.Manager.data.userData.groups[this.groupNum].members[i].id].name;
+            this.star[i].studentId = game.Manager.data.userData.groups[this.groupNum].members[i].id;
             this.star[i].on('pointerover', function(){
                 self.targetOn(this)
             }).on('pointerout', function(){
@@ -154,7 +154,7 @@ export default class ConstellationDetails {
     }
 
     creatName(i){
-        this.name[i] = new PIXI.Text(this.star[i].name , game.fontStyle_SmartPhoneUI);
+        this.name[i] = new PIXI.Text(this.star[i].name , game.fontStyle.SmartPhoneUI);
         this.name[i].style.fontSize = 26;
         this.name[i].anchor.x = 0.5;
         this.name[i].x = this.star[i].x;
@@ -221,13 +221,13 @@ export default class ConstellationDetails {
         dropShadowFilter.pixelSize = 0.6;
         this.studentTextBox.filters = [dropShadowFilter];
 
-        this.studentText = new PIXI.Text('恒星名：', game.fontStyle_KaisoNext);
+        this.studentText = new PIXI.Text('恒星名：', game.fontStyle.KaisoNext);
         this.studentText.style.fontSize = 28;
         this.studentText.x = this.studentTextBox.x + 25;
         this.studentText.y = this.studentTextBox.y + 25;
         this.studentText.visible = false;
 
-        this.studentName = new PIXI.Text('', game.fontStyle_KaisoNext);
+        this.studentName = new PIXI.Text('', game.fontStyle.KaisoNext);
         this.studentName.style.fontSize = 40;
         this.studentName.x = this.studentTextBox.x + 25;
         this.studentName.y = this.studentTextBox.y + 80;

@@ -1,3 +1,7 @@
+import * as firebase from 'firebase/app';
+import 'firebase/database';
+
+import GROUPS from './groups.json';
 import Space from "./Space";
 import ConstellationDetails from './ConstellationDetails.js'
 import Star from './Star.js'
@@ -7,8 +11,54 @@ import StarRecommend from './StarRecommend.js'
 
 export default class Manager{
     constructor(app){
+        let self = this;
+        this.app = app;
+        this.appStart = false;
         this.managerNum = 1;
 
+        this.firebaseConfig = {
+            apiKey: "AIzaSyCi2pj67bUejaR1VCXqOYJ_gZ0ufqqQQs8",
+            authDomain: "evaluation-system-34106.firebaseapp.com",
+            databaseURL: "https://evaluation-system-34106.firebaseio.com",
+            projectId: "evaluation-system-34106",
+            storageBucket: "evaluation-system-34106.appspot.com",
+            messagingSenderId: "964676946210",
+            appId: "1:964676946210:web:784b204d504bfda2ef7d7b",
+            measurementId: "G-CS85S6NSKM"
+        };
+        firebase.initializeApp(this.firebaseConfig);
+        firebase.database().ref().on('value', function(data) {
+            self.data.userData = data.val();
+            console.log(self.data.userData);
+        });
+
+        this.data = {
+            _userData : undefined,
+            get userData(){
+                return this._userData;
+            },
+            set userData(data){
+                this._userData = data;
+                if(self.appStart == false){
+                    self.appStart = true;
+                    self.setStarColor();
+                    self.init(app);
+                }
+                if(self.appStart == true){
+                    self.setStarColor();
+                    game.space.resetStarColor();
+                }
+            }
+        }
+
+        this.app.ticker.add(() => {
+            if(self.appStart == true){
+                self.update();
+            }
+        });
+    }
+
+    init(app){
         game.space = new Space(app);
         game.constellationDetails = new ConstellationDetails(app);
         game.star = new Star(app);
@@ -25,6 +75,56 @@ export default class Manager{
             game.starRecommend.starRecommendBox
         );
         this.enter(this.managerNum , app);
+    }
+
+    setStarColor(){
+        for(let i in this.data.userData.students){
+            let arr = {
+                plan : 0,
+                design : 0,
+                coding : 0,
+                presentation : 0
+            };
+
+            let max = 0;
+            let index = [];
+
+            if(this.data.userData.students[i].comments){
+                let comments = this.data.userData.students[i].comments;
+                for(let j in comments){
+                    arr.plan += comments[j].plan;
+                    arr.design += comments[j].design;
+                    arr.coding += comments[j].coding;
+                    arr.presentation += comments[j].presentation;
+                }
+            }
+
+            for(let j in arr){
+                if(max < arr[j]){
+                    max = arr[j];
+                    index = [];
+                    index[0] = j;
+                }else if(max == arr[j]){
+                    max = arr[j]
+                    index.push(j);
+                }
+            }
+
+            switch(index[Math.floor(Math.random() * index.length)]){
+                case 'plan':
+                    this.data.userData.students[i].color = "star_plan";
+                break;
+                case 'design':
+                    this.data.userData.students[i].color = "star_design";
+                break;
+                case 'coding':
+                    this.data.userData.students[i].color = "star_coding";
+                break;
+                case 'presentation':
+                    this.data.userData.students[i].color = "star_presentation";
+                break;
+            }
+        }
     }
     
     enter(number){
@@ -83,6 +183,5 @@ export default class Manager{
                 game.starRecommend.update();
             break;
         }
-        
     }
 }

@@ -46,8 +46,8 @@ export default class Space {
     }
 
     createConstellation(){
-        let num = GROUPS.groups.length;
-        for (let i in GROUPS.groups) {
+        let num = game.Manager.data.userData.groups.length;
+        for (let i in game.Manager.data.userData.groups) {
             this.constellation[i] = new Constellation(this.app , i);
             this.constellation[i].constellationBox.x = Math.cos((Math.PI * 2 / num) * i) * 1100;
             this.constellation[i].constellationBox.y = Math.sin((Math.PI * 2 / num) * i) * 1100;
@@ -55,6 +55,12 @@ export default class Space {
             this.constellation[i].constellationBox.scale.set(0.35);
             this.constellation[i].addEvent();
             this.constellationGroups.addChild(this.constellation[i].constellationBox);
+        }
+    }
+
+    resetStarColor(){
+        for(let i in this.constellation){
+            this.constellation[i].resetStarColor();
         }
     }
 

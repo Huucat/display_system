@@ -137,7 +137,7 @@ export default class StarInfo{
     }
     
     createName(){
-        this.studentName = new PIXI.Text('', game.fontStyle_SmartPhoneUI);
+        this.studentName = new PIXI.Text('', game.fontStyle.SmartPhoneUI);
         this.studentName.style.fontSize = 50;
         this.studentName.y = 440;
         this.studentName.anchor.x = 0.5;
@@ -153,12 +153,12 @@ export default class StarInfo{
         this.worksBg.x = -500;
         this.worksBg.y = -250;
 
-        this.worksTitle = new PIXI.Text('作品：', game.fontStyle_KaisoNext);
+        this.worksTitle = new PIXI.Text('作品：', game.fontStyle.KaisoNext);
         this.worksTitle.style.fontSize = 32;
         this.worksTitle.x = this.worksBg.x;
         this.worksTitle.y = this.worksBg.y - 50;
 
-        this.worksText = new PIXI.Text('', game.fontStyle_SmartPhoneUI_White);
+        this.worksText = new PIXI.Text('', game.fontStyle.SmartPhoneUI_White);
         this.worksText.style.fontSize = 30;
         this.worksText.style.lineHeight = 55;
         this.worksText.x = this.worksBg.x + 25;
@@ -175,7 +175,7 @@ export default class StarInfo{
         this.tagsBg.endFill();
         this.tagsBg.x = -500;
 
-        this.tagsTitle = new PIXI.Text('構成物質：', game.fontStyle_KaisoNext);
+        this.tagsTitle = new PIXI.Text('構成物質：', game.fontStyle.KaisoNext);
         this.tagsTitle.style.fontSize = 32;
         this.tagsTitle.x = this.tagsBg.x;
         this.tagsTitle.y = this.tagsBg.y - 50;
@@ -244,12 +244,12 @@ export default class StarInfo{
         let nowWidth = 0;
         let allWidth = 650;
         let tag_list = [];
-        for (let i in GROUPS.students[this.studentId].tags.own) {
+        for (let i in game.Manager.data.userData.students[this.studentId].tags.own) {
             tag_list[i] = new PIXI.Container();
             let tag_1 = new PIXI.Sprite(this.app.loader.resources['tag_own_01'].texture);
             let tag_2 = new PIXI.Sprite(this.app.loader.resources['tag_own_02'].texture);
             let tag_3 = new PIXI.Sprite(this.app.loader.resources['tag_own_03'].texture);
-            let tagText = new PIXI.Text(GROUPS.students[this.studentId].tags.own[i], game.fontStyle_SmartPhoneUI_White);
+            let tagText = new PIXI.Text(game.Manager.data.userData.students[this.studentId].tags.own[i], game.fontStyle.SmartPhoneUI_White);
 
             tagText.style.fill = 0x4A6C76;
 
@@ -277,13 +277,13 @@ export default class StarInfo{
         nowHeight += 70;
         tag_list = [];
 
-        if(GROUPS.students[this.studentId].tags.others){
-            for (let i in GROUPS.students[this.studentId].tags.others){
+        if(game.Manager.data.userData.students[this.studentId].tags.others){
+            for (let i in game.Manager.data.userData.students[this.studentId].tags.others){
                 tag_list[i] = new PIXI.Container();
                 let tag_1 = new PIXI.Sprite(this.app.loader.resources['tag_others_01'].texture);
                 let tag_2 = new PIXI.Sprite(this.app.loader.resources['tag_others_02'].texture);
                 let tag_3 = new PIXI.Sprite(this.app.loader.resources['tag_others_03'].texture);
-                let tagText = new PIXI.Text(GROUPS.students[this.studentId].tags.others[i], game.fontStyle_SmartPhoneUI_White);
+                let tagText = new PIXI.Text(game.Manager.data.userData.students[this.studentId].tags.others[i], game.fontStyle.SmartPhoneUI_White);
                 
                 tagText.style.fill = 0xFFFFFF;
     
@@ -349,7 +349,7 @@ export default class StarInfo{
         sunShadowFilter.quality = 8;
         sunShadowFilter.pixelSize = 0.6;
         
-        switch(GROUPS.students[this.studentId].color){
+        switch(game.Manager.data.userData.students[this.studentId].color){
             case "star_plan":
                 this.sun.beginFill(0xFFF390, 1);
                 this.sun.drawCircle(0, 0, 50);
@@ -382,12 +382,12 @@ export default class StarInfo{
     }
 
     enter(){
-        this.studentName.text = GROUPS.students[this.studentId].name;
+        this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
         this.worksText.text = '';
-        for(let i in GROUPS.students[this.studentId].groups){
-            for(let j in GROUPS.groups){
-                if(GROUPS.students[this.studentId].groups[i] == GROUPS.groups[j].groupName && GROUPS.groups[j].groupType == 1){
-                    this.worksText.text += '「' + GROUPS.students[this.studentId].groups[i] + '」\n'
+        for(let i in game.Manager.data.userData.students[this.studentId].groups){
+            for(let j in game.Manager.data.userData.groups){
+                if(game.Manager.data.userData.students[this.studentId].groups[i] == game.Manager.data.userData.groups[j].groupName && game.Manager.data.userData.groups[j].groupType == 1){
+                    this.worksText.text += '「' + game.Manager.data.userData.students[this.studentId].groups[i] + '」\n'
                 }
             }
         }

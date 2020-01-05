@@ -44,7 +44,7 @@ export default class StarLink{
     }
 
     createName(){
-        this.studentName = new PIXI.Text('', game.fontStyle_SmartPhoneUI);
+        this.studentName = new PIXI.Text('', game.fontStyle.SmartPhoneUI);
         this.studentName.style.fontSize = 26;
         this.studentName.x = 0
         this.studentName.y = 70;
@@ -123,7 +123,7 @@ export default class StarLink{
         sunShadowFilter.quality = 8;
         sunShadowFilter.pixelSize = 0.6;
         
-        switch(GROUPS.students[this.studentId].color){
+        switch(game.Manager.data.userData.students[this.studentId].color){
             case "star_plan":
                 this.sun.beginFill(0xFFF390, 1);
                 this.sun.drawCircle(0, 0, 50);
@@ -160,7 +160,7 @@ export default class StarLink{
     }
 
     enter(){
-        this.studentName.text = GROUPS.students[this.studentId].name;
+        this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
         this.mouseOver = false;
         this.setSunColor();
         this.addConstellation();

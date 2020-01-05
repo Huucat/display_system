@@ -67,7 +67,7 @@ export default class StarRecommend{
     }
 
     createOwnName(){
-        this.ownName = new PIXI.Text('', game.fontStyle_SmartPhoneUI_White);
+        this.ownName = new PIXI.Text('', game.fontStyle.SmartPhoneUI_White);
         this.ownName.style.fontSize = 30;
         this.ownName.style.align = "center";
         this.ownName.style.wordWrap = true;
@@ -172,12 +172,12 @@ export default class StarRecommend{
     addOthersStar(i){
         this.othersStarBox[i].othersStar = new PIXI.Graphics();
         this.othersStarBox[i].othersStar.y = -60;
-        this.setStarColor(this.othersStarBox[i].othersStar , GROUPS.students[this.studentId].recommend[i])
+        this.setStarColor(this.othersStarBox[i].othersStar , game.Manager.data.userData.students[this.studentId].recommend[i])
         this.othersStarBox[i].container.addChild(this.othersStarBox[i].othersStar);
     }
 
     addOthersName(i){
-        this.othersStarBox[i].othersName = new PIXI.Text(GROUPS.students[GROUPS.students[this.studentId].recommend[i]].name, game.fontStyle_SmartPhoneUI_White);
+        this.othersStarBox[i].othersName = new PIXI.Text(game.Manager.data.userData.students[game.Manager.data.userData.students[this.studentId].recommend[i]].name, game.fontStyle.SmartPhoneUI_White);
         this.othersStarBox[i].othersName.style.fontSize = 30;
         this.othersStarBox[i].othersName.style.align = "center";
         this.othersStarBox[i].othersName.style.wordWrap = true;
@@ -231,7 +231,7 @@ export default class StarRecommend{
         }
         this.othersStarBox[num].container.alpha = 1;
         this.buttonBox.visible = true;
-        this.selectedStudentId = GROUPS.students[this.studentId].recommend[num];
+        this.selectedStudentId = game.Manager.data.userData.students[this.studentId].recommend[num];
     }
 
     
@@ -255,7 +255,7 @@ export default class StarRecommend{
         sunShadowFilter.quality = 8;
         sunShadowFilter.pixelSize = 0.5;
 
-        switch(GROUPS.students[studentId].color){
+        switch(game.Manager.data.userData.students[studentId].color){
             case "star_plan":
                 star.beginFill(0xFFF390, 1);
                 star.drawCircle(0, 0, 80);
@@ -295,12 +295,12 @@ export default class StarRecommend{
 
     enter(){
         this.selectedStudentId = "";
-        this.ownName.text = GROUPS.students[this.studentId].name;
+        this.ownName.text = game.Manager.data.userData.students[this.studentId].name;
         this.othersStarBox = [];
         this.buttonBox.visible = false;
         this.othersAllBox.removeChildren();
         this.setStarColor(this.ownStar , this.studentId);
-        for(let i in GROUPS.students[this.studentId].recommend){
+        for(let i in game.Manager.data.userData.students[this.studentId].recommend){
             this.othersStarBox[i] = {};
             this.addOthersBg(i);
             this.addOthersStar(i);

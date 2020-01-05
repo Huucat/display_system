@@ -157,7 +157,7 @@ export default class Star {
     }
 
     createName(){
-        this.studentName = new PIXI.Text('', game.fontStyle_SmartPhoneUI);
+        this.studentName = new PIXI.Text('', game.fontStyle.SmartPhoneUI);
         this.studentName.style.fontSize = 26;
         this.studentName.x = 0
         this.studentName.y = 70;
@@ -309,7 +309,7 @@ export default class Star {
         sunShadowFilter.quality = 8;
         sunShadowFilter.pixelSize = 0.6;
 
-        switch(GROUPS.students[this.studentId].color){
+        switch(game.Manager.data.userData.students[this.studentId].color){
             case "star_plan":
                 this.sun.beginFill(0xFFF390, 1);
                 this.sun.drawCircle(0, 0, 50);
@@ -359,7 +359,7 @@ export default class Star {
     enter(){
         this.showStarText = "";
         this.starText.visible = false;
-        this.studentName.text = GROUPS.students[this.studentId].name;
+        this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
         this.buttonStarInfo.texture = this.app.loader.resources['button_starinfo_off'].texture;
         this.buttonLink.texture = this.app.loader.resources['button_link_off'].texture
         this.buttonRecommend.texture = this.app.loader.resources['button_recommend_off'].texture;
@@ -373,9 +373,9 @@ export default class Star {
     back(){ 
         if(this.beforeId == ""){
             loop:
-            for(let i in GROUPS.students[this.studentId].groups){
-                for(let j in GROUPS.groups){
-                    if(GROUPS.students[this.studentId].groups[i] == GROUPS.groups[j].groupName && GROUPS.groups[j].groupType == 1){
+            for(let i in game.Manager.data.userData.students[this.studentId].groups){
+                for(let j in game.Manager.data.userData.groups){
+                    if(game.Manager.data.userData.students[this.studentId].groups[i] == game.Manager.data.userData.groups[j].groupName && game.Manager.data.userData.groups[j].groupType == 1){
                         game.constellationDetails.groupNum = Number(j);
                         break loop;
                     }
