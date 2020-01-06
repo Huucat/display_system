@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import GROUPS from './groups.json';
 import { DropShadowFilter } from '@pixi/filter-drop-shadow';
 
 export default class StarInfo{

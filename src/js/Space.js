@@ -1,6 +1,5 @@
 import * as PIXI from 'pixi.js';
 import Constellation from './Constellation.js';
-import GROUPS from './groups.json';
 
 export default class Space {
     constructor(app){

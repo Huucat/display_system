@@ -1,6 +1,5 @@
 import * as PIXI from 'pixi.js';
 import Constellation from './Constellation.js'
-import GROUPS from './groups.json';
 import { DropShadowFilter } from '@pixi/filter-drop-shadow';
 
 export default class StarLink{
@@ -90,10 +89,10 @@ export default class StarLink{
         let self = this;
         this.constellation = [];
         this.constellationBox.removeChildren();
-        let num =  GROUPS.students[this.studentId].groups.length;
-        for(let i in GROUPS.students[this.studentId].groups){
-            for (let j in GROUPS.groups){
-                if(GROUPS.groups[j].groupName == GROUPS.students[this.studentId].groups[i]){
+        let num =  game.Manager.data.userData.students[this.studentId].groups.length;
+        for(let i in game.Manager.data.userData.students[this.studentId].groups){
+            for (let j in game.Manager.data.userData.groups){
+                if(game.Manager.data.userData.groups[j].groupName == game.Manager.data.userData.students[this.studentId].groups[i]){
                     this.constellation[i] = new Constellation(this.app , j);
                     this.constellation[i].position = (Math.PI * 2 / num) * i;
                     this.constellation[i].constellationBox.x = Math.cos(this.constellation[i].position) * 400;

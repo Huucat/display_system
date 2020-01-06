@@ -37,10 +37,10 @@ const FILE_PATH = {
         {"name" : "spaceBg_01" , "url" : require("@/assets/spaceBackground_03.png")},
         {"name" : "spaceBg_02" , "url" : require("@/assets/spaceBackground_02.png")},
 
-        {"name" : "star_plan" , "url" : require("@/assets/star_plan.png")},
-        {"name" : "star_design" , "url" : require("@/assets/star_design.png")},
-        {"name" : "star_coding" , "url" : require("@/assets/star_coding.png")},
-        {"name" : "star_presentation" , "url" : require("@/assets/star_presentation.png")},
+        {"name" : "star_plan" , "url" : require("@/assets/star_plan_1.png")},
+        {"name" : "star_design" , "url" : require("@/assets/star_design_1.png")},
+        {"name" : "star_coding" , "url" : require("@/assets/star_coding_1.png")},
+        {"name" : "star_presentation" , "url" : require("@/assets/star_presentation_1.png")},
 
         {"name" : "target" , "url" : require("@/assets/target.png")},
         {"name" : "target_in" , "url" : require("@/assets/target_in.png")},
