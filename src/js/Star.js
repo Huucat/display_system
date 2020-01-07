@@ -359,8 +359,9 @@ export default class Star {
         this.showStarText = "";
         this.starText.visible = false;
         this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
+        this.buttonBack.texture = this.app.loader.resources['button_back_off'].texture;
         this.buttonStarInfo.texture = this.app.loader.resources['button_starinfo_off'].texture;
-        this.buttonLink.texture = this.app.loader.resources['button_link_off'].texture
+        this.buttonLink.texture = this.app.loader.resources['button_link_off'].texture;
         this.buttonRecommend.texture = this.app.loader.resources['button_recommend_off'].texture;
         this.setSunColor();
         this.planetPlan.play();

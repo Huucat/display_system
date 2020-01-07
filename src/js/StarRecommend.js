@@ -297,6 +297,8 @@ export default class StarRecommend{
         this.ownName.text = game.Manager.data.userData.students[this.studentId].name;
         this.othersStarBox = [];
         this.buttonBox.visible = false;
+        this.buttonClose.texture = this.app.loader.resources['button_close_off'].texture;
+        this.buttonToStar.texture = this.app.loader.resources['button_tostar_off'].texture;
         this.othersAllBox.removeChildren();
         this.setStarColor(this.ownStar , this.studentId);
         for(let i in game.Manager.data.userData.students[this.studentId].recommend){

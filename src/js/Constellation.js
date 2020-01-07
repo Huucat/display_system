@@ -38,7 +38,7 @@ export default class Constellation {
             this.star[i].anchor.y = 0.5;
             this.star[i].x = game.Manager.data.userData.groups[this.groupNum].members[i].xy[0];
             this.star[i].y = game.Manager.data.userData.groups[this.groupNum].members[i].xy[1];
-            this.star[i].scale.set(1);
+            this.star[i].scale.set(0.3);
             this.constellationBox.addChild(this.star[i]);
         }
     }

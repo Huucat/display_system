@@ -135,7 +135,7 @@ export default class ConstellationDetails {
             this.star[i].anchor.y = 0.5;
             this.star[i].x = game.Manager.data.userData.groups[this.groupNum].members[i].xy[0];
             this.star[i].y = game.Manager.data.userData.groups[this.groupNum].members[i].xy[1];
-            this.star[i].scale.set(1);
+            this.star[i].scale.set(0.3);
             this.star[i].interactive = true;
 
             this.star[i].name = game.Manager.data.userData.students[game.Manager.data.userData.groups[this.groupNum].members[i].id].name;
@@ -363,6 +363,7 @@ export default class ConstellationDetails {
     }
 
     enter(){
+        this.buttonObservation.texture = this.app.loader.resources['button_observation_off'].texture;
         this.removeChildren();
         this.createBackground();
         this.createConstellation();
