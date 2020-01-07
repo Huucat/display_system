@@ -66,7 +66,7 @@ export default class Star {
         this.planetPlan.animationSpeed = 0.2;
         this.planetPlan.rotation = Math.PI * 2 / 8;
         this.planetPlan.anchor.set(0.5);
-        this.planetPlan.scale.set(0.4);
+        this.planetPlan.scale.set(0.2);
         this.planetPlan.x = Math.cos(this.planetPlanPosition) * 200;
         this.planetPlan.y = Math.sin(this.planetPlanPosition) * 200;
         this.planetPlan.interactive = true;
@@ -92,7 +92,7 @@ export default class Star {
         this.planetDesign = new PIXI.AnimatedSprite(planet_Design_list);
         this.planetDesign.animationSpeed = 0.1;
         this.planetDesign.anchor.set(0.5);
-        this.planetDesign.scale.set(0.4);
+        this.planetDesign.scale.set(0.2);
         this.planetDesign.x = Math.cos(this.planetDesignPosition) * 250;
         this.planetDesign.y = Math.sin(this.planetDesignPosition) * 250;
         this.planetDesign.interactive = true;
@@ -118,7 +118,7 @@ export default class Star {
         this.planetCoding = new PIXI.AnimatedSprite(planet_Coding_list);
         this.planetCoding.animationSpeed = 0.1;
         this.planetCoding.anchor.set(0.5);
-        this.planetCoding.scale.set(0.4);
+        this.planetCoding.scale.set(0.2);
         this.planetCoding.x = Math.cos(this.planetCodingPosition) * 300;
         this.planetCoding.y = Math.sin(this.planetCodingPosition) * 300;
         this.planetCoding.interactive = true;
@@ -144,7 +144,7 @@ export default class Star {
         this.planetPresentation = new PIXI.AnimatedSprite(planet_Presentation_list);
         this.planetPresentation.animationSpeed = 0.1;
         this.planetPresentation.anchor.set(0.5);
-        this.planetPresentation.scale.set(0.4);
+        this.planetPresentation.scale.set(0.2);
         this.planetPresentation.x = Math.cos(this.planetPresentationPosition) * 350;
         this.planetPresentation.y = Math.sin(this.planetPresentationPosition) * 350;
         this.planetPresentation.interactive = true;
@@ -340,6 +340,32 @@ export default class Star {
         }
     }
 
+    setStarSize(){
+        let totalCoding = 0;
+        let totalDesign = 0;
+        let totalPlan = 0;
+        let totalPresentation = 0;
+        
+        if(game.Manager.data.userData.students[this.studentId].comments){
+            for(let i in game.Manager.data.userData.students[this.studentId].comments){
+                let comments = game.Manager.data.userData.students[this.studentId].comments[i];
+                totalCoding += comments.coding;
+                totalDesign += comments.design;
+                totalPlan += comments.plan;
+                totalPresentation += comments.presentation;
+            }
+            totalCoding = Number((totalCoding / 300).toFixed(3));
+            totalDesign = Number((totalDesign / 300).toFixed(3));
+            totalPlan = Number((totalPlan / 300).toFixed(3));
+            totalPresentation = Number((totalPresentation / 300).toFixed(3));
+            this.planetCoding.scale.set(0.2 + totalCoding);
+            this.planetDesign.scale.set(0.2 + totalDesign);
+            this.planetPlan.scale.set(0.2 + totalPlan);
+            this.planetPresentation.scale.set(0.2 + totalPresentation);
+            console.log(this.planetCoding.scale.x , this.planetDesign.scale.x , this.planetPlan.scale.x , this.planetPresentation.scale.x);
+        }
+    }
+
     toStarInfo(){
         game.starInfo.setStudentId(this.studentId);
         game.Manager.enter(4);
@@ -364,6 +390,7 @@ export default class Star {
         this.buttonLink.texture = this.app.loader.resources['button_link_off'].texture;
         this.buttonRecommend.texture = this.app.loader.resources['button_recommend_off'].texture;
         this.setSunColor();
+        this.setStarSize();
         this.planetPlan.play();
         this.planetDesign.play();
         this.planetCoding.play();

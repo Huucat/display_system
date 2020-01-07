@@ -44,13 +44,28 @@ export default class Constellation {
     }
 
     resetStarColor(){
-        for (let i = 0; i < game.Manager.data.userData.groups[this.groupNum].members.length; i++) {
+        for (let i in game.Manager.data.userData.groups[this.groupNum].members) {
             this.star[i].texture = this.app.loader.resources[game.Manager.data.userData.students[game.Manager.data.userData.groups[this.groupNum].members[i].id].color].texture;
         }
     }
 
-    setStarSize(){
-        
+    resetStarSize(){
+        for (let i in game.Manager.data.userData.groups[this.groupNum].members) {
+            if(game.Manager.data.userData.students[game.Manager.data.userData.groups[this.groupNum].members[i].id].comments){
+                let comments = game.Manager.data.userData.students[game.Manager.data.userData.groups[this.groupNum].members[i].id].comments
+                let total = 0;
+                for(let j in comments){
+                    total += comments[j].coding + comments[j].design + comments[j].plan + comments[j].presentation
+                }
+                total = total / 800;
+                if(total > 0.75){
+                    total = 0.75;
+                }
+                this.star[i].scale.set(0.3 + total);
+            }else{
+                this.star[i].scale.set(0.3);
+            }
+        }
     }
 
     addEvent(){

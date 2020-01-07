@@ -47,6 +47,7 @@ export default class Manager{
                 if(self.appStart == true){
                     self.setStarColor();
                     game.space.resetStarColor();
+                    game.space.resetStarSize();
                 }
             }
         }

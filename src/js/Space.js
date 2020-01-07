@@ -63,6 +63,12 @@ export default class Space {
         }
     }
 
+    resetStarSize(){
+        for(let i in this.constellation){
+            this.constellation[i].resetStarSize();
+        }
+    }
+
     update(){
         this.constellationGroups.rotation -= 0.001;
     }
