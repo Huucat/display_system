@@ -114,7 +114,7 @@ export default class ConstellationDetails {
         this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
     }
 
-    createBackground(){
+    createConstellationBackground(){
         this.constellationBg.texture = this.app.loader.resources['group_01_bg'].texture;
         this.constellationBg.anchor.x = 0.5;
         this.constellationBg.anchor.y = 0.5;
@@ -135,11 +135,11 @@ export default class ConstellationDetails {
             this.star[i].anchor.y = 0.5;
             this.star[i].x = game.Manager.data.userData.groups[this.groupNum].members[i].xy[0];
             this.star[i].y = game.Manager.data.userData.groups[this.groupNum].members[i].xy[1];
-            this.star[i].scale.set(0.3);
             this.star[i].interactive = true;
-
+            this.star[i].hitArea = new PIXI.Circle(0 , 0 , 80);
             this.star[i].name = game.Manager.data.userData.students[game.Manager.data.userData.groups[this.groupNum].members[i].id].name;
             this.star[i].studentId = game.Manager.data.userData.groups[this.groupNum].members[i].id;
+            this.star[i].scale.set(this.setStarSize(this.star[i].studentId));
             this.star[i].on('pointerover', function(){
                 self.targetOn(this)
             }).on('pointerout', function(){
@@ -149,6 +149,23 @@ export default class ConstellationDetails {
             });
             this.constellationBox.addChild(this.star[i]);
             this.creatName(i);
+        }
+    }
+
+    setStarSize(studentId){
+        if(game.Manager.data.userData.students[studentId].comments){
+            let comments = game.Manager.data.userData.students[studentId].comments
+            let total = 0;
+            for(let j in comments){
+                total += comments[j].coding + comments[j].design + comments[j].plan + comments[j].presentation
+            }
+            total = total / 800;
+            if(total > 0.75){
+                total = 0.75;
+            }
+            return (0.3 + total);
+        }else{
+            return (0.3);
         }
     }
 
@@ -365,7 +382,7 @@ export default class ConstellationDetails {
     enter(){
         this.buttonObservation.texture = this.app.loader.resources['button_observation_off'].texture;
         this.removeChildren();
-        this.createBackground();
+        this.createConstellationBackground();
         this.createConstellation();
         this.createStar();
         this.hideStudent();
