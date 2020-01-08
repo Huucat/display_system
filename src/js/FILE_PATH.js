@@ -62,9 +62,11 @@ const FILE_PATH = {
         {"name" : "text_presentation_left" , "url" : require("@/assets/text_presentation_left.png")},
         {"name" : "text_presentation_right" , "url" : require("@/assets/text_presentation_right.png")},
 
+        {"name" : "title_constellation" , "url" : require("@/assets/title_constellation.png")},
         {"name" : "title_info" , "url" : require("@/assets/title_info.png")},
         {"name" : "title_link" , "url" : require("@/assets/title_link.png")},
         {"name" : "title_recommend" , "url" : require("@/assets/title_recommend.png")},
+        {"name" : "title_star" , "url" : require("@/assets/title_star.png")}
     ]
 }
 

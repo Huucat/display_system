@@ -63,15 +63,29 @@ export default class ConstellationDetails {
 
     addBackButton(){
         let self = this;
-        this.backButton = new PIXI.Sprite(this.app.loader.resources['button_01'].texture);
-        this.backButton.interactive = true;
-        this.backButton.buttonMode = true;
-        this.backButton.position.set(25 , 25);
+        let poly = new PIXI.Polygon(
+            new PIXI.Point(-70 , -115),
+            new PIXI.Point(-130 , 0),
+            new PIXI.Point(-70 , 115),
+            new PIXI.Point(70 , 115),
+            new PIXI.Point(130 , 0),
+            new PIXI.Point(70 , -115)
+        );
 
-        this.backButton.on('pointerdown', function(){
-            self.onBackButton()
+        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_back_off'].texture);
+        this.buttonBack.anchor.set(0.5);
+        this.buttonBack.position.set(200 , document.documentElement.clientHeight - 200);
+        this.buttonBack.hitArea = poly;
+        this.buttonBack.interactive = true;
+        this.buttonBack.buttonMode = true;
+        this.buttonBack.on('pointerover', function(){
+            this.texture = self.app.loader.resources['button_back_on'].texture
+        }).on('pointerout', function(){
+            this.texture = self.app.loader.resources['button_back_off'].texture
+        }).on('pointerdown', function(){
+            self.onBackButton();
         });
-        this.messageBox.addChild(this.backButton);
+        this.messageBox.addChild(this.buttonBack);
     }
 
     addInfoButton(){
@@ -109,9 +123,10 @@ export default class ConstellationDetails {
         this.flameBottom.y = document.documentElement.clientHeight;
         this.line_horizontal = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(0 , document.documentElement.clientHeight / 2).lineTo(document.documentElement.clientWidth , document.documentElement.clientHeight / 2);
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
-
+        this.title = new PIXI.Sprite(this.app.loader.resources['title_constellation'].texture);
+        this.title.scale.set(0.8);
         this.buttonLeft = new PIXI.Sprite(this.app.loader.resources['flame_bottom'].texture);
-        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
+        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom , this.title);
     }
 
     createConstellationBackground(){
@@ -276,7 +291,7 @@ export default class ConstellationDetails {
     showInfo(){
         this.infoState = !this.infoState;
         this.infoButton.visible = false;
-        this.backButton.visible = false;
+        this.buttonBack.visible = false;
         this.constellationTextBox.visible = true;
         this.constellationText.visible = true;
         this.closeButton.visible = true;
@@ -287,7 +302,7 @@ export default class ConstellationDetails {
     hideInfo(){
         this.infoState = !this.infoState;
         this.infoButton.visible = true;
-        this.backButton.visible = true;
+        this.buttonBack.visible = true;
         this.constellationTextBox.visible = false;
         this.constellationText.visible = false;
         this.closeButton.visible = false;
@@ -300,7 +315,7 @@ export default class ConstellationDetails {
         if(this.infoState == false && this.studentState == false){
             this.studentState = true;
             this.studentName.text = name;
-            this.backButton.visible = false;
+            this.buttonBack.visible = false;
             this.infoButton.visible = false;
             for(let i in this.name){
                 this.name[i].visible = false;
@@ -319,7 +334,7 @@ export default class ConstellationDetails {
     hideStudent(){
         if(this.infoState == false && this.studentState == true){
             this.studentName.text = '';
-            this.backButton.visible = true;
+            this.buttonBack.visible = true;
             this.infoButton.visible = true;
             for(let i in this.name){
                 this.name[i].visible = true;
@@ -381,6 +396,7 @@ export default class ConstellationDetails {
 
     enter(){
         this.buttonObservation.texture = this.app.loader.resources['button_observation_off'].texture;
+        this.buttonBack.texture = this.app.loader.resources['button_back_off'].texture;
         this.removeChildren();
         this.createConstellationBackground();
         this.createConstellation();

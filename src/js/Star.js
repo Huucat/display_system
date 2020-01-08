@@ -11,7 +11,7 @@ export default class Star {
         this.messageBox = new PIXI.Container();
 
         this.studentId = "";
-        this.beforeId = "";
+        this.beforeId = [];
 
         this.showStarText = "";
         this.showStar = {};
@@ -185,7 +185,8 @@ export default class Star {
         this.flameBottom.y = document.documentElement.clientHeight;
         this.line_horizontal = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(0 , document.documentElement.clientHeight / 2).lineTo(document.documentElement.clientWidth , document.documentElement.clientHeight / 2);
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
-
+        this.title = new PIXI.Sprite(this.app.loader.resources['title_star'].texture);
+        this.title.scale.set(0.8);
         this.target = [
             new PIXI.Sprite(this.app.loader.resources['target'].texture),
             new PIXI.Sprite(this.app.loader.resources['target'].texture),
@@ -209,7 +210,7 @@ export default class Star {
 
         this.target[3].alpha = 0.2;
 
-        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom , this.target[0] , this.target[1] , this.target[2] , this.target[3]);
+        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom , this.target[0] , this.target[1] , this.target[2] , this.target[3] , this.title);
     }
 
     createButton(){
