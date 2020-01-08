@@ -1,950 +1,611 @@
-{
-    "groups": [
-        {
-            "groupName" : "デザイナー",
-            "members" : [
-                {"name" : "18aw0103" , "xy" : [-65 , -170]},
-                {"name" : "18aw0104" , "xy" : [-220 , 95]},
-                {"name" : "18aw0106" , "xy" : [-65 , 365]},
-                {"name" : "18aw0108" , "xy" : [250 , 365]},
-                {"name" : "18aw0111" , "xy" : [-65 , -170]},
-                {"name" : "18aw0112" , "xy" : [400 , 95]},
-                {"name" : "18aw0114" , "xy" : [250 , -170]},
-                {"name" : "18aw0120" , "xy" : [250 , -170]},
-                {"name" : "18aw0121" , "xy" : [250 , -170]},
-                {"name" : "18aw0122" , "xy" : [250 , -170]},
-                {"name" : "18aw0124" , "xy" : [250 , -170]},
-                {"name" : "18aw0127" , "xy" : [250 , -170]},
-                {"name" : "19aw0102" , "xy" : [250 , -170]},
-                {"name" : "19aw0103" , "xy" : [250 , -170]},
-                {"name" : "19aw0111" , "xy" : [250 , -170]},
-                {"name" : "19aw0118" , "xy" : [250 , -170]},
-                {"name" : "19aw0119" , "xy" : [250 , -170]},
-                {"name" : "19aw0120" , "xy" : [250 , -170]},
-                {"name" : "19aw0121" , "xy" : [250 , -170]},
-                {"name" : "19aw0122" , "xy" : [250 , -170]},
-                {"name" : "19aw0123" , "xy" : [250 , -170]},
-                {"name" : "19aw0125" , "xy" : [250 , -170]},
-                {"name" : "19aw0132" , "xy" : [250 , -170]}
-            ]
-        },
-        {
-            "groupName" : "エンジニア",
-            "members" : [
-                {"name" : "18aw0102" , "xy" : [250 , -170]},
-                {"name" : "18aw0105" , "xy" : [250 , -170]},
-                {"name" : "18aw0110" , "xy" : [250 , -170]},
-                {"name" : "18aw0117" , "xy" : [250 , -170]},
-                {"name" : "18aw0119" , "xy" : [250 , -170]},
-                {"name" : "18aw0125" , "xy" : [250 , -170]},
-                {"name" : "18aw0128" , "xy" : [250 , -170]},
-                {"name" : "18aw0129" , "xy" : [250 , -170]},
-                {"name" : "18aw0130" , "xy" : [250 , -170]},
-                {"name" : "19aw0101" , "xy" : [-65 , -170]},
-                {"name" : "19aw0104" , "xy" : [-220 , 95]},
-                {"name" : "19aw0112" , "xy" : [-65 , 365]},
-                {"name" : "19aw0113" , "xy" : [250 , 365]},
-                {"name" : "19aw0124" , "xy" : [400 , 95]},
-                {"name" : "19aw0128" , "xy" : [250 , -170]},
-                {"name" : "19aw0131" , "xy" : [250 , -170]}
-            ]
-        },
-        {
-            "groupName" : "ディレクタ",
-            "members" : [
-                {"name" : "18aw0109" , "xy" : [-65 , -170]},
-                {"name" : "18aw0123" , "xy" : [-220 , 95]},
-                {"name" : "19aw0115" , "xy" : [-65 , 365]},
-                {"name" : "19aw0130" , "xy" : [250 , 365]}
-            ]
-        },
-        {
-            "groupName" : "告知・営業・DTP",
-            "members" : [
-                {"name" : "18aw0101" , "xy" : [-65 , -170]},
-                {"name" : "18aw0107" , "xy" : [-220 , 95]},
-                {"name" : "19aw0129" , "xy" : [-65 , 365]}
-            ]
-        },
-        {
-            "groupName" : "グラフィックチーム",
-            "members" : [
-                {"name" : "18aw0101" , "xy" : [-65 , -170]},
-                {"name" : "18aw0105" , "xy" : [-220 , 95]},
-                {"name" : "18aw0108" , "xy" : [-65 , 365]},
-                {"name" : "18aw0109" , "xy" : [250 , 365]},
-                {"name" : "18aw0112" , "xy" : [400 , 95]},
-                {"name" : "18aw0114" , "xy" : [250 , -170]},
-                {"name" : "18aw0120" , "xy" : [250 , -170]},
-                {"name" : "18aw0121" , "xy" : [250 , -170]},
-                {"name" : "18aw0127" , "xy" : [250 , -170]},
-                {"name" : "19aw0104" , "xy" : [250 , -170]},
-                {"name" : "19aw0119" , "xy" : [250 , -170]},
-                {"name" : "19aw0123" , "xy" : [250 , -170]}
-            ]
-        },
-        {
-            "groupName" : "Hotpageチーム",
-            "members" : [
-                {"name" : "18aw0103" , "xy" : [40 , -280]},
-                {"name" : "18aw0104" , "xy" : [-180 , -60]},
-                {"name" : "18aw0108" , "xy" : [-70 , 50]},
-                {"name" : "18aw0123" , "xy" : [190 , -55]},
-                {"name" : "18aw0130" , "xy" : [295 , 220]},
-                {"name" : "19aw0118" , "xy" : [-60 , 345]},
-                {"name" : "19aw0130" , "xy" : [-365 , 180]}
-            ]
-        },
-        {
-            "groupName" : "イベントチーム",
-            "members" : [
-                {"name" : "18aw0109" , "xy" : [-65 , -170]},
-                {"name" : "18aw0110" , "xy" : [-220 , 95]},
-                {"name" : "18aw0122" , "xy" : [-65 , 365]},
-                {"name" : "18aw0123" , "xy" : [250 , 365]},
-                {"name" : "19aw0102" , "xy" : [400 , 95]},
-                {"name" : "19aw0103" , "xy" : [250 , -170]},
-                {"name" : "19aw0111" , "xy" : [250 , -170]},
-                {"name" : "19aw0129" , "xy" : [250 , -170]}
-            ]
-        },
-        {
-            "groupName" : "メンテナンスチーム",
-            "members" : [
-                {"name" : "18aw0103" , "xy" : [-65 , -170]},
-                {"name" : "18aw0106" , "xy" : [-220 , 95]},
-                {"name" : "18aw0107" , "xy" : [-65 , 365]},
-                {"name" : "18aw0110" , "xy" : [250 , 365]},
-                {"name" : "18aw0125" , "xy" : [400 , 95]},
-                {"name" : "18aw0128" , "xy" : [250 , -170]},
-                {"name" : "19aw0101" , "xy" : [250 , -170]},
-                {"name" : "19aw0112" , "xy" : [250 , -170]},
-                {"name" : "19aw0120" , "xy" : [250 , -170]},
-                {"name" : "19aw0124" , "xy" : [250 , -170]},
-                {"name" : "19aw0128" , "xy" : [250 , -170]},
-                {"name" : "19aw0131" , "xy" : [250 , -170]},
-                {"name" : "19aw0132" , "xy" : [250 , -170]}
-            ]
-        },
-        {
-            "groupName" : "セミナーチーム",
-            "members" : [
-                {"name" : "18aw0102" , "xy" : [-65 , -170]},
-                {"name" : "18aw0111" , "xy" : [-65 , -170]},
-                {"name" : "18aw0117" , "xy" : [-65 , -170]},
-                {"name" : "18aw0119" , "xy" : [-220 , 95]},
-                {"name" : "18aw0123" , "xy" : [250 , -170]},
-                {"name" : "18aw0124" , "xy" : [-65 , 365]},
-                {"name" : "18aw0125" , "xy" : [250 , 365]},
-                {"name" : "18aw0129" , "xy" : [400 , 95]},
-                {"name" : "19aw0113" , "xy" : [250 , -170]},
-                {"name" : "19aw0115" , "xy" : [250 , -170]},
-                {"name" : "19aw0121" , "xy" : [250 , -170]},
-                {"name" : "19aw0122" , "xy" : [250 , -170]},
-                {"name" : "19aw0125" , "xy" : [250 , -170]}
-            ]
-        },
-        {
-            "groupName" : "進級制作_スターホーム",
-            "members" : [
-                {"name" : "19aw0111" , "xy" : [-65 , -170]},
-                {"name" : "19aw0113" , "xy" : [-220 , 95]},
-                {"name" : "19aw0119" , "xy" : [-65 , 365]},
-                {"name" : "19aw0125" , "xy" : [250 , 365]}
-            ]
-        },
-        {
-            "groupName" : "進級制作_キッズコレッチオ",
-            "members" : [
-                {"name" : "19aw0102" , "xy" : [-65 , -170]},
-                {"name" : "19aw0103" , "xy" : [-220 , 95]},
-                {"name" : "19aw0121" , "xy" : [-65 , 365]},
-                {"name" : "19aw0122" , "xy" : [250 , 365]},
-                {"name" : "19aw0123" , "xy" : [400 , 95]},
-                {"name" : "19aw0129" , "xy" : [250 , -170]},
-                {"name" : "19aw0130" , "xy" : [250 , -170]}
-            ]
-        },
-        {
-            "groupName" : "進級制作_グラビス",
-            "members" : [
-                {"name" : "19aw0104" , "xy" : [400 , 95]},
-                {"name" : "19aw0118" , "xy" : [250 , -170]},
-                {"name" : "19aw0120" , "xy" : [250 , -170]},
-                {"name" : "19aw0124" , "xy" : [250 , -170]},
-                {"name" : "19aw0131" , "xy" : [250 , -170]},
-                {"name" : "19aw0132" , "xy" : [250 , -170]}
-            ]
-        },
-        {
-            "groupName" : "進級制作_SAGOJO",
-            "members" : [
-                {"name" : "19aw0101" , "xy" : [-65 , -170]},
-                {"name" : "19aw0112" , "xy" : [-220 , 95]},
-                {"name" : "19aw0115" , "xy" : [-65 , 365]},
-                {"name" : "19aw0128" , "xy" : [250 , 365]}
-            ]
-        },
-        {
-            "groupName" : "卒業制作_個人",
-            "members" : [
-                {"name" : "18aw0101" , "xy" : [-65 , -170]},
-                {"name" : "18aw0104" , "xy" : [-220 , 95]},
-                {"name" : "18aw0105" , "xy" : [-65 , 365]},
-                {"name" : "18aw0106" , "xy" : [250 , 365]},
-                {"name" : "18aw0107" , "xy" : [400 , 95]},
-                {"name" : "18aw0109" , "xy" : [250 , -170]},
-                {"name" : "18aw0110" , "xy" : [250 , -170]},
-                {"name" : "18aw0111" , "xy" : [250 , -170]},
-                {"name" : "18aw0112" , "xy" : [250 , -170]},
-                {"name" : "18aw0117" , "xy" : [250 , -170]},
-                {"name" : "18aw0120" , "xy" : [250 , -170]},
-                {"name" : "18aw0121" , "xy" : [250 , -170]},
-                {"name" : "18aw0122" , "xy" : [250 , -170]},
-                {"name" : "18aw0123" , "xy" : [250 , -170]},
-                {"name" : "18aw0127" , "xy" : [250 , -170]}
-            ]
-        },
-        {
-            "groupName" : "卒業制作_評価システム",
-            "members" : [
-                {"name" : "18aw0108" , "xy" : [-220 , 95]},
-                {"name" : "18aw0125" , "xy" : [-65 , -170]},
-                {"name" : "18aw0128" , "xy" : [-65 , 365]}
-            ]
-        },
-        {
-            "groupName" : "卒業制作_おもてなしデザイン",
-            "members" : [
-                {"name" : "18aw0103" , "xy" : [-220 , 95]},
-                {"name" : "18aw0129" , "xy" : [-65 , -170]}
-            ]
-        },
-        {
-            "groupName" : "卒業制作_告知サイト",
-            "members" : [
-                {"name" : "18aw0124" , "xy" : [-220 , 95]},
-                {"name" : "18aw0130" , "xy" : [-65 , -170]}
-            ]
-        },
-        {
-            "groupName" : "卒業制作_教育プログラミング",
-            "members" : [
-                {"name" : "18aw0102" , "xy" : [-220 , 95]},
-                {"name" : "18aw0119" , "xy" : [-65 , -170]}
-            ]
-        },
-        {
-            "groupName" : "卒業制作_Unityゲーム",
-            "members" : [
-                {"name" : "18aw0114" , "xy" : [-220 , 95]},
-                {"name" : "18aw0130" , "xy" : [-65 , -170]}
-            ]
-        },
-        {
-            "groupName" : "沖縄ITスペシャリスト育成プログラム",
-            "members" : [
-                {"name" : "18aw0102" , "xy" : [-220 , 95]},
-                {"name" : "18aw0103" , "xy" : [-220 , 95]},
-                {"name" : "18aw0119" , "xy" : [-65 , -170]}
-            ]
-        },
-        {
-            "groupName" : "善通寺",
-            "members" : [
-                {"name" : "18aw0119" , "xy" : [-65 , -170]},
-                {"name" : "18aw0130" , "xy" : [-220 , 95]},
-                {"name" : "19aw0101" , "xy" : [-65 , 365]},
-                {"name" : "19aw0130" , "xy" : [250 , 365]},
-                {"name" : "19aw0131" , "xy" : [400 , 95]}
-            ]
-        },
-        {
-            "groupName" : "日専祭サイト制作",
-            "members" : [
-                {"name" : "19aw0101" , "xy" : [-65 , -170]},
-                {"name" : "19aw0102" , "xy" : [-220 , 95]},
-                {"name" : "19aw0103" , "xy" : [-65 , 365]},
-                {"name" : "19aw0115" , "xy" : [250 , 365]},
-                {"name" : "19aw0124" , "xy" : [400 , 95]},
-                {"name" : "19aw0129" , "xy" : [250 , -170]},
-                {"name" : "19aw0131" , "xy" : [250 , -170]}
-            ]
-        },
-        {
-            "groupName" : "4校合同名札作成・インフォグラフィックス制作",
-            "members" : [
-                {"name" : "18aw0124" , "xy" : [-65 , -170]},
-                {"name" : "19aw0118" , "xy" : [-220 , 95]}
-            ]
-        },
-        {
-            "groupName" : "若年者ものづくり大会・技能五輪全国大会",
-            "members" : [
-                {"name" : "18aw0108" , "xy" : [-65 , -170]},
-                {"name" : "18aw0110" , "xy" : [-220 , 95]},
-                {"name" : "18aw0130" , "xy" : [-65 , 365]}
-            ]
-        },
-        {
-            "groupName" : "業界座談会Webなう",
-            "members" : [
-                {"name" : "18aw0114" , "xy" : [-65 , -170]},
-                {"name" : "18aw0117" , "xy" : [-220 , 95]},
-                {"name" : "18aw0130" , "xy" : [-65 , 365]}
-            ]
-        }
-    ],
-    "students" : {
-        "18aw0101" : {
-            "name" : "浅田幸樹",
-            "groups" : [ "告知・営業・DTP", "グラフィックチーム", "卒業制作_個人"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0102" : {
-            "name" : "旭和佳",
-            "groups" : [ "エンジニア", "セミナーチーム", "卒業制作_教育プログラミング", "沖縄ITスペシャリスト育成プログラム" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0103" : {
-            "name" : "安藤愛菜",
-            "groups" : [ "デザイナー", "Hotpageチーム", "メンテナンスチーム", "卒業制作_おもてなしデザイン", "沖縄ITスペシャリスト育成プログラム"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0104" : {
-            "name" : "井原蒼尉",
-            "groups" : [ "デザイナー", "Hotpageチーム", "卒業制作_個人"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0105" : {
-            "name" : "及川舜平",
-            "groups" : [ "エンジニア", "グラフィックチーム", "卒業制作_個人"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0106" : {
-            "name" : "大場吉樹",
-            "groups" : [ "デザイナー" , "メンテナンスチーム", "卒業制作_個人"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0107" : {
-            "name" : "小原りょう",
-            "groups" : [ "告知・営業・DTP", "メンテナンスチーム", "卒業制作_個人"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0108" : {
-            "name" : "川浪 涼葉",
-            "groups" : [ "デザイナー" , "グラフィックチーム", "Hotpageチーム", "卒業制作_評価システム", "若年者ものづくり大会・技能五輪全国大会"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0109" : {
-            "name" : "神原美紗希",
-            "groups" : [ "ディレクタ", "グラフィックチーム", "イベントチーム", "卒業制作_個人" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0110" : {
-            "name" : "菊地 聖治",
-            "groups" : [ "エンジニア", "メンテナンスチーム", "イベントチーム", "卒業制作_個人", "若年者ものづくり大会・技能五輪全国大会" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0111" : {
-            "name" : "金京姫",
-            "groups" : [ "デザイナー" , "セミナーチーム", "卒業制作_個人" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0112" : {
-            "name" : "齋藤香織",
-            "groups" : [ "デザイナー" , "グラフィックチーム", "卒業制作_個人"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0114" : {
-            "name" : "真田拓実",
-            "groups" : [ "デザイナー" , "グラフィックチーム", "卒業制作_Unityゲーム", "業界座談会Webなう"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0117" : {
-            "name" : "須永和徳",
-            "groups" : [ "エンジニア", "セミナーチーム", "卒業制作_個人", "業界座談会Webなう" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0119" : {
-            "name" : "ティハ トーンナイン",
-            "groups" : [ "エンジニア" , "セミナーチーム", "卒業制作_教育プログラミング", "沖縄ITスペシャリスト育成プログラム", "善通寺"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0120" : {
-            "name" : "成瀬奈美恵",
-            "groups" : [ "デザイナー", "グラフィックチーム", "卒業制作_個人"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0121" : {
-            "name" : "藤本航平",
-            "groups" : [ "デザイナー", "グラフィックチーム", "卒業制作_個人" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0122" : {
-            "name" : "フレハス ジョシュア カイル",
-            "groups" : [ "デザイナー", "イベントチーム", "卒業制作_個人" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0123" : {
-            "name" : "山中翔平",
-            "groups" : [ "ディレクタ", "Hotpageチーム", "イベントチーム", "セミナーチーム", "卒業制作_個人" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0124" : {
-            "name" : "楊詩俞",
-            "groups" : [ "デザイナー" , "セミナーチーム", "卒業制作_告知サイト", "4校合同名札作成・インフォグラフィックス制作"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0125" : {
-            "name" : "ヤング ジャクリン サウミン",
-            "groups" : [ "エンジニア", "セミナーチーム", "メンテナンスチーム", "卒業制作_評価システム"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0127" : {
-            "name" : "渡辺美有",
-            "groups" : [ "デザイナー", "グラフィックチーム", "卒業制作_個人"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0128" : {
-            "name" : "张愚哲",
-            "groups" : [ "エンジニア", "メンテナンスチーム", "卒業制作_評価システム"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0129" : {
-            "name" : "小潟大賀",
-            "groups" : [ "エンジニア", "セミナーチーム", "卒業制作_おもてなしデザイン"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "18aw0130" : {
-            "name" : "橋本輝瑠",
-            "groups" : [ "エンジニア", "Hotpageチーム", "卒業制作_告知サイト", "卒業制作_Unityゲーム", "善通寺", "若年者ものづくり大会・技能五輪全国大会", "業界座談会Webなう" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0101" : {
-            "name" : "青山祐依",
-            "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_SAGOJO", "善通寺", "日専祭サイト制作" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0102" : {
-            "name" : "阿部ゆい",
-            "groups" : [ "デザイナー" ,"イベントチーム" ,"進級制作_キッズコレッチオ" ,"日専祭サイト制作"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0103" : {
-            "name" : "雨宮真衣",
-            "groups" : [ "デザイナー", "イベントチーム", "進級制作_キッズコレッチオ", "日専祭サイト制作" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0104" : {
-            "name" : "今井大輝",
-            "groups" : [ "エンジニア", "グラフィックチーム", "進級制作_グラビス"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0105" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-
-        },
-        "19aw0106" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-
-        },
-        "19aw0107" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-
-        },
-        "19aw0108" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-
-        },
-        "19aw0109" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-
-        },
-        "19aw0110" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-
-        },
-        "19aw0111" : {
-            "name" : "キムソジン",
-            "groups" : [ "デザイナー", "イベントチーム", "進級制作_スターホーム" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0112" : {
-            "name" : "顧家磊",
-            "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_SAGOJO" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0113" : {
-            "name" : "白石敦也",
-            "groups" : [ "エンジニア", "セミナーチーム", "進級制作_スターホーム" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0114" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-        },
-        "19aw0115" : {
-            "name" : "中田泰清",
-            "groups" : [ "ディレクタ", "セミナーチーム", "進級制作_SAGOJO", "日専祭サイト制作" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0116" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-        },
-        "19aw0117" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-        },
-        "19aw0118" : {
-            "name" : "羽田真菜美",
-            "groups" : [ "デザイナー", "Hotpageチーム", "進級制作_グラビス", "4校合同名札作成・インフォグラフィックス制作" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0119" : {
-            "name" : "八戸知里",
-            "groups" : [ "デザイナー" ,"グラフィックチーム" ,"進級制作_スターホーム" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0120" : {
-            "name" : "ハンツーセイ",
-            "groups" : [ "デザイナー", "メンテナンスチーム", "進級制作_グラビス" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0121" : {
-            "name" : "松永湖暖",
-            "groups" : [ "デザイナー", "セミナーチーム", "進級制作_キッズコレッチオ" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0122" : {
-            "name" : "村田実優",
-            "groups" : [ "デザイナー", "セミナーチーム", "進級制作_キッズコレッチオ" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0123" : {
-            "name" : "茂住 一晴",
-            "groups" : [ "デザイナー", "グラフィックチーム", "進級制作_キッズコレッチオ" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0124" : {
-            "name" : "山下航志郎",
-            "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_グラビス", "日専祭サイト制作" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0125" : {
-            "name" : "楊迎",
-            "groups" : [ "デザイナー", "セミナーチーム", "進級制作_スターホーム" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0126" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-
-        },
-        "19aw0127" : {
-            "name" : "xxxx",
-            "groups" : [ "group_1" ]
-
-        },
-        "19aw0128" : {
-            "name" : "レフィヴォン",
-            "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_SAGOJO"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0129" : {
-            "name" : "腰高優美子",
-            "groups" : [ "告知・営業・DTP", "イベントチーム", "進級制作_キッズコレッチオ", "日専祭サイト制作" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0130" : {
-            "name" : "大谷 容子",
-            "groups" : [ "ディレクタ", "Hotpageチーム", "進級制作_キッズコレッチオ", "善通寺"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0131" : {
-            "name" : "宮下颯斗",
-            "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_グラビス", "善通寺", "日専祭サイト制作" ],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        },
-        "19aw0132" : {
-            "name" : "金健敏",
-            "groups" : [ "デザイナー", "メンテナンスチーム", "進級制作_グラビス"],
-            "tags" : ["tag" , "tag" , "tag"],
-            "comments" : {
-                "group_0" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ],
-                "group_1" : [
-                    {"design" : 0 , "coding" : 0 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
-                ]
-            }
-        }
+{ "students" : {
+    "18aw0101" : {
+        "name" : "浅田 幸樹",
+        "groups" : [ "デザイナー", "グラフィックチーム", "卒業制作_個人"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0102" : {
+        "name" : "旭 和佳",
+        "groups" : [ "エンジニア", "セミナーチーム", "卒業制作_教育プログラミング", "沖縄ITスペシャリスト育成プログラム" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0103" : {
+        "name" : "安藤 愛菜",
+        "groups" : [ "デザイナー", "Hotpageチーム", "メンテナンスチーム", "卒業制作_おもてなしデザイン", "沖縄ITスペシャリスト育成プログラム"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0104" : {
+        "name" : "井原 蒼尉",
+        "groups" : [ "デザイナー", "Hotpageチーム", "卒業制作_個人"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0105" : {
+        "name" : "及川 舜平",
+        "groups" : [ "エンジニア", "グラフィックチーム", "卒業制作_個人"],
+        "color" : "",
+        "tags" : {
+            "own" : ["冷静" , "新しいもの好き"],
+            "others" : ["いつも笑顔" , "コーディング得意" , "好奇心旺盛" , "チャレンジ精神" , "熱意" , "はきはきしてる"]
+        },
+        "recommend" : [],
+        "comments" : [
+            {"groupName" : "group_1" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"},
+            {"groupName" : "group_2" , "design" : 5 , "coding" : 5 , "presentation" : 0 , "plan" : 0 , "comment" : "aaaaaaaa"}
+        ]
+    },
+    "18aw0106" : {
+        "name" : "大場 吉樹",
+        "groups" : [ "デザイナー" , "メンテナンスチーム", "卒業制作_個人"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0107" : {
+        "name" : "小原 りょう",
+        "groups" : [ "告知・営業・DTP", "メンテナンスチーム", "卒業制作_個人"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0108" : {
+        "name" : "川浪 涼葉",
+        "groups" : [ "デザイナー" , "グラフィックチーム", "Hotpageチーム", "卒業制作_評価システム", "若年者ものづくり大会・技能五輪全国大会"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0109" : {
+        "name" : "神原美紗希",
+        "groups" : [ "ディレクタ", "グラフィックチーム", "イベントチーム", "卒業制作_個人" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0110" : {
+        "name" : "菊地 聖治",
+        "groups" : [ "エンジニア", "メンテナンスチーム", "イベントチーム", "卒業制作_個人", "若年者ものづくり大会・技能五輪全国大会" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0111" : {
+        "name" : "金 京姫",
+        "groups" : [ "デザイナー" , "セミナーチーム", "卒業制作_個人" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0112" : {
+        "name" : "齋藤 香織",
+        "groups" : [ "デザイナー" , "グラフィックチーム", "卒業制作_個人"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0114" : {
+        "name" : "真田 拓実",
+        "groups" : [ "デザイナー" , "グラフィックチーム", "卒業制作_Unityゲーム", "業界座談会Webなう"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0117" : {
+        "name" : "須永 和徳",
+        "groups" : [ "エンジニア", "セミナーチーム", "卒業制作_個人", "業界座談会Webなう" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0119" : {
+        "name" : "ティハ トーンナイン",
+        "groups" : [ "エンジニア" , "セミナーチーム", "卒業制作_教育プログラミング", "沖縄ITスペシャリスト育成プログラム", "善通寺"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0120" : {
+        "name" : "成瀬 奈美恵",
+        "groups" : [ "デザイナー", "グラフィックチーム", "卒業制作_個人"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0121" : {
+        "name" : "藤本 航平",
+        "groups" : [ "デザイナー", "グラフィックチーム", "卒業制作_個人" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0122" : {
+        "name" : "フレハス ジョシュア カイル",
+        "groups" : [ "デザイナー", "イベントチーム", "卒業制作_個人" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0123" : {
+        "name" : "山中 翔平",
+        "groups" : [ "ディレクタ", "Hotpageチーム", "イベントチーム", "セミナーチーム", "卒業制作_個人" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0124" : {
+        "name" : "楊 詩俞",
+        "groups" : [ "デザイナー" , "セミナーチーム", "卒業制作_告知サイト", "4校合同名札作成・インフォグラフィックス制作"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0125" : {
+        "name" : "ヤング ジャクリン サウミン",
+        "groups" : [ "エンジニア", "セミナーチーム", "メンテナンスチーム", "卒業制作_評価システム"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0127" : {
+        "name" : "渡辺 美有",
+        "groups" : [ "デザイナー", "グラフィックチーム", "卒業制作_個人"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0128" : {
+        "name" : "张 愚哲",
+        "groups" : [ "エンジニア", "メンテナンスチーム", "卒業制作_評価システム"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0129" : {
+        "name" : "小潟 大賀",
+        "groups" : [ "エンジニア", "セミナーチーム", "卒業制作_おもてなしデザイン"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "18aw0130" : {
+        "name" : "橋本 輝瑠",
+        "groups" : [ "エンジニア", "Hotpageチーム", "卒業制作_告知サイト", "卒業制作_Unityゲーム", "善通寺", "若年者ものづくり大会・技能五輪全国大会", "業界座談会Webなう" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0101" : {
+        "name" : "青山 祐依",
+        "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_SAGOJO", "善通寺", "日専祭サイト制作" , "日専祭サイト制作"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0102" : {
+        "name" : "阿部 ゆい",
+        "groups" : [ "デザイナー" ,"イベントチーム" ,"進級制作_キッズコレッチオ" ,"日専祭サイト制作"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0103" : {
+        "name" : "雨宮 真衣",
+        "groups" : [ "デザイナー", "イベントチーム", "進級制作_キッズコレッチオ", "日専祭サイト制作" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0104" : {
+        "name" : "今井 大輝",
+        "groups" : [ "エンジニア", "グラフィックチーム", "進級制作_グラビス"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0106" : {
+        "name" : "王 宇星",
+        "groups" : [ "エンジニア", "Hotpageチーム", "進級制作_スターホーム"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0107" : {
+        "name" : "嘉手川 航太朗",
+        "groups" : [ "エンジニア", "イベントチーム", "進級制作_SAGOJO" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0108" : {
+        "name" : "金子 琴音",
+        "groups" : [ "デザイナー", "グラフィックチーム", "進級制作_キッズコレッチオ" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0109" : {
+        "name" : "吉川 紗也佳",
+        "groups" : [ "デザイナー", "Hotpageチーム", "進級制作_キッズコレッチオ"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0111" : {
+        "name" : "キム ソジン",
+        "groups" : [ "デザイナー", "イベントチーム", "進級制作_スターホーム" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0112" : {
+        "name" : "顧 家磊",
+        "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_SAGOJO" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0113" : {
+        "name" : "白石 敦也",
+        "groups" : [ "エンジニア", "セミナーチーム", "進級制作_スターホーム" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0114" : {
+        "name" : "タパング パール マーガレット シー",
+        "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_キッズコレッチオ" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0115" : {
+        "name" : "中田 泰清",
+        "groups" : [ "ディレクタ", "セミナーチーム", "進級制作_SAGOJO", "日専祭サイト制作" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0116" : {
+        "name" : "朴 相賢",
+        "groups" : [ "デザイナー", "セミナーチーム", "進級制作_キッズコレッチオ" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0117" : {
+        "name" : "朴 ジュンソ",
+        "groups" : [ "デザイナー" ,"グラフィックチーム", "進級制作_SAGOJO" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0118" : {
+        "name" : "羽田 真菜美",
+        "groups" : [ "デザイナー", "Hotpageチーム", "進級制作_グラビス", "4校合同名札作成・インフォグラフィックス制作" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0119" : {
+        "name" : "八戸 知里",
+        "groups" : [ "デザイナー" ,"グラフィックチーム", "進級制作_スターホーム" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0120" : {
+        "name" : "ハン ツーセイ",
+        "groups" : [ "デザイナー", "メンテナンスチーム", "進級制作_グラビス" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0121" : {
+        "name" : "松永 湖暖",
+        "groups" : [ "デザイナー", "セミナーチーム", "進級制作_キッズコレッチオ" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0122" : {
+        "name" : "村田 実優",
+        "groups" : [ "デザイナー", "セミナーチーム", "進級制作_キッズコレッチオ" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0123" : {
+        "name" : "茂住 一晴",
+        "groups" : [ "デザイナー", "グラフィックチーム", "進級制作_キッズコレッチオ" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0124" : {
+        "name" : "山下 航志郎",
+        "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_グラビス", "日専祭サイト制作" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0125" : {
+        "name" : "楊 迎",
+        "groups" : [ "デザイナー", "セミナーチーム", "進級制作_スターホーム" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0126" : {
+        "name" : "ヨン ソジョン",
+        "groups" : [ "デザイナー", "グラフィックチーム", "進級制作_SAGOJO" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0127" : {
+        "name" : "李 泓佑",
+        "groups" : [ "デザイナー", "グラフィックチーム", "進級制作_SAGOJO"  ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0128" : {
+        "name" : "レフィヴォン",
+        "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_SAGOJO"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0129" : {
+        "name" : "腰高優美子",
+        "groups" : [ "告知・営業・DTP", "イベントチーム", "進級制作_キッズコレッチオ", "日専祭サイト制作" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0130" : {
+        "name" : "大谷 容子",
+        "groups" : [ "ディレクタ", "Hotpageチーム", "進級制作_キッズコレッチオ", "善通寺"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0131" : {
+        "name" : "宮下颯斗",
+        "groups" : [ "エンジニア", "メンテナンスチーム", "進級制作_グラビス", "善通寺", "日専祭サイト制作" ],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
+    },
+    "19aw0132" : {
+        "name" : "金健敏",
+        "groups" : [ "デザイナー", "メンテナンスチーム", "進級制作_グラビス"],
+        "color" : "",
+        "tags" : {
+            "own" : [],
+            "others" : []
+        },
+        "recommend" : [],
+        "comments" : []
     }
+}
 }
