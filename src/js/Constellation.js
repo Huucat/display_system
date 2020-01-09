@@ -81,6 +81,7 @@ export default class Constellation {
 
     toDetails(){
         game.constellationDetails.setGroupNum(this.groupNum);
+        game.constellationDetails.beforeId = [];
         game.Manager.enter(2 , this.app);
     }
 

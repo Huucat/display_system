@@ -224,18 +224,18 @@ export default class Star {
             new PIXI.Point(70 , -115)
         );
             
-        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_back_off'].texture);
-        this.buttonBack.anchor.set(0.5);
-        this.buttonBack.position.set(200 , document.documentElement.clientHeight - 200);
-        this.buttonBack.hitArea = poly;
-        this.buttonBack.interactive = true;
-        this.buttonBack.buttonMode = true;
-        this.buttonBack.on('pointerover', function(){
-            this.texture = self.app.loader.resources['button_back_on'].texture
+        this.buttonHome = new PIXI.Sprite(this.app.loader.resources['button_home_off'].texture);
+        this.buttonHome.anchor.set(0.5);
+        this.buttonHome.position.set(200 , document.documentElement.clientHeight - 200);
+        this.buttonHome.hitArea = poly;
+        this.buttonHome.interactive = true;
+        this.buttonHome.buttonMode = true;
+        this.buttonHome.on('pointerover', function(){
+            this.texture = self.app.loader.resources['button_home_on'].texture
         }).on('pointerout', function(){
-            this.texture = self.app.loader.resources['button_back_off'].texture
+            this.texture = self.app.loader.resources['button_home_off'].texture
         }).on('pointerdown', function(){
-            self.back();
+            self.buttonHome_On();
         });
 
         this.buttonStarInfo = new PIXI.Sprite(this.app.loader.resources['button_starinfo_off'].texture);
@@ -280,7 +280,7 @@ export default class Star {
             self.toStarRecommend();
         });
 
-        this.messageBox.addChild(this.buttonBack , this.buttonStarInfo , this.buttonLink , this.buttonRecommend);
+        this.messageBox.addChild(this.buttonHome , this.buttonStarInfo , this.buttonLink , this.buttonRecommend);
     }
 
     starTextOn(_this , star){
@@ -363,7 +363,6 @@ export default class Star {
             this.planetDesign.scale.set(0.2 + totalDesign);
             this.planetPlan.scale.set(0.2 + totalPlan);
             this.planetPresentation.scale.set(0.2 + totalPresentation);
-            console.log(this.planetCoding.scale.x , this.planetDesign.scale.x , this.planetPlan.scale.x , this.planetPresentation.scale.x);
         }
     }
 
@@ -386,7 +385,7 @@ export default class Star {
         this.showStarText = "";
         this.starText.visible = false;
         this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
-        this.buttonBack.texture = this.app.loader.resources['button_back_off'].texture;
+        this.buttonHome.texture = this.app.loader.resources['button_home_off'].texture;
         this.buttonStarInfo.texture = this.app.loader.resources['button_starinfo_off'].texture;
         this.buttonLink.texture = this.app.loader.resources['button_link_off'].texture;
         this.buttonRecommend.texture = this.app.loader.resources['button_recommend_off'].texture;
@@ -398,24 +397,8 @@ export default class Star {
         this.planetPresentation.play();
     }
 
-    back(){ 
-        if(this.beforeId == ""){
-            loop:
-            for(let i in game.Manager.data.userData.students[this.studentId].groups){
-                for(let j in game.Manager.data.userData.groups){
-                    if(game.Manager.data.userData.students[this.studentId].groups[i] == game.Manager.data.userData.groups[j].groupName && game.Manager.data.userData.groups[j].groupType == 1){
-                        game.constellationDetails.groupNum = Number(j);
-                        break loop;
-                    }
-                }
-            }
-            game.Manager.enter(2);
-        }else{
-            this.studentId = this.beforeId;
-            this.beforeId = "";
-            game.starRecommend.studentId = this.studentId;
-            game.Manager.enter(6);
-        }
+    buttonHome_On(){
+        game.Manager.enter(1);
     }
 
     update(){
