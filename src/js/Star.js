@@ -171,6 +171,7 @@ export default class Star {
     }
 
     createFlame(){
+        let self = this;
         this.flameLeft = new PIXI.Sprite(this.app.loader.resources['flame_left'].texture);
         this.flameLeft.scale.set(0.5);
         this.flameLeft.x = -60;
@@ -187,6 +188,15 @@ export default class Star {
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
         this.title = new PIXI.Sprite(this.app.loader.resources['title_star'].texture);
         this.title.scale.set(0.8);
+        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02'].texture);
+        this.buttonBack.scale.set(0.8);
+        this.buttonBack.anchor.set(0.5);
+        this.buttonBack.position.set(60 , 43);
+        this.buttonBack.interactive = true;
+        this.buttonBack.buttonMode = true;
+        this.buttonBack.on('pointerdown', function(){
+            self.back();
+        });
         this.target = [
             new PIXI.Sprite(this.app.loader.resources['target'].texture),
             new PIXI.Sprite(this.app.loader.resources['target'].texture),
@@ -210,7 +220,7 @@ export default class Star {
 
         this.target[3].alpha = 0.2;
 
-        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom , this.target[0] , this.target[1] , this.target[2] , this.target[3] , this.title);
+        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom , this.target[0] , this.target[1] , this.target[2] , this.target[3] , this.title , this.buttonBack);
     }
 
     createButton(){
@@ -294,6 +304,12 @@ export default class Star {
         this.starText.visible = false;
     }
 
+    buttonHome_On(){
+        this.beforeId = [];
+        game.constellationDetails.beforeId = [];
+        game.Manager.enter(1);
+    }
+
     setStudentId(studentId){
         this.studentId = studentId;
     }
@@ -367,23 +383,25 @@ export default class Star {
     }
 
     toStarInfo(){
-        game.starInfo.setStudentId(this.studentId);
         game.Manager.enter(4);
     }
 
     toStarLink(){
-        game.starLink.setStudentId(this.studentId);
         game.Manager.enter(5);
     }
 
     toStarRecommend(){
-        game.starRecommend.setStudentId(this.studentId);
         game.Manager.enter(6);
     }
 
     enter(){
         this.showStarText = "";
         this.starText.visible = false;
+        if(this.beforeId.length == 0){
+            this.buttonBack.visible = false;
+        }else{
+            this.buttonBack.visible = true;
+        }
         this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
         this.buttonHome.texture = this.app.loader.resources['button_home_off'].texture;
         this.buttonStarInfo.texture = this.app.loader.resources['button_starinfo_off'].texture;
@@ -397,8 +415,16 @@ export default class Star {
         this.planetPresentation.play();
     }
 
-    buttonHome_On(){
-        game.Manager.enter(1);
+    back(){
+        let backData = this.beforeId.pop();
+        if(backData.managerNum == 2){
+            game.constellationDetails.groupNum = backData.number;
+            game.Manager.enter(2);
+        }
+        if(backData.managerNum == 6){
+            this.studentId = backData.number;
+            game.Manager.enter(6);
+        }
     }
 
     update(){

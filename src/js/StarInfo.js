@@ -406,6 +406,7 @@ export default class StarInfo{
     }
 
     enter(){
+        this.studentId = game.star.studentId;
         this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
         this.worksText.text = '';
         for(let i in game.Manager.data.userData.students[this.studentId].groups){

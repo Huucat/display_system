@@ -111,6 +111,7 @@ export default class ConstellationDetails {
     }
     
     addFlame(){
+        let self = this;
         this.flameLeft = new PIXI.Sprite(this.app.loader.resources['flame_left'].texture);
         this.flameLeft.scale.set(0.5);
         this.flameLeft.x = -60;
@@ -127,7 +128,16 @@ export default class ConstellationDetails {
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
         this.title = new PIXI.Sprite(this.app.loader.resources['title_constellation'].texture);
         this.title.scale.set(0.8);
-        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom , this.title);
+        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02'].texture);
+        this.buttonBack.scale.set(0.8);
+        this.buttonBack.anchor.set(0.5);
+        this.buttonBack.position.set(60 , 43);
+        this.buttonBack.interactive = true;
+        this.buttonBack.buttonMode = true;
+        this.buttonBack.on('pointerdown', function(){
+            self.back();
+        });
+        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom , this.title , this.buttonBack);
     }
 
     createConstellationBackground(){
@@ -292,6 +302,7 @@ export default class ConstellationDetails {
     showInfo(){
         this.infoState = !this.infoState;
         this.infoButton.visible = false;
+        this.buttonBack.visible = false;
         this.buttonHome.visible = false;
         this.constellationTextBox.visible = true;
         this.constellationText.visible = true;
@@ -303,6 +314,7 @@ export default class ConstellationDetails {
     hideInfo(){
         this.infoState = !this.infoState;
         this.infoButton.visible = true;
+        this.buttonBack.visible = true;
         this.buttonHome.visible = true;
         this.constellationTextBox.visible = false;
         this.constellationText.visible = false;
@@ -374,11 +386,13 @@ export default class ConstellationDetails {
     }
 
     buttonHome_On(){
+        this.beforeId = [];
+        game.star.beforeId = [];
         game.Manager.enter(1);
     }
 
     toStar(studentId){
-        game.star.beforeId = "";
+        game.star.beforeId.push({managerNum : 2 , number : this.groupNum})
         game.star.studentId = studentId;
         game.Manager.enter(3);
     }
@@ -396,6 +410,11 @@ export default class ConstellationDetails {
     }
 
     enter(){
+        if(this.beforeId.length == 0){
+            this.buttonBack.visible = false;
+        }else{
+            this.buttonBack.visible = true;
+        }
         this.buttonObservation.texture = this.app.loader.resources['button_observation_off'].texture;
         this.buttonHome.texture = this.app.loader.resources['button_home_off'].texture;
         this.removeChildren();
@@ -403,6 +422,11 @@ export default class ConstellationDetails {
         this.createConstellation();
         this.createStar();
         this.hideStudent();
+    }
+
+    back(){
+        game.star.studentId = this.beforeId.pop()
+        game.Manager.enter(5);
     }
 
     update(){
