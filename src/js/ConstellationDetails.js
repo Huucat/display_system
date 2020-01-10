@@ -15,6 +15,8 @@ export default class ConstellationDetails {
         this.detailsBox.addChild(this.constellationBox , this.flameBox , this.messageBox);
 
         this.groupNum = 0;
+        this.beforeId = [];
+
         this.star = [];
         this.name = [];
         this.targetState = false;
@@ -26,7 +28,7 @@ export default class ConstellationDetails {
         this.addBackground();
         this.addTarget();
         this.addFlame();
-        this.addBackButton();
+        this.addHomeButton();
         this.addInfoButton();
         this.createConstellationInfo();
         this.createStudentInfo();
@@ -61,17 +63,31 @@ export default class ConstellationDetails {
         this.messageBox.addChild(this.target_In , this.target_Out);
     }
 
-    addBackButton(){
+    addHomeButton(){
         let self = this;
-        this.backButton = new PIXI.Sprite(this.app.loader.resources['button_01'].texture);
-        this.backButton.interactive = true;
-        this.backButton.buttonMode = true;
-        this.backButton.position.set(25 , 25);
+        let poly = new PIXI.Polygon(
+            new PIXI.Point(-70 , -115),
+            new PIXI.Point(-130 , 0),
+            new PIXI.Point(-70 , 115),
+            new PIXI.Point(70 , 115),
+            new PIXI.Point(130 , 0),
+            new PIXI.Point(70 , -115)
+        );
 
-        this.backButton.on('pointerdown', function(){
-            self.onBackButton()
+        this.buttonHome = new PIXI.Sprite(this.app.loader.resources['button_home_off'].texture);
+        this.buttonHome.anchor.set(0.5);
+        this.buttonHome.position.set(200 , document.documentElement.clientHeight - 200);
+        this.buttonHome.hitArea = poly;
+        this.buttonHome.interactive = true;
+        this.buttonHome.buttonMode = true;
+        this.buttonHome.on('pointerover', function(){
+            this.texture = self.app.loader.resources['button_home_on'].texture
+        }).on('pointerout', function(){
+            this.texture = self.app.loader.resources['button_home_off'].texture
+        }).on('pointerdown', function(){
+            self.buttonHome_On();
         });
-        this.messageBox.addChild(this.backButton);
+        this.messageBox.addChild(this.buttonHome);
     }
 
     addInfoButton(){
@@ -95,6 +111,7 @@ export default class ConstellationDetails {
     }
     
     addFlame(){
+        let self = this;
         this.flameLeft = new PIXI.Sprite(this.app.loader.resources['flame_left'].texture);
         this.flameLeft.scale.set(0.5);
         this.flameLeft.x = -60;
@@ -109,9 +126,18 @@ export default class ConstellationDetails {
         this.flameBottom.y = document.documentElement.clientHeight;
         this.line_horizontal = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(0 , document.documentElement.clientHeight / 2).lineTo(document.documentElement.clientWidth , document.documentElement.clientHeight / 2);
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
-
-        this.buttonLeft = new PIXI.Sprite(this.app.loader.resources['flame_bottom'].texture);
-        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
+        this.title = new PIXI.Sprite(this.app.loader.resources['title_constellation'].texture);
+        this.title.scale.set(0.8);
+        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02'].texture);
+        this.buttonBack.scale.set(0.8);
+        this.buttonBack.anchor.set(0.5);
+        this.buttonBack.position.set(60 , 43);
+        this.buttonBack.interactive = true;
+        this.buttonBack.buttonMode = true;
+        this.buttonBack.on('pointerdown', function(){
+            self.back();
+        });
+        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom , this.title , this.buttonBack);
     }
 
     createConstellationBackground(){
@@ -276,7 +302,8 @@ export default class ConstellationDetails {
     showInfo(){
         this.infoState = !this.infoState;
         this.infoButton.visible = false;
-        this.backButton.visible = false;
+        this.buttonBack.visible = false;
+        this.buttonHome.visible = false;
         this.constellationTextBox.visible = true;
         this.constellationText.visible = true;
         this.closeButton.visible = true;
@@ -287,7 +314,8 @@ export default class ConstellationDetails {
     hideInfo(){
         this.infoState = !this.infoState;
         this.infoButton.visible = true;
-        this.backButton.visible = true;
+        this.buttonBack.visible = true;
+        this.buttonHome.visible = true;
         this.constellationTextBox.visible = false;
         this.constellationText.visible = false;
         this.closeButton.visible = false;
@@ -300,7 +328,7 @@ export default class ConstellationDetails {
         if(this.infoState == false && this.studentState == false){
             this.studentState = true;
             this.studentName.text = name;
-            this.backButton.visible = false;
+            this.buttonHome.visible = false;
             this.infoButton.visible = false;
             for(let i in this.name){
                 this.name[i].visible = false;
@@ -319,7 +347,7 @@ export default class ConstellationDetails {
     hideStudent(){
         if(this.infoState == false && this.studentState == true){
             this.studentName.text = '';
-            this.backButton.visible = true;
+            this.buttonHome.visible = true;
             this.infoButton.visible = true;
             for(let i in this.name){
                 this.name[i].visible = true;
@@ -357,12 +385,14 @@ export default class ConstellationDetails {
         }
     }
 
-    onBackButton(){
+    buttonHome_On(){
+        this.beforeId = [];
+        game.star.beforeId = [];
         game.Manager.enter(1);
     }
 
     toStar(studentId){
-        game.star.beforeId = "";
+        game.star.beforeId.push({managerNum : 2 , number : this.groupNum})
         game.star.studentId = studentId;
         game.Manager.enter(3);
     }
@@ -380,12 +410,23 @@ export default class ConstellationDetails {
     }
 
     enter(){
+        if(this.beforeId.length == 0){
+            this.buttonBack.visible = false;
+        }else{
+            this.buttonBack.visible = true;
+        }
         this.buttonObservation.texture = this.app.loader.resources['button_observation_off'].texture;
+        this.buttonHome.texture = this.app.loader.resources['button_home_off'].texture;
         this.removeChildren();
         this.createConstellationBackground();
         this.createConstellation();
         this.createStar();
         this.hideStudent();
+    }
+
+    back(){
+        game.star.studentId = this.beforeId.pop()
+        game.Manager.enter(5);
     }
 
     update(){

@@ -80,8 +80,14 @@ export default class Constellation {
     }
 
     toDetails(){
-        game.constellationDetails.setGroupNum(this.groupNum);
-        game.Manager.enter(2 , this.app);
+        if(game.Manager.managerNum == 5){
+            game.constellationDetails.beforeId.push(game.star.studentId);
+            game.constellationDetails.setGroupNum(this.groupNum);
+            game.Manager.enter(2);
+        }else{
+            game.constellationDetails.setGroupNum(this.groupNum);
+            game.Manager.enter(2);
+        }
     }
 
     filterOn(self){

@@ -9,8 +9,8 @@ const FILE_PATH = {
         {"name" : "button_constellation_info_on" , "url" : require("@/assets/button_constellation_info_on.png")},
         {"name" : "button_observation_off" , "url" : require("@/assets/button_observation_off.png")},
         {"name" : "button_observation_on" , "url" : require("@/assets/button_observation_on.png")},
-        {"name" : "button_back_off" , "url" : require("@/assets/button_back_off.png")},
-        {"name" : "button_back_on" , "url" : require("@/assets/button_back_on.png")},
+        {"name" : "button_home_off" , "url" : require("@/assets/button_home_off.png")},
+        {"name" : "button_home_on" , "url" : require("@/assets/button_home_on.png")},
         {"name" : "button_link_off" , "url" : require("@/assets/button_link_off.png")},
         {"name" : "button_link_on" , "url" : require("@/assets/button_link_on.png")},
         {"name" : "button_recommend_off" , "url" : require("@/assets/button_recommend_off.png")},
@@ -62,9 +62,11 @@ const FILE_PATH = {
         {"name" : "text_presentation_left" , "url" : require("@/assets/text_presentation_left.png")},
         {"name" : "text_presentation_right" , "url" : require("@/assets/text_presentation_right.png")},
 
+        {"name" : "title_constellation" , "url" : require("@/assets/title_constellation.png")},
         {"name" : "title_info" , "url" : require("@/assets/title_info.png")},
         {"name" : "title_link" , "url" : require("@/assets/title_link.png")},
         {"name" : "title_recommend" , "url" : require("@/assets/title_recommend.png")},
+        {"name" : "title_star" , "url" : require("@/assets/title_star.png")}
     ]
 }
 

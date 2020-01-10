@@ -287,12 +287,13 @@ export default class StarRecommend{
     }
 
     toStar(){
-        game.star.beforeId = this.studentId;
+        game.star.beforeId.push({managerNum : 6 , number : this.studentId});
         game.star.setStudentId(this.selectedStudentId);
         game.Manager.enter(3);
     }
 
     enter(){
+        this.studentId = game.star.studentId;
         this.selectedStudentId = "";
         this.ownName.text = game.Manager.data.userData.students[this.studentId].name;
         this.othersStarBox = [];

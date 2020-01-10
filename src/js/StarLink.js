@@ -159,6 +159,7 @@ export default class StarLink{
     }
 
     enter(){
+        this.studentId = game.star.studentId;
         this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
         this.mouseOver = false;
         this.setSunColor();
