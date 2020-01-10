@@ -39,6 +39,7 @@ export default class StarRecommend{
     createBackground(){
         this.spaceBg = new PIXI.Sprite(this.app.loader.resources['background_spaceship'].texture);
         this.spaceBg.anchor.set(0.5);
+        this.spaceBg.width = document.documentElement.clientWidth;
         this.backgroundBox.addChild(this.spaceBg);
     }
 

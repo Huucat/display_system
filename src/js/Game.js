@@ -25,7 +25,6 @@ export default class Game{
                 fontFamily : 'KaisoNext',
                 fill : 0xFFFFFF,
                 align : 'left',
-                dropShadow : true
             },
             SmartPhoneUI : {
                 fontFamily : 'SmartPhoneUI',

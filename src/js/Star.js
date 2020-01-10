@@ -375,6 +375,19 @@ export default class Star {
             totalDesign = Number((totalDesign / 300).toFixed(3));
             totalPlan = Number((totalPlan / 300).toFixed(3));
             totalPresentation = Number((totalPresentation / 300).toFixed(3));
+            if(totalCoding > 0.5){
+                totalCoding = 0.5;
+            }
+            if(totalDesign > 0.5){
+                totalDesign = 0.5;
+            }
+            if(totalPlan > 0.5){
+                totalPlan = 0.5;
+            }
+            if(totalPresentation > 0.5){
+                totalPresentation = 0.5;
+            }
+            console.log(totalCoding , totalDesign , totalPlan , totalPresentation);
             this.planetCoding.scale.set(0.2 + totalCoding);
             this.planetDesign.scale.set(0.2 + totalDesign);
             this.planetPlan.scale.set(0.2 + totalPlan);
