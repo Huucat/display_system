@@ -12,10 +12,10 @@ export default class Constellation {
         this.addBackground();
         this.addLine();
         this.addStar();
+        this.addConstellationName();
     }
 
     addLine(){
-        var self = this;
         this.constellation = new PIXI.Sprite(this.app.loader.resources['group_01'].texture);
         this.constellation.anchor.x = 0.5;
         this.constellation.anchor.y = 0.5;
@@ -41,6 +41,17 @@ export default class Constellation {
             this.star[i].scale.set(0.3);
             this.constellationBox.addChild(this.star[i]);
         }
+    }
+
+    addConstellationName(){
+        this.constellationName = new PIXI.Text(game.Manager.data.userData.groups[this.groupNum].groupName + '座' , game.fontStyle.KaisoNext);
+        this.constellationName.anchor.x = 0.5;
+        this.constellationName.y = 600;
+        this.constellationName.style.fontSize = 70;
+        this.constellationName.style.wordWrap = true;
+        this.constellationName.style.breakWords = true;
+        this.constellationName.style.wordWrapWidth = 700;
+        this.constellationBox.addChild(this.constellationName);
     }
 
     resetStarColor(){

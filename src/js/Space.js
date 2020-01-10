@@ -38,10 +38,15 @@ export default class Space {
         this.flameBottom.x = document.documentElement.clientWidth / 2;
         this.flameBottom.y = document.documentElement.clientHeight;
 
+        this.title = new PIXI.Text('星座一覧' , game.fontStyle.KaisoNext);
+        this.title.style.fontSize = 50;
+        this.title.anchor.set(0.5 , 0);
+        this.title.position.set(document.documentElement.clientWidth / 2 , 50);
+
         this.line_horizontal = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(0 , document.documentElement.clientHeight / 2).lineTo(document.documentElement.clientWidth , document.documentElement.clientHeight / 2);
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
 
-        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
+        this.flameBox.addChild(this.title , this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
     }
 
     createConstellation(){

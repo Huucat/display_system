@@ -127,6 +127,12 @@ export default class ConstellationDetails {
         this.flameBottom.y = document.documentElement.clientHeight;
         this.line_horizontal = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(0 , document.documentElement.clientHeight / 2).lineTo(document.documentElement.clientWidth , document.documentElement.clientHeight / 2);
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
+        
+        this.constellationName = new PIXI.Text('' , game.fontStyle.KaisoNext);
+        this.constellationName.anchor.x = 0.5;
+        this.constellationName.position.set(document.documentElement.clientWidth / 2 , 50);
+        this.constellationName.style.fontSize = 36;
+        
         this.title = new PIXI.Sprite(this.app.loader.resources['title_constellation'].texture);
         this.title.scale.set(0.8);
         this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02'].texture);
@@ -138,7 +144,7 @@ export default class ConstellationDetails {
         this.buttonBack.on('pointerdown', function(){
             self.back();
         });
-        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom , this.title , this.buttonBack);
+        this.flameBox.addChild(this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom , this.constellationName , this.title , this.buttonBack);
     }
 
     createConstellationBackground(){
@@ -208,14 +214,13 @@ export default class ConstellationDetails {
     createConstellationInfo(){
         let self = this;
         this.constellationTextBox = new PIXI.Graphics();
-        this.constellationTextBox.lineStyle(2, 0xcaf2ff, 2);
+        this.constellationTextBox.lineStyle(3, 0xcaf2ff, 1);
         this.constellationTextBox.beginFill(0xcaf2ff, 0.2);
-        this.constellationTextBox.drawRoundedRect(0 , 0 , 575, 500, 8);
+        this.constellationTextBox.drawRoundedRect(0 , 0 , 575, 0, 8);
         this.constellationTextBox.endFill();
-        this.constellationTextBox.position.set(document.documentElement.clientWidth - 600 , 25);
+        this.constellationTextBox.position.set(document.documentElement.clientWidth - 610 , 35);
 
         let dropShadowFilter = new DropShadowFilter();
-        dropShadowFilter.alpha = 1;
         dropShadowFilter.blur = 8;
         dropShadowFilter.distance = 0;
         dropShadowFilter.quality = 6;
@@ -321,7 +326,11 @@ export default class ConstellationDetails {
     hideInfo(){
         this.infoState = !this.infoState;
         this.infoButton.visible = true;
-        this.buttonBack.visible = true;
+        if(this.beforeId.length == 0){
+            this.buttonBack.visible = false;
+        }else{
+            this.buttonBack.visible = true;
+        }
         this.buttonHome.visible = true;
         this.groupTextBox.visible = false;
 
@@ -416,7 +425,7 @@ export default class ConstellationDetails {
 
     setConstellationTextBox(){
         this.constellationTextBox.clear();
-        this.constellationTextBox.lineStyle(2, 0xcaf2ff, 2);
+        this.constellationTextBox.lineStyle(3, 0xcaf2ff, 1 , 0);
         this.constellationTextBox.beginFill(0xcaf2ff, 0.2);
         this.constellationTextBox.drawRoundedRect(0 , 0 , 575, 120 + this.constellationTitle.height + this.constellationText.height, 8);
         this.constellationTextBox.endFill();
@@ -432,6 +441,7 @@ export default class ConstellationDetails {
         this.groupTextBox.visible = false;
         this.buttonObservation.texture = this.app.loader.resources['button_observation_off'].texture;
         this.buttonHome.texture = this.app.loader.resources['button_home_off'].texture;
+        this.constellationName.text = game.Manager.data.userData.groups[this.groupNum].groupName + '座';
         this.removeChildren();
         this.setConstellationTextBox();
         this.createConstellationBackground();
