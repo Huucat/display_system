@@ -43,6 +43,7 @@ const FILE_PATH = {
         {"name" : "star_presentation" , "url" : require("@/assets/star_presentation_1.png")},
 
         {"name" : "target" , "url" : require("@/assets/target.png")},
+        {"name" : "target_arrow" , "url" : require("@/assets/target_arrow.png")},
         {"name" : "target_in" , "url" : require("@/assets/target_in.png")},
         {"name" : "target_out" , "url" : require("@/assets/target_out.png")},
 

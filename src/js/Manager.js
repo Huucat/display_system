@@ -1,7 +1,6 @@
 import * as firebase from 'firebase/app';
 import 'firebase/database';
 
-import GROUPS from './groups.json';
 import Space from "./Space";
 import ConstellationDetails from './ConstellationDetails.js'
 import Star from './Star.js'
@@ -40,9 +39,9 @@ export default class Manager{
             set userData(data){
                 this._userData = data;
                 if(self.appStart == false){
-                    self.appStart = true;
                     self.setStarColor();
                     self.init(app);
+                    self.appStart = true;
                 }
                 if(self.appStart == true){
                     self.setStarColor();
@@ -51,7 +50,7 @@ export default class Manager{
                 }
             }
         }
-
+        
         this.app.ticker.add(() => {
             if(self.appStart == true){
                 self.update();
@@ -79,7 +78,7 @@ export default class Manager{
     }
 
     setStarColor(){
-        for(let i in this.data.userData.students){
+        for(let i in game.Manager.data.userData.students){
             let arr = {
                 plan : 0,
                 design : 0,
@@ -90,8 +89,8 @@ export default class Manager{
             let max = 0;
             let index = [];
 
-            if(this.data.userData.students[i].comments){
-                let comments = this.data.userData.students[i].comments;
+            if(game.Manager.data.userData.students[i].comments){
+                let comments = game.Manager.data.userData.students[i].comments;
                 for(let j in comments){
                     arr.plan += comments[j].plan;
                     arr.design += comments[j].design;
@@ -113,16 +112,16 @@ export default class Manager{
 
             switch(index[Math.floor(Math.random() * index.length)]){
                 case 'plan':
-                    this.data.userData.students[i].color = "star_plan";
+                    game.Manager.data.userData.students[i].color = "star_plan";
                 break;
                 case 'design':
-                    this.data.userData.students[i].color = "star_design";
+                    game.Manager.data.userData.students[i].color = "star_design";
                 break;
                 case 'coding':
-                    this.data.userData.students[i].color = "star_coding";
+                    game.Manager.data.userData.students[i].color = "star_coding";
                 break;
                 case 'presentation':
-                    this.data.userData.students[i].color = "star_presentation";
+                    game.Manager.data.userData.students[i].color = "star_presentation";
                 break;
             }
         }

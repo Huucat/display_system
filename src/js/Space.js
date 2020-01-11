@@ -11,7 +11,7 @@ export default class Space {
         this.constellation = [];
 
         this.constellationGroups.x = document.documentElement.clientWidth / 2;
-        this.constellationGroups.y = document.documentElement.clientHeight / 2 + 1000;
+        this.constellationGroups.y = document.documentElement.clientHeight / 2 + 1350;
         
         this.addSpaceBg();
         this.createConstellation();
@@ -53,8 +53,8 @@ export default class Space {
         let num = game.Manager.data.userData.groups.length;
         for (let i in game.Manager.data.userData.groups) {
             this.constellation[i] = new Constellation(this.app , i);
-            this.constellation[i].constellationBox.x = Math.cos((Math.PI * 2 / num) * i) * 1100;
-            this.constellation[i].constellationBox.y = Math.sin((Math.PI * 2 / num) * i) * 1100;
+            this.constellation[i].constellationBox.x = Math.cos((Math.PI * 2 / num) * i) * 1500;
+            this.constellation[i].constellationBox.y = Math.sin((Math.PI * 2 / num) * i) * 1500;
             this.constellation[i].constellationBox.rotation = (Math.PI * 2 / num) * i + (Math.PI * 0.5);
             this.constellation[i].constellationBox.scale.set(0.35);
             this.constellation[i].addEvent();

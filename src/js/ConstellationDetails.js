@@ -262,7 +262,7 @@ export default class ConstellationDetails {
         this.studentTextBox = new PIXI.Graphics();
         this.studentTextBox.lineStyle(2, 0xcaf2ff, 2);
         this.studentTextBox.beginFill(0xcaf2ff, 0.2);
-        this.studentTextBox.drawRoundedRect(0 , 0 , 600 , 150, 8);
+        this.studentTextBox.drawRoundedRect(0 , 0 , 0 , 150, 8);
         this.studentTextBox.endFill();
         this.studentTextBox.x = 25;
         this.studentTextBox.y = document.documentElement.clientHeight - 250;
@@ -283,7 +283,7 @@ export default class ConstellationDetails {
         this.studentText.y = this.studentTextBox.y + 25;
         this.studentText.visible = false;
 
-        this.studentName = new PIXI.Text('', game.fontStyle.KaisoNext);
+        this.studentName = new PIXI.Text('', game.fontStyle.SmartPhoneUI);
         this.studentName.style.fontSize = 40;
         this.studentName.x = this.studentTextBox.x + 25;
         this.studentName.y = this.studentTextBox.y + 80;
@@ -342,6 +342,13 @@ export default class ConstellationDetails {
         if(this.infoState == false && this.studentState == false){
             this.studentState = true;
             this.studentName.text = name;
+            
+            this.studentTextBox.clear();
+            this.studentTextBox.lineStyle(2, 0xcaf2ff, 2);
+            this.studentTextBox.beginFill(0xcaf2ff, 0.2);
+            this.studentTextBox.drawRoundedRect(0 , 0 , this.studentName.width > 575 ? this.studentName.width + 70 : 575 , 150, 8);
+            this.studentTextBox.endFill();
+
             this.buttonHome.visible = false;
             this.infoButton.visible = false;
             for(let i in this.name){

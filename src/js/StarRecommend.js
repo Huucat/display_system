@@ -7,32 +7,28 @@ export default class StarRecommend{
 
         this.studentId = "";
         this.selectedStudentId = "";
-        this.position = [
-            {x : -(document.documentElement.clientWidth / 3) , y : -(document.documentElement.clientHeight / 4) + 50},
-            {x : document.documentElement.clientWidth / 3 , y : -(document.documentElement.clientHeight / 4) + 50},
-            {x : -(document.documentElement.clientWidth / 3) , y : document.documentElement.clientHeight / 4 - 50},
-            {x : document.documentElement.clientWidth / 3 , y : document.documentElement.clientHeight / 4 - 50}
-        ];
+        this.selected = false;
+        this.targetStep = 0;
+
         this.othersStarBox = [];
 
         this.starRecommendBox = new PIXI.Container();
         this.backgroundBox = new PIXI.Container();
+        this.ownNameBox = new PIXI.Container();
         this.othersAllBox = new PIXI.Container();
-        this.ownStarBox = new PIXI.Container();
+        this.targetBox = new PIXI.Container();
         this.buttonBox = new PIXI.Container();
         this.backButtonBox = new PIXI.Container();
 
-        this.backgroundBox.x = this.ownStarBox.x = this.othersAllBox.x = this.buttonBox.x = document.documentElement.clientWidth / 2;
-        this.backgroundBox.y = this.ownStarBox.y = this.othersAllBox.y = document.documentElement.clientHeight / 2;
+        this.backgroundBox.x = this.ownNameBox.x = this.buttonBox.x = document.documentElement.clientWidth / 2;
+        this.backgroundBox.y = this.othersAllBox.y = this.targetBox.y = document.documentElement.clientHeight / 2;
 
-        this.starRecommendBox.addChild(this.backgroundBox , this.othersAllBox , this.ownStarBox , this.buttonBox , this.backButtonBox);
+        this.starRecommendBox.addChild(this.backgroundBox , this.ownNameBox , this.othersAllBox , this.targetBox , this.buttonBox , this.backButtonBox);
 
         this.createBackground();
-        this.createOwnBg();
-        this.createOwnStar();
         this.createOwnName();
+        this.createTarget();
         this.createButton();
-
         this.createBackButton();
     }
 
@@ -43,40 +39,34 @@ export default class StarRecommend{
         this.backgroundBox.addChild(this.spaceBg);
     }
 
-    createOwnBg(){
-        let shadowFilter = new DropShadowFilter();
-        shadowFilter.alpha = 0.8;
-        shadowFilter.blur = 8;
-        shadowFilter.distance = 0;
-        shadowFilter.quality = 8;
-        shadowFilter.pixelSize = 0.5;
-        shadowFilter.color = 0x00A3D5;
-        let ownBg = new PIXI.Graphics();
-        ownBg.lineStyle(2, 0xFFFFFF, 3);
-        ownBg.beginFill(0x044455);
-        ownBg.drawRoundedRect(-160 , -200 , 320 , 400, 8);
-        ownBg.endFill();
-        ownBg.filters = [shadowFilter];
-        this.ownStarBox.addChild(ownBg);
-    }
-
-    createOwnStar(){
-        this.ownStar = new PIXI.Graphics();
-        this.ownStar.y = -60;
-        this.ownStarBox.addChild(this.ownStar);
-    }
-
     createOwnName(){
-        this.ownName = new PIXI.Text('', game.fontStyle.SmartPhoneUI_White);
-        this.ownName.style.fontSize = 30;
+        this.ownName = new PIXI.Text('', game.fontStyle.KaisoNext);
+        this.ownName.style.fontSize = 50;
         this.ownName.style.align = "center";
-        this.ownName.style.wordWrap = true;
-        this.ownName.style.wordWrapWidth = 300;
-        this.ownName.style.lineHeight = 50;
         this.ownName.x = 0
-        this.ownName.y = 70;
+        this.ownName.y = 150;
         this.ownName.anchor.x = 0.5;
-        this.ownStarBox.addChild(this.ownName);
+        this.ownNameBox.addChild(this.ownName);
+    }
+
+    createTarget(){
+        this.target = [
+            new PIXI.Sprite(this.app.loader.resources['target_arrow'].texture),
+            new PIXI.Sprite(this.app.loader.resources['target'].texture),
+            new PIXI.Sprite(this.app.loader.resources['target'].texture),
+            new PIXI.Sprite(this.app.loader.resources['target'].texture),
+            new PIXI.Sprite(this.app.loader.resources['target'].texture)
+        ];
+
+        this.target[0].anchor.set(0.5);
+
+        this.target[2].scale.set(1 , -1);
+        this.target[3].scale.set(-1 , 1);
+        this.target[4].scale.set(-1 , -1);
+
+
+
+        this.targetBox.addChild(this.target[0] , this.target[1] , this.target[2] , this.target[3] , this.target[4]);
     }
 
     createButton(){
@@ -139,13 +129,9 @@ export default class StarRecommend{
         this.backButtonBox.addChild(this.title , this.buttonBack);
     }
 
-    addOthersBg(i){
+    addOthersBg(){
         let self = this;
-        this.othersStarBox[i].container = new PIXI.Container();
-        this.othersStarBox[i].container.x = this.position[i].x;
-        this.othersStarBox[i].container.y = this.position[i].y;
-        this.othersAllBox.addChild(this.othersStarBox[i].container);
-
+        let membersNum = game.Manager.data.userData.students[this.studentId].recommend.length;
         let shadowFilter = new DropShadowFilter();
         shadowFilter.alpha = 0.8;
         shadowFilter.blur = 8;
@@ -153,95 +139,103 @@ export default class StarRecommend{
         shadowFilter.quality = 8;
         shadowFilter.pixelSize = 0.5;
         shadowFilter.color = 0x00A3D5;
+        for(let i = 0 ; i < membersNum ; i++){
+            this.othersStarBox[i] = new PIXI.Container();
+            this.othersStarBox[i].position.x = document.documentElement.clientWidth / 2 - (membersNum - 1)  * 175 + i * 350;
+            this.othersAllBox.addChild(this.othersStarBox[i]);
 
-        this.othersStarBox[i].othersBg = new PIXI.Graphics();
-        this.othersStarBox[i].othersBg.lineStyle(2, 0xFFFFFF, 3);
-        this.othersStarBox[i].othersBg.beginFill(0xCAF2FF , 0.2);
-        this.othersStarBox[i].othersBg.drawRoundedRect(-160 , -200 , 320 , 400, 8);
-        this.othersStarBox[i].othersBg.endFill();
-        this.othersStarBox[i].othersBg.filters = [shadowFilter];
-        this.othersStarBox[i].othersBg.interactive = true;
-        this.othersStarBox[i].othersBg.buttonMode = true;
-        this.othersStarBox[i].othersBg.on('pointerdown', function(){
-            self.setButtonOn(Number(i));
-        });
-        
-        this.othersStarBox[i].container.addChild(this.othersStarBox[i].othersBg);
-    }
-
-    addOthersStar(i){
-        this.othersStarBox[i].othersStar = new PIXI.Graphics();
-        this.othersStarBox[i].othersStar.y = -60;
-        this.setStarColor(this.othersStarBox[i].othersStar , game.Manager.data.userData.students[this.studentId].recommend[i])
-        this.othersStarBox[i].container.addChild(this.othersStarBox[i].othersStar);
-    }
-
-    addOthersName(i){
-        this.othersStarBox[i].othersName = new PIXI.Text(game.Manager.data.userData.students[game.Manager.data.userData.students[this.studentId].recommend[i]].name, game.fontStyle.SmartPhoneUI_White);
-        this.othersStarBox[i].othersName.style.fontSize = 30;
-        this.othersStarBox[i].othersName.style.align = "center";
-        this.othersStarBox[i].othersName.style.wordWrap = true;
-        this.othersStarBox[i].othersName.style.wordWrapWidth = 300;
-        this.othersStarBox[i].othersName.style.lineHeight = 50;
-        this.othersStarBox[i].othersName.x = 0
-        this.othersStarBox[i].othersName.y = 70;
-        this.othersStarBox[i].othersName.anchor.x = 0.5;
-        this.othersStarBox[i].container.addChild(this.othersStarBox[i].othersName);
-    }
-
-    addOthersLine(i){
-        this.othersStarBox[i].othersLine = new PIXI.Graphics();
-        this.othersStarBox[i].othersLine.lineStyle(3, 0xFFFFFF, 1);
-        switch(Number(i)){
-            case 0:
-                this.othersStarBox[i].othersLine.moveTo(160 , 0);
-                this.othersStarBox[i].othersLine.lineTo(240 , 0);
-                this.othersStarBox[i].othersLine.lineTo(320 , 180);
-                this.othersStarBox[i].othersLine.lineTo(document.documentElement.clientWidth / 3 , 180);
-            break;
-            case 1:
-                this.othersStarBox[i].othersLine.moveTo(-160 , 0);
-                this.othersStarBox[i].othersLine.lineTo(-240 , 0);
-                this.othersStarBox[i].othersLine.lineTo(-320 , 180);
-                this.othersStarBox[i].othersLine.lineTo(-document.documentElement.clientWidth / 3 , 180);
-            break;
-            case 2:
-                this.othersStarBox[i].othersLine.moveTo(160 , 0);
-                this.othersStarBox[i].othersLine.lineTo(240 , 0);
-                this.othersStarBox[i].othersLine.lineTo(320 , -180);
-                this.othersStarBox[i].othersLine.lineTo(document.documentElement.clientWidth / 3 , -180);
-            break;
-            case 3:
-                this.othersStarBox[i].othersLine.moveTo(-160 , 0);
-                this.othersStarBox[i].othersLine.lineTo(-240 , 0);
-                this.othersStarBox[i].othersLine.lineTo(-320 , -180);
-                this.othersStarBox[i].othersLine.lineTo(-document.documentElement.clientWidth / 3 , -180);
-            break;
+            let othersBg = new PIXI.Graphics();
+            othersBg.lineStyle(2, 0xFFFFFF, 3);
+            othersBg.beginFill(0xCAF2FF , 0.2);
+            othersBg.drawRoundedRect(-150 , -200 , 300 , 400, 8);
+            othersBg.endFill();
+            othersBg.filters = [shadowFilter];
+            othersBg.interactive = true;
+            othersBg.buttonMode = true;
+            othersBg.on('pointerdown', function(){
+                self.setButtonOn(Number(i));
+            });
+            
+            this.othersStarBox[i].addChild(othersBg);
         }
-        this.othersStarBox[i].container.addChild(this.othersStarBox[i].othersLine);
     }
 
-    setStudentId(studentId){
-        this.studentId = studentId;
+    addOthersStar(){
+        for(let i in game.Manager.data.userData.students[this.studentId].recommend){
+            let othersStar = new PIXI.Graphics();
+            othersStar.y = -120;
+            this.setStarColor(othersStar , game.Manager.data.userData.students[this.studentId].recommend[i]);
+            this.othersStarBox[i].addChild(othersStar);
+        }
+    }
+
+    addOthersName(){
+        for(let i in game.Manager.data.userData.students[this.studentId].recommend){
+            let othersName = new PIXI.Text(game.Manager.data.userData.students[game.Manager.data.userData.students[this.studentId].recommend[i]].name, game.fontStyle.SmartPhoneUI_White);
+            if(game.Manager.data.userData.students[this.studentId].recommend[i].indexOf("18") != -1){
+                othersName.style.fill = 0x63D9FF;
+            }else{
+                othersName.style.fill = 0xFFD692;
+            }
+            othersName.style.fontSize = 30;
+            othersName.style.align = "center";
+            othersName.style.wordWrap = true;
+            othersName.style.wordWrapWidth = 300;
+            othersName.style.lineHeight = 30;
+            othersName.y = -60;
+            othersName.anchor.x = 0.5;
+            this.othersStarBox[i].addChild(othersName);
+        }
+    }
+
+    addOthersInfo(){
+        for(let i in game.Manager.data.userData.students[this.studentId].recommend){
+            let line = new PIXI.Graphics();
+            line.lineStyle(2, 0xFFFFFF, 1);
+            line.moveTo(-140 , 50);
+            line.lineTo(140 , 50);
+
+            let othersInfo = new PIXI.Text("ああああああああああああああああああああああああああああああ", game.fontStyle.SmartPhoneUI_White);
+            othersInfo.style.fontSize = 28;
+            othersInfo.style.align = "left";
+            othersInfo.style.wordWrap = true;
+            othersInfo.style.wordWrapWidth = 290;
+            othersInfo.style.breakWords = true;
+            othersInfo.style.lineHeight = 30;
+            othersInfo.y = 80;
+            othersInfo.anchor.x = 0.5;
+
+            this.othersStarBox[i].addChild(line , othersInfo);
+        }
     }
     
     setButtonOn(num){
         for(let i in this.othersStarBox){
-            this.othersStarBox[i].container.alpha = 0.2;
+            this.othersStarBox[i].alpha = 0.2;
         }
-        this.othersStarBox[num].container.alpha = 1;
-        this.buttonBox.visible = true;
         this.selectedStudentId = game.Manager.data.userData.students[this.studentId].recommend[num];
+        this.othersStarBox[num].alpha = 1;
+        this.target[0].position.set(this.othersStarBox[num].x , -220);
+        this.target[1].position.set(this.othersStarBox[num].x - 168 , -215);
+        this.target[2].position.set(this.othersStarBox[num].x - 168, 215);
+        this.target[3].position.set(this.othersStarBox[num].x + 168 , -215);
+        this.target[4].position.set(this.othersStarBox[num].x + 168 , 215);
+        this.buttonBox.visible = true;
+        this.targetBox.visible = true;
+        this.selected = true;
     }
 
     
     setButtonOff(){
         for(let i in this.othersStarBox){
-            this.othersStarBox[i].container.alpha = 1;
+            this.othersStarBox[i].alpha = 1;
         }
-        this.buttonClose.texture = this.app.loader.resources['button_close_off'].texture
-        this.buttonToStar.texture = this.app.loader.resources['button_tostar_off'].texture
+        this.targetStep = 0;
+        this.buttonClose.texture = this.app.loader.resources['button_close_off'].texture;
+        this.buttonToStar.texture = this.app.loader.resources['button_tostar_off'].texture;
         this.buttonBox.visible = false;
+        this.targetBox.visible = false;
+        this.selected = false;
     }
 
     setStarColor(star , studentId){
@@ -258,28 +252,28 @@ export default class StarRecommend{
         switch(game.Manager.data.userData.students[studentId].color){
             case "star_plan":
                 star.beginFill(0xFFF390, 1);
-                star.drawCircle(0, 0, 80);
+                star.drawCircle(0, 0, 40);
                 star.endFill();
                 sunShadowFilter.color = 0xFFF390;
                 star.filters = [sunShadowFilter];
             break;
             case "star_design":
                 star.beginFill(0xFF99FF, 1);
-                star.drawCircle(0, 0, 80);
+                star.drawCircle(0, 0, 40);
                 star.endFill();
                 sunShadowFilter.color = 0xFF99FF;
                 star.filters = [sunShadowFilter];
             break;
             case "star_coding":
                 star.beginFill(0x99CCFF, 1);
-                star.drawCircle(0, 0, 80);
+                star.drawCircle(0, 0, 40);
                 star.endFill();
                 sunShadowFilter.color = 0x99CCFF;
                 star.filters = [sunShadowFilter];
             break;
             case "star_presentation":
                 star.beginFill(0xAAFFAA, 1);
-                star.drawCircle(0, 0, 80);
+                star.drawCircle(0, 0, 40);
                 star.endFill();
                 sunShadowFilter.color = 0xAAFFAA;
                 star.filters = [sunShadowFilter];
@@ -295,21 +289,18 @@ export default class StarRecommend{
 
     enter(){
         this.studentId = game.star.studentId;
-        this.selectedStudentId = "";
-        this.ownName.text = game.Manager.data.userData.students[this.studentId].name;
-        this.othersStarBox = [];
-        this.buttonBox.visible = false;
         this.buttonClose.texture = this.app.loader.resources['button_close_off'].texture;
         this.buttonToStar.texture = this.app.loader.resources['button_tostar_off'].texture;
+        this.ownName.text = game.Manager.data.userData.students[this.studentId].name + "のおすすめ";
+        this.buttonBox.visible = false;
+        this.targetBox.visible = false;
+        this.targetStep = 0;
         this.othersAllBox.removeChildren();
-        this.setStarColor(this.ownStar , this.studentId);
-        for(let i in game.Manager.data.userData.students[this.studentId].recommend){
-            this.othersStarBox[i] = {};
-            this.addOthersBg(i);
-            this.addOthersStar(i);
-            this.addOthersName(i);
-            this.addOthersLine(i);
-        }
+        this.othersStarBox = [];
+        this.addOthersBg();
+        this.addOthersStar();
+        this.addOthersName();
+        this.addOthersInfo();
     }
 
     back(){
@@ -317,6 +308,9 @@ export default class StarRecommend{
     }
 
     update(){
-
+        if(this.selected){
+            this.target[0].y = -220 + Math.sin(this.targetStep) * 3;
+            this.targetStep += 0.4;
+        }
     }
 }

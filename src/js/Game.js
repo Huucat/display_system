@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js';
 import FILE_PATH from './FILE_PATH.js';
 import Manager from './Manager.js';
+import GROUPS from './groups.json';
 
 export default class Game{
     constructor(){
@@ -42,6 +43,8 @@ export default class Game{
             }
         };
 
+        this.appData = GROUPS;
+
         this.init();
     }
 
@@ -67,7 +70,6 @@ export default class Game{
     }
 
     gameStart(){
-        var self = this;
         this.Manager = new Manager(this.app);
     }
 }

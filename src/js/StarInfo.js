@@ -10,8 +10,10 @@ export default class StarInfo{
         this.backgroundBox = new PIXI.Container();
         this.starBox = new PIXI.Container();
         this.worksBox = new PIXI.Container();
-        this.tagBox = new PIXI.Container();
-        this.scrollBarBox = new PIXI.Container();
+        this.tagBoxOwn = new PIXI.Container();
+        this.tagBoxOthers = new PIXI.Container();
+        this.ownScrollBarBox = new PIXI.Container();
+        this.othersScrollBarBox = new PIXI.Container();
         this.buttonBox = new PIXI.Container();
 
         this.backgroundBox.x = document.documentElement.clientWidth / 2;
@@ -22,12 +24,15 @@ export default class StarInfo{
         this.starBox.scale.set(0.8);
 
         this.worksBox.x = document.documentElement.clientWidth * 0.75;
-        this.worksBox.y = document.documentElement.clientHeight / 2;
+        this.worksBox.y = document.documentElement.clientHeight / 2 - 300;
 
-        this.tagBox.x = document.documentElement.clientWidth * 0.75;
-        this.tagBox.y = document.documentElement.clientHeight / 2;
+        this.tagBoxOwn.x = document.documentElement.clientWidth * 0.75;
+        this.tagBoxOwn.y = document.documentElement.clientHeight / 2 - 70;
 
-        this.starInfoBox.addChild(this.backgroundBox , this.starBox , this.worksBox , this.tagBox , this.buttonBox);
+        this.tagBoxOthers.x = document.documentElement.clientWidth * 0.75;
+        this.tagBoxOthers.y = document.documentElement.clientHeight / 2 + 160;
+
+        this.starInfoBox.addChild(this.backgroundBox , this.starBox , this.worksBox , this.tagBoxOwn , this.tagBoxOthers , this.buttonBox);
 
         this.createBackground();
         this.createSun();
@@ -37,9 +42,15 @@ export default class StarInfo{
         this.createPlanet_Presentation();
         this.createName();
         this.createWorks();
-        this.createTags();
-        this.createScrollBar();
-        this.createMask();
+
+        this.createOwnTags();
+        this.createOwnScrollBar();
+        this.createOwnMask();
+
+        this.createOthersTags();
+        this.createOthersScrollBar();
+        this.createOthersMask();
+
         this.createBackButton();
     }
 
@@ -148,10 +159,9 @@ export default class StarInfo{
         this.worksBg = new PIXI.Graphics();
         this.worksBg.lineStyle(2, 0xcaf2ff, 2);
         this.worksBg.beginFill(0xcaf2ff, 0.2);
-        this.worksBg.drawRoundedRect(0 , 0 , 700 , 150, 8);
+        this.worksBg.drawRoundedRect(0 , 0 , 700 , 160, 8);
         this.worksBg.endFill();
         this.worksBg.x = -500;
-        this.worksBg.y = -250;
 
         this.worksTitle = new PIXI.Text('作品：', game.fontStyle.KaisoNext);
         this.worksTitle.style.fontSize = 32;
@@ -167,43 +177,82 @@ export default class StarInfo{
         this.worksBox.addChild(this.worksTitle , this.worksBg , this.worksText);
     }
 
-    createTags(){
-        this.tagsBg = new PIXI.Graphics();
-        this.tagsBg.lineStyle(2, 0xcaf2ff, 2);
-        this.tagsBg.beginFill(0xcaf2ff, 0.2);
-        this.tagsBg.drawRoundedRect(0 , 0 , 700 , 300, 8);
-        this.tagsBg.endFill();
-        this.tagsBg.x = -500;
+    createOwnTags(){
+        this.ownTagsBg = new PIXI.Graphics();
+        this.ownTagsBg.lineStyle(2, 0xcaf2ff, 2);
+        this.ownTagsBg.beginFill(0xcaf2ff, 0.2);
+        this.ownTagsBg.drawRoundedRect(0 , 0 , 700 , 160, 8);
+        this.ownTagsBg.endFill();
+        this.ownTagsBg.x = -500;
 
-        this.tagsTitle = new PIXI.Text('構成物質：', game.fontStyle.KaisoNext);
-        this.tagsTitle.style.fontSize = 32;
-        this.tagsTitle.x = this.tagsBg.x;
-        this.tagsTitle.y = this.tagsBg.y - 50;
+        let tagsTitle = new PIXI.Text('私の特徴：', game.fontStyle.KaisoNext);
+        tagsTitle.style.fontSize = 32;
+        tagsTitle.x = this.ownTagsBg.x;
+        tagsTitle.y = this.ownTagsBg.y - 50;
 
         this.tagBox_1 = new PIXI.Container();
-        this.tagBox_1.x = this.tagsBg.x + 25;
-        this.tagBox_1.y = this.tagsBg.y + 25;
-        this.tagBox.addChild(this.tagsBg , this.tagsTitle , this.tagBox_1);
+        this.tagBox_1.x = this.ownTagsBg.x + 25;
+        this.tagBox_1.y = this.ownTagsBg.y + 15;
+        this.tagBoxOwn.addChild(this.ownTagsBg , tagsTitle , this.tagBox_1);
     }
 
-    createScrollBar(){
-        this.scrollBarBox.position.set(180 , 10);
-        this.tagBox.addChild(this.scrollBarBox);
+    createOthersTags(){
+        this.othersTagsBg = new PIXI.Graphics();
+        this.othersTagsBg.lineStyle(2, 0xcaf2ff, 2);
+        this.othersTagsBg.beginFill(0xcaf2ff, 0.2);
+        this.othersTagsBg.drawRoundedRect(0 , 0 , 700 , 220, 8);
+        this.othersTagsBg.endFill();
+        this.othersTagsBg.x = -500;
+
+        let tagsTitle = new PIXI.Text('構成物質：', game.fontStyle.KaisoNext);
+        tagsTitle.style.fontSize = 32;
+        tagsTitle.x = this.ownTagsBg.x;
+        tagsTitle.y = this.ownTagsBg.y - 50;
+
+        this.tagBox_2 = new PIXI.Container();
+        this.tagBox_2.x = this.othersTagsBg.x + 25;
+        this.tagBox_2.y = this.othersTagsBg.y + 15;
+        this.tagBoxOthers.addChild(this.othersTagsBg , tagsTitle , this.tagBox_2);
+    }
+
+    createOwnScrollBar(){
+        this.ownScrollBarBox.position.set(180 , 10);
+        this.tagBoxOwn.addChild(this.ownScrollBarBox);
         
         var self = this;
-        this.scrollBar = new PIXI.Graphics();
-        this.scrollBar.beginFill(0xcaf2ff);
-        this.scrollBar.drawRoundedRect(0 , 0 , 8 , 280, 4);
-        this.scrollBar.endFill();
-        this.scrollBar.visible = false;
-        this.scrollBar.moving = false;
-        this.scrollBar.pointY = 0;
-        this.scrollBar.interactive = true;
-        this.scrollBar.on('pointerdown', function(){self.moveStart(this)})
+        this.ownScrollBar = new PIXI.Graphics();
+        this.ownScrollBar.beginFill(0xcaf2ff);
+        this.ownScrollBar.drawRoundedRect(0 , 0 , 8 , 160, 4);
+        this.ownScrollBar.endFill();
+        this.ownScrollBar.visible = false;
+        this.ownScrollBar.moving = false;
+        this.ownScrollBar.pointY = 0;
+        this.ownScrollBar.interactive = true;
+        this.ownScrollBar.on('pointerdown', function(){self.moveStart(this)})
             .on('pointerupoutside', function(){self.moveEnd(this)})
             .on('pointerup', function(){self.moveEnd(this)})
-            .on('pointermove', function(){self.moveOn(this)});
-        this.scrollBarBox.addChild(this.scrollBar);
+            .on('pointermove', function(){self.moveOn(this , self.tagBox_1 , 140)});
+        this.ownScrollBarBox.addChild(this.ownScrollBar);
+    }
+
+    createOthersScrollBar(){
+        this.othersScrollBarBox.position.set(180 , 10);
+        this.tagBoxOthers.addChild(this.othersScrollBarBox);
+        
+        var self = this;
+        this.othersScrollBar = new PIXI.Graphics();
+        this.othersScrollBar.beginFill(0xcaf2ff);
+        this.othersScrollBar.drawRoundedRect(0 , 0 , 8 , 200, 4);
+        this.othersScrollBar.endFill();
+        this.othersScrollBar.visible = false;
+        this.othersScrollBar.moving = false;
+        this.othersScrollBar.pointY = 0;
+        this.othersScrollBar.interactive = true;
+        this.othersScrollBar.on('pointerdown', function(){self.moveStart(this)})
+            .on('pointerupoutside', function(){self.moveEnd(this)})
+            .on('pointerup', function(){self.moveEnd(this)})
+            .on('pointermove', function(){self.moveOn(this , self.tagBox_2 , 200)});
+        this.othersScrollBarBox.addChild(this.othersScrollBar);
     }
 
     moveStart(_this){
@@ -215,31 +264,42 @@ export default class StarInfo{
         _this.moving = false;
     }
 
-    moveOn(_this){
+    moveOn(_this , box ,boxheight){
         if(_this.moving == true){
             let newPosition = this.app.renderer.plugins.interaction.mouse.global.y;
             _this.y = (newPosition - document.documentElement.clientHeight / 2) - _this.pointY;
             if(_this.y < 0){
                 _this.y = 0
-            }else if(_this.y > 280 - _this.height){
-                _this.y = 280 - _this.height
+            }else if(_this.y > boxheight - _this.height){
+                _this.y = boxheight - _this.height
             }
-            this.tagBox_1.y = 25 + (-this.tagBox_1.height - 25) * (_this.y / (280 - _this.height)) + 280 * (_this.y / (280 - _this.height));
+            box.y = 15 + (-box.height - 15) * (_this.y / (boxheight - _this.height)) + boxheight * (_this.y / (boxheight - _this.height));
         }
     }
 
-    createMask(){
-        this.maskBox = new PIXI.Graphics();
-        this.maskBox.beginFill(0xFF0000);
-        this.maskBox.drawRect(0, 0, 700, 296);
-        this.maskBox.endFill();
-        this.maskBox.x = this.tagsBg.x
-        this.maskBox.y = this.tagsBg.y + 2;
-        this.tagBox.addChild(this.maskBox);
-        this.tagBox_1.mask = this.maskBox;
+    createOwnMask(){
+        let maskBox = new PIXI.Graphics();
+        maskBox.beginFill(0xFF0000);
+        maskBox.drawRect(0, 0, 700, 156);
+        maskBox.endFill();
+        maskBox.x = this.ownTagsBg.x
+        maskBox.y = this.ownTagsBg.y + 2;
+        this.tagBoxOwn.addChild(maskBox);
+        this.tagBox_1.mask = maskBox;
     }
 
-    addtag(){
+    createOthersMask(){
+        let maskBox = new PIXI.Graphics();
+        maskBox.beginFill(0xFF0000);
+        maskBox.drawRect(0, 0, 700, 216);
+        maskBox.endFill();
+        maskBox.x = this.othersTagsBg.x
+        maskBox.y = this.othersTagsBg.y + 2;
+        this.tagBoxOthers.addChild(maskBox);
+        this.tagBox_2.mask = maskBox;
+    }
+
+    addOwntag(){
         let nowHeight = 0;
         let nowWidth = 0;
         let allWidth = 650;
@@ -272,11 +332,13 @@ export default class StarInfo{
             nowWidth += tag_list[i].width + 20;
             this.tagBox_1.addChild(tag_list[i]);
         }
+    }
 
-        nowWidth = 0;
-        nowHeight += 70;
-        tag_list = [];
-
+    addOtherstag(){
+        let nowHeight = 0;
+        let nowWidth = 0;
+        let allWidth = 650;
+        let tag_list = [];
         if(game.Manager.data.userData.students[this.studentId].tags.others){
             for (let i in game.Manager.data.userData.students[this.studentId].tags.others){
                 tag_list[i] = new PIXI.Container();
@@ -304,7 +366,7 @@ export default class StarInfo{
                     tag_list[i].y = nowHeight;
                 }
                 nowWidth += tag_list[i].width + 20;
-                this.tagBox_1.addChild(tag_list[i]);
+                this.tagBox_2.addChild(tag_list[i]);
             }
         }
     }
@@ -366,13 +428,23 @@ export default class StarInfo{
         }
     }
 
-    setScrollBar(){
-        if(this.tagBox_1.height > 280){
-            this.scrollBar.visible = true;
-            this.scrollBar.height = 280 * (280 / this.tagBox_1.height);
-            this.scrollBar.y = 0;
+    setOwnScrollBar(){
+        if(this.tagBox_1.height > 160){
+            this.ownScrollBar.visible = true;
+            this.ownScrollBar.height = 160 * (160 / this.tagBox_1.height);
+            this.ownScrollBar.y = 0;
         }else{
-            this.scrollBar.visible = false;
+            this.ownScrollBar.visible = false;
+        }
+    }
+
+    setOthersScrollBar(){
+        if(this.tagBox_2.height > 220){
+            this.othersScrollBar.visible = true;
+            this.othersScrollBar.height = 220 * (220 / this.tagBox_2.height);
+            this.othersScrollBar.y = 0;
+        }else{
+            this.othersScrollBar.visible = false;
         }
     }
 
@@ -437,26 +509,24 @@ export default class StarInfo{
         this.planetCoding.play();
         this.planetPresentation.play();
         this.tagBox_1.removeChildren();
-        this.addtag();
-        this.setScrollBar();
-        this.tagBox_1.y = this.tagsBg.y + 25;
+        this.addOwntag();
+        this.setOwnScrollBar();
+        this.addOtherstag();
+        this.setOthersScrollBar();
+        this.tagBox_1.y = this.ownTagsBg.y + 15;
     }
 
     update(){
         this.planetPlan.x = Math.cos(this.planetPlanPosition -= this.planetPlanOrbitalSpeed) * 200;
         this.planetPlan.y = Math.sin(this.planetPlanPosition -= this.planetPlanOrbitalSpeed) * 200;
-        // this.planetPlan.rotation -= 0.01;
 
         this.planetDesign.x = Math.cos(this.planetDesignPosition -= this.planetDesignOrbitalSpeed) * 250;
         this.planetDesign.y = Math.sin(this.planetDesignPosition -= this.planetDesignOrbitalSpeed) * 250;
-        // this.planetDesign.rotation += 0.005;
 
         this.planetCoding.x = Math.cos(this.planetCodingPosition -= this.planetCodingOrbitalSpeed) * 300;
         this.planetCoding.y = Math.sin(this.planetCodingPosition -= this.planetCodingOrbitalSpeed) * 300;
-        // this.planetCoding.rotation -= 0.03;
 
         this.planetPresentation.x = Math.cos(this.planetPresentationPosition -= this.planetPresentationOrbitalSpeed) * 350;
         this.planetPresentation.y = Math.sin(this.planetPresentationPosition -= this.planetPresentationOrbitalSpeed) * 350;
-        // this.planetPresentation.rotation -= 0.2;
     }
 }
