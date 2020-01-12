@@ -53,7 +53,7 @@ export default class Star {
     createPlanet_Plan(){
         let self = this;
         this.planetPlanPosition = Math.PI * 2 * Math.random();
-        this.planetPlanOrbitalSpeed = 0.005;
+        this.planetPlanOrbitalSpeed = 0.003;
 
         this.planetPlanOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 200);
 
@@ -63,7 +63,7 @@ export default class Star {
             planet_Plan_list[i].frame = new PIXI.Rectangle(i * 200 , 0 , 200 , 200);
         }
         this.planetPlan = new PIXI.AnimatedSprite(planet_Plan_list);
-        this.planetPlan.animationSpeed = 0.2;
+        this.planetPlan.animationSpeed = 0.1;
         this.planetPlan.rotation = Math.PI * 2 / 8;
         this.planetPlan.anchor.set(0.5);
         this.planetPlan.scale.set(0.2);

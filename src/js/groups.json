@@ -75,7 +75,7 @@
             ]
         },
         {
-            "groupName" : "告知・営業",
+            "groupName" : "営業・マーケター",
             "groupType": 0,
             "description" : "",
             "members" : [
@@ -107,7 +107,7 @@
             ]
         },
         {
-            "groupName" : "Hotpageチーム",
+            "groupName" : "ホットページチーム",
             "groupType": 0,
             "description" : "",
             "members" : [
@@ -193,7 +193,7 @@
             ]
         },
         {
-            "groupName" : "日専祭サイト制作",
+            "groupName" : "日専祭サイト",
             "groupType": 0,
             "description" : "",
             "members" : [
@@ -366,7 +366,7 @@
             ]
         },
         {
-            "groupName" : "卒業制作_教育プログラミング",
+            "groupName" : "卒業制作_子どもプログラミング",
             "groupType": 1,
             "description" : "",
             "members" : [
