@@ -178,7 +178,7 @@ export default class ConstellationDetails {
             }).on('pointerout', function(){
                 self.targetOff(this)
             }).on('pointerdown', function(){
-                self.showStudent(this.name , this.studentId)
+                self.showStudent(this.name , this.studentId , this)
             });
             this.constellationBox.addChild(this.star[i]);
             this.creatName(i);
@@ -337,11 +337,19 @@ export default class ConstellationDetails {
         this.constellationBox.x = document.documentElement.clientWidth / 2;
     }
 
-    showStudent(name , studentId){
+    showStudent(name , studentId , _self){
         let self = this;
-        if(this.infoState == false && this.studentState == false){
+        if(this.infoState == false){
             this.studentState = true;
             this.studentName.text = name;
+
+            this.target_In.visible = true;
+            this.target_Out.visible = true;
+            this.targetState = true;
+            this.target_In.x = document.documentElement.clientWidth / 2 + _self.x * 0.7;
+            this.target_In.y = document.documentElement.clientHeight / 2 + _self.y * 0.7;
+            this.target_Out.x = document.documentElement.clientWidth / 2 + _self.x * 0.7;
+            this.target_Out.y = document.documentElement.clientHeight / 2 + _self.y * 0.7;
             
             this.studentTextBox.clear();
             this.studentTextBox.lineStyle(2, 0xcaf2ff, 2);
