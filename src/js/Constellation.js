@@ -8,7 +8,7 @@ export default class Constellation {
         this.outLine = new GlowFilter(15, 3, 0, 0xFF00FF, 0.1);
         this.student = {};
         this.star = [];
-        this.groupNum = i;
+        this.groupNum = 1;
         this.addBackground();
         this.addLine();
         this.addStar();
@@ -27,7 +27,7 @@ export default class Constellation {
         this.constellationBg = new PIXI.Sprite(this.app.loader.resources['group_' + game.Manager.data.userData.groups[this.groupNum].groupName + "_bg"].texture);
         this.constellationBg.anchor.x = 0.5;
         this.constellationBg.anchor.y = 0.5;
-        this.constellationBg.alpha = 0.5;
+        this.constellationBg.alpha = 0.6;
         this.constellationBox.addChild(this.constellationBg);
     }
 
