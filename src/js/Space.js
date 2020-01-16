@@ -56,7 +56,7 @@ export default class Space {
             this.constellation[i].constellationBox.x = Math.cos((Math.PI * 2 / num) * i) * 1500;
             this.constellation[i].constellationBox.y = Math.sin((Math.PI * 2 / num) * i) * 1500;
             this.constellation[i].constellationBox.rotation = (Math.PI * 2 / num) * i + (Math.PI * 0.5);
-            this.constellation[i].constellationBox.scale.set(0.35);
+            this.constellation[i].constellationBox.scale.set(0.3);
             this.constellation[i].addEvent();
             this.constellationGroups.addChild(this.constellation[i].constellationBox);
         }

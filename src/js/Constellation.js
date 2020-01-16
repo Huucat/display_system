@@ -16,7 +16,7 @@ export default class Constellation {
     }
 
     addLine(){
-        this.constellation = new PIXI.Sprite(this.app.loader.resources['group_01'].texture);
+        this.constellation = new PIXI.Sprite(this.app.loader.resources['group_' + game.Manager.data.userData.groups[this.groupNum].groupName].texture);
         this.constellation.anchor.x = 0.5;
         this.constellation.anchor.y = 0.5;
         this.constellation.interactive = true;
@@ -24,10 +24,10 @@ export default class Constellation {
     }
 
     addBackground(){
-        this.constellationBg = new PIXI.Sprite(this.app.loader.resources['group_01_bg'].texture);
+        this.constellationBg = new PIXI.Sprite(this.app.loader.resources['group_' + game.Manager.data.userData.groups[this.groupNum].groupName + "_bg"].texture);
         this.constellationBg.anchor.x = 0.5;
         this.constellationBg.anchor.y = 0.5;
-        this.constellationBg.alpha = 0.2;
+        this.constellationBg.alpha = 0.5;
         this.constellationBox.addChild(this.constellationBg);
     }
 

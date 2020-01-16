@@ -148,14 +148,14 @@ export default class ConstellationDetails {
     }
 
     createConstellationBackground(){
-        this.constellationBg.texture = this.app.loader.resources['group_01_bg'].texture;
+        this.constellationBg.texture = this.app.loader.resources['group_' + game.Manager.data.userData.groups[this.groupNum].groupName + "_bg"].texture;
         this.constellationBg.anchor.x = 0.5;
         this.constellationBg.anchor.y = 0.5;
         this.constellationBg.alpha = 0.2;
     }
 
     createConstellation(){
-        this.constellation.texture = this.app.loader.resources['group_01'].texture;
+        this.constellation.texture = this.app.loader.resources['group_' + game.Manager.data.userData.groups[this.groupNum].groupName].texture;
         this.constellation.anchor.x = 0.5;
         this.constellation.anchor.y = 0.5;
     }
