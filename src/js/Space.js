@@ -75,6 +75,6 @@ export default class Space {
     }
 
     update(){
-        this.constellationGroups.rotation -= 0.001;
+        this.constellationGroups.rotation -= 0.002;
     }
 }

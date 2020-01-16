@@ -151,7 +151,7 @@ export default class ConstellationDetails {
         this.constellationBg.texture = this.app.loader.resources['group_' + game.Manager.data.userData.groups[this.groupNum].groupName + "_bg"].texture;
         this.constellationBg.anchor.x = 0.5;
         this.constellationBg.anchor.y = 0.5;
-        this.constellationBg.alpha = 0.2;
+        this.constellationBg.alpha = 0.5;
     }
 
     createConstellation(){
