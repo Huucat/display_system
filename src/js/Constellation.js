@@ -8,7 +8,7 @@ export default class Constellation {
         this.outLine = new GlowFilter(15, 3, 0, 0xFF00FF, 0.1);
         this.student = {};
         this.star = [];
-        this.groupNum = 1;
+        this.groupNum = 15;
         this.addBackground();
         this.addLine();
         this.addStar();
