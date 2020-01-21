@@ -509,6 +509,7 @@ export default class StarInfo{
         this.planetCoding.play();
         this.planetPresentation.play();
         this.tagBox_1.removeChildren();
+        this.tagBox_2.removeChildren();
         this.addOwntag();
         this.setOwnScrollBar();
         this.addOtherstag();
