@@ -228,7 +228,7 @@ export default class ConstellationDetails {
         dropShadowFilter.pixelSize = 0.6;
         this.constellationTextBox.filters = [dropShadowFilter];
 
-        this.constellationTitle = new PIXI.Text('沖縄ITスペシャリスト育成プロジェクト座', game.fontStyle.KaisoNext_White);
+        this.constellationTitle = new PIXI.Text("", game.fontStyle.KaisoNext_White);
         this.constellationTitle.style.fontSize = 60;
         this.constellationTitle.style.wordWrap = true;
         this.constellationTitle.style.breakWords = true;
@@ -236,7 +236,7 @@ export default class ConstellationDetails {
         this.constellationTitle.x = this.constellationTextBox.x + 25;
         this.constellationTitle.y = this.constellationTextBox.y + 40;
 
-        this.constellationText = new PIXI.Text('一般社団法人沖縄オープンラボラトリ様主催の、最新ICT技術（IOT、BIGDATA、5G、AI、クラウド）を使いこなすスペシャリスト育成プログラムに参加した学生。\n特別な観光体験を残したい外国人観光客へ、日本を楽しんでまた来たいと思ってもらえるサービスが1位、健康が気になる社員の方へ、社食での栄養バランスを確認でき会社全体で食事の意識を底上げするサービスが2位を受賞しました。',game.fontStyle.SmartPhoneUI_White);
+        this.constellationText = new PIXI.Text("",game.fontStyle.SmartPhoneUI_White);
         this.constellationText.style.wordWrap = true;
         this.constellationText.style.breakWords = true;
         this.constellationText.style.wordWrapWidth = 650;
@@ -458,6 +458,9 @@ export default class ConstellationDetails {
         this.buttonObservation.texture = this.app.loader.resources['button_observation_off'].texture;
         this.buttonHome.texture = this.app.loader.resources['button_home_off'].texture;
         this.constellationName.text = game.Manager.data.userData.groups[this.groupNum].groupName + '座';
+        this.constellationTitle.text = game.Manager.data.userData.groups[this.groupNum].groupName + '座';
+        this.constellationText.text = game.Manager.data.userData.groups[this.groupNum].description;
+        this.constellationText.y = this.constellationTitle.y + this.constellationTitle.height + 40;
         this.removeChildren();
         this.setConstellationTextBox();
         this.createConstellationBackground();
