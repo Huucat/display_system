@@ -164,15 +164,15 @@ export default class StarRecommend{
         for(let i in game.Manager.data.userData.students[this.studentId].recommend){
             let othersStar = new PIXI.Graphics();
             othersStar.y = -120;
-            this.setStarColor(othersStar , game.Manager.data.userData.students[this.studentId].recommend[i]);
+            this.setStarColor(othersStar , game.Manager.data.userData.students[this.studentId].recommend[i].id);
             this.othersStarBox[i].addChild(othersStar);
         }
     }
 
     addOthersName(){
         for(let i in game.Manager.data.userData.students[this.studentId].recommend){
-            let othersName = new PIXI.Text(game.Manager.data.userData.students[game.Manager.data.userData.students[this.studentId].recommend[i]].name, game.fontStyle.SmartPhoneUI_White);
-            if(game.Manager.data.userData.students[this.studentId].recommend[i].indexOf("18") != -1){
+            let othersName = new PIXI.Text(game.Manager.data.userData.students[game.Manager.data.userData.students[this.studentId].recommend[i].id].name, game.fontStyle.SmartPhoneUI_White);
+            if(game.Manager.data.userData.students[this.studentId].recommend[i].id.indexOf("18aw") != -1){
                 othersName.style.fill = 0x63D9FF;
             }else{
                 othersName.style.fill = 0xFFD692;
@@ -195,14 +195,14 @@ export default class StarRecommend{
             line.moveTo(-140 , 50);
             line.lineTo(140 , 50);
 
-            let othersInfo = new PIXI.Text("ああああああああああああああああああああああああああああああ", game.fontStyle.SmartPhoneUI_White);
-            othersInfo.style.fontSize = 28;
+            let othersInfo = new PIXI.Text(game.Manager.data.userData.students[this.studentId].recommend[i].message, game.fontStyle.SmartPhoneUI_White);
+            othersInfo.style.fontSize = 24;
             othersInfo.style.align = "left";
             othersInfo.style.wordWrap = true;
-            othersInfo.style.wordWrapWidth = 290;
+            othersInfo.style.wordWrapWidth = 275;
             othersInfo.style.breakWords = true;
             othersInfo.style.lineHeight = 30;
-            othersInfo.y = 80;
+            othersInfo.y = 60;
             othersInfo.anchor.x = 0.5;
 
             this.othersStarBox[i].addChild(line , othersInfo);
@@ -213,7 +213,7 @@ export default class StarRecommend{
         for(let i in this.othersStarBox){
             this.othersStarBox[i].alpha = 0.2;
         }
-        this.selectedStudentId = game.Manager.data.userData.students[this.studentId].recommend[num];
+        this.selectedStudentId = game.Manager.data.userData.students[this.studentId].recommend[num].id;
         this.othersStarBox[num].alpha = 1;
         this.target[0].position.set(this.othersStarBox[num].x , -220);
         this.target[1].position.set(this.othersStarBox[num].x - 168 , -215);

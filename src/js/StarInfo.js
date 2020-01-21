@@ -204,7 +204,7 @@ export default class StarInfo{
         this.othersTagsBg.endFill();
         this.othersTagsBg.x = -500;
 
-        let tagsTitle = new PIXI.Text('構成物質：', game.fontStyle.KaisoNext);
+        let tagsTitle = new PIXI.Text('みんなから見た私の特徴：', game.fontStyle.KaisoNext);
         tagsTitle.style.fontSize = 32;
         tagsTitle.x = this.ownTagsBg.x;
         tagsTitle.y = this.ownTagsBg.y - 50;

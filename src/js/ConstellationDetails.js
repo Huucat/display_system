@@ -216,9 +216,9 @@ export default class ConstellationDetails {
         this.constellationTextBox = new PIXI.Graphics();
         this.constellationTextBox.lineStyle(3, 0xcaf2ff, 1);
         this.constellationTextBox.beginFill(0xcaf2ff, 0.2);
-        this.constellationTextBox.drawRoundedRect(0 , 0 , 575, 0, 8);
+        this.constellationTextBox.drawRoundedRect(0 , 0 , 700, 0, 8);
         this.constellationTextBox.endFill();
-        this.constellationTextBox.position.set(document.documentElement.clientWidth - 610 , 35);
+        this.constellationTextBox.position.set(document.documentElement.clientWidth - 735 , 35);
 
         let dropShadowFilter = new DropShadowFilter();
         dropShadowFilter.blur = 8;
@@ -228,18 +228,18 @@ export default class ConstellationDetails {
         dropShadowFilter.pixelSize = 0.6;
         this.constellationTextBox.filters = [dropShadowFilter];
 
-        this.constellationTitle = new PIXI.Text('留学生座', game.fontStyle.KaisoNext_White);
+        this.constellationTitle = new PIXI.Text('沖縄ITスペシャリスト育成プロジェクト座', game.fontStyle.KaisoNext_White);
         this.constellationTitle.style.fontSize = 60;
         this.constellationTitle.style.wordWrap = true;
         this.constellationTitle.style.breakWords = true;
-        this.constellationTitle.style.wordWrapWidth = 450;
+        this.constellationTitle.style.wordWrapWidth = 575;
         this.constellationTitle.x = this.constellationTextBox.x + 25;
         this.constellationTitle.y = this.constellationTextBox.y + 40;
 
-        this.constellationText = new PIXI.Text('Webデザイン科の留学生。\nみんなN1もしくはN2の検定を取得していて、会話も授業も「日本語」のみで学んでいます。\n日本語のレベルアップのため、作文コンテストに挑戦した学生も。',game.fontStyle.SmartPhoneUI_White);
+        this.constellationText = new PIXI.Text('一般社団法人沖縄オープンラボラトリ様主催の、最新ICT技術（IOT、BIGDATA、5G、AI、クラウド）を使いこなすスペシャリスト育成プログラムに参加した学生。\n特別な観光体験を残したい外国人観光客へ、日本を楽しんでまた来たいと思ってもらえるサービスが1位、健康が気になる社員の方へ、社食での栄養バランスを確認でき会社全体で食事の意識を底上げするサービスが2位を受賞しました。',game.fontStyle.SmartPhoneUI_White);
         this.constellationText.style.wordWrap = true;
         this.constellationText.style.breakWords = true;
-        this.constellationText.style.wordWrapWidth = 525;
+        this.constellationText.style.wordWrapWidth = 650;
         this.constellationText.x = this.constellationTitle.x;
         this.constellationText.y = this.constellationTitle.y + this.constellationTitle.height + 40;
 
@@ -318,6 +318,7 @@ export default class ConstellationDetails {
         this.infoButton.visible = false;
         this.buttonBack.visible = false;
         this.buttonHome.visible = false;
+        this.constellationName.visible = false;
         this.groupTextBox.visible = true;
 
         this.constellationBox.x = document.documentElement.clientWidth / 4;
@@ -333,7 +334,7 @@ export default class ConstellationDetails {
         }
         this.buttonHome.visible = true;
         this.groupTextBox.visible = false;
-
+        this.constellationName.visible = true;
         this.constellationBox.x = document.documentElement.clientWidth / 2;
     }
 
@@ -442,7 +443,7 @@ export default class ConstellationDetails {
         this.constellationTextBox.clear();
         this.constellationTextBox.lineStyle(3, 0xcaf2ff, 1 , 0);
         this.constellationTextBox.beginFill(0xcaf2ff, 0.2);
-        this.constellationTextBox.drawRoundedRect(0 , 0 , 575, 120 + this.constellationTitle.height + this.constellationText.height, 8);
+        this.constellationTextBox.drawRoundedRect(0 , 0 , 700, 120 + this.constellationTitle.height + this.constellationText.height, 8);
         this.constellationTextBox.endFill();
         
     }
