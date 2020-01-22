@@ -216,9 +216,9 @@ export default class ConstellationDetails {
         this.constellationTextBox = new PIXI.Graphics();
         this.constellationTextBox.lineStyle(3, 0xcaf2ff, 1);
         this.constellationTextBox.beginFill(0xcaf2ff, 0.2);
-        this.constellationTextBox.drawRoundedRect(0 , 0 , 700, 0, 8);
+        this.constellationTextBox.drawRoundedRect(0 , 0 , 750, 0, 8);
         this.constellationTextBox.endFill();
-        this.constellationTextBox.position.set(document.documentElement.clientWidth - 735 , 35);
+        this.constellationTextBox.position.set(document.documentElement.clientWidth - 785 , 35);
 
         let dropShadowFilter = new DropShadowFilter();
         dropShadowFilter.blur = 8;
@@ -232,14 +232,14 @@ export default class ConstellationDetails {
         this.constellationTitle.style.fontSize = 60;
         this.constellationTitle.style.wordWrap = true;
         this.constellationTitle.style.breakWords = true;
-        this.constellationTitle.style.wordWrapWidth = 575;
+        this.constellationTitle.style.wordWrapWidth = 625;
         this.constellationTitle.x = this.constellationTextBox.x + 25;
         this.constellationTitle.y = this.constellationTextBox.y + 40;
 
         this.constellationText = new PIXI.Text("",game.fontStyle.SmartPhoneUI_White);
         this.constellationText.style.wordWrap = true;
         this.constellationText.style.breakWords = true;
-        this.constellationText.style.wordWrapWidth = 650;
+        this.constellationText.style.wordWrapWidth = 700;
         this.constellationText.x = this.constellationTitle.x;
         this.constellationText.y = this.constellationTitle.y + this.constellationTitle.height + 40;
 
@@ -443,7 +443,7 @@ export default class ConstellationDetails {
         this.constellationTextBox.clear();
         this.constellationTextBox.lineStyle(3, 0xcaf2ff, 1 , 0);
         this.constellationTextBox.beginFill(0xcaf2ff, 0.2);
-        this.constellationTextBox.drawRoundedRect(0 , 0 , 700, 120 + this.constellationTitle.height + this.constellationText.height, 8);
+        this.constellationTextBox.drawRoundedRect(0 , 0 , 750, 120 + this.constellationTitle.height + this.constellationText.height, 8);
         this.constellationTextBox.endFill();
         
     }
