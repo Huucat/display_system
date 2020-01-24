@@ -40,7 +40,7 @@ export default class StarRecommend{
     }
 
     createOwnName(){
-        this.ownName = new PIXI.Text('', game.fontStyle.KaisoNext);
+        this.ownName = new PIXI.Text('', game.fontStyle.SmartPhoneUI);
         this.ownName.style.fontSize = 50;
         this.ownName.style.align = "center";
         this.ownName.x = 0
@@ -63,8 +63,6 @@ export default class StarRecommend{
         this.target[2].scale.set(1 , -1);
         this.target[3].scale.set(-1 , 1);
         this.target[4].scale.set(-1 , -1);
-
-
 
         this.targetBox.addChild(this.target[0] , this.target[1] , this.target[2] , this.target[3] , this.target[4]);
     }

@@ -5,7 +5,7 @@ export default class Constellation {
     constructor(app , i){
         this.constellationBox = new PIXI.Container();
         this.app = app;
-        this.outLine = new GlowFilter(15, 3, 0, 0xFF00FF, 0.1);
+        this.outLine = new GlowFilter(15, 3, 0, 0x00aaFF, 0.1);
         this.student = {};
         this.star = [];
         this.groupNum = i;

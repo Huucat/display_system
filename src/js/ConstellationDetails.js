@@ -240,6 +240,7 @@ export default class ConstellationDetails {
         this.constellationText.style.wordWrap = true;
         this.constellationText.style.breakWords = true;
         this.constellationText.style.wordWrapWidth = 700;
+        this.constellationText.style.lineHeight = 35;
         this.constellationText.x = this.constellationTitle.x;
         this.constellationText.y = this.constellationTitle.y + this.constellationTitle.height + 40;
 
