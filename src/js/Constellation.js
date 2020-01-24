@@ -72,9 +72,9 @@ export default class Constellation {
                 if(total > 0.75){
                     total = 0.75;
                 }
-                this.star[i].scale.set(0.3 + total);
+                this.star[i].scale.set(0.2 + total);
             }else{
-                this.star[i].scale.set(0.3);
+                this.star[i].scale.set(0.2);
             }
         }
     }

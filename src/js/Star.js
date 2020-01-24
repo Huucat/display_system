@@ -392,6 +392,11 @@ export default class Star {
             this.planetDesign.scale.set(0.2 + totalDesign);
             this.planetPlan.scale.set(0.2 + totalPlan);
             this.planetPresentation.scale.set(0.2 + totalPresentation);
+        }else{
+            this.planetCoding.scale.set(0.2);
+            this.planetDesign.scale.set(0.2);
+            this.planetPlan.scale.set(0.2);
+            this.planetPresentation.scale.set(0.2);
         }
     }
 

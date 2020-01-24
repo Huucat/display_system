@@ -196,9 +196,9 @@ export default class ConstellationDetails {
             if(total > 0.75){
                 total = 0.75;
             }
-            return (0.3 + total);
+            return (0.2 + total);
         }else{
-            return (0.3);
+            return (0.2);
         }
     }
 

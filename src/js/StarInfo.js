@@ -68,7 +68,7 @@ export default class StarInfo{
 
     createPlanet_Plan(){
         this.planetPlanPosition = Math.PI * 2 * Math.random();
-        this.planetPlanOrbitalSpeed = 0.005;
+        this.planetPlanOrbitalSpeed = 0.003;
 
         this.planetPlanOrbital = new PIXI.Graphics().lineStyle(0.5, 0xFFFFFF, 0.5).drawCircle(0, 0, 200);
 
@@ -425,6 +425,11 @@ export default class StarInfo{
             this.planetDesign.scale.set(0.2 + totalDesign);
             this.planetPlan.scale.set(0.2 + totalPlan);
             this.planetPresentation.scale.set(0.2 + totalPresentation);
+        }else{
+            this.planetCoding.scale.set(0.2);
+            this.planetDesign.scale.set(0.2);
+            this.planetPlan.scale.set(0.2);
+            this.planetPresentation.scale.set(0.2);
         }
     }
 
