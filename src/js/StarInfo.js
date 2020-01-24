@@ -496,7 +496,7 @@ export default class StarInfo{
         this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
         this.worksText.text = '';
         for(let i in game.Manager.data.userData.students[this.studentId].worktitle){
-            this.worksText.text += '■' + game.Manager.data.userData.students[this.studentId].worktitle[i] + '\n'
+            this.worksText.text += '#' + game.Manager.data.userData.students[this.studentId].worktitle[i].boothnumber + ' ' + game.Manager.data.userData.students[this.studentId].worktitle[i].worktitle + '\n'
         }
         this.setSunColor();
         this.setStarSize();
