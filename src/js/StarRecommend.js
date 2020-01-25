@@ -114,13 +114,17 @@ export default class StarRecommend{
         let self = this;
         this.title = new PIXI.Sprite(this.app.loader.resources['title_recommend'].texture);
         this.title.scale.set(0.8);
-        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02'].texture);
+        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02_off'].texture);
         this.buttonBack.scale.set(0.8);
         this.buttonBack.anchor.set(0.5);
         this.buttonBack.position.set(60 , 43);
         this.buttonBack.interactive = true;
         this.buttonBack.buttonMode = true;
-        this.buttonBack.on('pointerdown', function(){
+        this.buttonBack.on('pointerover', function(){
+            this.texture = self.app.loader.resources['button_02_on'].texture
+        }).on('pointerout', function(){
+            this.texture = self.app.loader.resources['button_02_off'].texture
+        }).on('pointerdown', function(){
             self.back();
         });
 
@@ -150,7 +154,11 @@ export default class StarRecommend{
             othersBg.filters = [shadowFilter];
             othersBg.interactive = true;
             othersBg.buttonMode = true;
-            othersBg.on('pointerdown', function(){
+            othersBg.on('pointerover', function(){
+                self.targetOn(Number(i));
+            }).on('pointerout', function(){
+                self.targetOff();
+            }).on('pointerdown', function(){
                 self.setButtonOn(Number(i));
             });
             
@@ -206,7 +214,25 @@ export default class StarRecommend{
             this.othersStarBox[i].addChild(line , othersInfo);
         }
     }
-    
+
+    targetOn(num){
+        if(!this.selected){
+            this.target[0].position.set(this.othersStarBox[num].x , -220);
+            this.target[1].position.set(this.othersStarBox[num].x - 168 , -215);
+            this.target[2].position.set(this.othersStarBox[num].x - 168, 215);
+            this.target[3].position.set(this.othersStarBox[num].x + 168 , -215);
+            this.target[4].position.set(this.othersStarBox[num].x + 168 , 215);
+
+            this.targetBox.visible = true;
+        }
+    }
+
+    targetOff(){
+        if(!this.selected){
+            this.targetBox.visible = false;
+        }
+    }
+
     setButtonOn(num){
         for(let i in this.othersStarBox){
             this.othersStarBox[i].alpha = 0.2;

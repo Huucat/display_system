@@ -188,13 +188,17 @@ export default class Star {
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
         this.title = new PIXI.Sprite(this.app.loader.resources['title_star'].texture);
         this.title.scale.set(0.8);
-        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02'].texture);
+        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02_off'].texture);
         this.buttonBack.scale.set(0.8);
         this.buttonBack.anchor.set(0.5);
         this.buttonBack.position.set(60 , 43);
         this.buttonBack.interactive = true;
         this.buttonBack.buttonMode = true;
-        this.buttonBack.on('pointerdown', function(){
+        this.buttonBack.on('pointerover', function(){
+            this.texture = self.app.loader.resources['button_02_on'].texture
+        }).on('pointerout', function(){
+            this.texture = self.app.loader.resources['button_02_off'].texture
+        }).on('pointerdown', function(){
             self.back();
         });
         this.target = [

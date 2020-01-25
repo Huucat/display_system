@@ -71,15 +71,20 @@ export default class StarLink{
     }
 
     createBackButton(){
+        let self = this;
         let title = new PIXI.Sprite(this.app.loader.resources['title_link'].texture);
         title.scale.set(0.8);
-        let buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02'].texture);
+        let buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02_off'].texture);
         buttonBack.scale.set(0.8);
         buttonBack.anchor.set(0.5);
         buttonBack.position.set(60 , 43);
         buttonBack.interactive = true;
         buttonBack.buttonMode = true;
-        buttonBack.on('pointerdown', function(){
+        buttonBack.on('pointerover', function(){
+            this.texture = self.app.loader.resources['button_02_on'].texture
+        }).on('pointerout', function(){
+            this.texture = self.app.loader.resources['button_02_off'].texture
+        }).on('pointerdown', function(){
             game.Manager.enter(3);
         })
         this.buttonBox.addChild(title , buttonBack);

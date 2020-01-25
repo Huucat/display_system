@@ -3,7 +3,8 @@ const FILE_PATH = {
         {"name" : "background_spaceship" , "url" : require("@/assets/background_spaceship.png")},
 
         {"name" : "button_01" , "url" : require("@/assets/button_01.png")},
-        {"name" : "button_02" , "url" : require("@/assets/button_02.png")},
+        {"name" : "button_02_on" , "url" : require("@/assets/button_02_on.png")},
+        {"name" : "button_02_off" , "url" : require("@/assets/button_02_off.png")},
         {"name" : "button_close" , "url" : require("@/assets/button_close.png")},
         {"name" : "button_constellation_info_off" , "url" : require("@/assets/button_constellation_info_off.png")},
         {"name" : "button_constellation_info_on" , "url" : require("@/assets/button_constellation_info_on.png")},
