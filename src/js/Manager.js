@@ -15,6 +15,7 @@ export default class Manager{
         this.app = app;
         this.appStart = false;
         this.managerNum = 1;
+        this.changeNum = 0;
 
         this.firebaseConfig = {
             apiKey: "AIzaSyCi2pj67bUejaR1VCXqOYJ_gZ0ufqqQQs8",
@@ -130,6 +131,8 @@ export default class Manager{
     
     enter(number){
         this.managerNum = number;
+        this.app.stage.alpha = 0;
+        this.change = 1;
         game.space.spaceBox.visible = false;
         game.constellationDetails.detailsBox.visible = false;
         game.star.starBox.visible = false;
@@ -164,7 +167,14 @@ export default class Manager{
     }
 
     update(){
-        switch (this.managerNum) {
+        if(this.change == 1){
+            this.app.stage.alpha += 0.08;
+            if(this.app.stage.alpha >= 1){
+                this.app.stage.alpha = 1;
+                this.change = 0;
+            }
+        }
+        switch (this.managerNum){
             case 1:
                 game.space.update();
             break;
