@@ -23,6 +23,7 @@ const FILE_PATH = {
         {"name" : "button_tostar_off" , "url" : require("@/assets/button_tostar_off.png")},
         {"name" : "button_tostar_on" , "url" : require("@/assets/button_tostar_on.png")},
 
+        {"name" : "flame" , "url" : require("@/assets/flame.png")},
         {"name" : "flame_left" , "url" : require("@/assets/flame_left.png")},
         {"name" : "flame_right" , "url" : require("@/assets/flame_right.png")},
         {"name" : "flame_bottom" , "url" : require("@/assets/flame_bottom.png")},

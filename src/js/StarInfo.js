@@ -375,16 +375,16 @@ export default class StarInfo{
         let self = this;
         this.title = new PIXI.Sprite(this.app.loader.resources['title_info'].texture);
         this.title.scale.set(0.8);
-        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02_off'].texture);
+        this.buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02_on'].texture);
         this.buttonBack.scale.set(0.8);
         this.buttonBack.anchor.set(0.5);
         this.buttonBack.position.set(60 , 43);
         this.buttonBack.interactive = true;
         this.buttonBack.buttonMode = true;
         this.buttonBack.on('pointerover', function(){
-            this.texture = self.app.loader.resources['button_02_on'].texture
-        }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_02_off'].texture
+        }).on('pointerout', function(){
+            this.texture = self.app.loader.resources['button_02_on'].texture
         }).on('pointerdown', function(){
             game.Manager.enter(3);
         });

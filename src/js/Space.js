@@ -25,16 +25,22 @@ export default class Space {
     }
 
     addFlame(){
-        this.flameLeft = new PIXI.Sprite(this.app.loader.resources['flame_left'].texture);
-        this.flameLeft.scale.set(0.5);
-        this.flameLeft.x = -60;
-        this.flameRight = new PIXI.Sprite(this.app.loader.resources['flame_right'].texture);
-        this.flameRight.anchor.set(1 , 0);
-        this.flameRight.scale.set(0.5);
-        this.flameRight.x = document.documentElement.clientWidth + 60;
-        this.flameBottom = new PIXI.Sprite(this.app.loader.resources['flame_bottom'].texture);
+        this.flame = new PIXI.Sprite(this.app.loader.resources['flame'].texture);
+        this.flame.x = document.documentElement.clientWidth / 2;
+        this.flame.anchor.set(0.5 , 0);
+        this.flame.width = document.documentElement.clientWidth + 50;
+        this.flame.height = document.documentElement.clientHeight;
+        let flame_bottom_list = []
+        for(let i = 0 ; i < 6 ; i++){
+            flame_bottom_list[i] = new PIXI.Texture(this.app.loader.resources['flame_bottom'].texture);
+            flame_bottom_list[i].frame = new PIXI.Rectangle(i * 1920 , 0 , 1920 , 180);
+        }
+        this.flameBottom = new PIXI.AnimatedSprite(flame_bottom_list);
+        this.flameBottom.animationSpeed = 0.1;
+        this.flameBottom.play();
         this.flameBottom.anchor.set(0.5 , 1);
-        this.flameBottom.scale.set(1 , 0.45);
+        this.flameBottom.width = document.documentElement.clientWidth;
+        this.flameBottom.height = 120;
         this.flameBottom.x = document.documentElement.clientWidth / 2;
         this.flameBottom.y = document.documentElement.clientHeight;
 
@@ -46,7 +52,7 @@ export default class Space {
         this.line_horizontal = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(0 , document.documentElement.clientHeight / 2).lineTo(document.documentElement.clientWidth , document.documentElement.clientHeight / 2);
         this.line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
 
-        this.flameBox.addChild(this.title , this.line_horizontal ,this.line_vertical , this.flameLeft , this.flameRight , this.flameBottom );
+        this.flameBox.addChild(this.title , this.line_horizontal ,this.line_vertical , this.flame , this.flameBottom );
     }
 
     createConstellation(){

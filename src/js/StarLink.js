@@ -52,38 +52,44 @@ export default class StarLink{
     }
 
     createFlame(){
-        let flameLeft = new PIXI.Sprite(this.app.loader.resources['flame_left'].texture);
-        flameLeft.scale.set(0.5);
-        flameLeft.x = -60;
-        let flameRight = new PIXI.Sprite(this.app.loader.resources['flame_right'].texture);
-        flameRight.anchor.set(1 , 0);
-        flameRight.scale.set(0.5);
-        flameRight.x = document.documentElement.clientWidth + 60;
-        let flameBottom = new PIXI.Sprite(this.app.loader.resources['flame_bottom'].texture);
-        flameBottom.anchor.set(0.5 , 1);
-        flameBottom.scale.set(1 , 0.45);
-        flameBottom.x = document.documentElement.clientWidth / 2;
-        flameBottom.y = document.documentElement.clientHeight;
+        this.flame = new PIXI.Sprite(this.app.loader.resources['flame'].texture);
+        this.flame.x = document.documentElement.clientWidth / 2;
+        this.flame.anchor.set(0.5 , 0);
+        this.flame.width = document.documentElement.clientWidth + 50;
+        this.flame.height = document.documentElement.clientHeight;
+        let flame_bottom_list = []
+        for(let i = 0 ; i < 6 ; i++){
+            flame_bottom_list[i] = new PIXI.Texture(this.app.loader.resources['flame_bottom'].texture);
+            flame_bottom_list[i].frame = new PIXI.Rectangle(i * 1920 , 0 , 1920 , 180);
+        }
+        this.flameBottom = new PIXI.AnimatedSprite(flame_bottom_list);
+        this.flameBottom.animationSpeed = 0.1;
+        this.flameBottom.play();
+        this.flameBottom.anchor.set(0.5 , 1);
+        this.flameBottom.width = document.documentElement.clientWidth;
+        this.flameBottom.height = 120;
+        this.flameBottom.x = document.documentElement.clientWidth / 2;
+        this.flameBottom.y = document.documentElement.clientHeight;
         let line_horizontal = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(0 , document.documentElement.clientHeight / 2).lineTo(document.documentElement.clientWidth , document.documentElement.clientHeight / 2);
         let line_vertical = new PIXI.Graphics().lineStyle(1, 0xFFFFFF, 0.5).moveTo(document.documentElement.clientWidth / 2 , 0).lineTo(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight);
 
-        this.flameBox.addChild(line_horizontal , line_vertical , flameLeft , flameRight , flameBottom);
+        this.flameBox.addChild(line_horizontal , line_vertical , this.flame , this.flameBottom);
     }
 
     createBackButton(){
         let self = this;
         let title = new PIXI.Sprite(this.app.loader.resources['title_link'].texture);
         title.scale.set(0.8);
-        let buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02_off'].texture);
+        let buttonBack = new PIXI.Sprite(this.app.loader.resources['button_02_on'].texture);
         buttonBack.scale.set(0.8);
         buttonBack.anchor.set(0.5);
         buttonBack.position.set(60 , 43);
         buttonBack.interactive = true;
         buttonBack.buttonMode = true;
         buttonBack.on('pointerover', function(){
-            this.texture = self.app.loader.resources['button_02_on'].texture
-        }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_02_off'].texture
+        }).on('pointerout', function(){
+            this.texture = self.app.loader.resources['button_02_on'].texture
         }).on('pointerdown', function(){
             game.Manager.enter(3);
         })
