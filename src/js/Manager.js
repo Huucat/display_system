@@ -168,7 +168,7 @@ export default class Manager{
 
     update(){
         if(this.change == 1){
-            this.app.stage.alpha += 0.08;
+            this.app.stage.alpha += 0.05;
             if(this.app.stage.alpha >= 1){
                 this.app.stage.alpha = 1;
                 this.change = 0;
