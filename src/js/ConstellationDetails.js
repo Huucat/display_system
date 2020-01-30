@@ -275,7 +275,7 @@ export default class ConstellationDetails {
         this.studentTextBox.beginFill(0xcaf2ff, 0.2);
         this.studentTextBox.drawRoundedRect(0 , 0 , 0 , 150, 8);
         this.studentTextBox.endFill();
-        this.studentTextBox.x = 25;
+        this.studentTextBox.x = 80;
         this.studentTextBox.y = document.documentElement.clientHeight - 250;
         this.studentTextBox.visible = false;
 
