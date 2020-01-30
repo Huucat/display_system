@@ -339,35 +339,60 @@ export default class StarInfo{
         let nowWidth = 0;
         let allWidth = 650;
         let tag_list = [];
-        if(game.Manager.data.userData.students[this.studentId].tags.others){
-            for (let i in game.Manager.data.userData.students[this.studentId].tags.others){
-                tag_list[i] = new PIXI.Container();
-                let tag_1 = new PIXI.Sprite(this.app.loader.resources['tag_others_01'].texture);
-                let tag_2 = new PIXI.Sprite(this.app.loader.resources['tag_others_02'].texture);
-                let tag_3 = new PIXI.Sprite(this.app.loader.resources['tag_others_03'].texture);
-                let tagText = new PIXI.Text(game.Manager.data.userData.students[this.studentId].tags.others[i], game.fontStyle.SmartPhoneUI_White);
-                
-                tagText.style.fill = 0xFFFFFF;
-    
-                tag_2.x = tag_1.width;
-                tag_2.width = tagText.width + 4;
-                tagText.x = tag_2.x + 2;
-                tagText.y = 10;
-                tag_3.x = tag_2.x + tag_2.width;
-                tag_list[i].addChild(tag_1 , tag_2 , tag_3 , tagText);
-    
-                if(nowWidth + tag_list[i].width + 20 <= allWidth){
-                    tag_list[i].x = nowWidth;
-                    tag_list[i].y = nowHeight;
-                }else{
-                    nowHeight += 70; 
-                    nowWidth = 0;
-                    tag_list[i].x = nowWidth;
-                    tag_list[i].y = nowHeight;
-                }
-                nowWidth += tag_list[i].width + 20;
-                this.tagBox_2.addChild(tag_list[i]);
+
+        for (let i in this.tags_Others){
+            tag_list[i] = new PIXI.Container();
+            let tag_1 = new PIXI.Sprite(this.app.loader.resources['tag_others_01'].texture);
+            let tag_2 = new PIXI.Sprite(this.app.loader.resources['tag_others_02'].texture);
+            let tag_3 = new PIXI.Sprite(this.app.loader.resources['tag_others_03'].texture);
+            let tagText = new PIXI.Text("", game.fontStyle.SmartPhoneUI_White);
+            if(this.tags_Others[i].num <= 1){
+                tagText.text = this.tags_Others[i].tag
+            }else{
+                tagText.text = this.tags_Others[i].tag + "(" + this.tags_Others[i].num +")";
             }
+            
+            tagText.style.fill = 0xFFFFFF;
+
+            tag_2.x = tag_1.width;
+            tag_2.width = tagText.width + 4;
+            tagText.x = tag_2.x + 2;
+            tagText.y = 10;
+            tag_3.x = tag_2.x + tag_2.width;
+            tag_list[i].addChild(tag_1 , tag_2 , tag_3 , tagText);
+
+            if(nowWidth + tag_list[i].width + 20 <= allWidth){
+                tag_list[i].x = nowWidth;
+                tag_list[i].y = nowHeight;
+            }else{
+                nowHeight += 70; 
+                nowWidth = 0;
+                tag_list[i].x = nowWidth;
+                tag_list[i].y = nowHeight;
+            }
+            nowWidth += tag_list[i].width + 20;
+            this.tagBox_2.addChild(tag_list[i]);
+        }
+    }
+    
+    setTagsOthers(){
+        this.tags_Others = [];
+        let tags = []
+        if(game.Manager.data.userData.students[this.studentId].tags.others){
+            tags = game.Manager.data.userData.students[this.studentId].tags.others.slice().reverse();
+        }
+
+        loop: 
+        for(let i in tags){
+            for(let j in this.tags_Others){
+                if(game.Manager.data.userData.students[this.studentId].tags.others[i] == this.tags_Others[j].tag){
+                    let number = this.tags_Others[j].num + 1;
+                    this.tags_Others.splice(j , 1);
+                    this.tags_Others.unshift({tag : game.Manager.data.userData.students[this.studentId].tags.others[i] , num : number})
+                    continue loop;
+                }
+            }
+            this.tags_Others.unshift({tag : game.Manager.data.userData.students[this.studentId].tags.others[i] , num : 1}); 
         }
     }
 
@@ -518,6 +543,7 @@ export default class StarInfo{
         this.tagBox_2.removeChildren();
         this.addOwntag();
         this.setOwnScrollBar();
+        this.setTagsOthers();
         this.addOtherstag();
         this.setOthersScrollBar();
         this.tagBox_1.y = this.ownTagsBg.y + 15;
