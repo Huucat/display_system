@@ -1019,7 +1019,7 @@
             "name" : "白石 敦也",
             "groups" : [ "エンジニア志望", "セミナーチーム", "進級制作 スターホーム" ],
             "worktitle" : [
-                { "boothnumber" : "26", "worktitle" : "完全定額制住宅「Haco」の特設サイト" }
+                { "boothnumber" : "26", "worktitle" : "葉山に家を建てませんか？" }
             ],
             "color" : "",
             "tags" : {
@@ -1210,7 +1210,7 @@
             "name" : "山下 航志郎",
             "groups" : [ "エンジニア志望", "メンテナンスチーム", "進級制作 グラヴィス", "日専祭サイト" ],
             "worktitle" : [
-                { "boothnumber" : "32", "worktitle" : "グラヴィス ランディングページ" }
+                { "boothnumber" : "32", "worktitle" : "チアダンスで人生をつくる" }
             ],
             "color" : "",
             "tags" : {
@@ -1228,7 +1228,7 @@
             "name" : "楊 迎",
             "groups" : [ "デザイナー志望", "セミナーチーム", "進級制作 スターホーム", "留学生" ],
             "worktitle" : [
-                { "boothnumber" : "27", "worktitle" : "完成定額制住宅「haco」の特設サイト" }
+                { "boothnumber" : "27", "worktitle" : "今までの生活スタイルを変えてみませんか？" }
             ],
             "color" : "",
             "tags" : {
@@ -1260,7 +1260,7 @@
             "name" : "李 泓佑",
             "groups" : [ "デザイナー志望", "グラフィックチーム", "進級制作 SAGOJO" , "留学生" ],
             "worktitle" : [
-                { "boothnumber" : "40", "worktitle" : "SAGOJOスペシャルサイトです。" }
+                { "boothnumber" : "40", "worktitle" : "人生に旅という選択肢を" }
             ],
             "color" : "",
             "tags" : {
@@ -1351,7 +1351,7 @@
             "name" : "金 健敏",
             "groups" : [ "デザイナー志望", "メンテナンスチーム", "進級制作 グラヴィス"],
             "worktitle" : [
-                { "boothnumber" : "33", "worktitle" : "Gravisランディングページ" }
+                { "boothnumber" : "33", "worktitle" : "誰もが安心して通えるチアダンス" }
             ],
             "color" : "",
             "tags" : {
