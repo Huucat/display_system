@@ -523,7 +523,7 @@
             },
             "recommend" : [
                 {"id": "18aw0119", "message": "自分がとても関心を引くジャンルの制作だから"},
-                {"id": "18aw0103", "message": "自分がとても関心を引くジャンルの制作だから"}
+                {"id": "18aw0102", "message": "自分がとても関心を引くジャンルの制作だから"}
             ],
             "comments" : []
         },
@@ -849,7 +849,7 @@
             "name" : "青山 祐依",
             "groups" : [ "エンジニア志望", "メンテナンスチーム", "進級制作 SAGOJO", "IT CAMP 善通寺 2019" , "日専祭サイト"],
             "worktitle" : [
-                { "boothnumber" : "34", "worktitle" : "千里の道も一歩から" }
+                { "boothnumber" : "34", "worktitle" : "「SAGOJO」スペシャルサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -867,7 +867,7 @@
             "name" : "阿部 ゆい",
             "groups" : [ "デザイナー志望" ,"イベントチーム" ,"進級制作 キッズコレッチオ" ,"日専祭サイト"],
             "worktitle" : [
-                { "boothnumber" : "43", "worktitle" : "じいじとばあばへ　ママならではの贈り物" }
+                { "boothnumber" : "43", "worktitle" : "「キッズコレッチオ」キャンペーンサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -885,7 +885,7 @@
             "name" : "雨宮 真衣",
             "groups" : [ "デザイナー志望", "イベントチーム", "進級制作 キッズコレッチオ", "日専祭サイト" ],
             "worktitle" : [
-                { "boothnumber" : "44", "worktitle" : "大好きな絵と　いつもいっしょに" }
+                { "boothnumber" : "44", "worktitle" : "「キッズコレッチオ」キャンペーンサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -902,7 +902,7 @@
             "name" : "今井 大輝",
             "groups" : [ "エンジニア志望", "グラフィックチーム", "進級制作 グラヴィス"],
             "worktitle" : [
-                { "boothnumber" : "29", "worktitle" : "心も踊るダンス教室" }
+                { "boothnumber" : "29", "worktitle" : "「グラヴィス」ランディングページ" }
             ],
             "color" : "",
             "tags" : {
@@ -918,7 +918,7 @@
             "name" : "王 宇星",
             "groups" : [ "エンジニア志望", "ホットページチーム", "進級制作 スターホーム", "留学生"],
             "worktitle" : [
-                { "boothnumber" : "23", "worktitle" : "作品名" }
+                { "boothnumber" : "23", "worktitle" : "" }
             ],
             "color" : "",
             "tags" : {
@@ -932,7 +932,7 @@
             "name" : "嘉手川 航太朗",
             "groups" : [ "エンジニア志望", "イベントチーム", "進級制作 SAGOJO" ],
             "worktitle" : [
-                { "boothnumber" : "35", "worktitle" : "GOGYOZAN" }
+                { "boothnumber" : "35", "worktitle" : "「SAGOJO」スペシャルサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -940,15 +940,18 @@
                 "others" : ["イラストが上手い", "真面目", "ひたむき", "集中力がすごい", "変わり者でアイデアも他の人とは違った", "論理的", "現状をしっかり把握できる"]
             },
             "recommend" : [
-                
+                {"id": "19aw0115", "message": "自分とは性格が正反対で頑張って周りを引っ張ろうとしてくれている。まさにリーダーの理想系。"},
+                {"id": "19aw0104", "message": "エンジニア志望だけど、デザインも出来てしまう超人。XDを使いこなしていて、かっこいい。"},
+                {"id": "19aw0130", "message": "自分と趣味趣向が正反対で、自分には思いつかない面白いことを提案していたりして、凄い。"},
+                {"id": "19aw0116", "message": "クラスの空気を明るくしてくれる。自分にはできないことだから凄いと感じました。"}
             ],
             "comments" : []
         },
         "19aw0108" : {
             "name" : "金子 琴音",
-            "groups" : [ "デザイナー志望", "グラフィックチーム", "進級制作 キッズコレッチオ" ],
+            "groups" : [ "デザイナー志望", "グラフィックチーム", "進級制作 スターホーム" ],
             "worktitle" : [
-                { "boothnumber" : "24", "worktitle" : "子供と家族ともっと寄り添う家" }
+                { "boothnumber" : "24", "worktitle" : "「スターホーム」完全定額制住宅「Haco」\n特設サイト" }
             ],
             "color" : "",
             "tags" : {
@@ -964,7 +967,7 @@
             "name" : "吉川 紗也佳",
             "groups" : [ "デザイナー志望", "ホットページチーム", "進級制作 キッズコレッチオ"],
             "worktitle" : [
-                { "boothnumber" : "45", "worktitle" : "コレッチオファミリー" }
+                { "boothnumber" : "45", "worktitle" : "「キッズコレッチオ」キャンペーンサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -983,7 +986,7 @@
             "name" : "金 昭眞",
             "groups" : [ "デザイナー志望", "イベントチーム", "進級制作 スターホーム", "留学生" ],
             "worktitle" : [
-                { "boothnumber" : "25", "worktitle" : "家を建てる時のワクワク感をあなたに！" }
+                { "boothnumber" : "25", "worktitle" : "「スターホーム」完全定額制住宅「Haco」\n特設サイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1002,7 +1005,7 @@
             "name" : "顧 家磊",
             "groups" : [ "エンジニア志望", "メンテナンスチーム", "進級制作 SAGOJO" , "留学生"],
             "worktitle" : [
-                { "boothnumber" : "36", "worktitle" : "SAGOJO QUEST" }
+                { "boothnumber" : "36", "worktitle" : "「SAGOJO」スペシャルサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1019,7 +1022,7 @@
             "name" : "白石 敦也",
             "groups" : [ "エンジニア志望", "セミナーチーム", "進級制作 スターホーム" ],
             "worktitle" : [
-                { "boothnumber" : "26", "worktitle" : "葉山に家を建てませんか？" }
+                { "boothnumber" : "26", "worktitle" : "「スターホーム」完全定額制住宅「Haco」\n特設サイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1038,7 +1041,7 @@
             "name" : "タパング パール マーガレット シー",
             "groups" : [ "エンジニア志望", "メンテナンスチーム", "進級制作 キッズコレッチオ" , "留学生"],
             "worktitle" : [
-                { "boothnumber" : "46", "worktitle" : "子供との思い出をもっと特別に！" }
+                { "boothnumber" : "46", "worktitle" : "「キッズコレッチオ」キャンペーンサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1055,7 +1058,7 @@
             "name" : "中田 泰清",
             "groups" : [ "ディレクター志望", "セミナーチーム", "進級制作 SAGOJO", "日専祭サイト" ],
             "worktitle" : [
-                { "boothnumber" : "37", "worktitle" : "あなたのシゴト旅診断" }
+                { "boothnumber" : "37", "worktitle" : "「SAGOJO」スペシャルサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1064,7 +1067,7 @@
             },
             "recommend" : [
                 {"id": "19aw0107", "message": "まだ習っていない技術を勉強して使っているから"},
-                {"id": "19aw0126", "message": "仲のいい友人であり、お互い制作の中で口を出し合ったから。"}
+                {"id": "19aw0124", "message": "仲のいい友人であり、お互い制作の中で口を出し合ったから。"}
             ],
             "comments" : []
         },
@@ -1072,7 +1075,7 @@
             "name" : "朴 相賢",
             "groups" : [ "デザイナー志望", "セミナーチーム", "進級制作 キッズコレッチオ", "留学生" ],
             "worktitle" : [
-                { "boothnumber" : "47", "worktitle" : "子供の全てを思い出に。" }
+                { "boothnumber" : "47", "worktitle" : "「キッズコレッチオ」キャンペーンサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1091,7 +1094,7 @@
             "name" : "朴 晙瑞",
             "groups" : [ "デザイナー志望" ,"グラフィックチーム", "進級制作 SAGOJO", "留学生" ],
             "worktitle" : [
-                { "boothnumber" : "38", "worktitle" : "旅人　生活白書" }
+                { "boothnumber" : "38", "worktitle" : "「SAGOJO」スペシャルサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1107,7 +1110,7 @@
             "name" : "羽田 真菜美",
             "groups" : [ "デザイナー志望", "ホットページチーム", "進級制作 グラヴィス", "4校合同インフォグラフィックス" ],
             "worktitle" : [
-                { "boothnumber" : "30", "worktitle" : "楽しく人間性を育む習い事" }
+                { "boothnumber" : "30", "worktitle" : "「グラヴィス」ランディングページ" }
             ],
             "color" : "",
             "tags" : {
@@ -1125,7 +1128,7 @@
             "name" : "八戸 知里",
             "groups" : [ "デザイナー志望" ,"グラフィックチーム", "進級制作 スターホーム" ],
             "worktitle" : [
-                { "boothnumber" : "22", "worktitle" : "静かな波を聞きながら葉山で暮らしませんか？" }
+                { "boothnumber" : "22", "worktitle" : "「スターホーム」完全定額制住宅「Haco」\n特設サイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1143,7 +1146,7 @@
             "name" : "潘 儒正",
             "groups" : [ "デザイナー志望", "メンテナンスチーム", "進級制作 グラヴィス", "留学生" ],
             "worktitle" : [
-                { "boothnumber" : "31", "worktitle" : "1、2、3、チアダンス踊ろ！！" }
+                { "boothnumber" : "31", "worktitle" : "「グラヴィス」ランディングページ" }
             ],
             "color" : "",
             "tags" : {
@@ -1163,7 +1166,7 @@
             "name" : "松永 湖暖",
             "groups" : [ "デザイナー志望", "セミナーチーム", "進級制作 キッズコレッチオ" ],
             "worktitle" : [
-                { "boothnumber" : "42", "worktitle" : "「ありがとう」でつながる家族の絆" }
+                { "boothnumber" : "42", "worktitle" : "「キッズコレッチオ」キャンペーンサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1178,7 +1181,7 @@
             "name" : "村田 実優",
             "groups" : [ "デザイナー志望", "セミナーチーム", "進級制作 キッズコレッチオ" ],
             "worktitle" : [
-                { "boothnumber" : "48", "worktitle" : "一緒に子供と作品を作りましょう" }
+                { "boothnumber" : "48", "worktitle" : "「キッズコレッチオ」キャンペーンサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1194,7 +1197,7 @@
             "name" : "茂住 一晴",
             "groups" : [ "デザイナー志望", "グラフィックチーム", "進級制作 キッズコレッチオ" ],
             "worktitle" : [
-                { "boothnumber" : "49", "worktitle" : "子どもと一緒に！キッズコレッチオ" }
+                { "boothnumber" : "49", "worktitle" : "「キッズコレッチオ」キャンペーンサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1210,7 +1213,7 @@
             "name" : "山下 航志郎",
             "groups" : [ "エンジニア志望", "メンテナンスチーム", "進級制作 グラヴィス", "日専祭サイト" ],
             "worktitle" : [
-                { "boothnumber" : "32", "worktitle" : "チアダンスで人生をつくる" }
+                { "boothnumber" : "32", "worktitle" : "「グラヴィス」ランディングページ" }
             ],
             "color" : "",
             "tags" : {
@@ -1228,7 +1231,7 @@
             "name" : "楊 迎",
             "groups" : [ "デザイナー志望", "セミナーチーム", "進級制作 スターホーム", "留学生" ],
             "worktitle" : [
-                { "boothnumber" : "27", "worktitle" : "今までの生活スタイルを変えてみませんか？" }
+                { "boothnumber" : "27", "worktitle" : "「スターホーム」完全定額制住宅「Haco」\n特設サイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1244,7 +1247,7 @@
             "name" : "延 昭靜",
             "groups" : [ "デザイナー志望", "グラフィックチーム", "進級制作 SAGOJO", "留学生" ],
             "worktitle" : [
-                { "boothnumber" : "39", "worktitle" : "SAGOJOのコツ袋" }
+                { "boothnumber" : "39", "worktitle" : "「SAGOJO」スペシャルサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1260,7 +1263,7 @@
             "name" : "李 泓佑",
             "groups" : [ "デザイナー志望", "グラフィックチーム", "進級制作 SAGOJO" , "留学生" ],
             "worktitle" : [
-                { "boothnumber" : "40", "worktitle" : "人生に旅という選択肢を" }
+                { "boothnumber" : "40", "worktitle" : "「SAGOJO」スペシャルサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1276,7 +1279,7 @@
             "name" : "レ フィヴォン",
             "groups" : [ "エンジニア志望", "メンテナンスチーム", "進級制作 SAGOJO", "留学生"],
             "worktitle" : [
-                { "boothnumber" : "41", "worktitle" : "行きたいところへ" }
+                { "boothnumber" : "41", "worktitle" : "「SAGOJO」スペシャルサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1286,7 +1289,7 @@
             "recommend" : [
                 {"id": "19aw0127", "message": "プレゼンテーションがうまい。"},
                 {"id": "19aw0120", "message": "デザインがうまい。"},
-                {"id": "19aw0131", "message": "リーダーが見える。"},
+                {"id": "19aw0131", "message": "リーダーシップがある。"},
                 {"id": "19aw0130", "message": "優しくて、ディレクター志望ーが見える。"}
                 ],
             "comments" : []
@@ -1295,7 +1298,7 @@
             "name" : "腰高 優美子",
             "groups" : [ "営業・マーケター志望", "イベントチーム", "進級制作 キッズコレッチオ", "日専祭サイト" ],
             "worktitle" : [
-                { "boothnumber" : "50", "worktitle" : "親子の時間を形に残す" }
+                { "boothnumber" : "50", "worktitle" : "「キッズコレッチオ」キャンペーンサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1313,7 +1316,7 @@
             "name" : "大谷 容子",
             "groups" : [ "ディレクター志望", "ホットページチーム", "進級制作 キッズコレッチオ", "IT CAMP 善通寺 2019"],
             "worktitle" : [
-                { "boothnumber" : "51", "worktitle" : "親と子の物語" }
+                { "boothnumber" : "51", "worktitle" : "「キッズコレッチオ」キャンペーンサイト" }
             ],
             "color" : "",
             "tags" : {
@@ -1332,7 +1335,7 @@
             "name" : "宮下 颯斗",
             "groups" : [ "エンジニア志望", "メンテナンスチーム", "進級制作 グラヴィス", "IT CAMP 善通寺 2019", "日専祭サイト" ],
             "worktitle" : [
-                { "boothnumber" : "28", "worktitle" : "未来を作るチアダンス" }
+                { "boothnumber" : "28", "worktitle" : "「グラヴィス」ランディングページ" }
             ],
             "color" : "",
             "tags" : {
@@ -1351,7 +1354,7 @@
             "name" : "金 健敏",
             "groups" : [ "デザイナー志望", "メンテナンスチーム", "進級制作 グラヴィス"],
             "worktitle" : [
-                { "boothnumber" : "33", "worktitle" : "誰もが安心して通えるチアダンス" }
+                { "boothnumber" : "33", "worktitle" : "「グラヴィス」ランディングページ" }
             ],
             "color" : "",
             "tags" : {

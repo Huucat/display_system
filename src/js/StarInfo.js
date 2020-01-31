@@ -468,6 +468,7 @@ export default class StarInfo{
             this.ownScrollBar.visible = true;
             this.ownScrollBar.height = 160 * (160 / this.tagBox_1.height);
             this.ownScrollBar.y = 0;
+            this.ownScrollBar.buttonMode = true;
         }else{
             this.ownScrollBar.visible = false;
         }
@@ -478,6 +479,7 @@ export default class StarInfo{
             this.othersScrollBar.visible = true;
             this.othersScrollBar.height = 220 * (220 / this.tagBox_2.height);
             this.othersScrollBar.y = 0;
+            this.othersScrollBar.buttonMode = true;
         }else{
             this.othersScrollBar.visible = false;
         }

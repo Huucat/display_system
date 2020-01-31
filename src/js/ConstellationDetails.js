@@ -179,6 +179,7 @@ export default class ConstellationDetails {
             this.star[i].x = game.Manager.data.userData.groups[this.groupNum].members[i].xy[0];
             this.star[i].y = game.Manager.data.userData.groups[this.groupNum].members[i].xy[1];
             this.star[i].interactive = true;
+            this.star[i].buttonMode = true;
             this.star[i].hitArea = new PIXI.Circle(0 , 0 , 80);
             this.star[i].name = game.Manager.data.userData.students[game.Manager.data.userData.groups[this.groupNum].members[i].id].name;
             this.star[i].studentId = game.Manager.data.userData.groups[this.groupNum].members[i].id;
@@ -260,7 +261,11 @@ export default class ConstellationDetails {
         this.closeButton.y = this.constellationTextBox.y + 25;
         this.closeButton.interactive = true;
         this.closeButton.buttonMode = true;
-        this.closeButton.on('pointerdown', function(){
+        this.closeButton.on('pointerover', function(){
+            this.texture = self.app.loader.resources['button_close_hover'].texture
+        }).on('pointerout', function(){
+            this.texture = self.app.loader.resources['button_close'].texture
+        }).on('pointerdown', function(){
             self.hideInfo();
         });
 

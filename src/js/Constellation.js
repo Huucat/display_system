@@ -20,6 +20,7 @@ export default class Constellation {
         this.constellation.anchor.x = 0.5;
         this.constellation.anchor.y = 0.5;
         this.constellation.interactive = true;
+        this.constellation.buttonMode = true;
         this.constellationBox.addChild(this.constellation);
     }
 

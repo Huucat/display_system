@@ -6,6 +6,7 @@ const FILE_PATH = {
         {"name" : "button_02_on" , "url" : require("@/assets/button_02_on.png")},
         {"name" : "button_02_off" , "url" : require("@/assets/button_02_off.png")},
         {"name" : "button_close" , "url" : require("@/assets/button_close.png")},
+        {"name" : "button_close_hover" , "url" : require("@/assets/button_close_hover.png")},
         {"name" : "button_constellation_info_off" , "url" : require("@/assets/button_constellation_info_off.png")},
         {"name" : "button_constellation_info_on" , "url" : require("@/assets/button_constellation_info_on.png")},
         {"name" : "button_observation_off" , "url" : require("@/assets/button_observation_off.png")},
