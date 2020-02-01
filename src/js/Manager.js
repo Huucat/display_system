@@ -78,8 +78,8 @@ export default class Manager{
             game.starLink.starLinkBox,
             game.starRecommend.starRecommendBox
         );
-        this.enter(this.managerNum , app);
         game.sound.gameStart();
+        this.enter(this.managerNum , app);
     }
 
     setStarColor(){
