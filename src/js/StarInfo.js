@@ -407,10 +407,12 @@ export default class StarInfo{
         this.buttonBack.interactive = true;
         this.buttonBack.buttonMode = true;
         this.buttonBack.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_02");
             this.texture = self.app.loader.resources['button_02_off'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_02_on'].texture
         }).on('pointerdown', function(){
+            game.sound.sound_2Play("button_down_01");
             game.Manager.enter(3);
         });
         this.buttonBox.addChild(this.title , this.buttonBack);

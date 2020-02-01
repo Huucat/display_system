@@ -83,10 +83,12 @@ export default class Constellation {
     addEvent(){
         let self = this;
         this.constellation.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_01");
             self.filterOn(this)
         }).on('pointerout', function(){
             self.filterOff(this)
         }).on('pointerdown', function(){
+            game.sound.sound_2Play("dididi");
             self.toDetails(self.app)
         });
     }

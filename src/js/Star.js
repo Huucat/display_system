@@ -201,6 +201,7 @@ export default class Star {
         this.buttonBack.interactive = true;
         this.buttonBack.buttonMode = true;
         this.buttonBack.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_02");
             this.texture = self.app.loader.resources['button_02_off'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_02_on'].texture
@@ -251,6 +252,7 @@ export default class Star {
         this.buttonHome.interactive = true;
         this.buttonHome.buttonMode = true;
         this.buttonHome.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_01");
             this.texture = self.app.loader.resources['button_home_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_home_off'].texture
@@ -265,6 +267,7 @@ export default class Star {
         this.buttonStarInfo.interactive = true;
         this.buttonStarInfo.buttonMode = true;
         this.buttonStarInfo.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_01");
             this.texture = self.app.loader.resources['button_starinfo_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_starinfo_off'].texture
@@ -279,6 +282,7 @@ export default class Star {
         this.buttonLink.interactive = true;
         this.buttonLink.buttonMode = true;
         this.buttonLink.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_01");
             this.texture = self.app.loader.resources['button_link_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_link_off'].texture
@@ -293,6 +297,7 @@ export default class Star {
         this.buttonRecommend.interactive = true;
         this.buttonRecommend.buttonMode = true;
         this.buttonRecommend.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_01");
             this.texture = self.app.loader.resources['button_recommend_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_recommend_off'].texture
@@ -304,6 +309,7 @@ export default class Star {
     }
 
     starTextOn(_this , star){
+        game.sound.sound_2Play("button_down_03");
         this.showStarText = star;
         this.showStar = _this;
         this.starText.visible = true;
@@ -315,6 +321,7 @@ export default class Star {
     }
 
     buttonHome_On(){
+        game.sound.sound_2Play("button_close_01");
         this.beforeId = [];
         game.constellationDetails.beforeId = [];
         game.Manager.enter(1);
@@ -411,14 +418,17 @@ export default class Star {
     }
 
     toStarInfo(){
+        game.sound.sound_2Play("button_down_01");
         game.Manager.enter(4);
     }
 
     toStarLink(){
+        game.sound.sound_2Play("button_down_01");
         game.Manager.enter(5);
     }
 
     toStarRecommend(){
+        game.sound.sound_2Play("button_down_01");
         game.Manager.enter(6);
     }
 
@@ -444,6 +454,7 @@ export default class Star {
     }
 
     back(){
+        game.sound.sound_2Play("button_down_01");
         let backData = this.beforeId.pop();
         if(backData.managerNum == 2){
             game.constellationDetails.groupNum = backData.number;

@@ -85,10 +85,12 @@ export default class StarRecommend{
         this.buttonClose.interactive = true;
         this.buttonClose.buttonMode = true;
         this.buttonClose.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_01");
             this.texture = self.app.loader.resources['button_close_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_close_off'].texture
         }).on('pointerdown', function(){
+            game.sound.sound_2Play("button_down_03");
             self.setButtonOff();
         });
 
@@ -100,10 +102,12 @@ export default class StarRecommend{
         this.buttonToStar.interactive = true;
         this.buttonToStar.buttonMode = true;
         this.buttonToStar.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_01");
             this.texture = self.app.loader.resources['button_tostar_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_tostar_off'].texture
         }).on('pointerdown', function(){
+            game.sound.sound_2Play("button_down_01");
             self.toStar();
         });
 
@@ -121,10 +125,12 @@ export default class StarRecommend{
         this.buttonBack.interactive = true;
         this.buttonBack.buttonMode = true;
         this.buttonBack.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_02");
             this.texture = self.app.loader.resources['button_02_off'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_02_on'].texture
         }).on('pointerdown', function(){
+            game.sound.sound_2Play("button_down_01");
             self.back();
         });
 
@@ -217,6 +223,7 @@ export default class StarRecommend{
 
     targetOn(num){
         if(!this.selected){
+            game.sound.sound_1Play("button_hover_01");
             this.target[0].position.set(this.othersStarBox[num].x , -220);
             this.target[1].position.set(this.othersStarBox[num].x - 168 , -215);
             this.target[2].position.set(this.othersStarBox[num].x - 168, 215);
@@ -234,6 +241,7 @@ export default class StarRecommend{
     }
 
     setButtonOn(num){
+        game.sound.sound_2Play("button_down_02");
         for(let i in this.othersStarBox){
             this.othersStarBox[i].alpha = 0.2;
         }
@@ -312,6 +320,7 @@ export default class StarRecommend{
     }
 
     enter(){
+        this.selected = false;
         this.studentId = game.star.studentId;
         this.buttonClose.texture = this.app.loader.resources['button_close_off'].texture;
         this.buttonToStar.texture = this.app.loader.resources['button_tostar_off'].texture;

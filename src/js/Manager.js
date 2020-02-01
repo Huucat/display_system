@@ -7,6 +7,7 @@ import Star from './Star.js'
 import StarInfo from './StarInfo.js'
 import StarLink from './StarLink.js'
 import StarRecommend from './StarRecommend.js'
+import Sound from './Sound.js'
 import GROUPS from './groups.json'
 
 export default class Manager{
@@ -67,6 +68,7 @@ export default class Manager{
         game.starInfo = new StarInfo(app);
         game.starLink = new StarLink(app);
         game.starRecommend = new StarRecommend(app);
+        game.sound = new Sound();
 
         app.stage.addChild(
             game.space.spaceBox,
@@ -77,6 +79,7 @@ export default class Manager{
             game.starRecommend.starRecommendBox
         );
         this.enter(this.managerNum , app);
+        game.sound.gameStart();
     }
 
     setStarColor(){
@@ -144,15 +147,17 @@ export default class Manager{
                 game.space.spaceBox.visible = true;
             break;
             case 2:
-                game.constellationDetails.enter();
                 game.constellationDetails.detailsBox.visible = true;
+                game.constellationDetails.enter();
             break;
             case 3:
-                game.star.enter()
                 game.star.starBox.visible = true;
+                game.sound.sound_bgm("spaceship_01");
+                game.star.enter();
             break;
             case 4:
                 game.starInfo.starInfoBox.visible = true;
+                game.sound.sound_bgm("spaceship_02");
                 game.starInfo.enter();
             break;
             case 5:
@@ -161,6 +166,7 @@ export default class Manager{
             break;
             case 6:
                 game.starRecommend.starRecommendBox.visible = true;
+                game.sound.sound_bgm("spaceship_02");
                 game.starRecommend.enter();
             break;
         }

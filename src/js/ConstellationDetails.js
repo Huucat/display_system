@@ -82,6 +82,7 @@ export default class ConstellationDetails {
         this.buttonHome.interactive = true;
         this.buttonHome.buttonMode = true;
         this.buttonHome.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_01");
             this.texture = self.app.loader.resources['button_home_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_home_off'].texture
@@ -101,6 +102,7 @@ export default class ConstellationDetails {
         this.infoButton.position.set(document.documentElement.clientWidth - 25 , 25);
 
         this.infoButton.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_01");
             this.texture = self.app.loader.resources['button_constellation_info_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_constellation_info_off'].texture
@@ -148,6 +150,7 @@ export default class ConstellationDetails {
         this.buttonBack.interactive = true;
         this.buttonBack.buttonMode = true;
         this.buttonBack.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_02");
             this.texture = self.app.loader.resources['button_02_off'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_02_on'].texture
@@ -320,6 +323,7 @@ export default class ConstellationDetails {
         this.buttonObservation.hitArea = poly;
         this.buttonObservation.position.set(document.documentElement.clientWidth - 200 , document.documentElement.clientHeight - 200);
         this.buttonObservation.on('pointerover', function(){
+            game.sound.sound_1Play("button_hover_01");
             this.texture = self.app.loader.resources['button_observation_on'].texture
         }).on('pointerout', function(){
             this.texture = self.app.loader.resources['button_observation_off'].texture
@@ -330,6 +334,7 @@ export default class ConstellationDetails {
     }
 
     showInfo(){
+        game.sound.sound_2Play("button_down_02");
         this.infoState = !this.infoState;
         this.infoButton.visible = false;
         this.buttonBack.visible = false;
@@ -341,6 +346,7 @@ export default class ConstellationDetails {
     }
 
     hideInfo(){
+        game.sound.sound_2Play("button_down_02");
         this.infoState = !this.infoState;
         this.infoButton.visible = true;
         if(this.beforeId.length == 0){
@@ -357,6 +363,7 @@ export default class ConstellationDetails {
     showStudent(name , studentId , _self){
         let self = this;
         if(this.infoState == false){
+            game.sound.sound_2Play("button_down_02");
             this.studentState = true;
             this.studentName.text = name;
 
@@ -412,6 +419,7 @@ export default class ConstellationDetails {
 
     targetOn(self){
         if(this.infoState == false && this.studentState == false){
+            game.sound.sound_1Play("button_hover_02");
             this.target_In.visible = true;
             this.target_Out.visible = true;
             this.targetState = true;
@@ -432,12 +440,14 @@ export default class ConstellationDetails {
     }
 
     buttonHome_On(){
+        game.sound.sound_2Play("button_close_01");
         this.beforeId = [];
         game.star.beforeId = [];
         game.Manager.enter(1);
     }
 
     toStar(studentId){
+        game.sound.sound_2Play("button_down_01");
         game.star.beforeId.push({managerNum : 2 , number : this.groupNum})
         game.star.studentId = studentId;
         game.Manager.enter(3);
@@ -486,7 +496,8 @@ export default class ConstellationDetails {
     }
 
     back(){
-        game.star.studentId = this.beforeId.pop()
+        game.sound.sound_2Play("button_down_01");
+        game.star.studentId = this.beforeId.pop();
         game.Manager.enter(5);
     }
 
