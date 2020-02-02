@@ -88,19 +88,20 @@ export default class Constellation {
         }).on('pointerout', function(){
             self.filterOff(this)
         }).on('pointerdown', function(){
-            game.sound.sound_2Play("dididi");
+            game.sound.sound_2Play("button_down_01");
             self.toDetails(self.app)
         });
     }
 
     toDetails(){
+        game.transition.next = 2;
         if(game.Manager.managerNum == 5){
             game.constellationDetails.beforeId.push(game.star.studentId);
             game.constellationDetails.setGroupNum(this.groupNum);
-            game.Manager.enter(2);
+            game.Manager.enter(0);
         }else{
             game.constellationDetails.setGroupNum(this.groupNum);
-            game.Manager.enter(2);
+            game.Manager.enter(0);
         }
     }
 

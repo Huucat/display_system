@@ -443,7 +443,8 @@ export default class ConstellationDetails {
         game.sound.sound_2Play("button_close_01");
         this.beforeId = [];
         game.star.beforeId = [];
-        game.Manager.enter(1);
+        game.transition.next = 1;
+        game.Manager.enter(0);
     }
 
     toStar(studentId){

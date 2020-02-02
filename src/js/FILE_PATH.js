@@ -39,6 +39,7 @@ const FILE_PATH = {
 
         {"name" : "spaceBg_01" , "url" : require("@/assets/images/spaceBackground_03.png")},
         {"name" : "spaceBg_02" , "url" : require("@/assets/images/spaceBackground_02.png")},
+        {"name" : "spaceship" , "url" : require("@/assets/images/spaceship.png")},
 
         {"name" : "star_plan" , "url" : require("@/assets/images/star_plan_1.png")},
         {"name" : "star_design" , "url" : require("@/assets/images/star_design_1.png")},

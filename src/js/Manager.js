@@ -7,6 +7,7 @@ import Star from './Star.js'
 import StarInfo from './StarInfo.js'
 import StarLink from './StarLink.js'
 import StarRecommend from './StarRecommend.js'
+import Transition from './Transition.js'
 import Sound from './Sound.js'
 import GROUPS from './groups.json'
 
@@ -68,6 +69,8 @@ export default class Manager{
         game.starInfo = new StarInfo(app);
         game.starLink = new StarLink(app);
         game.starRecommend = new StarRecommend(app);
+        game.space = new Space(app);
+        game.transition = new Transition(app);
         game.sound = new Sound();
 
         app.stage.addChild(
@@ -76,7 +79,8 @@ export default class Manager{
             game.star.starBox,
             game.starInfo.starInfoBox,
             game.starLink.starLinkBox,
-            game.starRecommend.starRecommendBox
+            game.starRecommend.starRecommendBox,
+            game.transition.transitionBox
         );
         game.sound.gameStart();
         this.enter(this.managerNum , app);
@@ -142,22 +146,31 @@ export default class Manager{
         game.starInfo.starInfoBox.visible = false;
         game.starLink.starLinkBox.visible = false;
         game.starRecommend.starRecommendBox.visible = false;
+        game.transition.transitionBox.visible = false;
         switch (this.managerNum) {
+            case 0:
+                game.transition.enter();
+                game.sound.sound_bgm_1_pause();
+                game.transition.transitionBox.visible = true;
+            break;
             case 1:
+                game.sound.bgm_1.play();
                 game.space.spaceBox.visible = true;
             break;
             case 2:
+                game.sound.bgm_1.play();
+                game.sound.sound_2Play("dididi");
                 game.constellationDetails.detailsBox.visible = true;
                 game.constellationDetails.enter();
             break;
             case 3:
                 game.star.starBox.visible = true;
-                game.sound.sound_bgm("spaceship_01");
+                game.sound.sound_bgm_1("spaceship_01");
                 game.star.enter();
             break;
             case 4:
                 game.starInfo.starInfoBox.visible = true;
-                game.sound.sound_bgm("spaceship_02");
+                game.sound.sound_bgm_1("spaceship_02");
                 game.starInfo.enter();
             break;
             case 5:
@@ -166,7 +179,7 @@ export default class Manager{
             break;
             case 6:
                 game.starRecommend.starRecommendBox.visible = true;
-                game.sound.sound_bgm("spaceship_02");
+                game.sound.sound_bgm_1("spaceship_02");
                 game.starRecommend.enter();
             break;
         }
@@ -181,6 +194,9 @@ export default class Manager{
             }
         }
         switch (this.managerNum){
+            case 0:
+                game.transition.update();
+            break;
             case 1:
                 game.space.update();
             break;

@@ -324,7 +324,8 @@ export default class Star {
         game.sound.sound_2Play("button_close_01");
         this.beforeId = [];
         game.constellationDetails.beforeId = [];
-        game.Manager.enter(1);
+        game.transition.next = 1;
+        game.Manager.enter(0);
     }
 
     setStudentId(studentId){

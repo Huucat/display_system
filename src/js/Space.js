@@ -9,7 +9,7 @@ export default class Space {
         this.constellationGroups = new PIXI.Container();
         this.spaceBox.addChild(this.constellationGroups , this.flameBox);
         this.constellation = [];
-
+        this.moving = true;
         this.constellationGroups.x = document.documentElement.clientWidth / 2;
         this.constellationGroups.y = document.documentElement.clientHeight / 2 + 1350;
         
@@ -19,9 +19,32 @@ export default class Space {
     }
 
     addSpaceBg(){
+        let self = this;
         this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_01'].texture);
         this.spaceBg.anchor.set(0.5);
+        this.spaceBg.interactive = true;
+        this.spaceBg.on('pointerdown', function(){self.moveStart(this)})
+            .on('pointerup', function(){self.moveEnd(this)})
+            .on('pointermove', function(){self.moveOn(this)});
         this.constellationGroups.addChild(this.spaceBg);
+    }
+    
+    moveStart(_this){
+        this.moving = false;
+        _this.newPointX = this.app.renderer.plugins.interaction.mouse.global.x;
+    }
+
+    moveOn(_this){
+        if(this.moving == false){
+            _this.pointX = _this.newPointX;
+            _this.newPointX = this.app.renderer.plugins.interaction.mouse.global.x;
+            let movePosition = -(_this.pointX -_this.newPointX) * 0.001
+            this.constellationGroups.rotation = this.constellationGroups.rotation + movePosition;
+        }
+    }
+
+    moveEnd(){
+        this.moving = true;
     }
 
     addFlame(){
@@ -81,6 +104,8 @@ export default class Space {
     }
 
     update(){
-        this.constellationGroups.rotation -= 0.002;
+        if(this.moving){
+            this.constellationGroups.rotation -= 0.002;
+        }
     }
 }
