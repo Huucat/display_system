@@ -11,10 +11,13 @@ export default class Transition{
     }
 
     createBg(){
+        let self = this;
         this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_01'].texture);
         this.spaceBg.x = document.documentElement.clientWidth / 2;
         this.spaceBg.y = document.documentElement.clientHeight / 2
         this.spaceBg.anchor.set(0.5);
+        this.spaceBg.interactive = true;
+        this.spaceBg.on('pointerdown', function(){self.skip()});
         this.transitionBox.addChild(this.spaceBg);
     }
 
@@ -22,6 +25,10 @@ export default class Transition{
         this.spaceShip = new PIXI.Sprite(this.app.loader.resources['spaceship'].texture);
         this.spaceShip.anchor.set(0.5);
         this.transitionBox.addChild(this.spaceShip);
+    }
+
+    skip(){
+        game.Manager.enter(this.next);
     }
 
     enter(){
@@ -45,15 +52,15 @@ export default class Transition{
     update(){
         switch(this.next){
             case 1:
-                this.spaceShip.x = document.documentElement.clientWidth - document.documentElement.clientWidth / 240 * this.step;
-                this.spaceShip.y = document.documentElement.clientHeight - document.documentElement.clientHeight / 240 * this.step;
+                this.spaceShip.x = document.documentElement.clientWidth - document.documentElement.clientWidth / 180 * this.step;
+                this.spaceShip.y = document.documentElement.clientHeight - document.documentElement.clientHeight / 180 * this.step;
             break;
             case 2:
-                this.spaceShip.x = document.documentElement.clientWidth / 240 * this.step;
-                this.spaceShip.y = document.documentElement.clientHeight - document.documentElement.clientHeight / 240 * this.step;
+                this.spaceShip.x = document.documentElement.clientWidth / 180 * this.step;
+                this.spaceShip.y = document.documentElement.clientHeight - document.documentElement.clientHeight / 180 * this.step;
             break;
         }
-        if(this.step > 240){
+        if(this.step > 180){
             game.Manager.enter(this.next);
         }
         this.step++
