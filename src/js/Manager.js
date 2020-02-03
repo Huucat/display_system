@@ -31,7 +31,7 @@ export default class Manager{
         };
         firebase.initializeApp(this.firebaseConfig);
         firebase.database().ref().on('value', function(data) {
-            self.data.userData = GROUPS;
+            self.data.userData = data.val();
             console.log(self.data.userData);
         });
 

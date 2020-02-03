@@ -52,12 +52,12 @@ export default class Transition{
     update(){
         switch(this.next){
             case 1:
-                this.spaceShip.x = document.documentElement.clientWidth - document.documentElement.clientWidth / 180 * this.step;
-                this.spaceShip.y = document.documentElement.clientHeight - document.documentElement.clientHeight / 180 * this.step;
+                this.spaceShip.x = document.documentElement.clientWidth - (document.documentElement.clientWidth / 180) * this.step;
+                this.spaceShip.y = document.documentElement.clientHeight - (document.documentElement.clientHeight / 180) * this.step;
             break;
             case 2:
-                this.spaceShip.x = document.documentElement.clientWidth / 180 * this.step;
-                this.spaceShip.y = document.documentElement.clientHeight - document.documentElement.clientHeight / 180 * this.step;
+                this.spaceShip.x = (document.documentElement.clientWidth / 180) * this.step;
+                this.spaceShip.y = document.documentElement.clientHeight - (document.documentElement.clientHeight / 180) * this.step;
             break;
         }
         if(this.step > 180){
