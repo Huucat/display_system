@@ -405,7 +405,7 @@ export default class Star {
             if(totalPresentation > 0.5){
                 totalPresentation = 0.5;
             }
-            console.log(totalCoding , totalDesign , totalPlan , totalPresentation);
+            // console.log(totalCoding , totalDesign , totalPlan , totalPresentation);
             this.planetCoding.scale.set(0.2 + totalCoding);
             this.planetDesign.scale.set(0.2 + totalDesign);
             this.planetPlan.scale.set(0.2 + totalPlan);
