@@ -39,15 +39,7 @@ export default class Sound{
     gameStart(){
         this.bgm_1.src = this.spaceship_01;
         this.bgm_1.load();
-        let playPromise = this.bgm_1.play();
-
-        if (playPromise != undefined) {
-            playPromise.then(() => {
-                this.bgm_1.play();
-            }).catch(()=> {
-               
-            })
-        }
+        this.bgm_1.play();
     }
 
     sound_bgm_1(data){
