@@ -9,6 +9,7 @@ export default class Transition{
         this.step = 0;
         this.createBg();
         this.createMeteor();
+        this.createAstronaut();
         this.createSpaceShip();
         this.createText();
     }
@@ -46,6 +47,65 @@ export default class Transition{
         this.transitionBox.addChild(this.spaceShip);
     }
 
+    createAstronaut(){
+        this.astronautList_1 = [];
+        for(let i = 0 ; i < 4 ; i++){
+            this.astronautList_1[i] = new PIXI.Texture(this.app.loader.resources['item_astronaut_01'].texture);
+            this.astronautList_1[i].frame = new PIXI.Rectangle(i * 256 , 0 , 256 , 300);
+        }
+        this.astronautList_2 = [];
+        for(let i = 0 ; i < 4 ; i++){
+            this.astronautList_2[i] = new PIXI.Texture(this.app.loader.resources['item_astronaut_02'].texture);
+            this.astronautList_2[i].frame = new PIXI.Rectangle(i * 256 , 0 , 256 , 300);
+        }
+        this.astronautList_3 = [];
+        for(let i = 0 ; i < 4 ; i++){
+            this.astronautList_3[i] = new PIXI.Texture(this.app.loader.resources['item_astronaut_03'].texture);
+            this.astronautList_3[i].frame = new PIXI.Rectangle(i * 256 , 0 , 256 , 300);
+        }
+        this.astronaut = new PIXI.AnimatedSprite(this.astronautList_1);
+        this.astronaut.animationSpeed = 0.05;
+        this.astronaut.anchor.set(0.5);
+        this.astronaut.step = 0;
+        this.astronaut.direction = true;
+        this.transitionBox.addChild(this.astronaut);
+    }
+
+    setAstronaut(){
+        this.astronaut.textures = this["astronautList_" + this.random(1,3)];
+        this.astronaut.y_1 = Math.floor(Math.random() * document.documentElement.clientHeight);
+        this.astronaut.x = Math.floor(Math.random() * document.documentElement.clientWidth);
+        this.astronaut.y = this.astronaut.y_1;
+        let randomNum = this.random(3 , 6) / 10;
+        let randomNum_1 = Math.random();
+        if(randomNum_1 < 0.25){
+            this.astronaut.scale.set(randomNum);
+        }else if(randomNum_1 < 0.5){
+            this.astronaut.scale.set(-randomNum , randomNum);
+        }else if(randomNum_1 < 0.75){
+            this.astronaut.scale.set(randomNum , -randomNum);
+        }else{
+            this.astronaut.scale.set(-randomNum);
+        }
+        
+        if(this.astronaut.x > document.documentElement.clientWidth / 2){
+            this.astronaut.direction = true;
+        }else{
+            this.astronaut.direction = false;
+        }
+        this.astronaut.play();
+    }
+    
+    updateAstronaut(){
+        if(this.astronaut.direction) {
+            this.astronaut.x -= 0.5
+        }else{
+            this.astronaut.x += 0.5
+        }
+        this.astronaut.y = this.astronaut.y_1 + Math.sin(this.astronaut.step) * 10;
+        this.astronaut.step += 0.05
+    }
+
     createMeteor(){
         this.meteorList = [];
         for(let i = 0 ; i < 16 ; i++){
@@ -58,6 +118,7 @@ export default class Transition{
     addMeteor(){
         this.meteorBox.removeChildren();
         this.meteor = [];
+        this.setTime = [];
         let self = this;
         for(let i = 0 ; i < Math.floor(Math.random() * 5) ; i++){
             this.meteor[i] = new PIXI.AnimatedSprite(this.meteorList);
@@ -72,7 +133,7 @@ export default class Transition{
             }else{
                 this.meteor[i].rotation = Math.atan(document.documentElement.clientWidth / document.documentElement.clientHeight);
             }
-            setTimeout(function(){
+            this.setTime[i] = setTimeout(function(){
                 self.meteor[i].gotoAndPlay(0);
             }, this.random(0 , 3000))
             this.meteorBox.addChild(this.meteor[i]);
@@ -83,7 +144,14 @@ export default class Transition{
         return Math.round(Math.random() * (max - min)) + min;
     }
 
+    clearTime(){
+        for(let i in this.setTime){
+            clearInterval(this.setTime[i]);
+        }
+    }
+
     skip(){
+        this.clearTime();
         game.Manager.enter(this.next);
     }
 
@@ -91,7 +159,7 @@ export default class Transition{
         this.step = 0;
         this.text.step = 0;
         this.addMeteor();
-
+        this.setAstronaut();
         switch(this.next){
             case 1:
                 game.sound.sound_1Play("spaceship_engine_right");
@@ -119,7 +187,9 @@ export default class Transition{
                 this.spaceShip.y = document.documentElement.clientHeight - (document.documentElement.clientHeight / 180) * this.step;
             break;
         }
+        this.updateAstronaut();
         if(this.step > 180){
+            this.clearTime();
             game.Manager.enter(this.next);
         }
         this.step++;
