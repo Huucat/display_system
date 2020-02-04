@@ -9,7 +9,7 @@ import StarLink from './StarLink.js'
 import StarRecommend from './StarRecommend.js'
 import Transition from './Transition.js'
 import Sound from './Sound.js'
-import GROUPS from './groups.json'
+import GROUPS from '@/assets/data/groups.json'
 
 export default class Manager{
     constructor(app){
@@ -32,6 +32,7 @@ export default class Manager{
         firebase.initializeApp(this.firebaseConfig);
         firebase.database().ref().on('value', function(data) {
             self.data.userData = data.val();
+            // self.data.userData = GROUPS;
             console.log(self.data.userData);
         });
 

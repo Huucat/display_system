@@ -1,7 +1,6 @@
 import * as PIXI from 'pixi.js';
 import FILE_PATH from './FILE_PATH.js';
 import Manager from './Manager.js';
-import GROUPS from './groups.json';
 
 export default class Game{
     constructor(){
@@ -42,8 +41,6 @@ export default class Game{
                 align : 'left'
             }
         };
-
-        this.appData = GROUPS;
 
         this.init();
     }
