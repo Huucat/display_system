@@ -222,7 +222,7 @@ export default class StarInfo{
         var self = this;
         this.ownScrollBar = new PIXI.Graphics();
         this.ownScrollBar.beginFill(0xcaf2ff);
-        this.ownScrollBar.drawRoundedRect(0 , 0 , 8 , 160, 4);
+        this.ownScrollBar.drawRoundedRect(0 , 0 , 12 , 160, 6);
         this.ownScrollBar.endFill();
         this.ownScrollBar.visible = false;
         this.ownScrollBar.moving = false;
@@ -242,7 +242,7 @@ export default class StarInfo{
         var self = this;
         this.othersScrollBar = new PIXI.Graphics();
         this.othersScrollBar.beginFill(0xcaf2ff);
-        this.othersScrollBar.drawRoundedRect(0 , 0 , 8 , 200, 4);
+        this.othersScrollBar.drawRoundedRect(0 , 0 , 12 , 200, 6);
         this.othersScrollBar.endFill();
         this.othersScrollBar.visible = false;
         this.othersScrollBar.moving = false;

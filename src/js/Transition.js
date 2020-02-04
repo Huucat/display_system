@@ -8,6 +8,7 @@ export default class Transition{
         this.step = 0;
         this.createBg();
         this.createSpaceShip();
+        this.createText();
     }
 
     createBg(){
@@ -21,9 +22,25 @@ export default class Transition{
         this.transitionBox.addChild(this.spaceBg);
     }
 
+    createText(){
+        this.text = new PIXI.Text('クリックでスキップ' , game.fontStyle.KaisoNext);
+        this.text.style.fontSize = 40;
+        this.text.step = 0;
+        this.text.anchor.set(0.5 , 0);
+        this.text.position.set(document.documentElement.clientWidth / 2 , document.documentElement.clientHeight - 120);
+        this.transitionBox.addChild(this.text);
+    }
+
     createSpaceShip(){
-        this.spaceShip = new PIXI.Sprite(this.app.loader.resources['spaceship'].texture);
+        let spaceShipList = [];
+        for(let i = 0 ; i < 4 ; i++){
+            spaceShipList[i] = new PIXI.Texture(this.app.loader.resources['spaceship'].texture);
+            spaceShipList[i].frame = new PIXI.Rectangle(i * 201 , 0 , 201 , 357);
+        }
+        this.spaceShip = new PIXI.AnimatedSprite(spaceShipList);
+        this.spaceShip.animationSpeed = 0.15;
         this.spaceShip.anchor.set(0.5);
+        this.spaceShip.play();
         this.transitionBox.addChild(this.spaceShip);
     }
 
@@ -33,6 +50,7 @@ export default class Transition{
 
     enter(){
         this.step = 0;
+        this.text.step = 0;
         switch(this.next){
             case 1:
                 game.sound.sound_1Play("spaceship_engine_right");
@@ -63,7 +81,9 @@ export default class Transition{
         if(this.step > 180){
             game.Manager.enter(this.next);
         }
-        this.step++
+        this.step++;
+        this.text.alpha = Math.sin(this.text.step) * 0.5 + 0.5;
+        this.text.step += 0.125;
         this.spaceBg.rotation -= 0.0002;
     }
 }
