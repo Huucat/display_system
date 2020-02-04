@@ -25,12 +25,10 @@ const FILE_PATH = {
         {"name" : "button_tostar_on" , "url" : require("@/assets/images/button_tostar_on.png")},
 
         {"name" : "flame" , "url" : require("@/assets/images/flame.png")},
-        {"name" : "flame_left" , "url" : require("@/assets/images/flame_left.png")},
-        {"name" : "flame_right" , "url" : require("@/assets/images/flame_right.png")},
         {"name" : "flame_bottom" , "url" : require("@/assets/images/flame_bottom.png")},
 
-        {"name" : "group_01" , "url" : require("@/assets/images/group_01.png")},
-        {"name" : "group_01_bg" , "url" : require("@/assets/images/group_01_bg.png")},
+        {"name" : "item_spaceship" , "url" : require("@/assets/images/item_spaceship.png")},
+        {"name" : "item_meteor" , "url" : require("@/assets/images/item_meteor.png")},
 
         {"name" : "planet_plan" , "url" : require("@/assets/images/planet_plan.png")},
         {"name" : "planet_design" , "url" : require("@/assets/images/planet_design.png")},
@@ -38,8 +36,6 @@ const FILE_PATH = {
         {"name" : "planet_presentation" , "url" : require("@/assets/images/planet_presentation.png")},
 
         {"name" : "spaceBg_01" , "url" : require("@/assets/images/spaceBackground_03.png")},
-        {"name" : "spaceBg_02" , "url" : require("@/assets/images/spaceBackground_02.png")},
-        {"name" : "spaceship" , "url" : require("@/assets/images/spaceship.png")},
 
         {"name" : "star_plan" , "url" : require("@/assets/images/star_plan_1.png")},
         {"name" : "star_design" , "url" : require("@/assets/images/star_design_1.png")},

@@ -105,7 +105,7 @@ export default class Space {
 
     update(){
         if(this.moving){
-            this.constellationGroups.rotation -= 0.002;
+            this.constellationGroups.rotation -= 0.0005;
         }
     }
 }
