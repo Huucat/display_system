@@ -11,6 +11,7 @@ export default class Game{
             antialias: true,
         });
 
+
         this.fontStyle = {
             KaisoNext : {
                 fontFamily : 'KaisoNext',
@@ -55,14 +56,7 @@ export default class Game{
         document.fonts.load("12px 'KaisoNext'").then(function(){
             document.fonts.load("12px 'SmartPhoneUI'")
         }).then(function(){
-            self.loadAssets();
-        });
-    }
-
-    loadAssets(){
-        let self = this;
-        this.app.loader.add(FILE_PATH.images).load(function(){
-            self.gameStart()
+            self.gameStart();
         });
     }
 

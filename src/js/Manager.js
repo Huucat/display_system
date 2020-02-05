@@ -1,7 +1,8 @@
 import * as firebase from 'firebase/app';
 import 'firebase/database';
 
-import Space from "./Space";
+import LoadManager from "./LoadManager.js";
+import Space from "./Space.js";
 import ConstellationDetails from './ConstellationDetails.js'
 import Star from './Star.js'
 import StarInfo from './StarInfo.js'
@@ -30,11 +31,6 @@ export default class Manager{
             measurementId: "G-CS85S6NSKM"
         };
         firebase.initializeApp(this.firebaseConfig);
-        firebase.database().ref().on('value', function(data) {
-            self.data.userData = data.val();
-            // self.data.userData = GROUPS;
-            console.log(self.data.userData);
-        });
 
         this.data = {
             _userData : undefined,
@@ -45,8 +41,10 @@ export default class Manager{
                 this._userData = data;
                 if(self.appStart == false){
                     self.setStarColor();
-                    self.init(app);
+                    self.gameStart(app);
+                    self.loadManager.loadOver();
                     self.appStart = true;
+                    console.log(this._userData);
                 }
                 if(self.appStart == true){
                     self.setStarColor();
@@ -55,15 +53,36 @@ export default class Manager{
                 }
             }
         }
-        
+
         this.app.ticker.add(() => {
             if(self.appStart == true){
                 self.update();
             }
         });
+
+        this.init(this.app);
     }
 
     init(app){
+        let self = this;
+        this.loadManager = new LoadManager(app);
+        app.stage.addChild(this.loadManager.loadBox);
+        this.loadManager.loadAssets(function(){
+            self.readDatabase();
+        });
+        
+    }
+
+    readDatabase(){
+        let self = this;
+        this.loadManager.loadText.text = "loading: Database"
+        firebase.database().ref().on('value', function(_data) {
+            self.data.userData = _data.val();
+            // self.data.userData = GROUPS;
+        });
+    }
+
+    gameStart(app){
         game.space = new Space(app);
         game.constellationDetails = new ConstellationDetails(app);
         game.star = new Star(app);
@@ -149,6 +168,9 @@ export default class Manager{
         game.starRecommend.starRecommendBox.visible = false;
         game.transition.transitionBox.visible = false;
         switch (this.managerNum) {
+            case -1:
+
+            break;
             case 0:
                 game.transition.enter();
                 game.sound.sound_bgm_1_pause();
@@ -195,6 +217,9 @@ export default class Manager{
             }
         }
         switch (this.managerNum){
+            case -1:
+
+            break;
             case 0:
                 game.transition.update();
             break;
