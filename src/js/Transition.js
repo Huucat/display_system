@@ -72,28 +72,34 @@ export default class Transition{
     }
 
     setAstronaut(){
-        this.astronaut.textures = this["astronautList_" + this.random(1,3)];
-        this.astronaut.y_1 = Math.floor(Math.random() * document.documentElement.clientHeight);
-        this.astronaut.x = Math.floor(Math.random() * document.documentElement.clientWidth);
-        this.astronaut.y = this.astronaut.y_1;
-        let randomNum = this.random(3 , 6) / 10;
-        let randomNum_1 = Math.random();
-        if(randomNum_1 < 0.25){
-            this.astronaut.scale.set(randomNum);
-        }else if(randomNum_1 < 0.5){
-            this.astronaut.scale.set(-randomNum , randomNum);
-        }else if(randomNum_1 < 0.75){
-            this.astronaut.scale.set(randomNum , -randomNum);
+        if(Math.random() < 0.3){
+            this.astronaut.visible = true;
+            this.astronaut.textures = this["astronautList_" + this.random(1,3)];
+            this.astronaut.y_1 = Math.floor(Math.random() * document.documentElement.clientHeight);
+            this.astronaut.x = Math.floor(Math.random() * document.documentElement.clientWidth);
+            this.astronaut.y = this.astronaut.y_1;
+            let randomNum = this.random(3 , 6) / 10;
+            let randomNum_1 = Math.random();
+            if(randomNum_1 < 0.25){
+                this.astronaut.scale.set(randomNum);
+            }else if(randomNum_1 < 0.5){
+                this.astronaut.scale.set(-randomNum , randomNum);
+            }else if(randomNum_1 < 0.75){
+                this.astronaut.scale.set(randomNum , -randomNum);
+            }else{
+                this.astronaut.scale.set(-randomNum);
+            }
+            
+            if(this.astronaut.x > document.documentElement.clientWidth / 2){
+                this.astronaut.direction = true;
+            }else{
+                this.astronaut.direction = false;
+            }
+            this.astronaut.play();
         }else{
-            this.astronaut.scale.set(-randomNum);
+            this.astronaut.visible = false;
         }
-        
-        if(this.astronaut.x > document.documentElement.clientWidth / 2){
-            this.astronaut.direction = true;
-        }else{
-            this.astronaut.direction = false;
-        }
-        this.astronaut.play();
+
     }
     
     updateAstronaut(){

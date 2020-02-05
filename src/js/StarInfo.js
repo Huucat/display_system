@@ -228,7 +228,9 @@ export default class StarInfo{
         this.ownScrollBar.moving = false;
         this.ownScrollBar.pointY = 0;
         this.ownScrollBar.interactive = true;
-        this.ownScrollBar.on('pointerdown', function(){self.moveStart(this)})
+        this.ownScrollBar.on('pointerover', function(){this.alpha = 0.7})
+            .on('pointerout', function(){this.alpha = 1})
+            .on('pointerdown', function(){self.moveStart(this)})
             .on('pointerupoutside', function(){self.moveEnd(this)})
             .on('pointerup', function(){self.moveEnd(this)})
             .on('pointermove', function(){self.moveOn(this , self.tagBox_1 , 140)});
@@ -248,7 +250,9 @@ export default class StarInfo{
         this.othersScrollBar.moving = false;
         this.othersScrollBar.pointY = 0;
         this.othersScrollBar.interactive = true;
-        this.othersScrollBar.on('pointerdown', function(){self.moveStart(this)})
+        this.othersScrollBar.on('pointerover', function(){this.alpha = 0.7})
+            .on('pointerout', function(){this.alpha = 1})
+            .on('pointerdown', function(){self.moveStart(this)})
             .on('pointerupoutside', function(){self.moveEnd(this)})
             .on('pointerup', function(){self.moveEnd(this)})
             .on('pointermove', function(){self.moveOn(this , self.tagBox_2 , 200)});

@@ -21,6 +21,8 @@ export default class Sound{
         this.bgm_1.loop = true;
         this.bgm_2.volume = 0.7;
         this.bgm_2.loop = true;
+        this.sound_1.volume = 0.7;
+        this.sound_2.volume = 0.7;
 
         this.spaceship_01 = spaceship_01;
         this.spaceship_02 = spaceship_02;

@@ -22,6 +22,7 @@ export default class Space {
         let self = this;
         this.spaceBg = new PIXI.Sprite(this.app.loader.resources['spaceBg_01'].texture);
         this.spaceBg.anchor.set(0.5);
+        this.spaceBg.scale.set(1.1);
         this.spaceBg.interactive = true;
         this.spaceBg.on('pointerdown', function(){self.moveStart(this)})
             .on('pointerup', function(){self.moveEnd(this)})
