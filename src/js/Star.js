@@ -26,6 +26,7 @@ export default class Star {
         this.createPlanet_Design();
         this.createPlanet_Coding();
         this.createPlanet_Presentation();
+        this.createArrow();
         this.createName();
         this.createStarText();
         this.createFlame();
@@ -153,6 +154,13 @@ export default class Star {
             self.starTextOn(this , "text_presentation_");
         });
         this.planetBox.addChild(this.planetPresentationOrbital , this.planetPresentation);
+    }
+
+    createArrow(){
+        this.arrow = new PIXI.Sprite(this.app.loader.resources['target_arrow'].texture);
+        this.arrow.anchor.set(0.5);
+        this.arrow.step = 0;
+        this.planetBox.addChild(this.arrow);
     }
 
     createName(){
@@ -389,10 +397,10 @@ export default class Star {
                 totalPlan += comments.plan;
                 totalPresentation += comments.presentation;
             }
-            totalCoding = Number((totalCoding / 300).toFixed(3));
-            totalDesign = Number((totalDesign / 300).toFixed(3));
-            totalPlan = Number((totalPlan / 300).toFixed(3));
-            totalPresentation = Number((totalPresentation / 300).toFixed(3));
+            totalCoding = Number((totalCoding / 400 * 0.5).toFixed(3));
+            totalDesign = Number((totalDesign / 400 * 0.5).toFixed(3));
+            totalPlan = Number((totalPlan / 400 * 0.5).toFixed(3));
+            totalPresentation = Number((totalPresentation / 400 * 0.5).toFixed(3));
             if(totalCoding > 0.5){
                 totalCoding = 0.5;
             }
@@ -416,6 +424,28 @@ export default class Star {
             this.planetPlan.scale.set(0.2);
             this.planetPresentation.scale.set(0.2);
         }
+    }
+    
+    setArrow(){
+        switch(game.Manager.data.userData.students[this.studentId].color){
+            case "star_plan":
+                this.arrow.x = this.planetPlan.x;
+                this.arrow.y = this.planetPlan.y - (this.planetPlan.height / 2 + 20) +  Math.sin(this.arrow.step) * 2;
+            break;
+            case "star_design":
+                this.arrow.x = this.planetDesign.x;
+                this.arrow.y = this.planetDesign.y - (this.planetDesign.height / 2 + 20) +  Math.sin(this.arrow.step) * 2;
+            break;
+            case "star_coding":
+                this.arrow.x = this.planetCoding.x;
+                this.arrow.y = this.planetCoding.y - (this.planetCoding.height / 2 + 20) +  Math.sin(this.arrow.step) * 2;
+            break;
+            case "star_presentation":
+                this.arrow.x = this.planetPresentation.x;
+                this.arrow.y = this.planetPresentation.y - (this.planetPresentation.height / 2 + 20) +  Math.sin(this.arrow.step) * 2;
+            break;
+        }
+        this.arrow.step += 0.2;
     }
 
     toStarInfo(){
@@ -496,6 +526,7 @@ export default class Star {
                 this.starText.anchor.x = 0;
             }
         }
+        this.setArrow();
         this.spaceBg.rotation -= 0.0003
     }
 }

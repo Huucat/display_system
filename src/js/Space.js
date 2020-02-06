@@ -15,6 +15,7 @@ export default class Space {
         
         this.addSpaceBg();
         this.createConstellation();
+        this.addScrollIcon();
         this.addFlame();
     }
 
@@ -46,6 +47,17 @@ export default class Space {
 
     moveEnd(){
         this.moving = true;
+    }
+
+    addScrollIcon(){
+        this.scrollIcon = new PIXI.Sprite(this.app.loader.resources['item_scroll'].texture);
+        this.scrollIcon.x = document.documentElement.clientWidth / 2;
+        this.scrollIcon.y = document.documentElement.clientHeight - 200;
+        this.scrollIcon.anchor.set(0.5);
+        this.scrollIcon.scale.set(0.5);
+        this.scrollIcon.alpha = 0;
+        this.scrollIcon.step = 0;
+        this.flameBox.addChild(this.scrollIcon);
     }
 
     addFlame(){
@@ -104,9 +116,28 @@ export default class Space {
         }
     }
 
+    enter(){
+        this.scrollIcon.step = -8;
+        this.scrollIcon.alpha = 0;
+        this.scrollIcon.x = document.documentElement.clientWidth / 2;
+    }
+
     update(){
         if(this.moving){
             this.constellationGroups.rotation -= 0.0005;
+        }else{
+            this.scrollIcon.step = -8;
+            this.scrollIcon.alpha = 0;
+            this.scrollIcon.x = document.documentElement.clientWidth / 2;
         }
+        if(this.scrollIcon.step > 0 && this.scrollIcon.step < 4){
+            this.scrollIcon.alpha = Number((-(Math.pow(this.scrollIcon.step - 2,2)) * 0.125 + 0.5).toFixed(2));
+            this.scrollIcon.x = document.documentElement.clientWidth / 2 + Math.sin(4 * this.scrollIcon.step) * 20;
+        }else if(this.scrollIcon.step >= 4){
+            this.scrollIcon.step = -8;
+            this.scrollIcon.alpha = 0;
+            this.scrollIcon.x = document.documentElement.clientWidth / 2;
+        }
+        this.scrollIcon.step += 0.01;
     }
 }

@@ -69,7 +69,7 @@ export default class Constellation {
                 for(let j in comments){
                     total += comments[j].coding + comments[j].design + comments[j].plan + comments[j].presentation
                 }
-                total = total / 800;
+                total = total / 1000 * 0.75;
                 if(total > 0.75){
                     total = 0.75;
                 }

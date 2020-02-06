@@ -28,6 +28,7 @@ export default class ConstellationDetails {
 
         this.addBackground();
         this.addTarget();
+        this.createArrow();
         this.addFlame();
         this.addHomeButton();
         this.addInfoButton();
@@ -111,6 +112,13 @@ export default class ConstellationDetails {
         });
 
         this.messageBox.addChild(this.infoButton);
+    }
+
+    createArrow(){
+        this.arrow = new PIXI.Sprite(this.app.loader.resources['target_arrow'].texture);
+        this.arrow.anchor.set(0.5);
+        this.arrow.step = 0;
+        this.constellationBox.addChild(this.arrow);
     }
     
     addFlame(){
@@ -206,7 +214,7 @@ export default class ConstellationDetails {
             for(let j in comments){
                 total += comments[j].coding + comments[j].design + comments[j].plan + comments[j].presentation
             }
-            total = total / 800;
+            total = total / 1000 * 0.75;
             if(total > 0.75){
                 total = 0.75;
             }
@@ -392,7 +400,8 @@ export default class ConstellationDetails {
             this.buttonObservation.off('pointerdown');
             this.buttonObservation.on('pointerdown', function(){
                 self.toStar(studentId);
-            })
+            });
+            this.arrow.visible = false;
             this.buttonObservation.visible = true;
         }
     }
@@ -414,6 +423,8 @@ export default class ConstellationDetails {
             this.target_Out.visible = false;
 
             this.studentState = false;
+            this.setArrow();
+            this.arrow.visible = true;
         }
     }
 
@@ -475,6 +486,12 @@ export default class ConstellationDetails {
         
     }
 
+    setArrow(){
+        this.arrow.num = Math.floor(Math.random() * game.Manager.data.userData.groups[this.groupNum].members.length);
+        this.arrow.x = this.star[this.arrow.num].x;
+        this.arrow.y = this.star[this.arrow.num].y - (this.star[this.arrow.num].height / 2 + 10);
+    }
+
     enter(){
         if(this.beforeId.length == 0){
             this.buttonBack.visible = false;
@@ -493,6 +510,7 @@ export default class ConstellationDetails {
         this.createConstellationBackground();
         this.createConstellation();
         this.createStar();
+        this.setArrow();
         this.hideStudent();
     }
 
@@ -507,6 +525,8 @@ export default class ConstellationDetails {
             this.target_Out.scale.set(Math.sin(this.targetStep) * 0.010 + 0.3);
             this.targetStep += 0.15;
         }
-        this.spaceBg.rotation -= 0.0002
+        this.spaceBg.rotation -= 0.0002;
+        this.arrow.y = (this.star[this.arrow.num].y - (this.star[this.arrow.num].height / 2 + 10)) + Math.sin(this.arrow.step) * 5;
+        this.arrow.step += 0.2;
     }
 }

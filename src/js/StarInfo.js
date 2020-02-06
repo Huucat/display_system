@@ -440,10 +440,10 @@ export default class StarInfo{
                 totalPlan += comments.plan;
                 totalPresentation += comments.presentation;
             }
-            totalCoding = Number((totalCoding / 300).toFixed(3));
-            totalDesign = Number((totalDesign / 300).toFixed(3));
-            totalPlan = Number((totalPlan / 300).toFixed(3));
-            totalPresentation = Number((totalPresentation / 300).toFixed(3));
+            totalCoding = Number((totalCoding / 400 * 0.5).toFixed(3));
+            totalDesign = Number((totalDesign / 400 * 0.5).toFixed(3));
+            totalPlan = Number((totalPlan / 400 * 0.5).toFixed(3));
+            totalPresentation = Number((totalPresentation / 400 * 0.5).toFixed(3));
             if(totalCoding > 0.5){
                 totalCoding = 0.5;
             }

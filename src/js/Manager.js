@@ -179,6 +179,7 @@ export default class Manager{
             case 1:
                 game.sound.bgm_1.play();
                 game.space.spaceBox.visible = true;
+                game.space.enter();
             break;
             case 2:
                 game.sound.bgm_1.play();

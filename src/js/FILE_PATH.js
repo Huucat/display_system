@@ -32,6 +32,7 @@ const FILE_PATH = {
         {"name" : "item_astronaut_01" , "url" : require("@/assets/images/item_astronaut_01.png")},
         {"name" : "item_astronaut_02" , "url" : require("@/assets/images/item_astronaut_02.png")},
         {"name" : "item_astronaut_03" , "url" : require("@/assets/images/item_astronaut_03.png")},
+        {"name" : "item_scroll" , "url" : require("@/assets/images/item_scroll.png")},
         
         {"name" : "planet_plan" , "url" : require("@/assets/images/planet_plan.png")},
         {"name" : "planet_design" , "url" : require("@/assets/images/planet_design.png")},
