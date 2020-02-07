@@ -138,6 +138,6 @@ export default class Space {
             this.scrollIcon.alpha = 0;
             this.scrollIcon.x = document.documentElement.clientWidth / 2;
         }
-        this.scrollIcon.step += 0.01;
+        this.scrollIcon.step += 0.02;
     }
 }
