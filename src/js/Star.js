@@ -472,6 +472,13 @@ export default class Star {
             this.buttonBack.visible = true;
         }
         this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
+        if(this.studentId.indexOf("18aw") == -1){
+            this.studentName.style.fill = 0xFFD692;
+            this.studentName.style.dropShadowColor = '#FFD692';
+        }else{
+            this.studentName.style.fill = 0xCAF2FF;
+            this.studentName.style.dropShadowColor = '#00A3D5';
+        }
         this.buttonHome.texture = this.app.loader.resources['button_home_off'].texture;
         this.buttonStarInfo.texture = this.app.loader.resources['button_starinfo_off'].texture;
         this.buttonLink.texture = this.app.loader.resources['button_link_off'].texture;

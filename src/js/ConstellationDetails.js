@@ -226,6 +226,10 @@ export default class ConstellationDetails {
 
     creatName(i){
         this.name[i] = new PIXI.Text(this.star[i].name , game.fontStyle.SmartPhoneUI);
+        if(this.star[i].studentId.indexOf("18aw") == -1){
+            this.name[i].style.fill = 0xFFD692;
+            this.name[i].style.dropShadowColor = '#FFD692';
+        }
         this.name[i].style.fontSize = 26;
         this.name[i].anchor.x = 0.5;
         this.name[i].x = this.star[i].x;

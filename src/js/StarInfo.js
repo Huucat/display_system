@@ -537,6 +537,13 @@ export default class StarInfo{
     enter(){
         this.studentId = game.star.studentId;
         this.studentName.text = game.Manager.data.userData.students[this.studentId].name;
+        if(this.studentId.indexOf("18aw") == -1){
+            this.studentName.style.fill = 0xFFD692;
+            this.studentName.style.dropShadowColor = '#FFD692';
+        }else{
+            this.studentName.style.fill = 0xCAF2FF;
+            this.studentName.style.dropShadowColor = '#00A3D5';
+        }
         this.worksText.text = '';
         for(let i in game.Manager.data.userData.students[this.studentId].worktitle){
             this.worksText.text += '#' + game.Manager.data.userData.students[this.studentId].worktitle[i].boothnumber + ' ' + game.Manager.data.userData.students[this.studentId].worktitle[i].worktitle + '\n'
