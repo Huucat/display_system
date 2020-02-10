@@ -1,3 +1,3 @@
-# webデザイン科 18aw 評価システム
+# webデザイン科 18aw ディスプレイシステム
 ## 1.npm install
 ## 2.npm run serve
